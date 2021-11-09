@@ -13,7 +13,7 @@ class TodoView extends StatelessWidget{
   Widget build(BuildContext context) {
     print("Building TodoView");
     final List<Todo> filteredList;
-    final List<Todo> todos = TodoInheritedData.of(context,aspect: 0)!.todos;
+    final List<Todo> todos = TodoInheritedData.of(context,aspect: 0).todos;
     switch (filter) {
       case VisibilityFilter.notCompleted:
             filteredList= todos.where((element) => element.completed==false).toList();
@@ -25,12 +25,11 @@ class TodoView extends StatelessWidget{
         filteredList=todos;
         break;
     }
-
     return  ListView.builder(
             itemCount: filteredList.length,
             itemBuilder: (context, index) {
               return TodoItem(
-                id:todos.elementAt(index).id,
+                id:filteredList.elementAt(index).id,
 
               );
             },

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux_pattern/actions/tab_actions.dart';
@@ -19,7 +20,7 @@ class TabSelector extends StatelessWidget {
           currentIndex: TabState.values.indexOf(currTab),
           onTap: (index)=>StoreProvider.of<AppState>(context).dispatch(SetTabAction(TabState.values.elementAt(index))),
           items: TabState.values
-              .map((tab) => BottomNavigationBarItem(label: "data",
+              .map((tab) => BottomNavigationBarItem(label: describeEnum(tab),
                     icon: Icon(
                       tab == TabState.todos ? Icons.list : Icons.show_chart,
                     ),

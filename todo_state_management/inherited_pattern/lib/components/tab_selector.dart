@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/tab_state.dart';
 
@@ -16,7 +17,7 @@ class TabSelector extends StatelessWidget {
           currentIndex: TabState.values.indexOf(currTab),
           onTap: onTabChange,
           items: TabState.values
-              .map((tab) => BottomNavigationBarItem(title:  Text(tab.toString()),
+              .map((tab) => BottomNavigationBarItem(label:  describeEnum(tab),
                     icon: Icon(
                       tab == TabState.todos ? Icons.list : Icons.show_chart,
                     ),

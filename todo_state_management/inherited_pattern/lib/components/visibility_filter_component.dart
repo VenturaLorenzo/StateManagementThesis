@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/visibility_filter.dart';
 
@@ -15,7 +16,7 @@ class VisibilityFilterComponent extends StatelessWidget {
           value: filter,
           items: VisibilityFilter.values.map((filter) {
             return DropdownMenuItem<VisibilityFilter>(
-                child: Text(filter.toString()), value: filter);
+                child: Text(describeEnum(filter)), value: filter);
           }).toList(),
           onChanged: (filter) {onFilterChange(filter!);},
         );

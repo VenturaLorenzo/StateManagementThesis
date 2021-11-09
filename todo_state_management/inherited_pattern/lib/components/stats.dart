@@ -8,6 +8,6 @@ class Stats extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Building Stats");
 
-    return Text(TodoInheritedData.of(context,aspect: 3)!.stats.toString());
+    return Text(TodoInheritedData.of(context,aspect: 3).stats.toString());
   }
 }

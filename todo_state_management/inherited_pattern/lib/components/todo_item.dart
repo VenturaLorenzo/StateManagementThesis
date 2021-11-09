@@ -10,7 +10,7 @@ class TodoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Todo todo = TodoInheritedData.of(context, aspect: id)!
+    final Todo todo = TodoInheritedData.of(context, aspect: id)
         .todos
         .where((element) => element.id == id)
         .first;
@@ -29,7 +29,7 @@ class TodoItem extends StatelessWidget {
         Checkbox(
             value: todo.completed,
             onChanged: (value) {
-              TodoInheritedData.of(context, aspect: id)!
+              TodoInheritedData.of(context, aspect: id)
                   .onSetCompleted(id, value!);
             }),
       ],
