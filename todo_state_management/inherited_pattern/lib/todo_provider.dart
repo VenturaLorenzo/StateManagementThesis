@@ -17,12 +17,11 @@ class TodoInheritedData extends InheritedModel<int> {
         super(child: child, key: key);
 
   final List<Todo> todos;
-  final Function onAddTodo;
+  final void Function() onAddTodo;
   final void Function(int, bool) onSetCompleted;
   final int stats;
 
-  static TodoInheritedData of(BuildContext context,
-      {required int aspect}) {
+  static TodoInheritedData of(BuildContext context, {required int aspect}) {
     final TodoInheritedData? result =
         InheritedModel.inheritFrom<TodoInheritedData>(context, aspect: aspect);
     assert(result != null, 'No todoScaffold found in context');
@@ -31,24 +30,28 @@ class TodoInheritedData extends InheritedModel<int> {
 
   @override
   bool updateShouldNotify(TodoInheritedData oldWidget) {
+
     return !listEquals(oldWidget.todos, todos);
   }
 
   @override
   bool updateShouldNotifyDependent(
       TodoInheritedData oldWidget, Set<int> dependencies) {
-    int currLen= todos.length;
-    int prevLen= oldWidget.todos.length;
-    List<int> currIds=todos.map((todo) => todo.id).toList();
-    List<int> prevIds= oldWidget.todos.map((todo) => todo.id).toList();
-    bool sameIds= listEquals(currIds, prevIds);
-    bool structureRebuildlen= (dependencies.contains(0) && currLen!= prevLen);
-    bool structureRebuildcomp= (dependencies.contains(0) && !sameIds);
-    List<bool> components=[];
-    for (var element in todos) { components.add(dependencies.contains(element.id) && !oldWidget.todos.contains(element));}
-    bool res=components.fold(false, (bool previousValue,bool element) => previousValue || element);
-    print(dependencies.toString());
-    print(todos.where((element) => element.id==dependencies.first));
+
+    int currLen = todos.length;
+    int prevLen = oldWidget.todos.length;
+    List<int> currIds = todos.map((todo) => todo.id).toList();
+    List<int> prevIds = oldWidget.todos.map((todo) => todo.id).toList();
+    bool sameIds = listEquals(currIds, prevIds);
+    bool structureRebuildlen = (dependencies.contains(0) && currLen != prevLen);
+    bool structureRebuildcomp = (dependencies.contains(0) && !sameIds);
+    List<bool> components = [];
+    for (var element in todos) {
+      components.add(dependencies.contains(element.id) &&
+          !oldWidget.todos.contains(element));
+    }
+    bool res = components.fold(
+        false, (bool previousValue, bool element) => previousValue || element);
     return structureRebuildcomp || structureRebuildlen || res;
   }
 }
@@ -59,7 +62,7 @@ class TodoProvider extends StatefulWidget {
   final Widget child;
 
   //static TodoInheritedData? of(BuildContext context) {
-   // return context.dependOnInheritedWidgetOfExactType<TodoInheritedData>();
+  // return context.dependOnInheritedWidgetOfExactType<TodoInheritedData>();
   //}
 
   @override
@@ -87,11 +90,15 @@ class _TodoProviderState extends State<TodoProvider> {
       newId = rand.nextInt(1000);
     }
     setState(() {
-      todos.add(Todo(
+      Todo newTodo = Todo(
           id: newId,
           name: "Todo " + newId.toString(),
           description: "description " + newId.toString(),
-          completed: rand.nextBool()));
+          completed: rand.nextBool());
+      List<Todo> newList = List.from(todos);
+      newList.add(newTodo);
+      todos = List.from(newList);
+
     });
   }
 
@@ -100,7 +107,6 @@ class _TodoProviderState extends State<TodoProvider> {
       setState(() {
         todos = todos.map((e) {
           if (e.id == id) {
-
             return Todo(
                 id: id,
                 name: e.name,

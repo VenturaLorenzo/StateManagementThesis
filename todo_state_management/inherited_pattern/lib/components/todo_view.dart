@@ -30,7 +30,7 @@ class TodoView extends StatelessWidget{
             itemCount: filteredList.length,
             itemBuilder: (context, index) {
               return TodoItem(
-                todo:todos.elementAt(index),
+                id:todos.elementAt(index).id,
 
               );
             },
