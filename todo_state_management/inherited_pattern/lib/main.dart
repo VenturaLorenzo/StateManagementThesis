@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inherited_pattern/pages/home_page.dart';
+import 'package:inherited_pattern/pages/update_todo_page.dart';
 import 'package:inherited_pattern/todo_provider.dart';
 import 'models/todo.dart';
 
@@ -20,13 +21,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TodoProvider(
-        child: Builder(
-          builder: (context) {
-            return HomePage();
-          },
-        ),
-      ),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const HomePage(),
+        "/updateTodo": (context) => const UpdateTodoPage()
+      },
     );
   }
 }

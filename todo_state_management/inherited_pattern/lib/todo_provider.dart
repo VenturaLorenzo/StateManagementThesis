@@ -2,24 +2,49 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:inherited_pattern/models/visibility_filter.dart';
 import 'package:inherited_pattern/repository/todo_repository.dart';
 
 import 'models/todo.dart';
 
+List<Todo> filterTodo(List<Todo> todos, filter) {
+  List<Todo> filteredList = [];
+  switch (filter) {
+    case VisibilityFilter.notCompleted:
+      filteredList =
+          todos.where((element) => element.completed == false).toList();
+      break;
+    case VisibilityFilter.completed:
+      filteredList =
+          todos.where((element) => element.completed == true).toList();
+      break;
+    case VisibilityFilter.all:
+      filteredList = todos;
+      break;
+  }
+  return filteredList;
+}
+
 class TodoInheritedData extends InheritedModel<int> {
-  const TodoInheritedData(
+  TodoInheritedData(
       {required this.onSetCompleted,
       Key? key,
       required this.todos,
+      required this.onChangeFilter,
       required this.onAddTodo,
+      required this.filter,
       required Widget child})
       : stats = todos.length,
+        filteredTodos = filterTodo(todos, filter),
         super(child: child, key: key);
 
   final List<Todo> todos;
+  final List<Todo> filteredTodos;
   final void Function() onAddTodo;
   final void Function(int, bool) onSetCompleted;
+  final void Function(VisibilityFilter) onChangeFilter;
   final int stats;
+  final VisibilityFilter filter;
 
   static TodoInheritedData of(BuildContext context, {required int aspect}) {
     final TodoInheritedData? result =
@@ -30,25 +55,23 @@ class TodoInheritedData extends InheritedModel<int> {
 
   @override
   bool updateShouldNotify(TodoInheritedData oldWidget) {
-
-    return !listEquals(oldWidget.todos, todos);
+    return !listEquals(oldWidget.filteredTodos, filteredTodos);
   }
 
   @override
   bool updateShouldNotifyDependent(
       TodoInheritedData oldWidget, Set<int> dependencies) {
-
-    int currLen = todos.length;
-    int prevLen = oldWidget.todos.length;
-    List<int> currIds = todos.map((todo) => todo.id).toList();
-    List<int> prevIds = oldWidget.todos.map((todo) => todo.id).toList();
+    int currLen = filteredTodos.length;
+    int prevLen = oldWidget.filteredTodos.length;
+    List<int> currIds = filteredTodos.map((todo) => todo.id).toList();
+    List<int> prevIds = oldWidget.filteredTodos.map((todo) => todo.id).toList();
     bool sameIds = listEquals(currIds, prevIds);
     bool structureRebuildlen = (dependencies.contains(0) && currLen != prevLen);
     bool structureRebuildcomp = (dependencies.contains(0) && !sameIds);
     List<bool> components = [];
-    for (var element in todos) {
+    for (var element in filteredTodos) {
       components.add(dependencies.contains(element.id) &&
-          !oldWidget.todos.contains(element));
+          !oldWidget.filteredTodos.contains(element));
     }
     bool res = components.fold(
         false, (bool previousValue, bool element) => previousValue || element);
@@ -71,6 +94,7 @@ class TodoProvider extends StatefulWidget {
 
 class _TodoProviderState extends State<TodoProvider> {
   List<Todo> todos = [];
+  VisibilityFilter filter = VisibilityFilter.all;
 
   @override
   void initState() {
@@ -80,6 +104,12 @@ class _TodoProviderState extends State<TodoProvider> {
       });
     });
     super.initState();
+  }
+
+  void onChangeFilter(VisibilityFilter filter) {
+    setState(() {
+      this.filter = filter;
+    });
   }
 
   void onAddTodo() {
@@ -98,7 +128,6 @@ class _TodoProviderState extends State<TodoProvider> {
       List<Todo> newList = List.from(todos);
       newList.add(newTodo);
       todos = List.from(newList);
-
     });
   }
 
@@ -124,8 +153,10 @@ class _TodoProviderState extends State<TodoProvider> {
   Widget build(BuildContext context) {
     return TodoInheritedData(
       todos: todos,
+      onChangeFilter: onChangeFilter,
       onAddTodo: onAddTodo,
       onSetCompleted: onSetCompleted,
+      filter: filter,
       child: widget.child,
     );
   }

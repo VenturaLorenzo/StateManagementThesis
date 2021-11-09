@@ -21,12 +21,13 @@ class Todo {
         other.id == id &&
         other.completed == completed;
   }
- @override
- String toString() {
+
+  @override
+  String toString() {
     return "{ id: $id  completed: $completed}";
   }
+
   @override
   // TODO: implement hashCode
   int get hashCode => super.hashCode;
-
 }
