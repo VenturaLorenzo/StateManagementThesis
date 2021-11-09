@@ -16,23 +16,41 @@ class TodoItem extends StatelessWidget {
         .first;
     print("Building Todo Item $todo");
 
-    return Row(
-      children: [
-        Column(
-          children: [
-            Text(todo.name,
-                style: const TextStyle(fontSize: 14, color: Colors.black)),
-            Text(todo.description,
-                style: const TextStyle(fontSize: 10, color: Colors.grey)),
-          ],
-        ),
-        Checkbox(
-            value: todo.completed,
-            onChanged: (value) {
-              TodoInheritedData.of(context, aspect: id)
-                  .onSetCompleted(id, value!);
-            }),
-      ],
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, "/updateTodo",
+            arguments: UpdateTodoPageArguments(
+                todo: todo,
+                updateState: (String newName) {
+                  TodoInheritedData.of(context, aspect: 0)
+                      .onSetName(todo.id, newName);
+                }));
+      },
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Text(todo.name,
+                  style: const TextStyle(fontSize: 14, color: Colors.black)),
+              Text(todo.description,
+                  style: const TextStyle(fontSize: 10, color: Colors.grey)),
+            ],
+          ),
+          Checkbox(
+              value: todo.completed,
+              onChanged: (value) {
+                TodoInheritedData.of(context, aspect: id)
+                    .onSetCompleted(id, value!);
+              }),
+        ],
+      ),
     );
   }
+}
+
+class UpdateTodoPageArguments {
+  final Todo todo;
+  final void Function(String newName) updateState;
+
+  UpdateTodoPageArguments({required this.todo, required this.updateState});
 }

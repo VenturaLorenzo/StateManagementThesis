@@ -26,14 +26,14 @@ List<Todo> filterTodo(List<Todo> todos, filter) {
 }
 
 class TodoInheritedData extends InheritedModel<int> {
-  TodoInheritedData(
-      {required this.onSetCompleted,
-      Key? key,
-      required this.todos,
-      required this.onChangeFilter,
-      required this.onAddTodo,
-      required this.filter,
-      required Widget child})
+  TodoInheritedData({required this.onSetCompleted,
+    Key? key,
+    required this.todos,
+    required this.onSetName,
+    required this.onChangeFilter,
+    required this.onAddTodo,
+    required this.filter,
+    required Widget child})
       : stats = todos.length,
         filteredTodos = filterTodo(todos, filter),
         super(child: child, key: key);
@@ -42,13 +42,14 @@ class TodoInheritedData extends InheritedModel<int> {
   final List<Todo> filteredTodos;
   final void Function() onAddTodo;
   final void Function(int, bool) onSetCompleted;
+  final void Function(int, String) onSetName;
   final void Function(VisibilityFilter) onChangeFilter;
   final int stats;
   final VisibilityFilter filter;
 
   static TodoInheritedData of(BuildContext context, {required int aspect}) {
     final TodoInheritedData? result =
-        InheritedModel.inheritFrom<TodoInheritedData>(context, aspect: aspect);
+    InheritedModel.inheritFrom<TodoInheritedData>(context, aspect: aspect);
     assert(result != null, 'No todoScaffold found in context');
     return result!;
   }
@@ -59,8 +60,8 @@ class TodoInheritedData extends InheritedModel<int> {
   }
 
   @override
-  bool updateShouldNotifyDependent(
-      TodoInheritedData oldWidget, Set<int> dependencies) {
+  bool updateShouldNotifyDependent(TodoInheritedData oldWidget,
+      Set<int> dependencies) {
     int currLen = filteredTodos.length;
     int prevLen = oldWidget.filteredTodos.length;
     List<int> currIds = filteredTodos.map((todo) => todo.id).toList();
@@ -131,23 +132,46 @@ class _TodoProviderState extends State<TodoProvider> {
     });
   }
 
-  void onSetCompleted(int id, bool completed) {
-    if (todos.where((element) => element.id == id).isNotEmpty) {
-      setState(() {
-        todos = todos.map((e) {
-          if (e.id == id) {
-            return Todo(
-                id: id,
-                name: e.name,
-                description: e.description,
-                completed: completed);
-          } else {
-            return e;
-          }
-        }).toList();
-      });
-    }
+  void onSetName(int id, String newName) {
+    assert(todoExists(id) != null, 'No todo with id : $id');
+    List<Todo> newTodosList = todos.map((element) {
+      if (element.id == id) {
+        return Todo(completed: element.completed,
+            description: element.description,
+            name: newName,
+            id: element.id);
+      } else {
+        return element;
+      }
+    }).toList();
+    setState(() {
+      todos = newTodosList;
+    });
   }
+
+  Todo? todoExists(int id) {
+    List<Todo> result = todos.where((element) => element.id == id).toList();
+    return result.isNotEmpty ? result.first : null;
+  }
+
+  void onSetCompleted(int id, bool completed) {
+    assert(todoExists(id) != null, 'No todo with id : $id');
+
+    setState(() {
+      todos = todos.map((e) {
+        if (e.id == id) {
+          return Todo(
+              id: id,
+              name: e.name,
+              description: e.description,
+              completed: completed);
+        } else {
+          return e;
+        }
+      }).toList();
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -156,6 +180,7 @@ class _TodoProviderState extends State<TodoProvider> {
       onChangeFilter: onChangeFilter,
       onAddTodo: onAddTodo,
       onSetCompleted: onSetCompleted,
+      onSetName : onSetName,
       filter: filter,
       child: widget.child,
     );

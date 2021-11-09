@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inherited_pattern/components/todo_item.dart';
 import 'package:inherited_pattern/pages/home_page.dart';
 import 'package:inherited_pattern/pages/update_todo_page.dart';
 import 'package:inherited_pattern/todo_provider.dart';
@@ -24,7 +25,14 @@ class _MyAppState extends State<MyApp> {
       initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(),
-        "/updateTodo": (context) => const UpdateTodoPage()
+        "/updateTodo": (context) => UpdateTodoPage(
+              todo: (ModalRoute.of(context)!.settings.arguments
+                      as UpdateTodoPageArguments)
+                  .todo,
+              callback: (ModalRoute.of(context)!.settings.arguments
+                      as UpdateTodoPageArguments)
+                  .updateState,
+            )
       },
     );
   }

@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:inherited_pattern/models/todo.dart';
 
 class UpdateTodoPage extends StatefulWidget {
-  const UpdateTodoPage({Key? key}) : super(key: key);
+  final Todo todo;
+  final void Function(String) callback;
+
+  const UpdateTodoPage({Key? key, required this.todo,required this.callback}) : super(key: key);
 
   @override
   State<UpdateTodoPage> createState() => _UpdateTodoPageState();
@@ -13,6 +17,7 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
           title: const Text("Update Todo"),
@@ -24,7 +29,12 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
               decoration: const InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Enter a new name'),
             ),
-          TextButton(onPressed: (){}, child: const Text("Confirm"))],
+            TextButton(onPressed: () {
+
+              widget.callback(textController.text);
+              Navigator.pop(context);
+            }, child: const Text("Confirm"))
+          ],
         ));
   }
 
