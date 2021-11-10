@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:inherited_pattern/models/todo.dart';
 
 class TodoRepository {
@@ -8,7 +7,7 @@ class TodoRepository {
     List<Todo> todos = [];
     List<int> ids = [];
     while (ids.length < 6) {
-      int newInt = rand.nextInt(1000);
+      int newInt = rand.nextInt(1000)+1;
       if (!ids.contains(newInt)) {
         ids.add(newInt);
       }
@@ -24,6 +23,7 @@ class TodoRepository {
     await Future.delayed(const Duration(seconds: 2));
     return todos;
   }
+
   static Future<void> saveTodos(List<Todo> todos) async {
     await Future.delayed(const Duration(seconds: 2));
   }

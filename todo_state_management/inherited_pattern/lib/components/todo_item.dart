@@ -3,34 +3,54 @@ import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/todo.dart';
 import 'package:inherited_pattern/todo_provider.dart';
 
-class TodoItem extends StatefulWidget {
-  final Todo todo;
+class TodoItem extends StatelessWidget {
+  final int id;
 
-  const TodoItem({Key? key, required this.todo})
-      : super(key: key);
+  const TodoItem({Key? key, required this.id}) : super(key: key);
 
-  @override
-  State<TodoItem> createState() => _TodoItemState();
-}
-
-class _TodoItemState extends State<TodoItem> {
   @override
   Widget build(BuildContext context) {
-    print("Building Todo Item ${widget.todo}");
+    final Todo todo = TodoInheritedData.of(context, aspect: id)
+        .todos
+        .where((element) => element.id == id)
+        .first;
+    print("Building Todo Item $todo");
 
-
-      return Row(
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, "/updateTodo",
+            arguments: UpdateTodoPageArguments(
+                todo: todo,
+                updateState: (String newName) {
+                  TodoInheritedData.of(context, aspect: 0)
+                      .onSetName(todo.id, newName);
+                }));
+      },
+      child: Row(
         children: [
           Column(
             children: [
-              Text(widget.todo.name,style: const TextStyle(fontSize: 14,color: Colors.black)),
-              Text(widget.todo.description ,style: const TextStyle(fontSize: 10,color: Colors.grey)),
-
+              Text(todo.name,
+                  style: const TextStyle(fontSize: 14, color: Colors.black)),
+              Text(todo.description,
+                  style: const TextStyle(fontSize: 10, color: Colors.grey)),
             ],
           ),
-          Checkbox(value: widget.todo.completed, onChanged:(value){ TodoInheritedData.of(context,aspect: widget.todo.id)!.onSetCompleted(widget.todo.id,value!);}),
+          Checkbox(
+              value: todo.completed,
+              onChanged: (value) {
+                TodoInheritedData.of(context, aspect: id)
+                    .onSetCompleted(id, value!);
+              }),
         ],
-      );
-
+      ),
+    );
   }
+}
+
+class UpdateTodoPageArguments {
+  final Todo todo;
+  final void Function(String newName) updateState;
+
+  UpdateTodoPageArguments({required this.todo, required this.updateState});
 }

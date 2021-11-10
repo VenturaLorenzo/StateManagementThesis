@@ -1,24 +1,28 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/visibility_filter.dart';
+import 'package:inherited_pattern/todo_provider.dart';
 
 class VisibilityFilterComponent extends StatelessWidget {
-  final VisibilityFilter filter;
-  final void Function(VisibilityFilter) onFilterChange;
-  const VisibilityFilterComponent({Key? key,required this.filter,required this.onFilterChange}) : super(key: key);
+
+  const VisibilityFilterComponent(
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     print("Building Visibility filter");
-
+    VisibilityFilter filter= TodoInheritedData.of(context, aspect: 0).filter;
     return DropdownButton<VisibilityFilter>(
-          value: filter,
-          items: VisibilityFilter.values.map((filter) {
-            return DropdownMenuItem<VisibilityFilter>(
-                child: Text(filter.toString()), value: filter);
-          }).toList(),
-          onChanged: (filter) {onFilterChange(filter!);},
-        );
-
+      value: filter,
+      items: VisibilityFilter.values.map((filter) {
+        return DropdownMenuItem<VisibilityFilter>(
+            child: Text(describeEnum(filter)), value: filter);
+      }).toList(),
+      onChanged: (filter) {
+        TodoInheritedData.of(context, aspect: 0).onChangeFilter(filter!);
+      },
+    );
   }
 }
