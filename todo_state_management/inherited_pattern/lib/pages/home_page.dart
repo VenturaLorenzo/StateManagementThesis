@@ -58,7 +58,10 @@ class _HomePageState extends State<HomePage> {
             floatingActionButton: FloatingActionButton(
               child: const Icon(Icons.plus_one),
               onPressed: () {
+
                 TodoInheritedData.of(context, aspect: 0).onAddTodo();
+
+
                 Future.delayed(const Duration(seconds: 1))
                     .then((value) => print("---------------------"));
               },

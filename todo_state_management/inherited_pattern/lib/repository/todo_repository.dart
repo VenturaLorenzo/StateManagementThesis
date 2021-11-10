@@ -7,7 +7,7 @@ class TodoRepository {
     List<Todo> todos = [];
     List<int> ids = [];
     while (ids.length < 6) {
-      int newInt = rand.nextInt(1000);
+      int newInt = rand.nextInt(1000)+1;
       if (!ids.contains(newInt)) {
         ids.add(newInt);
       }

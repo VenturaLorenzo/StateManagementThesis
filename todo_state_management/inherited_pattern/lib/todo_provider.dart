@@ -26,14 +26,15 @@ List<Todo> filterTodo(List<Todo> todos, filter) {
 }
 
 class TodoInheritedData extends InheritedModel<int> {
-  TodoInheritedData({required this.onSetCompleted,
-    Key? key,
-    required this.todos,
-    required this.onSetName,
-    required this.onChangeFilter,
-    required this.onAddTodo,
-    required this.filter,
-    required Widget child})
+  TodoInheritedData(
+      {required this.onSetCompleted,
+      Key? key,
+      required this.todos,
+      required this.onSetName,
+      required this.onChangeFilter,
+      required this.onAddTodo,
+      required this.filter,
+      required Widget child})
       : stats = todos.length,
         filteredTodos = filterTodo(todos, filter),
         super(child: child, key: key);
@@ -49,7 +50,7 @@ class TodoInheritedData extends InheritedModel<int> {
 
   static TodoInheritedData of(BuildContext context, {required int aspect}) {
     final TodoInheritedData? result =
-    InheritedModel.inheritFrom<TodoInheritedData>(context, aspect: aspect);
+        InheritedModel.inheritFrom<TodoInheritedData>(context, aspect: aspect);
     assert(result != null, 'No todoScaffold found in context');
     return result!;
   }
@@ -60,23 +61,32 @@ class TodoInheritedData extends InheritedModel<int> {
   }
 
   @override
-  bool updateShouldNotifyDependent(TodoInheritedData oldWidget,
-      Set<int> dependencies) {
+  bool updateShouldNotifyDependent(
+      TodoInheritedData oldWidget, Set<int> dependencies) {
     int currLen = filteredTodos.length;
     int prevLen = oldWidget.filteredTodos.length;
-    List<int> currIds = filteredTodos.map((todo) => todo.id).toList();
-    List<int> prevIds = oldWidget.filteredTodos.map((todo) => todo.id).toList();
-    bool sameIds = listEquals(currIds, prevIds);
     bool structureRebuildlen = (dependencies.contains(0) && currLen != prevLen);
-    bool structureRebuildcomp = (dependencies.contains(0) && !sameIds);
-    List<bool> components = [];
-    for (var element in filteredTodos) {
-      components.add(dependencies.contains(element.id) &&
-          !oldWidget.filteredTodos.contains(element));
+    if (structureRebuildlen == true) {
+      return true;
+    } else {
+      List<int> currIds = filteredTodos.map((todo) => todo.id).toList();
+      List<int> prevIds =
+          oldWidget.filteredTodos.map((todo) => todo.id).toList();
+      bool sameIds = listEquals(currIds, prevIds);
+      bool structureRebuildcomp = (dependencies.contains(0) && !sameIds);
+      if (structureRebuildcomp == true) {
+        return true;
+      } else {
+        List<bool> components = [];
+        for (var element in filteredTodos) {
+          components.add(dependencies.contains(element.id) &&
+              !oldWidget.filteredTodos.contains(element));
+        }
+        bool res = components.fold(false,
+            (bool previousValue, bool element) => previousValue || element);
+        return res;
+      }
     }
-    bool res = components.fold(
-        false, (bool previousValue, bool element) => previousValue || element);
-    return structureRebuildcomp || structureRebuildlen || res;
   }
 }
 
@@ -116,9 +126,9 @@ class _TodoProviderState extends State<TodoProvider> {
   void onAddTodo() {
     Random rand = Random();
     List<int> ids = todos.map((e) => e.id).toList();
-    int newId = rand.nextInt(1000);
+    int newId = rand.nextInt(1000) + 1;
     while (ids.contains(newId)) {
-      newId = rand.nextInt(1000);
+      newId = rand.nextInt(1000) + 1;
     }
     setState(() {
       Todo newTodo = Todo(
@@ -136,7 +146,8 @@ class _TodoProviderState extends State<TodoProvider> {
     assert(todoExists(id) != null, 'No todo with id : $id');
     List<Todo> newTodosList = todos.map((element) {
       if (element.id == id) {
-        return Todo(completed: element.completed,
+        return Todo(
+            completed: element.completed,
             description: element.description,
             name: newName,
             id: element.id);
@@ -172,7 +183,6 @@ class _TodoProviderState extends State<TodoProvider> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return TodoInheritedData(
@@ -180,7 +190,7 @@ class _TodoProviderState extends State<TodoProvider> {
       onChangeFilter: onChangeFilter,
       onAddTodo: onAddTodo,
       onSetCompleted: onSetCompleted,
-      onSetName : onSetName,
+      onSetName: onSetName,
       filter: filter,
       child: widget.child,
     );
