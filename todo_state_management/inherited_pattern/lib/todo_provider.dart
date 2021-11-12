@@ -95,10 +95,6 @@ class TodoProvider extends StatefulWidget {
 
   final Widget child;
 
-  //static TodoInheritedData? of(BuildContext context) {
-  // return context.dependOnInheritedWidgetOfExactType<TodoInheritedData>();
-  //}
-
   @override
   _TodoProviderState createState() => _TodoProviderState();
 }
