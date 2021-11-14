@@ -122,9 +122,9 @@ class _TodoProviderState extends State<TodoProvider> {
   void onAddTodo() {
     Random rand = Random();
     List<int> ids = todos.map((e) => e.id).toList();
-    int newId = rand.nextInt(1000) + 1;
+    int newId = rand.nextInt(1000) + 2;
     while (ids.contains(newId)) {
-      newId = rand.nextInt(1000) + 1;
+      newId = rand.nextInt(1000) + 2;
     }
     setState(() {
       Todo newTodo = Todo(

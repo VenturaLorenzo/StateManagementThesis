@@ -13,7 +13,7 @@ class VisibilityFilterComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("Building Visibility filter");
-    VisibilityFilter filter= TodoInheritedData.of(context, aspect: 0).filter;
+    VisibilityFilter filter= TodoInheritedData.of(context, aspect: 1).filter;
     return DropdownButton<VisibilityFilter>(
       value: filter,
       items: VisibilityFilter.values.map((filter) {

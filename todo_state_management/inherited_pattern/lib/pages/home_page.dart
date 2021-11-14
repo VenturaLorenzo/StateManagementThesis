@@ -16,10 +16,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ValueNotifier<TabState> tab = ValueNotifier<TabState>(TabState.todos);
+  TabState tab = TabState.todos;
 
   void onTabChange(int index) {
-    tab.value = TabState.values.elementAt(index);
+   setState(() {
+     tab = TabState.values.elementAt(index);
+   });
     Future.delayed(const Duration(seconds: 1))
         .then((value) => print("---------------------"));
   }
@@ -32,34 +34,24 @@ class _HomePageState extends State<HomePage> {
           return Scaffold(
             appBar: AppBar(
               actions: [
-                ValueListenableBuilder<TabState>(
-                    valueListenable: tab,
-                    builder: (context, value, _) {
-                      return value == TabState.todos
+               tab == TabState.todos
                           ? const VisibilityFilterComponent()
-                          : Container();
-                    })
+                          : Container()
+
               ],
               title: const Text("Todo App"),
             ),
-            body: ValueListenableBuilder<TabState>(
-                valueListenable: tab,
-                builder: (context, value, _) {
-                  return value == TabState.todos ? const TodoView() : const Stats();
-                }),
-            bottomNavigationBar: ValueListenableBuilder<TabState>(
-                valueListenable: tab,
-                builder: (context, value, _) {
-                  return TabSelector(
-                    currTab: value,
+            body: tab==TabState.todos ? const TodoView() : const Stats(),
+            bottomNavigationBar:
+                   TabSelector(
+                    currTab: tab,
                     onTabChange: onTabChange,
-                  );
-                }),
+                  ),
             floatingActionButton: FloatingActionButton(
               child: const Icon(Icons.plus_one),
               onPressed: () {
 
-                TodoInheritedData.of(context, aspect: 0).onAddTodo();
+                TodoInheritedData.of(context, aspect: 1).onAddTodo();
 
 
                 Future.delayed(const Duration(seconds: 1))
