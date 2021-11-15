@@ -41,7 +41,7 @@ class TodoInheritedData extends InheritedModel<int> {
 
   final List<Todo> todos;
   final List<Todo> filteredTodos;
-  final void Function() onAddTodo;
+  final void Function(String,String) onAddTodo;
   final void Function(int, bool) onSetCompleted;
   final void Function(int, String) onSetName;
   final void Function(VisibilityFilter) onChangeFilter;
@@ -119,22 +119,22 @@ class _TodoProviderState extends State<TodoProvider> {
     });
   }
 
-  void onAddTodo() {
+  void onAddTodo(String name, String desc) {
     Random rand = Random();
     List<int> ids = todos.map((e) => e.id).toList();
     int newId = rand.nextInt(1000) + 2;
     while (ids.contains(newId)) {
       newId = rand.nextInt(1000) + 2;
     }
+    Todo newTodo = Todo(
+        id: newId,
+        name: name,
+        description: desc+ " " + newId.toString(),
+        completed: false);
+    List<Todo> newList = List.from(todos);
+    newList.add(newTodo);
     setState(() {
-      Todo newTodo = Todo(
-          id: newId,
-          name: "Todo " + newId.toString(),
-          description: "description " + newId.toString(),
-          completed: rand.nextBool());
-      List<Todo> newList = List.from(todos);
-      newList.add(newTodo);
-      todos = List.from(newList);
+      todos = newList;
     });
   }
 

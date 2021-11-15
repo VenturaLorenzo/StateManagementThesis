@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inherited_pattern/components/todo_item.dart';
+import 'package:inherited_pattern/pages/add_todo_page.dart';
 import 'package:inherited_pattern/pages/home_page.dart';
 import 'package:inherited_pattern/pages/update_todo_page.dart';
 import 'package:inherited_pattern/todo_provider.dart';
@@ -17,7 +18,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,7 +31,10 @@ class _MyAppState extends State<MyApp> {
               callback: (ModalRoute.of(context)!.settings.arguments
                       as UpdateTodoPageArguments)
                   .updateState,
-            )
+            ),
+        "/addTodo": (context) => AddTodoPage(
+            addTodoCallback: ModalRoute.of(context)!.settings.arguments
+                as Function(String, String)),
       },
     );
   }
