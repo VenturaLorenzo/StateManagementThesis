@@ -4,7 +4,7 @@ import 'package:inherited_pattern/models/todo.dart';
 
 class UpdateTodoPage extends StatefulWidget {
   final Todo todo;
-  final void Function(String) callback;
+  final void Function(String,String) callback;
 
   const UpdateTodoPage({Key? key, required this.todo,required this.callback}) : super(key: key);
 
@@ -13,7 +13,8 @@ class UpdateTodoPage extends StatefulWidget {
 }
 
 class _UpdateTodoPageState extends State<UpdateTodoPage> {
-  final textController = TextEditingController();
+  final textControllerName = TextEditingController();
+  final textControllerDesc = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +26,18 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
         body: Column(
           children: [
             TextField(
-              controller: textController,
+              controller: textControllerName,
               decoration: const InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Enter a new name'),
             ),
+            TextField(
+              controller: textControllerDesc,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Enter a new description'),
+            ),
             TextButton(onPressed: () {
 
-              widget.callback(textController.text);
+              widget.callback(textControllerName.text,textControllerDesc.text);
               Navigator.pop(context);
             }, child: const Text("Confirm"))
           ],
@@ -40,7 +46,8 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
 
   @override
   void dispose() {
-    textController.dispose();
+    textControllerName.dispose();
+    textControllerDesc.dispose();
     super.dispose();
   }
 }

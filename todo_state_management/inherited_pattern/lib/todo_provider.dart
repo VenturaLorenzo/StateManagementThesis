@@ -26,11 +26,20 @@ List<Todo> filterTodo(List<Todo> todos, filter) {
 }
 
 class TodoInheritedData extends InheritedModel<int> {
+  final List<Todo> todos;
+  final List<Todo> filteredTodos;
+  final void Function(String,String) onAddTodo;
+  final void Function(int, bool) onSetCompleted;
+  final void Function(int, String,String) onUpdateTodo;
+  final void Function(VisibilityFilter) onChangeFilter;
+  final int stats;
+  final VisibilityFilter filter;
+
   TodoInheritedData(
       {required this.onSetCompleted,
       Key? key,
       required this.todos,
-      required this.onSetName,
+      required this.onUpdateTodo,
       required this.onChangeFilter,
       required this.onAddTodo,
       required this.filter,
@@ -39,19 +48,11 @@ class TodoInheritedData extends InheritedModel<int> {
         filteredTodos = filterTodo(todos, filter),
         super(child: child, key: key);
 
-  final List<Todo> todos;
-  final List<Todo> filteredTodos;
-  final void Function(String,String) onAddTodo;
-  final void Function(int, bool) onSetCompleted;
-  final void Function(int, String) onSetName;
-  final void Function(VisibilityFilter) onChangeFilter;
-  final int stats;
-  final VisibilityFilter filter;
 
   static TodoInheritedData of(BuildContext context, {required int aspect}) {
     final TodoInheritedData? result =
         InheritedModel.inheritFrom<TodoInheritedData>(context, aspect: aspect);
-    assert(result != null, 'No todoScaffold found in context');
+    assert(result != null, 'No TodoInheritedData found in context');
     return result!;
   }
 
@@ -138,13 +139,13 @@ class _TodoProviderState extends State<TodoProvider> {
     });
   }
 
-  void onSetName(int id, String newName) {
+  void onUpdateTodo(int id, String newName,String newDesc) {
     assert(todoExists(id) != null, 'No todo with id : $id');
     List<Todo> newTodosList = todos.map((element) {
       if (element.id == id) {
         return Todo(
             completed: element.completed,
-            description: element.description,
+            description: newDesc,
             name: newName,
             id: element.id);
       } else {
@@ -186,7 +187,7 @@ class _TodoProviderState extends State<TodoProvider> {
       onChangeFilter: onChangeFilter,
       onAddTodo: onAddTodo,
       onSetCompleted: onSetCompleted,
-      onSetName: onSetName,
+      onUpdateTodo: onUpdateTodo,
       filter: filter,
       child: widget.child,
     );

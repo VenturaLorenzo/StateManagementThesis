@@ -21,9 +21,9 @@ class TodoItem extends StatelessWidget {
         Navigator.pushNamed(context, "/updateTodo",
             arguments: UpdateTodoPageArguments(
                 todo: todo,
-                updateState: (String newName) {
+                updateState: (String newName,String newDesc) {
                   TodoInheritedData.of(context, aspect: 0)
-                      .onSetName(todo.id, newName);
+                      .onUpdateTodo(todo.id, newName,newDesc);
                 }));
       },
       child: Row(
@@ -50,7 +50,7 @@ class TodoItem extends StatelessWidget {
 
 class UpdateTodoPageArguments {
   final Todo todo;
-  final void Function(String newName) updateState;
+  final void Function(String ,String) updateState;
 
   UpdateTodoPageArguments({required this.todo, required this.updateState});
 }
