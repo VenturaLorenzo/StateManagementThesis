@@ -21,7 +21,7 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Update Todo"),
+          title:  Text("Update Todo"+widget.todo.name),
         ),
         body: Column(
           children: [

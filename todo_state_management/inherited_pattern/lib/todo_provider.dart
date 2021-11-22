@@ -28,9 +28,9 @@ List<Todo> filterTodo(List<Todo> todos, filter) {
 class TodoInheritedData extends InheritedModel<int> {
   final List<Todo> todos;
   final List<Todo> filteredTodos;
-  final void Function(String,String) onAddTodo;
+  final void Function(String, String) onAddTodo;
   final void Function(int, bool) onSetCompleted;
-  final void Function(int, String,String) onUpdateTodo;
+  final void Function(int, String, String) onUpdateTodo;
   final void Function(VisibilityFilter) onChangeFilter;
   final int stats;
   final VisibilityFilter filter;
@@ -44,10 +44,9 @@ class TodoInheritedData extends InheritedModel<int> {
       required this.onAddTodo,
       required this.filter,
       required Widget child})
-      : stats = todos.length,
+      : stats = todos.where((todo) => todo.completed == true).length,
         filteredTodos = filterTodo(todos, filter),
         super(child: child, key: key);
-
 
   static TodoInheritedData of(BuildContext context, {required int aspect}) {
     final TodoInheritedData? result =
@@ -130,7 +129,7 @@ class _TodoProviderState extends State<TodoProvider> {
     Todo newTodo = Todo(
         id: newId,
         name: name,
-        description: desc+ " " + newId.toString(),
+        description: desc + " " + newId.toString(),
         completed: false);
     List<Todo> newList = List.from(todos);
     newList.add(newTodo);
@@ -139,7 +138,7 @@ class _TodoProviderState extends State<TodoProvider> {
     });
   }
 
-  void onUpdateTodo(int id, String newName,String newDesc) {
+  void onUpdateTodo(int id, String newName, String newDesc) {
     assert(todoExists(id) != null, 'No todo with id : $id');
     List<Todo> newTodosList = todos.map((element) {
       if (element.id == id) {

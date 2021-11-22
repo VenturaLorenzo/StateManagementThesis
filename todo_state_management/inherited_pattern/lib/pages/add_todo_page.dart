@@ -9,10 +9,10 @@ class AddTodoPage extends StatefulWidget {
   const AddTodoPage({Key? key, required this.addTodoCallback}) : super(key: key);
 
   @override
-  State<AddTodoPage> createState() => _UpdateTodoPageState();
+  State<AddTodoPage> createState() => _AddTodoPageState();
 }
 
-class _UpdateTodoPageState extends State<AddTodoPage> {
+class _AddTodoPageState extends State<AddTodoPage> {
   final textControllerName = TextEditingController();
   final textControllerDesc = TextEditingController();
 
