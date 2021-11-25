@@ -11,33 +11,22 @@ class TodoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("building: TodoView");
-
     return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
         buildWhen: (previous, next) {
       return !((previous is FilteredTodoLoadedState) &&
           (next is FilteredTodoLoadedState) &&
           previous.todos.length == next.todos.length);
     }, builder: (context, filteredTodoState) {
+      print("building: TodoView");
+
       if (filteredTodoState is FilteredTodoLoadedState) {
-        return ListView.builder(
-            itemCount: filteredTodoState.todos.length,
-            itemBuilder: (context, index) {
-              return TodoItem(
-                todoIndex: filteredTodoState.todos.elementAt(index).id,
-                setCompleted: (completed) {
-                  Todo todo = filteredTodoState.todos.elementAt(index);
-                  BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(Todo(
-                      name: todo.name,
-                      description: todo.description,
-                      completed: completed ?? true, id: todo.id)));
-                },
-              );
-            });
+        return Column(children:filteredTodoState.todos.map((e) => TodoItem(
+          id: e.id
+        )).toList());
       } else if (filteredTodoState is FilteredTodoLoadingState) {
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       } else {
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       }
     });
   }

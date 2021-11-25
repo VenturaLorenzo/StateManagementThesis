@@ -18,7 +18,7 @@ class FilteredTodoChangeFilterEvent extends FilteredTodoEvent {
   List<Object> get props => [filter];
 
   @override
-  String toString() => 'FilteredTodoChangeFilterEvent {filter: $filter}';
+  String toString() => 'FilteredTodoEvent - FilteredTodoChangeFilterEvent {filter: $filter}';
 }
 
 class TodoUpdatedEvent extends FilteredTodoEvent {
@@ -30,5 +30,5 @@ class TodoUpdatedEvent extends FilteredTodoEvent {
   const TodoUpdatedEvent(this.todos);
 
   @override
-  String toString() => 'TodoUpdatedEvent {todos: $todos}';
+  String toString() => 'FilteredTodoEvent - TodoUpdatedEvent';
 }

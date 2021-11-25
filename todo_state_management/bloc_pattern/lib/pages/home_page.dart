@@ -11,29 +11,34 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
     print("building: HomePage");
 
-    return  Scaffold(
-          appBar: AppBar(
-            title: const Text("testo"),
-            actions: const [VisibilityFilterComponent()],
-          ),
-          body: BlocBuilder<TabBloc, TabState>(builder: (context , tabState){
-
-            return tabState == TabState.todos ? const TodoView() : const Stats();
-          },),
-          bottomNavigationBar: const TabSelector(),
-          floatingActionButton: FloatingActionButton(onPressed: () {
-            Navigator.pushNamed(context, "/addTodo");
-          }),
-        );
-
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("TodoApp"),
+        actions: const [VisibilityFilterComponent()],
+      ),
+      body: BlocBuilder<TabBloc, TabState>(
+        builder: (context, tabState) {
+          return tabState == TabState.todos ? const TodoView() : const Stats();
+        },
+      ),
+      bottomNavigationBar: const TabSelector(),
+      floatingActionButton:
+          BlocBuilder<TabBloc, TabState>(builder: (context, tab) {
+        return tab == TabState.todos
+            ? FloatingActionButton(
+                child: const Icon(Icons.plus_one),
+                onPressed: () {
+                  Navigator.pushNamed(context, "/addTodo");
+                })
+            : Container();
+      }),
+    );
   }
 }

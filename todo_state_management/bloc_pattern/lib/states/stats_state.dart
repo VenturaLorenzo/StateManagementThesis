@@ -8,23 +8,25 @@ abstract class StatsState extends Equatable{
   List<Object> get props => [];
 }
 class StatsLoadingState extends StatsState{
-
+  @override
+  String toString(){
+    return 'StatsState - StatsLoadingState';
+  }
 }
 
 class StatsLoadedState extends StatsState{
-  final int active;
   final int completed;
 
-  const StatsLoadedState(this.active,this.completed);
+  const StatsLoadedState(this.completed);
 
 
   @override
-  List<Object> get props => [active, completed];
+  List<Object> get props => [completed];
 
 
   @override
   String toString(){
-    return 'StatsLoadedState : {stats : $active, completed: $completed}';
+    return 'StatsState - StatsLoadedState : {completed: $completed}';
   }
 
 

@@ -8,6 +8,8 @@ abstract class TodosState extends Equatable{
   List<Object> get props => [];
 }
 class TodosLoadingState extends TodosState{
+  @override
+  String toString() => 'TodosState - TodosLoadingState';
 }
 class TodosLoadedState extends TodosState{
    final List<Todo> todos;
@@ -18,7 +20,7 @@ class TodosLoadedState extends TodosState{
    List<Object> get props => [todos];
 
    @override
-   String toString() => 'TodosLoadedState { todos: $todos }';
+   String toString() => 'TodosState - TodosLoadedState';
 }
 class TodoFailedState extends TodosState{
   

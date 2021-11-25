@@ -1,13 +1,31 @@
+import 'dart:math';
+
 import 'package:bloc_pattern/models/todo.dart';
 
 class TodoRepository {
-   Future<List<Todo>> loadTodos() async {
+  static Future<List<Todo>> loadTodos() async {
+    Random rand = Random();
+    List<Todo> todos = [];
+    List<int> ids = [];
+    while (ids.length < 6) {
+      int newInt = rand.nextInt(1000)+2;
+      if (!ids.contains(newInt)) {
+        ids.add(newInt);
+      }
+    }
+    todos = ids
+        .map((number) => Todo(
+            id: number,
+            name: "Todo " + number.toString(),
+            description: "description " + number.toString(),
+            completed: rand.nextBool()))
+        .toList();
 
     await Future.delayed(const Duration(seconds: 2));
-    return [
-    const Todo(name:  "todo1",description:  "desx", completed: false, id: 1),
-    const Todo(name: "todo3", description: "desx", completed: false, id: 2),
-    const Todo(name: "todo2", description: "desx", completed: true, id: 3)
-    ];
+    return todos;
+  }
+
+  static Future<void> saveTodos(List<Todo> todos) async {
+    await Future.delayed(const Duration(seconds: 2));
   }
 }

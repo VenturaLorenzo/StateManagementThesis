@@ -27,12 +27,9 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     if (event is StatsUpdatedEvent) {
-
-      final numActive =
-          event.todos.where((todo) => !todo.completed).toList().length;
       final numCompleted =
           event.todos.where((todo) => todo.completed).toList().length;
-      yield StatsLoadedState(numActive, numCompleted);
+      yield StatsLoadedState(numCompleted);
     }
   }
 

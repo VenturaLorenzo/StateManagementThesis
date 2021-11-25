@@ -4,43 +4,43 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddTodoPage extends StatefulWidget {
-  const AddTodoPage({Key? key}) : super(key: key);
+class UpdateTodoPage extends StatefulWidget {
+  final Todo todo;
+
+  const UpdateTodoPage({Key? key, required this.todo}) : super(key: key);
 
   @override
-  State<AddTodoPage> createState() => _AddTodoPageState();
+  State<UpdateTodoPage> createState() => _UpdateTodoPageState();
 }
 
-class _AddTodoPageState extends State<AddTodoPage> {
+class _UpdateTodoPageState extends State<UpdateTodoPage> {
   final textControllerName = TextEditingController();
   final textControllerDesc = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Add Todo"),
+          title:  Text("Update " + widget.todo.name),
         ),
         body: Column(
           children: [
             TextField(
               controller: textControllerName,
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Enter a name'),
+                  border: OutlineInputBorder(), hintText: 'Enter a new name'),
             ),
             TextField(
               controller: textControllerDesc,
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter a description'),
+                  border: OutlineInputBorder(), hintText: 'Enter a new description'),
             ),
-            TextButton(
-                onPressed: () {
-                  BlocProvider.of<TodoBloc>(context).add(AddTodoEvent(
-                      textControllerName.text, textControllerDesc.text));
-                  Navigator.pop(context);
-                },
-                child: const Text("Create"))
+            TextButton(onPressed: () {
+
+              BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(widget.todo.id,textControllerName.text,textControllerDesc.text));
+              Navigator.pop(context);
+            }, child: const Text("Confirm"))
           ],
         ));
   }

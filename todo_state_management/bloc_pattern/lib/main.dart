@@ -9,9 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
-
   Bloc.observer = AppBlocObserver();
-
-  
-  runApp( BlocProvider<TodoBloc>(create:(context)=> TodoBloc(repo: TodoRepository())..add(LoadTodosEvent()),child: const MyApp()));
+  runApp( BlocProvider<TodoBloc>(create:(context)=> TodoBloc()..add(LoadTodosEvent()),child: const MyApp()));
 }
