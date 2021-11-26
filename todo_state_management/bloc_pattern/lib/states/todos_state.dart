@@ -22,7 +22,7 @@ class TodosLoadedState extends TodosState{
    @override
    String toString() => 'TodosState - TodosLoadedState';
 }
-class TodoFailedState extends TodosState{
+class TodoErrorState extends TodosState{
   
 }
 

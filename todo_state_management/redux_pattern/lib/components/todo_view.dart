@@ -28,7 +28,7 @@ class TodoView extends StatelessWidget {
                       Todo(
                           name: todo.name,
                           description: todo.description,
-                          completed: completed ?? true)));
+                          completed: completed ?? true, id: todo.id)));
                 },
               );
             },

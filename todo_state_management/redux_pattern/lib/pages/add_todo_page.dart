@@ -22,7 +22,7 @@ class AddTodoPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          final AddTodoAction action=AddTodoAction(Todo(name: name, description: desc,completed: false));
+          final AddTodoAction action=AddTodoAction(Todo(name: name, description: desc,completed: false, id: null));
           StoreProvider.of<AppState>(context).dispatch(action);
           Navigator.pop(context);
         },

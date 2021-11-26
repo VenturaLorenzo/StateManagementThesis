@@ -12,7 +12,7 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
   @override
   Stream<TodosState> mapEventToState(TodosEvent event) async* {
     if (event is LoadTodosEvent) {
-      yield* _mapTodosLoadedToState();
+      yield* _mapLoadTodosToState(event);
     } else if (event is AddTodoEvent) {
       yield* _mapTodoAddedToState(event);
     } else if (event is UpdateTodoEvent) {
@@ -24,12 +24,12 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
     }
   }
 
-  Stream<TodosState> _mapTodosLoadedToState() async* {
+  Stream<TodosState> _mapLoadTodosToState(LoadTodosEvent event) async* {
     try {
       final List<Todo> todos = await TodoRepository.loadTodos();
       yield TodosLoadedState(todos);
     } catch (e) {
-      yield TodoFailedState();
+      yield TodoErrorState();
     }
   }
 

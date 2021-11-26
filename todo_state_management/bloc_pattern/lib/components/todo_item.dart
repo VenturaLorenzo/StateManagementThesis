@@ -16,6 +16,7 @@ class TodoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
         buildWhen: (previous, next) {
+          print(key);
       if (next is FilteredTodoLoadedState &&
           previous is FilteredTodoLoadedState) {
         if (next.todos.map((todo) => todo.id).toList().contains(id) == true) {
@@ -27,7 +28,7 @@ class TodoItem extends StatelessWidget {
       }
       return true;
     }, builder: (context, state) {
-      print("building: Todo Item $id");
+      print("building: Todo Item $id " + key.toString());
 
       if (state is FilteredTodoLoadedState) {
         if (state.todos.map((todo) => todo.id).contains(id)) {
