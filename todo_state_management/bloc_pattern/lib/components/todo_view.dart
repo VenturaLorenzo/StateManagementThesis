@@ -1,7 +1,8 @@
-import 'package:bloc_pattern/barrels/todo_filtered_state_management.dart';
-import 'package:bloc_pattern/barrels/todo_state_management.dart';
+
+import 'package:bloc_pattern/blocs/filtered_todo_bloc.dart';
 import 'package:bloc_pattern/components/todo_item.dart';
 import 'package:bloc_pattern/models/todo.dart';
+import 'package:bloc_pattern/states/filtered_todo_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

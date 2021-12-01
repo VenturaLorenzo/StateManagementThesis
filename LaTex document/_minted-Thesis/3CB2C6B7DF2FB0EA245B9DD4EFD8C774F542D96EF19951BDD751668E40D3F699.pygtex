@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nl}{onChanged:} \PYG{p}{(}\PYG{n}{filter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{TodoInheritedData}\PYG{p}{.}\PYG{n}{of}\PYG{p}{(}\PYG{n}{context}\PYG{p}{).}\PYG{n}{onChangeFilter}\PYG{p}{(}\PYG{n}{filter}\PYG{o}{!}\PYG{p}{);}
+\PYG{p}{\PYGZcb{},}
+\end{Verbatim}

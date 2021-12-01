@@ -1,8 +1,8 @@
-import 'package:bloc_pattern/barrels/todo_filtered_state_management.dart';
 import 'package:bloc_pattern/blocs/filtered_todo_bloc.dart';
 import 'package:bloc_pattern/blocs/todos_bloc.dart';
 import 'package:bloc_pattern/events/todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
+import 'package:bloc_pattern/states/filtered_todo_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +16,7 @@ class TodoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
         buildWhen: (previous, next) {
-          print(key);
+      print(key);
       if (next is FilteredTodoLoadedState &&
           previous is FilteredTodoLoadedState) {
         if (next.todos.map((todo) => todo.id).toList().contains(id) == true) {

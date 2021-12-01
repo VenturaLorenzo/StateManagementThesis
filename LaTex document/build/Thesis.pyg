@@ -1,0 +1,12 @@
+
+class TodoItem extends StatelessWidget {
+  final int id;
+
+  const TodoItem({Key? key, required this.id}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final Todo todo = TodoInheritedData.of(context, aspect: id)
+        .todos
+        .where((element) => element.id == id)
+        .first;

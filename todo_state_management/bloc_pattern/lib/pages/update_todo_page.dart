@@ -1,4 +1,5 @@
-import 'package:bloc_pattern/barrels/todo_state_management.dart';
+import 'package:bloc_pattern/blocs/todos_bloc.dart';
+import 'package:bloc_pattern/events/todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,10 +20,9 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: AppBar(
-          title:  Text("Update " + widget.todo.name),
+          title: Text("Update " + widget.todo.name),
         ),
         body: Column(
           children: [
@@ -34,13 +34,18 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
             TextField(
               controller: textControllerDesc,
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Enter a new description'),
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter a new description'),
             ),
-            TextButton(onPressed: () {
-
-              BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(widget.todo.id,textControllerName.text,textControllerDesc.text));
-              Navigator.pop(context);
-            }, child: const Text("Confirm"))
+            TextButton(
+                onPressed: () {
+                  BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(
+                      widget.todo.id,
+                      textControllerName.text,
+                      textControllerDesc.text));
+                  Navigator.pop(context);
+                },
+                child: const Text("Confirm"))
           ],
         ));
   }

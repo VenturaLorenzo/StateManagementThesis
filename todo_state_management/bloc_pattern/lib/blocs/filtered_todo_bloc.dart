@@ -6,7 +6,7 @@ import 'package:bloc_pattern/events/filtered_todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:bloc_pattern/models/visibility_filter.dart';
 import 'package:bloc_pattern/states/filtered_todo_state.dart';
-import 'package:bloc_pattern/barrels/todo_state_management.dart';
+import 'package:bloc_pattern/states/todos_state.dart';
 import 'package:flutter/cupertino.dart';
 
 class FilteredTodoBloc extends Bloc<FilteredTodoEvent, FilteredTodoState> {

@@ -28,11 +28,12 @@ class MyApp extends StatelessWidget {
                   create: (context) =>
                       StatsBloc(todoBloc: BlocProvider.of<TodoBloc>(context))),
               BlocProvider<FilteredTodoBloc>(
-                  create: (context) =>
-                      FilteredTodoBloc(todoBloc: BlocProvider.of<TodoBloc>(context))),
+                  create: (context) => FilteredTodoBloc(
+                      todoBloc: BlocProvider.of<TodoBloc>(context))),
             ], child: const HomePage()),
         "/addTodo": (context) => const AddTodoPage(),
-        "/updateTodo" : (context) => UpdateTodoPage(todo: (ModalRoute.of(context)!.settings.arguments as Todo)),
+        "/updateTodo": (context) => UpdateTodoPage(
+            todo: (ModalRoute.of(context)!.settings.arguments as Todo)),
       },
     );
   }

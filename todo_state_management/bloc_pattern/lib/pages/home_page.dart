@@ -1,6 +1,4 @@
-import 'package:bloc_pattern/barrels/todo_filtered_state_management.dart';
-import 'package:bloc_pattern/barrels/todo_state_management.dart';
-import 'package:bloc_pattern/blocs/stats_bloc.dart';
+
 import 'package:bloc_pattern/blocs/tab_bloc.dart';
 import 'package:bloc_pattern/components/stats.dart';
 import 'package:bloc_pattern/components/tab_selector.dart';
@@ -18,27 +16,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     print("building: HomePage");
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("TodoApp"),
-        actions: const [VisibilityFilterComponent()],
-      ),
-      body: BlocBuilder<TabBloc, TabState>(
-        builder: (context, tabState) {
-          return tabState == TabState.todos ? const TodoView() : const Stats();
-        },
-      ),
-      bottomNavigationBar: const TabSelector(),
-      floatingActionButton:
-          BlocBuilder<TabBloc, TabState>(builder: (context, tab) {
-        return tab == TabState.todos
-            ? FloatingActionButton(
-                child: const Icon(Icons.plus_one),
-                onPressed: () {
-                  Navigator.pushNamed(context, "/addTodo");
-                })
-            : Container();
-      }),
-    );
+    return BlocBuilder<TabBloc, TabState>(builder: (context, tabState) {
+      return Scaffold(
+          appBar: AppBar(
+            title: const Text("TodoApp"),
+            actions: [
+              tabState == TabState.todos
+                  ? VisibilityFilterSelector()
+                  : Container()
+            ],
+          ),
+          body: tabState == TabState.todos ? const TodoView() : const Stats(),
+          bottomNavigationBar: const TabSelector(),
+          floatingActionButton: tabState == TabState.todos
+              ? FloatingActionButton(
+                  child: const Icon(Icons.plus_one),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/addTodo");
+                  })
+              : Container());
+    });
   }
 }

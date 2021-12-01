@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@override}
+\PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{TodoProvider}\PYG{p}{(}
+    \PYG{n+nl}{child:} \PYG{n}{Builder}\PYG{p}{(}
+      \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{Scaffold}\PYG{p}{();}      \PYG{p}{\PYGZcb{}}
+  \PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

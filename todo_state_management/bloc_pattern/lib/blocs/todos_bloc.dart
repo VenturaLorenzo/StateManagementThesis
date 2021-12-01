@@ -37,7 +37,7 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
     if (state is TodosLoadedState) {
       Random rand = Random();
       List<int> ids =
-      (state as TodosLoadedState).todos.map((todo) => todo.id).toList();
+          (state as TodosLoadedState).todos.map((todo) => todo.id).toList();
       int newId = rand.nextInt(1000) + 2;
       while (ids.contains(newId)) {
         newId = rand.nextInt(1000) + 2;
@@ -48,8 +48,7 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
           description: event.desc + " " + newId.toString(),
           completed: false);
       final List<Todo> updatedTodos =
-      List.from((state as TodosLoadedState).todos)
-        ..add(newTodo);
+          List.from((state as TodosLoadedState).todos)..add(newTodo);
       yield TodosLoadedState(updatedTodos);
     }
   }
@@ -58,14 +57,13 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
     if (state is TodosLoadedState) {
       List<Todo> newTodos = (state as TodosLoadedState)
           .todos
-          .map((todo) =>
-      todo.id == event.id
-          ? Todo(
-          id: event.id,
-          name: event.newName,
-          description: event.newDesc,
-          completed: false)
-          : todo)
+          .map((todo) => todo.id == event.id
+              ? Todo(
+                  id: event.id,
+                  name: event.newName,
+                  description: event.newDesc,
+                  completed: false)
+              : todo)
           .toList();
       yield TodosLoadedState(newTodos);
     }
@@ -75,8 +73,7 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
     if (state is TodosLoadedState) {
       List<Todo> toggled = (state as TodosLoadedState)
           .todos
-          .map((todo) =>
-          Todo(
+          .map((todo) => Todo(
               completed: true,
               description: todo.description,
               name: todo.name,
@@ -99,13 +96,17 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
   Stream<TodosState> _mapSetCompletedToState(
       SetCompletedTodoEvent event) async* {
     if (state is TodosLoadedState) {
-      List<Todo> newList = (state as TodosLoadedState).todos.map((todo) =>
-      todo.id == event.id ? Todo(name: todo.name,
-          description: todo.description,
-          id: todo.id,
-          completed: event.completed):todo).toList();
-      yield
-      TodosLoadedState(newList);
+      List<Todo> newList = (state as TodosLoadedState)
+          .todos
+          .map((todo) => todo.id == event.id
+              ? Todo(
+                  name: todo.name,
+                  description: todo.description,
+                  id: todo.id,
+                  completed: event.completed)
+              : todo)
+          .toList();
+      yield TodosLoadedState(newList);
     }
   }
 }

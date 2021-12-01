@@ -1,0 +1,12 @@
+
+This part of the development process aims to realize the skeleton of the app. The output app  offers the possibility to visualize and partially handle todos. It is composed of a single page: the HomePage. The HomePage is composed by an AppBar and two tabs:\textit{todo} tab and the \textit{stats} tab. 
+In the \textit{todo}  tab the list of todos is visualized. Is possible to filter todos using a DropdownButton in the top right corner inside the AppBar. 
+The available filter values are:
+\begin{itemize}
+    \item All (visualize completed and pending todos)
+    \item Completed (visualize completed todo)
+    \item Not Completed (visualize pending todos)
+\end{itemize}
+The elements that compose the list of todos are called TodoItems. TodoItems visualize the todo’s name and description using a Text widget and completion using a Checkbox. It is possible to use the checkbox to mark a Todo as completed or to mark it as pending. 
+In the \textit{stats} Tab instead is possible to visualize the number of completed todos through a Text widget.
+In the lower part a TabSelector allow to switch from tabs.

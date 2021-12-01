@@ -43,7 +43,7 @@ class SetCompletedTodoEvent extends TodosEvent {
   final int id;
   final bool completed;
 
-  const SetCompletedTodoEvent(this.id,this.completed);
+  const SetCompletedTodoEvent(this.id, this.completed);
 
   @override
   String toString() => 'TodosEvent - SetCompletedTodoEvent';

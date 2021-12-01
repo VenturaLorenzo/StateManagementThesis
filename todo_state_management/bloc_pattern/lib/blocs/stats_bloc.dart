@@ -24,6 +24,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
 
     todoSubscription = todoBloc.stream.listen(onTodosStateChanged);
   }
+
   @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     if (event is StatsUpdatedEvent) {
@@ -34,8 +35,8 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   }
 
   static Stats calculateStats(List<Todo> todos) {
-    final  completed = todos.where((element) => element.completed).length;
-    final  active = todos.length;
+    final completed = todos.where((element) => element.completed).length;
+    final active = todos.length;
     return Stats(completed: completed, active: active - completed);
   }
 

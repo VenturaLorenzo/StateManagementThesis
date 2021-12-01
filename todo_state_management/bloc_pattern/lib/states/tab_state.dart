@@ -1,3 +1,1 @@
-enum TabState{
- todos,stats
-}
+enum TabState { todos, stats }

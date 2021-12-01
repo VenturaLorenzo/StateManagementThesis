@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nl}{routes:} \PYG{p}{\PYGZob{}}
+\PYG{p}{\PYGZob{}.} \PYG{p}{.} \PYG{p}{.\PYGZcb{}}
+  \PYG{l+s+s2}{\PYGZdq{}/addTodo\PYGZdq{}}\PYG{o}{:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{AddTodoPage}\PYG{p}{(}
+      \PYG{n+nl}{addTodoCallback:} \PYG{n}{ModalRoute}\PYG{p}{.}\PYG{n}{of}\PYG{p}{(}\PYG{n}{context}\PYG{p}{)}\PYG{o}{!}\PYG{p}{.}\PYG{n}{settings}\PYG{p}{.}\PYG{n}{arguments}
+          \PYG{k}{as} \PYG{k+kt}{Function}\PYG{p}{(}\PYG{k+kt}{String}\PYG{p}{,} \PYG{k+kt}{String}\PYG{p}{)),}
+\PYG{p}{\PYGZcb{},}
+\end{Verbatim}

@@ -17,9 +17,11 @@ class TabSelector extends StatelessWidget {
       builder: (context, currTab) {
         return BottomNavigationBar(
           currentIndex: TabState.values.indexOf(currTab),
-          onTap: (index)=>BlocProvider.of<TabBloc>(context).add(ChangeTabEvent(TabState.values.elementAt(index))),
+          onTap: (index) => BlocProvider.of<TabBloc>(context)
+              .add(ChangeTabEvent(TabState.values.elementAt(index))),
           items: TabState.values
-              .map((tab) => BottomNavigationBarItem(label: describeEnum(tab),
+              .map((tab) => BottomNavigationBarItem(
+                    label: describeEnum(tab),
                     icon: Icon(
                       tab == TabState.todos ? Icons.list : Icons.show_chart,
                     ),
@@ -30,7 +32,6 @@ class TabSelector extends StatelessWidget {
     );
   }
 }
-
 
 /*
 class _ViewModel {

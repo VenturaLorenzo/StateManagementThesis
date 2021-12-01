@@ -1,0 +1,500 @@
+	
+	In this subsection will be presented the implementation of the shared files between different solutions. The project will have the folder structure shown in figure \ref{fig:strucutre}. Indeed some parts of the code will be shared/reused between solutions. The complete structure of the app’s UI will be the same for every implementation such as the repository used to fetch Todos. 
+		
+		\begin{figure}[H]
+		    \centering
+		    \includegraphics[width=0.6\textwidth]{Images/folder_structure.png}
+		    \caption{Folders structure of the skeleton of the Todos app.}
+		    \label{fig:shared_folder_structure_todo_app}
+		\end{figure}
+		
+		\paragraph{The Root} \mbox{} \\
+		\label{par:the_root_todo_app}
+		The main function will run the root widget of the application called MyApp. It is a stateful widget composed by a MaterialApp. Inside the MaterialApp three roots are defined. The HomePage , the UpdateTodoPage and the AddTodoPage. The inizialRoute is set to the HomePage. 
+		\mbox{}\\
+		\captionof{listing}{Todo App MaterialApp definition} \mbox{}
+		\begin{minted}{dart}
+		void main() {
+		  runApp(const MyApp());
+		}
+	
+	class MyApp extends StatefulWidget {
+	  const MyApp({Key? key}) : super(key: key);
+	
+	  @override
+	  State<MyApp> createState() => _MyAppState();
+	}
+	
+	class _MyAppState extends State<MyApp> {
+	
+	  @override
+	  Widget build(BuildContext context) {
+	    return MaterialApp(
+	      initialRoute: "/",
+	      routes: {
+	        "/": (context) => const HomePage(),
+	        "/updateTodo": (context) => UpdateTodoPage(),
+	        "/addTodo": (context) => AddTodoPage(),
+	
+	      },
+	    );
+	  }
+	}
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	\paragraph{Models and Repository} \mbox{} \\
+	\label{par:models_and_repository_todo_app}
+	First model presented is the TabState model. It models the tabs visualized in the HomePage. TabState are only two : \textit{todos} and \textit{stats}. In the \textit{todos} tab todos are visualized instead in the \textit{stats} tab some numerical recap of the todos is visualized.
+
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app TabState model definition} \mbox{}
+	\begin{minted}{dart}
+	
+	enum TabState{
+	 todos,stats
+	}
+	
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	Possible filters for the \textit{filteredTodos} list are modelled by the VisibilityFilter enumeration.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app BisibilityFilter model definition} \mbox{}
+	\begin{minted}{dart}
+	
+	enum VisibilityFilter{
+	 completed,notCompleted,all
+	}
+	
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	For what concerns the Todo model is not possible to give a common implementation for every solution. Todo model will change in different implementations. The general strucutre of the Todo model il presented below. (It is presented here as an immutable class but in some implementation is will be change to mutable)
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app Todo model definitio} \mbox{}
+	\begin{minted}{dart}
+	
+	@immutable
+	class Todo {
+	  final int id;
+	  final String name;
+	  final String description;
+	  final bool completed;
+	
+	  const Todo(
+	      {required this.id,
+	      required this.name,
+	      required this.description,
+	      required this.completed});
+	
+	  @override
+	  bool operator ==(Object other) {
+	    return (other is Todo) &&
+	        other.description == description &&
+	        other.name == name &&
+	        other.id == id &&
+	        other.completed == completed;
+	  }
+	
+	  @override
+	  String toString() {
+	    return "{ id: $id  completed: $completed}";
+	  }
+	
+	  @override
+	  // TODO: implement hashCode
+	  int get hashCode => super.hashCode;
+	}
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	TodoRepository models a repository that simulate the todos fetching from a Database. It has two static functions. Those functions are async function with a duration of 2 seconds to give the impression of a real async operation.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app TodoRepository definition} \mbox{}
+	\begin{minted}{dart}
+	
+	class TodoRepository {
+	  static Future<List<Todo>> loadTodos() async {
+	    Random rand = Random();
+	    List<Todo> todos = [];
+	    List<int> ids = [];
+	    while (ids.length < 6) {
+	      int newInt = rand.nextInt(1000)+2;
+	      if (!ids.contains(newInt)) {
+	        ids.add(newInt);
+	      }
+	    }
+	    todos = ids
+	        .map((number) => Todo(
+	            id: number,
+	            name: "Todo " + number.toString(),
+	            description: "description " + number.toString(),
+	            completed: rand.nextBool()))
+	        .toList();
+	
+	    await Future.delayed(const Duration(seconds: 2));
+	    return todos;
+	  }
+	
+	  static Future<void> saveTodos(List<Todo> todos) async {
+	    await Future.delayed(const Duration(seconds: 2));
+	  }
+	}
+	
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	\paragraph{Pages} \mbox{} \\
+	\label{par:pages_todo_app}
+	Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterComponent only when the tab is set to \textit{todos}. The body can change from \textit{todos} to \textit{stats} tab using the BottomNaviagationBar TabSelecto widgetr. An empty FloatingActionButton is present for future implementation.
+	(note: some small pieces could change in different solution’s implementation. in the above example the tab changing is implemented through setState but it will not be always the case. Also the HomePage can be muted to Stateless widget in other implementations.).
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app HomePage definition} \mbox{}
+	\begin{minted}{dart}
+	class HomePage extends StatefulWidget {
+	  const HomePage({Key? key}) : super(key: key);
+	
+	  @override
+	  State<HomePage> createState() => _HomePageState();
+	}
+	
+	class _HomePageState extends State<HomePage> {
+	  TabState tab = TabState.todos; 
+	
+	  @override
+	  Widget build(BuildContext context) {
+	    return Scaffold(
+	          appBar: AppBar(
+	            actions: [
+	              tab == TabState.todos
+	                  ? const VisibilityFilterComponent()
+	                  : Container()
+	            ],
+	            title: const Text("Todo App"),
+	          ),
+	          body: tab == TabState.todos ? const TodoView() : const Stats(),
+	          bottomNavigationBar: TabSelector(
+	            currTab: tab,
+	            onTabChange:,
+	          ),
+	          floatingActionButton: tab == TabState.todos
+	              ? FloatingActionButton(
+	                  child: const Icon(Icons.plus_one),
+	            onPressed: () {},
+	          ) : null,
+	        )
+	    );
+	  }
+	}
+	
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	The UpdateTodoPage uses a Scaffold widget. The body is composed by a Column with inside two TextFields and a TextButton. The TextButton is left empty for future implementation.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app UpdatePage definition} \mbox{}
+	\begin{minted}{dart}
+	
+	class UpdateTodoPage extends StatefulWidget {
+	  final Todo todo;
+	  final void Function(String,String) callback;
+	
+	  const UpdateTodoPage({Key? key, required this.todo,required this.callback}) : super(key: key);
+	
+	  @override
+	  State<UpdateTodoPage> createState() => _UpdateTodoPageState();
+	}
+	
+	class _UpdateTodoPageState extends State<UpdateTodoPage> {
+	  final textControllerName = TextEditingController();
+	  final textControllerDesc = TextEditingController();
+	
+	  @override
+	  Widget build(BuildContext context) {
+	
+	    return Scaffold(
+	        appBar: AppBar(
+	          title: Text("Update Todo"+widget.todo.name),
+	        ),
+	        body: Column(
+	          children: [
+	            TextField(
+	              controller: textControllerName,
+	              decoration: const InputDecoration(
+	                  border: OutlineInputBorder(), hintText: 'Enter a new name'),
+	            ),
+	            TextField(
+	              controller: textControllerDesc,
+	              decoration: const InputDecoration(
+	                  border: OutlineInputBorder(), hintText: 'Enter a new description'),
+	            ),
+	            TextButton(onPressed: () {},
+	            child: const Text("Confirm"))
+	          ],
+	        ));
+	  }
+	
+	  @override
+	  void dispose() {
+	    textControllerName.dispose();
+	    textControllerDesc.dispose();
+	    super.dispose();
+	  }
+	}
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	
+	The AddTodoPage uses a Scaffold widget. The body is composed by a Column with inside two TextField widgets and a TextButton widget. The TextButton is left empty for future implementation.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app AddTodoPage definition} \mbox{}
+	\begin{minted}{dart}
+	
+	class AddTodoPage extends StatefulWidget {
+	
+	  final void Function(String,String) addTodoCallback;
+	
+	  const AddTodoPage({Key? key, required this.addTodoCallback}) : super(key: key);
+	
+	  @override
+	  State<AddTodoPage> createState() => _AddTodoPageState();
+	}
+	
+	class _AddTodoPageState extends State<AddTodoPage> {
+	  final textControllerName = TextEditingController();
+	  final textControllerDesc = TextEditingController();
+	
+	  @override
+	  Widget build(BuildContext context) {
+	
+	    return Scaffold(
+	        appBar: AppBar(
+	          title: const Text("Add Todo"),
+	        ),
+	        body: Column(
+	          children: [
+	            TextField(
+	              controller: textControllerName,
+	              decoration: const InputDecoration(
+	                  border: OutlineInputBorder(), hintText: 'Enter a name'),
+	            ),
+	            TextField(
+	              controller: textControllerDesc,
+	              decoration: const InputDecoration(
+	                  border: OutlineInputBorder(), hintText: 'Enter a description'),
+	            ),
+	            TextButton(onPressed: () {}
+	            , child: const Text("Create"))
+	          ],
+	        ));
+	  }
+	
+	  @override
+	  void dispose() {
+	    textControllerName.dispose();
+	    textControllerDesc.dispose();
+	    super.dispose();
+	  }
+	}
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	\paragraph{Components} \mbox{} \\
+	\label{par:components}
+	TodoView component uses a ListView. \textit{itemCount} and \textit{itemBuilder} fields are left empty for future implementation.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app TodoView definition} \mbox{}
+	\begin{minted}{dart}
+	class TodoView extends StatelessWidget {
+	
+	  const TodoView({Key? key}) : super(key: key);
+	
+	  @override
+	  Widget build(BuildContext context) {
+	    print("Building TodoView");
+	
+	
+	    return ListView.builder(
+	      itemCount:,
+	      itemBuilder: (context, index) {
+	        return TodoItem(
+	          
+	        );
+	      },
+	    );
+	  }
+	}
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	TodoItem is a stateless widget. Uses two Text widgets to display the Todo information and a Checkbox to change the Todo’s completion. It is wrapped in a InkWell widget to make is responsive to taps. Functions are empty for future implementation.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app TodoItem definition} \mbox{}
+	\begin{minted}{dart}
+	class TodoItem extends StatelessWidget {
+	  final Todo todo;
+	
+	  const TodoItem({Key? key, required this.id}) : super(key: key);
+	
+	  @override
+	  Widget build(BuildContext context) {
+	    print("Building Todo Item \$todo");
+	
+	    return InkWell(
+	      onTap: () {
+	        Navigator.pushNamed(context, "/updateTodo");
+	      },
+	      child: Row(
+	        children: [
+	          Column(
+	            children: [
+	              Text(todo.name,
+	                  style: const TextStyle(fontSize: 14, color: Colors.black)),
+	              Text(todo.description,
+	                  style: const TextStyle(fontSize: 10, color: Colors.grey)),
+	            ],
+	          ),
+	          Checkbox(
+	              value: todo.completed,
+	              onChanged: (value) {}),
+	        ],
+	      ),
+	    );
+	  }
+	}
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	
+	Tabselector uses a BottomNavigationBar with as many BottomNavigationBarItems as TabState.values (in our case two). Function fields are left empty for future implementation.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app TabSelector definition} \mbox{}
+	\begin{minted}{dart}
+	class TabSelector extends StatelessWidget {
+	
+	
+	  const TabSelector(
+	      {Key? Key})
+	      : super(key: key);
+	
+	  @override
+	  Widget build(BuildContext context) {
+	    print("Building Tab Selector");
+	
+	    return BottomNavigationBar(
+	      currentIndex: ,
+	      onTap: (){},
+	      items: TabState.values
+	          .map((tab) => BottomNavigationBarItem(
+	                label: describeEnum(tab),
+	                icon: Icon(
+	                  tab == TabState.todos ? Icons.list : Icons.show_chart,
+	                ),
+	              ))
+	          .toList(),
+	    );
+	  }
+	}
+	
+	\end{minted}
+	
+	\mbox{}
+	
+	VisibilityFilterComponent uses a DropdownButton with as many DropdownMenuItems as VisibilityFilter.values (in our case three). Function fields are left empty for future implementation.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app VisibilityFilterSelector definition} \mbox{}
+	\begin{minted}{dart}
+	class VisibilityFilterComponent extends StatelessWidget {
+	
+	  const VisibilityFilterComponent(
+	      {Key? key})
+	      : super(key: key);
+	
+	  @override
+	  Widget build(BuildContext context) {
+	    print("Building Visibility filter");
+	    return DropdownButton<VisibilityFilter>(
+	      value:,
+	      items: VisibilityFilter.values.map((filter) {
+	        return DropdownMenuItem<VisibilityFilter>(
+	            child: Text(describeEnum(filter)), value: filter);
+	      }).toList(),
+	      onChanged: (filter) {
+	       
+	      },
+	    );
+	  }
+	}
+	\end{minted}
+	
+	\mbox{}
+	
+	Stats component is a Stateless widget composed by Text widget showing stats value.
+	
+	\mbox{}\\
+	
+	\captionof{listing}{Todo app Stats definition} \mbox{}
+	\begin{minted}{dart}
+	class Stats extends StatelessWidget {
+	  const Stats({Key? key}) : super(key: key);
+	
+	  @override
+	  Widget build(BuildContext context) {
+	    print("Building Stats");
+	
+	    return Text();
+	  }
+	}
+	\end{minted}
+	
+	\mbox{}
+	
+	

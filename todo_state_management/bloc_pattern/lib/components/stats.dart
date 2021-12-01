@@ -13,10 +13,11 @@ class Stats extends StatelessWidget {
 
     return BlocBuilder<StatsBloc, StatsState>(
       builder: (context, statsState) {
-        return statsState is StatsLoadedState ?Center(
-          child: Text(
-              statsState.completed.toString()),
-        ) : Center(child: const CircularProgressIndicator());
+        return statsState is StatsLoadedState
+            ? Center(
+                child: Text(statsState.completed.toString()),
+              )
+            : Center(child: const CircularProgressIndicator());
       },
     );
   }
