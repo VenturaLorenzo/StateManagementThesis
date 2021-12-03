@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  2 DEC 2021 20:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  4 DEC 2021 00:03
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1602,11 +1602,6 @@ LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 3.
 
 [8 <./Images/folder_structure.png>])
-
-LaTeX Warning: Reference `code:tab_state_model_definition' on page 9 undefined 
-on input line 53.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
@@ -1621,13 +1616,13 @@ See the caption package documentation for explanation.
 
 (build/_minted-Thesis/635D81C03CF0E2E7E831E5EBD3A6D0C1EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [9]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 76.
+(caption)                particular \caption on input line 75.
 See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
@@ -1635,13 +1630,13 @@ See the caption package documentation for explanation.
 
 (build/_minted-Thesis/082C84C1D72635F669FE1998A3C21900EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 91.
+(caption)                particular \caption on input line 90.
 See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
@@ -1649,13 +1644,13 @@ See the caption package documentation for explanation.
 
 (build/_minted-Thesis/87C07A7D17BA5C476DCF8C19576DF037EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex [10])
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 135.
+(caption)                particular \caption on input line 134.
 See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
@@ -1663,42 +1658,41 @@ See the caption package documentation for explanation.
 
 (build/_minted-Thesis/7EC62EC1C48BBC05307D85C4100ACE6EEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex [11])
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 179.
+(caption)                particular \caption on input line 178.
 See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/F3B5B913B76046E92E67BDC45E1EC202EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [12])
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+E6B5F38.pygtex [12]) [13]
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 227.
+(caption)                particular \caption on input line 226.
 See the caption package documentation for explanation.
 
-[13]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/BABA11097FF351EAA5AA547369BF30D5EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex [14])
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 287.
+(caption)                particular \caption on input line 286.
 See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
@@ -1729,11 +1723,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 379.
 See the caption package documentation for explanation.
 
+[17]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/6F121E65534D8BF0562572860BFD0ABFEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [17])
+E6B5F38.pygtex) [18]
 Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
@@ -1747,7 +1742,7 @@ See the caption package documentation for explanation.
 
 
 (build/_minted-Thesis/CB6E802F8A02CD3CE0AAD204B24784DCEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [18])
+E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
@@ -1757,11 +1752,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 458.
 See the caption package documentation for explanation.
 
+[19]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/22A92760E68CB392E8BF76D7AF3979F7EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [19])
+E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 487--488
 
  []
@@ -1775,7 +1771,7 @@ See the caption package documentation for explanation.
 
 
 (build/_minted-Thesis/2D523BEF845CE1B055375C75C317A0A5EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)) (Subsections/InheritedWidgetsImplementation.tex [20]
+E6B5F38.pygtex [20])) (Subsections/InheritedWidgetsImplementation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
@@ -1790,12 +1786,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--23
  []
 
 [21]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 34.
+See the caption package documentation for explanation.
+
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/EFBAE23F660FB19AFD14793FA8F9D6FBEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 44.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
 
@@ -1804,57 +1811,152 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
 (build/_minted-Thesis/EA25BE442FC96BA457BFC1DAED5B0DB3EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex [22])
-Underfull \hbox (badness 10000) in paragraph at lines 62--65
+Underfull \hbox (badness 10000) in paragraph at lines 67--70
 
  []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 71.
+See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/AF2474B2B3C149C2E41C3241640081BEEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-\openout4 = `Thesis.pyg'.
+E6B5F38.pygtex) [23]
 
-
-(build/_minted-Thesis/D753C2716B2E32980A02B3E0D806EA63EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [23])
-Underfull \hbox (badness 10000) in paragraph at lines 103--106
-
- []
-
-\openout4 = `Thesis.pyg'.
-
-
-(build/_minted-Thesis/2D3071203268B5976F19F3972B1CD3E3EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
-
- []
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 85.
+See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/FD21C2A5404BC01BD8DCFCFA3D5BD798EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 98.
+See the caption package documentation for explanation.
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/D753C2716B2E32980A02B3E0D806EA63EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 125--128
 
  []
+
+[24]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 129.
+See the caption package documentation for explanation.
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/2D3071203268B5976F19F3972B1CD3E3EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 146--148
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 150.
+See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/DBA59F08026B7B5F6FF65D546127EA5AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [24])
-Underfull \hbox (badness 10000) in paragraph at lines 151--153
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 164--168
 
  []
+
+[25]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 170.
+See the caption package documentation for explanation.
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/568CF2F89556D614A2B773E6FEEA9E54EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 179--181
+Underfull \hbox (badness 10000) in paragraph at lines 197--202
+
+ []
+
+[26]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 204.
+See the caption package documentation for explanation.
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/32E4CDE8A5352829DDC4884084B8613AEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [27]
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 237.
+See the caption package documentation for explanation.
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/D4C706E6E4F38ACE65F37BBE89F451E3EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 254.
+See the caption package documentation for explanation.
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/BC7DB30C8154D5EF2D80F4E744770FCAEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [28])
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 264.
+See the caption package documentation for explanation.
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/3E43EEC95F222DB66B616225444406ABEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 279--281
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 283.
+See the caption package documentation for explanation.
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/3CB2C6B7DF2FB0EA245B9DD4EFD8C774EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 294--298
 
  []
 
@@ -1862,45 +1964,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 179--181
 
 
 (build/_minted-Thesis/39BA3F9BFE8D899F04BFAD186355F717EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [25])
-Underfull \hbox (badness 10000) in paragraph at lines 213--216
-
- []
-
-\openout4 = `Thesis.pyg'.
-
-
-(build/_minted-Thesis/32E4CDE8A5352829DDC4884084B8613AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [26])
-Underfull \hbox (badness 10000) in paragraph at lines 243--246
-
- []
-
-\openout4 = `Thesis.pyg'.
-
-
-(build/_minted-Thesis/D4C706E6E4F38ACE65F37BBE89F451E3EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-
- []
-
-[27]
-\openout4 = `Thesis.pyg'.
-
-
-(build/_minted-Thesis/D56DC5DF03D6E9BA62873CE1F1CABCA8EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 279--281
-
- []
-
-\openout4 = `Thesis.pyg'.
-
-
-(build/_minted-Thesis/3CB2C6B7DF2FB0EA245B9DD4EFD8C774EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 289--291
+E6B5F38.pygtex [29])
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
 
  []
 
@@ -1908,8 +1973,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
 
 (build/_minted-Thesis/32C87FB3CC34A3CF03D9E2737F778467EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [28])
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
+E6B5F38.pygtex [30])
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
@@ -1918,17 +1983,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 317--318
 
 (build/_minted-Thesis/E021129F4E4773D2DEB4A9FF638D52F5EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 333--335
+Underfull \hbox (badness 10000) in paragraph at lines 374--376
 
  []
 
-[29]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/EAE2FEAD87E8F3BA7C65E714E6BE4762EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+E6B5F38.pygtex [31])
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 
  []
 
@@ -1936,63 +2000,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
 
 (build/_minted-Thesis/622AC98EFF6E6A739F2DEDD9AA36251EEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [30])
-<Images/shot_runtime_todoapp.png, id=384, 375.65344pt x 253.69781pt>
+E6B5F38.pygtex) [32]
+<Images/shot_runtime_todoapp.png, id=412, 375.65344pt x 253.69781pt>
 File: Images/shot_runtime_todoapp.png Graphic file (type png)
 <use Images/shot_runtime_todoapp.png>
-Package pdftex.def Info: Images/shot_runtime_todoapp.png  used on input line 39
-0.
+Package pdftex.def Info: Images/shot_runtime_todoapp.png  used on input line 43
+1.
 (pdftex.def)             Requested size: 225.3938pt x 152.21985pt.
-<Images/tree_structure_on_HomePage_todos.png, id=386, 319.94531pt x 410.2828pt>
+<Images/tree_structure_on_HomePage_todos.png, id=414, 319.94531pt x 410.2828pt>
 
 File: Images/tree_structure_on_HomePage_todos.png Graphic file (type png)
 <use Images/tree_structure_on_HomePage_todos.png>
 Package pdftex.def Info: Images/tree_structure_on_HomePage_todos.png  used on i
-nput line 394.
+nput line 435.
 (pdftex.def)             Requested size: 191.96866pt x 246.17157pt.
 
 
-LaTeX Warning: Reference `fig:todosTabUI' on page 31 undefined on input line 39
-8.
+LaTeX Warning: Reference `fig:todosTabUI' on page 33 undefined on input line 43
+9.
 
 
-LaTeX Warning: Reference `fig:todosTabTree' on page 31 undefined on input line 
-398.
+LaTeX Warning: Reference `fig:todosTabTree' on page 33 undefined on input line 
+439.
 
-<Images/shot_runtime_todoapp_stats.png, id=387, 374.14781pt x 255.95625pt>
+<Images/shot_runtime_todoapp_stats.png, id=415, 374.14781pt x 255.95625pt>
 File: Images/shot_runtime_todoapp_stats.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_stats.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_stats.png  used on input l
-ine 403.
+ine 444.
 (pdftex.def)             Requested size: 224.4904pt x 153.57492pt.
-<Images/tree_structure_on_HomePage_stats.png, id=388, 258.9675pt x 234.1247pt>
+<Images/tree_structure_on_HomePage_stats.png, id=416, 258.9675pt x 234.1247pt>
 File: Images/tree_structure_on_HomePage_stats.png Graphic file (type png)
 <use Images/tree_structure_on_HomePage_stats.png>
 Package pdftex.def Info: Images/tree_structure_on_HomePage_stats.png  used on i
-nput line 407.
+nput line 448.
 (pdftex.def)             Requested size: 155.38168pt x 140.47589pt.
 
-LaTeX Warning: Reference `fig:todosTabUI' on page 31 undefined on input line 41
-1.
+LaTeX Warning: Reference `fig:todosTabUI' on page 33 undefined on input line 45
+2.
 
 
-LaTeX Warning: Reference `fig:todosTabTree' on page 31 undefined on input line 
-411.
+LaTeX Warning: Reference `fig:todosTabTree' on page 33 undefined on input line 
+452.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--416
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 411--416
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
 
  []
 
-[31 <./Images/shot_runtime_todoapp.png> <./Images/tree_structure_on_HomePage_to
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+
+ []
+
+[33 <./Images/shot_runtime_todoapp.png> <./Images/tree_structure_on_HomePage_to
 dos.png> <./Images/shot_runtime_todoapp_stats.png> <./Images/tree_structure_on_
 HomePage_stats.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 423--427
+Underfull \hbox (badness 10000) in paragraph at lines 464--468
 
  []
 
@@ -2001,28 +2065,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 423--427
 
 (build/_minted-Thesis/56B57323B3D5329C7456554407888C08EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 451--455
+Underfull \hbox (badness 10000) in paragraph at lines 492--496
 
  []
 
-[32]
+[34]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/9B343B4523613A7F321A5F231EDA6969EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
 
-LaTeX Warning: Reference `fig:addTodoPage' on page 33 undefined on input line 4
-78.
+LaTeX Warning: Reference `fig:addTodoPage' on page 35 undefined on input line 5
+19.
 
-<Images/tree_structure_on_AddTodoPage.png, id=410, 276.28218pt x 311.66437pt>
+<Images/tree_structure_on_AddTodoPage.png, id=438, 276.28218pt x 311.66437pt>
 File: Images/tree_structure_on_AddTodoPage.png Graphic file (type png)
 <use Images/tree_structure_on_AddTodoPage.png>
 Package pdftex.def Info: Images/tree_structure_on_AddTodoPage.png  used on inpu
-t line 482.
+t line 523.
 (pdftex.def)             Requested size: 273.14923pt x 308.13017pt.
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 488--490
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 529--531
 
  []
 
@@ -2031,7 +2095,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 488--490
 
 (build/_minted-Thesis/E0C5C47AD8C172873EA84996C9F89892EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 497--499
+Underfull \hbox (badness 10000) in paragraph at lines 538--540
 
  []
 
@@ -2039,8 +2103,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 497--499
 
 
 (build/_minted-Thesis/9BB93106477D46E1B96AD6ABE890705CEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [34 <./Images/tree_structure_on_AddTodoPage.png>])
-Underfull \hbox (badness 10000) in paragraph at lines 509--511
+E6B5F38.pygtex [36 <./Images/tree_structure_on_AddTodoPage.png>])
+Underfull \hbox (badness 10000) in paragraph at lines 550--552
 
  []
 
@@ -2049,7 +2113,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 509--511
 
 (build/_minted-Thesis/897935FACB93E1111B56E982B1F4E5D5EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 524--526
+Underfull \hbox (badness 10000) in paragraph at lines 565--567
 
  []
 
@@ -2058,17 +2122,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 524--526
 
 (build/_minted-Thesis/6000E0F8D3AB351134FDC9EF3886A819EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 536--542
+Underfull \hbox (badness 10000) in paragraph at lines 577--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--542
+Underfull \hbox (badness 10000) in paragraph at lines 577--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 587--588
 
  []
 
@@ -2076,8 +2140,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 546--547
 
 
 (build/_minted-Thesis/E9617FCAAC96450E78D6DE890A070478EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [35])
-Underfull \hbox (badness 10000) in paragraph at lines 572--575
+E6B5F38.pygtex [37])
+Underfull \hbox (badness 10000) in paragraph at lines 613--616
 
  []
 
@@ -2085,8 +2149,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 572--575
 
 
 (build/_minted-Thesis/B03FCD44CBA232FEB85E5A59A8FB3F18EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [36])
-Underfull \hbox (badness 10000) in paragraph at lines 601--602
+E6B5F38.pygtex [38])
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
 
  []
 
@@ -2095,7 +2159,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 601--602
 
 (build/_minted-Thesis/A2A4078D8F97CFE22CFFE34BF6EBA9C6EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 612--614
+Underfull \hbox (badness 10000) in paragraph at lines 653--655
 
  []
 
@@ -2104,7 +2168,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 612--614
 
 (build/_minted-Thesis/A1A0113E6A3C16673555C4CBD5AC1418EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 626--628
+Underfull \hbox (badness 10000) in paragraph at lines 667--669
 
  []
 
@@ -2113,7 +2177,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 626--628
 
 (build/_minted-Thesis/C94BB6070C73AC8E2207529D3BF3AA6EEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 641--643
+Underfull \hbox (badness 10000) in paragraph at lines 682--684
 
  []
 
@@ -2121,8 +2185,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 641--643
 
 
 (build/_minted-Thesis/9A596FBCD2712C0A675A465A159E484DEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [37])
-Underfull \hbox (badness 10000) in paragraph at lines 659--661
+E6B5F38.pygtex [39])
+Underfull \hbox (badness 10000) in paragraph at lines 700--702
 
  []
 
@@ -2131,27 +2195,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 659--661
 
 (build/_minted-Thesis/7D63A329BF64DCCB5AE1A95FA470115FEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 672--678
+Underfull \hbox (badness 10000) in paragraph at lines 713--719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 672--678
+Underfull \hbox (badness 10000) in paragraph at lines 713--719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 679--685
+Underfull \hbox (badness 10000) in paragraph at lines 720--726
 
  []
 
-[38]
+[40]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/484052F43F7CFF9424AE13E075CEAA9DEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 692--694
+Underfull \hbox (badness 10000) in paragraph at lines 733--735
 
  []
 
@@ -2160,7 +2224,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 692--694
 
 (build/_minted-Thesis/0B092370EC317054EBC01E50A0435ACBEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 701--704
+Underfull \hbox (badness 10000) in paragraph at lines 742--745
 
  []
 
@@ -2169,7 +2233,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 701--704
 
 (build/_minted-Thesis/F56713B67863D23450823E002C651BC8EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 716--718
+Underfull \hbox (badness 10000) in paragraph at lines 757--759
 
  []
 
@@ -2178,38 +2242,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 716--718
 
 (build/_minted-Thesis/25D3E8EAB4F7446BC4CCD76A6A91D3B8EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 725--729
+Underfull \hbox (badness 10000) in paragraph at lines 766--770
 
  []
 
-[39]
+[41]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/7829E0B8E74D9FC7FAF0012EA8FF5A70EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [40])
+E6B5F38.pygtex [42])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/19B3741A5163A504AD85D4ED08CD7A84EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [41]
+E6B5F38.pygtex) [43]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/816E46274BDCEC8AE4A30FABF10CEFC0EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 798--804
+Underfull \hbox (badness 10000) in paragraph at lines 839--845
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 798--804
+Underfull \hbox (badness 10000) in paragraph at lines 839--845
 
  []
 
-))) [42]
+))) [44]
 Chapter 3.
-[43
+[45
 
 
 ]
@@ -2229,11 +2293,11 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 210.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [44
+ [46
 
 ]
 Chapter 4.
-[45
+[47
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2252,12 +2316,12 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 213.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [46
+ [48
 
 ]
 Chapter 5.
 No file Thesis.bbl.
-[47
+[49
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2276,11 +2340,11 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 227.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [48
+ [50
 
 ]
 Appendix A.
-[49
+[51
 
 
 ]
@@ -2300,11 +2364,11 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 235.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [50
+ [52
 
 ]
 Appendix B.
-[51
+[53
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2323,7 +2387,7 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 240.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [52
+ [54
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
@@ -2331,7 +2395,7 @@ nt\build\Thesis.lof)
 \tf@lof=\write8
 \openout8 = `Thesis.lof'.
 
- [53
+ [55
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2350,7 +2414,7 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 243.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [54
+ [56
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
@@ -2358,7 +2422,7 @@ nt\build\Thesis.lot)
 \tf@lot=\write9
 \openout9 = `Thesis.lot'.
 
- [55
+ [57
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2377,15 +2441,21 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 246.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [56
+ [58
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
-nt\build\Thesis.lol)
+nt\build\Thesis.lol
+Underfull \hbox (badness 1122) in paragraph at lines 27--27
+ [][] [][][]\T1/cmr/m/n/12 Todo app - In-herit-ed-Wid-get -onChangeFilter func-
+tion in-jec-tion into 
+ []
+
+)
 \tf@lol=\write10
 \openout10 = `Thesis.lol'.
 
- [57
+ [59
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2404,9 +2474,9 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 248.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [58
+ [60
 
-] [59
+] [61
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2425,7 +2495,7 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 251.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [60
+ [62
 
 ]
 
@@ -2442,19 +2512,16 @@ nt\build\Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: DFAC9A9A95CE198BC2E98E6E4ACCC719;4338.
+(rerunfilecheck)             Checksum: 91B8D990F7AD9F9DCCAF02819DDDC097;4338.
 runsystem(del build\\Thesis.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 35012 strings out of 478681
- 707381 string characters out of 2845587
- 1066088 words of memory out of 3000000
- 52121 multiletter control sequences out of 15000+600000
+ 35044 strings out of 478681
+ 708854 string characters out of 2845587
+ 1070568 words of memory out of 3000000
+ 52132 multiletter control sequences out of 15000+600000
  421950 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,90p,2191b,661s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2475,9 +2542,9 @@ ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
 appen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/lj
 four/jknappen/ec/dpi1244\ecbx1200.pk>
 Output written on "C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementT
-hesis\LaTex document\build\Thesis.pdf" (68 pages, 493741 bytes).
+hesis\LaTex document\build\Thesis.pdf" (70 pages, 506241 bytes).
 PDF statistics:
- 1074 PDF objects out of 1200 (max. 8388607)
- 147 named destinations out of 1000 (max. 500000)
+ 1124 PDF objects out of 1200 (max. 8388607)
+ 165 named destinations out of 1000 (max. 500000)
  307 words of extra memory for PDF output out of 10000 (max. 10000000)
 

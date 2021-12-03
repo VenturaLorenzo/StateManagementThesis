@@ -10,10 +10,10 @@ In order to make comparisons even more fair , the code about the application's c
 		
 		
 		
-		\paragraph{The application's Root} \mbox{} \\
-		\label{par:todo_app_root}
+\paragraph{The application's Root} \mbox{} \\
+		\label{par:todo_app_application_root}
 The root widget of the application is called MyApp.
-It is a stateful widget composed by a MaterialApp. Inside the MaterialApp three routes are defined. The HomePage , the UpdateTodoPage and the AddTodoPage. The \textit{inizialRoute} is set to the HomePage as deafult. Inside the \textit{main} function the MyApp widget is passed to the \textit{runApp} method to start the application.
+It is a stateful widget composed by a MaterialApp. Inside the MaterialApp, three routes are defined : the HomePage , the UpdateTodoPage and the AddTodoPage. The \textit{inizialRoute} is set to the HomePage as deafult. Inside the \textit{main} function the MyApp widget is passed to the \textit{runApp} method at the application's start.
 		
 		\mbox{}\\
 		\captionof{listing}{Todo app - MaterialApp and main function definition} \mbox{}
@@ -49,8 +49,8 @@ class _MyAppState extends State<MyApp> {
 	
 	\end{minted}
 	\paragraph{Models and Repository} \mbox{} \\
-	\label{par:models_and_repository_todo_app}
-Source code \ref{code:tab_state_model_definition} presents the model of the HomePage's tab. Possible tabs are only two : \textit{todos} and \textit{stats}. In the \textit{todos} tab todos are visualized. In the \textit{stats} tab ,instead, some numerical recap of the todos is visualized.
+	\label{par:todo_app_models_and_repository}
+HomePage's tabs are only two : \textit{todos} and \textit{stats}. In the \textit{todos} tab todos are visualized. In the \textit{stats} tab ,instead, some numerical recap of the todos is visualized. They are defined using an enumeration for simplicity.
 
 	\mbox{}\\
 	
@@ -68,7 +68,7 @@ Source code \ref{code:tab_state_model_definition} presents the model of the Home
 	
 	\mbox{}
 	
-Possible filters for the \textit{filteredTodos} list are modelled by an enumeration with three values: all, notCompleted, completed.
+Filters for the \textit{filteredTodos} list are modelled by an enumeration too. They can take three values: \textit{all, notCompleted, completed}.
 	
 	\mbox{}\\
 	
@@ -84,7 +84,7 @@ Possible filters for the \textit{filteredTodos} list are modelled by an enumerat
 	
 	\mbox{}
 	
-Is not possible to give a common implementation for the Todo model matching every solution. Todo model change in different implementations. The sharable structure of the Todo model ,however, can defined as below RIFERIMENTO. (
+It's not possible to give a common implementation of the Todo model matching every solution. Todo model ,indeed, change in different implementations. The sharable structure of the model ,however, can defined as below RIFERIMENTO. (
 	\mbox{}\\
 	
 	\captionof{listing}{Todo app - Todo model definitio} \mbox{}
@@ -127,7 +127,7 @@ Is not possible to give a common implementation for the Todo model matching ever
 	\mbox{}
 	
 	
-The TodoRepository class simulate todos's fetching from a Database. It has two static methods. Those methods are asynchronous and have a duration of 2 seconds to give the impression of a real asynchronous operation. The method \textit{loadTodos} , in particular , populate a list with six new todos ,after generating their unique ID's. Then, after 2 seconds, returns it to the caller.
+The TodoRepository class simulate todos's fetching from a Database. It has two static methods. These methods are asynchronous and have a duration of 2 seconds to give the impression of a real asynchronous operation. The method \textit{loadTodos} , in particular , populate a list with six new todos after the generation of their unique ID's. Subsequently, after 2 seconds, returns it to the caller.
 	
 	\mbox{}\\
 	
@@ -169,9 +169,9 @@ The TodoRepository class simulate todos's fetching from a Database. It has two s
 	
 	
 	\paragraph{Pages} \mbox{} \\
-	\label{par:pages_todo_app}
-Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterComponent only when the tab is set to \textit{todos}. The body can change from \textit{todos} to \textit{stats} tab using the BottomNaviagationBar TabSelecto widgetr. An empty FloatingActionButton is present for future implementation.
-	(note: some small pieces could change in different solution’s implementation. in the above example the tab changing is implemented through setState but it will not be always the case. Also the HomePage can be muted to Stateless widget in other implementations.).
+	\label{par:todo_app_pages}
+Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterComponent only when the tab is set to \textit{todos}. The body can change from \textit{todos} tab to \textit{stats} tab using the BottomNaviagationBar (the TabSelector). An empty FloatingActionButton is also present for future implementation.
+	(note: some small pieces could change in different solution’s implementation. in the above example the tab changing is implemented through setState but it will not be always the case. Also ,the HomePage, can be muted to Stateless widget in other implementations.).
 	
 	\mbox{}\\
 	
@@ -219,7 +219,7 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	\mbox{}
 	
 	
-	The UpdateTodoPage uses a Scaffold widget. The body is composed by a Column with inside two TextFields and a TextButton. The TextButton is left empty for future implementation.
+	The UpdateTodoPage uses a Scaffold widget. The body is filled with a Column with two TextFields and a TextButton inside. The TextButton is left empty for future implementation.
 	
 	\mbox{}\\
 	
@@ -279,7 +279,7 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	
 	
 	
-	The AddTodoPage uses a Scaffold widget. The body is composed by a Column with inside two TextField widgets and a TextButton widget. The TextButton is left empty for future implementation.
+	The AddTodoPage uses a Scaffold widget. The body is filled with Column with two TextField widgets and a TextButton widget inside. The TextButton is left empty for future implementation.
 	
 	\mbox{}\\
 	
@@ -339,8 +339,9 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	
 	
 	\paragraph{Components} \mbox{} \\
-	\label{par:components}
-	TodoView component uses a ListView. \textit{itemCount} and \textit{itemBuilder} fields are left empty for future implementation.
+	\label{par:todo_app_components}
+	Components are widgets created with a specific aims.
+	TodoView component take care to visualize a list of todos. Todos are accessed in different ways depending on the implementation. TodoView uses a ListView widget. \textit{itemCount} and \textit{itemBuilder} fields are left empty for future implementation.
 	
 	\mbox{}\\
 	
@@ -371,7 +372,7 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	\mbox{}
 	
 	
-	TodoItem is a stateless widget. Uses two Text widgets to display the Todo information and a Checkbox to change the Todo’s completion. It is wrapped in a InkWell widget to make is responsive to taps. Functions are empty for future implementation.
+	TodoItem is a component that take care to visualize a specific todo. TodoItem is a stateless widget. It uses two Text widgets to display the todo's information and a Checkbox to change the todo’s completion. It is wrapped in a InkWell widget to make is responsive to taps. Functions are left empty for future implementation.
 	
 	\mbox{}\\
 	
@@ -414,7 +415,7 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	\mbox{}
 	
 	
-	Tabselector uses a BottomNavigationBar with as many BottomNavigationBarItems as TabState.values (in our case two). Function fields are left empty for future implementation.
+	TabSelector component provides a way to switch from tabs. Tabselector uses a BottomNavigationBar with as many BottomNavigationBarItems as TabState.values (in our case two). Functions's fields are left empty for future implementation.
 	
 	\mbox{}\\
 	
@@ -481,7 +482,7 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	
 	\mbox{}
 	
-	Stats component is a Stateless widget composed by Text widget showing stats value.
+	Stats component takes care to visualize some numerical representation of the list of todos. Stats component is a Stateless widget composed by Text widget showing stats value.
 	
 	\mbox{}\\
 	

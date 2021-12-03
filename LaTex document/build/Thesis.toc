@@ -22,27 +22,30 @@
 \contentsline {paragraph}{The application's Root}{8}{paragraph*.14}%
 \contentsline {paragraph}{Models and Repository}{9}{paragraph*.15}%
 \contentsline {paragraph}{Pages}{12}{paragraph*.16}%
-\contentsline {paragraph}{Components}{16}{paragraph*.17}%
+\contentsline {paragraph}{Components}{17}{paragraph*.17}%
 \contentsline {subsection}{\numberline {2.2.2}Inherited widget/model and SetState implementation}{21}{subsection.2.2.2}%
 \contentsline {paragraph}{State management solution’s introduction}{21}{paragraph*.18}%
-\contentsline {paragraph}{Base App}{22}{paragraph*.19}%
+\contentsline {paragraph}{Base functionalities}{22}{paragraph*.19}%
 \contentsline {subparagraph}{Core state}{22}{subparagraph*.20}%
-\contentsline {paragraph}{Features addition}{32}{paragraph*.23}%
-\contentsline {subparagraph}{Todo addition feature}{32}{subparagraph*.24}%
-\contentsline {subparagraph}{Todo updating feature}{35}{subparagraph*.26}%
-\contentsline {subparagraph}{Render optimizations}{38}{subparagraph*.27}%
-\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{42}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{42}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{42}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{42}{subsection.2.2.6}%
-\contentsline {chapter}{\numberline {3}The Other app}{43}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Comparisons}{45}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conslusions}{47}{chapter.5}%
+\contentsline {subparagraph}{The TodoView component}{26}{subparagraph*.21}%
+\contentsline {subparagraph}{The VisibilityFilterSelector component}{26}{subparagraph*.22}%
+\contentsline {subparagraph}{The TodoItem component}{29}{subparagraph*.23}%
+\contentsline {paragraph}{Features addition}{34}{paragraph*.26}%
+\contentsline {subparagraph}{Todo addition feature}{34}{subparagraph*.27}%
+\contentsline {subparagraph}{Todo updating feature}{37}{subparagraph*.29}%
+\contentsline {subparagraph}{Render optimizations}{40}{subparagraph*.30}%
+\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{44}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{44}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{44}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{44}{subsection.2.2.6}%
+\contentsline {chapter}{\numberline {3}The Other app}{45}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Comparisons}{47}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conslusions}{49}{chapter.5}%
 \vspace {2em}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix A}{49}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix B}{51}{appendix.B}%
-\contentsline {chapter}{List of Figures}{53}{appendix*.34}%
-\contentsline {chapter}{List of Tables}{55}{appendix*.36}%
-\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{57}{appendix*.38}%
-\contentsline {chapter}{Acknowledgements}{59}{appendix*.40}%
+\contentsline {chapter}{\numberline {A}Appendix A}{51}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{53}{appendix.B}%
+\contentsline {chapter}{List of Figures}{55}{appendix*.37}%
+\contentsline {chapter}{List of Tables}{57}{appendix*.39}%
+\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{59}{appendix*.41}%
+\contentsline {chapter}{Acknowledgements}{61}{appendix*.43}%

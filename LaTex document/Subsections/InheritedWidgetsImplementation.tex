@@ -1,6 +1,6 @@
 In this section Todo app will be implemented using two standard tools Flutter’s framework provides to handle state: \textbf{InheritedWidget} (or the more advanced \textbf{InheritedModel}) and \textbf{setState}.
 
-\paragraph{State management solution’s introduction} \mbox{}\\ \label{par:inherited_widget_introduction}
+\paragraph{State management solution’s introduction} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}
 
 \textbf{setState} method notify the framework that the internal state of this object has changed.
 Whenever you change the internal state of a State object, make the change in a function that you pass to \textit{setState}.\\
@@ -24,19 +24,24 @@ An InheritedWidgets is not intended to be used as the base class for models whos
 
 \textbf{InheritedModel} widget is similar except that dependents aren't rebuilt unconditionally.
 Widgets that depend on an InheritedModel qualify their dependence with a value that indicates what "\textit{aspect}" of the model they depend on. When the model is rebuilt, dependents will also be rebuilt, but only if there was a change in the model that corresponds to the aspect they provided.
-\paragraph{Base App} \mbox{} \\
-\label{par:inherited_widget_base_app}
+\paragraph{Base functionalities} \mbox{} \\
+\label{par:todo_app_inherited_widget_base_app}
+Here stars the implementation of the base functionalities exposed in Subsection \ref{subsec:base_functionalities}.
 \subparagraph{Core state}\mbox{}\\
-\label{subpar:inherited_widget_core_state}
-To use InheritedWidgets we create a class where the state ,or part of the state, will be contained and extend it to InheritedWidget. For our purpose a single class will be enough to contain all the state information. This class will be called TodoInheritedData.
+\label{subpar:todo_app_inherited_widget_core_state}
+In order to use InheritedWidget's functionalities a new class must be defined and extended with InheritedWidget class. This new class will contain the state ,or part of it. For our purpose a single class will be enough to contain all the state. This new class is called \textit{TodoInheritedData}.
+
+\captionof{listing}{Todo app - extension to InheritedWidget} \mbox{}
 
 \begin{minted}{dart}
 class TodoInheritedData extends InheritedWidget{
 \end{minted}
 \mbox{}
 
-Data that should be accessible down the tree must be placed inside it. In our case the only data needed is : a list of Todos, a VisibilityFilter , a Int for the stats ( for conciseness it will represent the number of completed todos) and another list of Todos that will contain the todos matching the filter. Inside the constructor final variables are initialized with the corresponding arguments and \textit{stats} and \textit{filteredTodos} variables are computed. \textit{filterTodos} function is just a function that takes the full list of todos and a filter and returns the filtered list. Important to notice is the fact that a \textit{child} widget must be also passed in the constructor. This is because our TodoInheritedData is nothing else than a widget itself that wraps the data and make them accessible in the child tree.
+The accessible state is composed by: a list of Todos, a VisibilityFilter , a Int for the stats ( for conciseness it will represent the number of completed todos) and filtered list of todos that will contain the todos matching the filter. Inside the constructor, final variables are initialized with the corresponding arguments and \textit{stats} and \textit{filteredTodos} variables are computed. \textit{filterTodos} function is just a function that takes the full list of todos and a filter and returns the filtered list. Important to notice is the fact that a \textit{child} widget must be also provided in the constructor. This is because TodoInheritedData is nothing else than a widget itself that wraps data and make it accessible down the tree.
+
 \mbox{}\\
+\captionof{listing}{Todo app - TodoInherited data implementation} \mbox{}
 
 \begin{minted}{dart}
 
@@ -59,10 +64,11 @@ TodoInheritedData(
 \end{minted}
 
 
-Is important to understand that TodoInheritedData widget is stateless. It cannot be changed (every value is final) but instead a new TodoInheritedData widget must be provided when a data change occurs. 
-The \textit{updateShouldNotify }function must be overridden inside TodoInheritedData. This function help to avoid ui rebuilding when a new state without actual data changes occurs. Once a TodoInheritedData element is replaced with a new one this new element will take care to call the \textit{updateShouldNotify }function to decide whether is necessary or not to notify changes in the subtree. If the function returns \textit{true }the subtree is rebuilt, if return \textit{false} instead is not.
+TodoInheritedData widget is stateless. It cannot be changed (every value is final) ,instead , a new TodoInheritedData widget must be provided when a data change occurs. 
+The \textit{updateShouldNotify }function must be overridden inside TodoInheritedData class. This function belongs to the InheritedWidget class and its reimplementation is mandatory. It helps to avoid useless UI rebuilding when a new state ,without actual data changes , occurs. Once a TodoInheritedData element is replaced with a new one, the new element takes care to call the \textit{updateShouldNotify }method and to decide whether is necessary to notify changes in the subtree. If the method returns \textit{true }the subtree is rebuilt, if returns \textit{false} ,instead, it is not.
 \mbox{}\\
 
+\captionof{listing}{Todo app - InheritedWidget -updateShouldNotify method override} \mbox{}
 
 \begin{minted}{dart}
 
@@ -71,9 +77,25 @@ bool updateShouldNotify(TodoInheritedData oldWidget) {
   return !listEquals(oldWidget.filteredTodos, filteredTodos);
 }
 \end{minted}
-In our case the \textit{listEquals }function takes as parameters the old \textit{filteredTodos} list and the new one and compare them element by element checking if changes were made. In the particular case no changes were performed it returns \textit{true} and will lead the \textit{updateShouldNotify }function to return \textit{false} and not to rebuild the entire subtree.
-At this point our TodoInheritedData can be used it in a stateful widget.
 
+\textit{listEquals }function takes as parameters the old \textit{filteredTodos} list ,contained in the \textit{oldWidget} argument, and the new filteredTodos list and compare them element by element checking if changes occurs. In case no changes were performed it returns \textit{true} and leads the \textit{updateShouldNotify }function to return \textit{false}. In this way the entire subtree is not rebuilt.\\
+InheritedWidget class requires also the \textit{of} method override. The \textit{of }method makes the instance of the TodoInheritedData class accessible down the tree. It is a static method that can be called without istantiating any TodoInheritedData object and returns the instance of the nearest TodoInheritedData widget up in the tree. It extracts the instance from the current \textit{context} object using the method called \textit{dependOnInheritedWidgetOfExactType} provided by the framework. In case no TodoInheritedData instance is found it raises an error.
+
+
+\captionof{listing}{Todo app - InheritedWidget - TodoInheritedData of method override} \mbox{}
+\begin{minted}{dart}
+
+static TodoInheritedData? of(BuildContext context) {
+ final TodoInheritedData? result = context.dependOnInheritedWidgetOfExactType<TodoInheritedData>(); 
+assert(result != null, 'No TodoInheritedData found in context');
+return result;
+}
+\end{minted}
+
+
+TodoInheritedData widget can be now used it in a stateful widget. This new statefull widget is called \textit{TodoProvider.}
+
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider implementation} \mbox{}
 
 \begin{minted}{dart}
 
@@ -100,10 +122,11 @@ Widget build(BuildContext context) {
 }
 \end{minted}
 
-Note that the VisibilityFilter \textit{filter} is set as all by default as convention.
-We add also an \textit{init} method to fetch the data from the repository on widget’s creation.
+Note that the VisibilityFilter ,\textit{filter}, is set as \textit{all} by default.
+In the statefull widget's \textit{init} method , todos are fetched from the repository and pushed inside the \textit{todos} variable using the \textit{setState} method.
 \mbox{}\\
 
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider 's init method implementation} \mbox{}
 
 \begin{minted}{dart}
 
@@ -118,23 +141,13 @@ void initState() {
 }
 \end{minted}
 
-\textit{loadTodos }is a TodoRepository’s async function that simulate the retrieval of the todos from a database.
-We need to declare also the \textit{of} static method to retrieve our TodoInheritedData down the tree. This method just extracts the nearest TodoInheritedData element up in the tree using \textit{dependOnInheritedWidgetOfExactType} method. In case it does not find one it will cause a runtime error.
+\textit{loadTodos }is a TodoRepository’s async function that simulate the retrieval of the todos from a database as defined in the paragraph \ref{par:todo_app_models_and_repository}.
+
+At this point our TodoProvider widget can be incorporated as the parent of the Scaffold widget in the HomePage. The usage of the Builder widget is due to the fact that the instante of TodoInheritedData is accessible only in a context where a TodoProvider is already present. In other word TodoProvider’s data cannot be accessed in the same \textit{build } method where it was instantiated into. Two options are possible; creating a separated file where to put our Scaffold or use a Builder widget that takes the current context and creates another with the TodoProvider widget.
 \mbox{}\\
 
 
-\begin{minted}{dart}
-
-static TodoInheritedData? of(BuildContext context) {
- final TodoInheritedData? result = context.dependOnInheritedWidgetOfExactType<TodoInheritedData>(); 
-assert(result != null, 'No TodoInheritedData found in context');
-return result;
-}
-\end{minted}
-
-At this point our TodoProvider widget can be incorporated as a parent of the Scaffold widget in the HomePage. The usage of the Builder widget is due to the fact that data is accessible only in a context where a TodoProvider is already present. In other word TodoProvider’s data cannot be used in the same \textit{build } method where it was instantiated into. Two options are possible; creating a separated file where to put our Scaffold or use a Builder widget that takes the current context and creates another with a TodoProvider widget.
-\mbox{}\\
-
+\captionof{listing}{Todo app - InheritedWidget - data's injection in the tree} \mbox{}
 
 \begin{minted}{dart}
 
@@ -148,9 +161,13 @@ Widget build(BuildContext context) {
 }
 \end{minted}
 
-At this point the TodoView component can be populated. It is a stateless widget that will look up for the \textit{filteredTodos} list in the TodoInheritedData inside the \textit{build} method and create a ListView dynamically with it. The ListView will be composed by TodoItem widgets.
+\subparagraph{The TodoView component}\mbox{}\\
+\label{subpar:todo_app_inherited_widget_todoview_component}
+TodoView component can now be populated. Its implementation can be found in paragraph \ref{par:todo_app_components} in subsection \ref{subsec:todo_app_shared_project_structure}. It is a stateless widget that looks up for the \textit{filteredTodos} list, contained in the TodoInheritedData widget. It uses the \textit{of} method ,defined here RIFERIMENTO, to access the nearest TodoInheritedData instance. Then, it uses the list to populate the ListView widget. 
 \mbox{}\\
 
+
+\captionof{listing}{Todo app - InheritedWidget - TodoView implementation} \mbox{}
 
 \begin{minted}{dart}
 
@@ -176,7 +193,107 @@ class TodoView extends StatelessWidget {
 }
 \end{minted}
 
-TodoItem widget is stateless widget that take as paramenter a Todo and take care of displaing it with as defined in \ref{subsec:SharedStructureTodo}.
+
+\subparagraph{The VisibilityFilterSelector component}\mbox{}\\
+\label{subpar:todo_app_inherited_widget_visibilityfiltercomponent_component}
+At this point we got a single page (Homepage) that uses a TodoView widget to show the \textit{filteredTodos} list contained in the TodoInheritedData widget. When the application starts , and empty page appears (todo are empty at the beginning) and then ,after few seconds , a list of todos with their names, descriptions and completions is shown. The list of filtered todos can be visualized , but is not interactable yet. 
+In the HomePage’s AppBar, a VisibilityFilterComponent is already set up as defined RIFERIMENTO. Its DropdownButton’s \textit{value} field is set looking up for the \textit{filter} value in the TodoInheritedData widget. Then , the \textit{items} field is filled with a list of DropdownMenuItem widgets that comes from the mapping of all possible VisibilityFilter values to DropdownMenuItem widgets.
+\mbox{}\\
+
+
+\captionof{listing}{Todo app - InheritedWidget - VisibilityFilterComponent implementation} \mbox{}
+
+\begin{minted}{dart}
+class VisibilityFilterComponent extends StatelessWidget {
+
+  const VisibilityFilterComponent(
+      {Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print("Building Visibility filter");
+    VisibilityFilter filter= TodoInheritedData.of(context).filter;
+    return DropdownButton<VisibilityFilter>(
+      value: filter,
+      items: VisibilityFilter.values.map((filter) {
+        return DropdownMenuItem<VisibilityFilter>(
+            child: Text(describeEnum(filter)), value: filter);
+      }).toList(),
+      onChanged: (filter) {
+        
+      },
+    );
+  }
+}
+\end{minted}
+
+The \textit{onChanged  }field must be populated with a function that takes as single argument a VisibilityFilter value. This function is called when a DropdownMenuItem is tapped by the user. It contains ,in its argument, the tapped DropdownMenuItem's filter value.  We want this function to change the state contained in the TodoInheritedData widget (the \textit{filter} variable) when fired. In order to do so , a state changing function must be provided by the TodoInheritedData widget to be accessed ,and called, by other widgets. As we mentioned earlier, TodoInheritedData widget contains only final fields and should never be modified. It is not possible ,indeed, to directly change the values inside the TodoInheritedData widget. For this reason , just adding a new function inside the TodoInheritedData widget ,to perform the change, is not a solution. Indeed, trying to change a part of the state, inside it, will generate an error at compile time (final variable cannot be set outside constructor). A completly new TodoInheritedData widget ,indeed, should be created. The TodoInheritedData widget is created in the TodoProvider widget, when the \textit{build} method runs, using its local variables \textit{todos }and \textit{filter}. In order to generate a new TodoInheritedData widget, is sufficient to change the TodoProvider widget's local state ,using the \textit{setState} method. This will cause the \textit{build} method to run again with the new values and generate a new TodoInheritedData widget. At this point should be clear that the state changing function comes from the TodoProvider widget. This function , once called, changes the local state of the TodoProvider stateful widget generating a new state for the application.\\
+In pratice ,a new function ,called \textit{onChangeFilter}, is added inside the TodoProvider widget. This function takes a VisibilityFilter value as parameter and set the  value of TodoProvider's \textit{filter} variable using \textit{setState} method. 
+
+\mbox{}\\
+
+
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider's onChangeFilter implementation} \mbox{}
+
+\begin{minted}{dart}
+void onChangeFilter(VisibilityFilter filter) {
+  setState(() {
+    this.filter = filter;
+  });
+}
+\end{minted}
+
+Once called, being the state (the part concerning the filter) changed, another run of the \textit{build} method is performed. As a conseguence the TodoInheritedData widget ,present in the tree, is replaced with the new one.
+However, widgets access the state through the TodoInheritedWidget. For this reason,
+the \textit{onChangeFilter   }function must be provided to the TodoInheritedData to make it accessible in the subtree. A new parameter is added in the TodoInheritedData class.
+
+
+\mbox{}\\
+
+\captionof{listing}{Todo app - InheritedWidget - TodoInheritedData widget expansion}
+\begin{minted}{dart}
+class TodoInheritedData extends InheritedModel<int> {
+  {...}
+  final void Function(VisibilityFilter) onChangeFilter;
+  {...}
+\end{minted}
+
+The \textit{onChangeFilter} function is then passed to the TodoInheritedData widget on its creation.
+ 
+\captionof{listing}{Todo app - InheritedWidget -onChangeFilter function injection into TodoInheritedData widget}
+
+\begin{minted}{dart}
+@override
+Widget build(BuildContext context) {
+  return TodoInheritedData(
+    todos: todos,
+    onChangeFilter: onChangeFilter,
+    filter: filter,
+    child: widget.child,
+  );
+}
+
+\end{minted}
+ 
+Now that the \textit{onChangeFilter   }function is accessible down in the tree, it can be called in the \textit{onChange }field of the DropdownButton widget, inside the VisibilityFilterSelector component.
+\mbox{}\\
+
+
+\captionof{listing}{Todo app - InheritedWidget -  DropdownButton's onChanged field implementation}
+
+\begin{minted}{dart}
+onChanged: (filter) {
+  TodoInheritedData.of(context).onChangeFilter(filter!);
+},
+\end{minted}
+
+It is now possible to apply different filters to the list of todos in the Homepage. 
+
+
+\subparagraph{The TodoItem component}\mbox{}\\
+\label{subpar:inheritedWidget_todoitem_component}
+TodoItem widget is stateless. It that take as paramenter a Todo and takes care of displaing it as defined in \ref{subsec:todo_app_shared_project_structure}.
 \mbox{}\\
 
 
@@ -210,83 +327,7 @@ class TodoItem extends StatelessWidget {
 }
 \end{minted}
 
-At this point we got a single page (Homepage) that contains a TodoView showing \textit{filteredTodos} list’s todos contained in the TodoInheritedData inside a TodoProvider widget. When the application starts we first see and empty page (todo are empty at the beginning) and then after few seconds a list of todos with their names, descriptions and completions appears. The list of fitered todos can be visualized but is not interactable yet. 
-In the app HomePage’s AppBar we already set up a VisibilityFilterComponent that is nothing else than a stateless widget. In its \textit{build} method a DropdownButton’s value field is set up looking up for the \textit{filter} values in the TodoInheritedData. Then the \textit{items} field is filled with a list of DropdownMenuItem that comes from the mapping of all possible VisibilityFilter values to DropdownMenuItems.
-\mbox{}\\
-
-
-\begin{minted}{dart}
-class VisibilityFilterComponent extends StatelessWidget {
-
-  const VisibilityFilterComponent(
-      {Key? key})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    print("Building Visibility filter");
-    VisibilityFilter filter= TodoInheritedData.of(context).filter;
-    return DropdownButton<VisibilityFilter>(
-      value: filter,
-      items: VisibilityFilter.values.map((filter) {
-        return DropdownMenuItem<VisibilityFilter>(
-            child: Text(describeEnum(filter)), value: filter);
-      }).toList(),
-      onChanged: (filter) {
-        
-      },
-    );
-  }
-}
-\end{minted}
-
-For what concerns the \textit{onChanged  }field a function that takes as single parameter a filter value must be provided. In particular we want this function to change the state contained in the TodoInheritedData (the \textit{filter} variable) and to fire a rebuild of the TodoInheritedData subtree. As we mentioned above TodoInheritedData contains only final fields and should never be modified. Instead, a new TodoInheritedData element should be created in the TodoProvider \textit{build} method with the modified data.
-In the to TodoProvider stateful widget a function called \textit{onChangeFilter   }is added. This function takes the new \textit{filter} values as parameter and changes the value of the \textit{filter} in the stateful widget calling \textit{setState}. Doing so the \textit{build} function is called again with the new filter value and a new TodoInheritedData widget is created.
-\mbox{}\\
-
-
-\begin{minted}{dart}
-void onChangeFilter(VisibilityFilter filter) {
-  setState(() {
-    this.filter = filter;
-  });
-}
-\end{minted}
-
-The \textit{onChangeFilter   }function must be provided to the TodoInheritedData to make it accessible in the widget’s subtree. To do so a new parameter is added in the TodoInheritedData  as follow.
-
-
-\mbox{}\\
-
-
-\begin{minted}{dart}
-@override
-Widget build(BuildContext context) {
-  return TodoInheritedData(
-    todos: todos,
-    onChangeFilter: onChangeFilter,
-    filter: filter,
-    child: widget.child,
-  );
-}
-
-class TodoInheritedData extends InheritedModel<int> {
-  {...}
-  final void Function(VisibilityFilter) onChangeFilter;
-  {...}
- \end{minted}
- 
-Now that the \textit{onChangeFilter   }function is accessible down in the tree it can be called in the \textit{onChange }field we provide inside the VisibilityFilterComponent DropdownButton.
-\mbox{}\\
-
-
-\begin{minted}{dart}
-onChanged: (filter) {
-  TodoInheritedData.of(context).onChangeFilter(filter!);
-},
-\end{minted}
-
-The \textit{filteredTodos} list can now be changed applying different filters. However, the Checkbox inside every TodoItem is just showing if the particular todo is completed or pending but its \textit{onChange   }function is still empty and does nothing when tapped. When a tap on the CheckBox occurs a change in the corresponding Todo’s \textit{completed }field should be fired and a rebuild of the TodoItems performed. (for the moment we don’t care if the TodoItem only or the entire TodoView is rebuilt). To do so TodoIhneritedData should provide also a function down the tree that allow to perform this change. Going back again to the TodoProvider stateful wdiget a \textit{onSetCompleted  }function is added . This function takes as parameter the id of the Todo to be changed and the new value for the \textit{completed }field.
+However, the Checkbox inside every TodoItem is just showing if the particular todo is completed or pending but its \textit{onChange   }function is still empty and does nothing when tapped. When a tap on the CheckBox occurs a change in the corresponding Todo’s \textit{completed }field should be fired and a rebuild of the TodoItems performed. (for the moment we don’t care if the TodoItem only or the entire TodoView is rebuilt). To do so TodoIhneritedData should provide also a function down the tree that allow to perform this change. Going back again to the TodoProvider stateful wdiget a \textit{onSetCompleted  }function is added . This function takes as parameter the id of the Todo to be changed and the new value for the \textit{completed }field.
 \mbox{}\\
 
 
