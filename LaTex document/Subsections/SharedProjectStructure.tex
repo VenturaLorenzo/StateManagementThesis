@@ -1,57 +1,62 @@
-	
-	In this subsection will be presented the implementation of the shared files between different solutions. The project will have the folder structure shown in figure \ref{fig:strucutre}. Indeed some parts of the code will be shared/reused between solutions. The complete structure of the app’s UI will be the same for every implementation such as the repository used to fetch Todos. 
+In order to make comparisons even more fair , the code about the application's core and UI is shared between different solution's implementations. This subsection presents the shared code in details. Some parts of the shared code can change from one implementation to another in order to adapt to the solution. However, changes to this structure are kept minimal. And the same is for the UI. It uses the least widget and visual features possible. In the Figure \ref{fig:todo_app_shared_folder_structure} the shared folder's and file's structure is shown. Subsequent paragraphs exaplains how models, pages, components and the repository are implemented. 
+
 		
 		\begin{figure}[H]
 		    \centering
 		    \includegraphics[width=0.6\textwidth]{Images/folder_structure.png}
-		    \caption{Folders structure of the skeleton of the Todos app.}
-		    \label{fig:shared_folder_structure_todo_app}
+		    \caption{Todos app skeleton's folders structure.}
+		    \label{fig:todo_app_shared_folder_structure}
 		\end{figure}
 		
-		\paragraph{The Root} \mbox{} \\
-		\label{par:the_root_todo_app}
-		The main function will run the root widget of the application called MyApp. It is a stateful widget composed by a MaterialApp. Inside the MaterialApp three roots are defined. The HomePage , the UpdateTodoPage and the AddTodoPage. The inizialRoute is set to the HomePage. 
+		
+		
+		\paragraph{The application's Root} \mbox{} \\
+		\label{par:todo_app_root}
+The root widget of the application is called MyApp.
+It is a stateful widget composed by a MaterialApp. Inside the MaterialApp three routes are defined. The HomePage , the UpdateTodoPage and the AddTodoPage. The \textit{inizialRoute} is set to the HomePage as deafult. Inside the \textit{main} function the MyApp widget is passed to the \textit{runApp} method to start the application.
+		
 		\mbox{}\\
-		\captionof{listing}{Todo App MaterialApp definition} \mbox{}
-		\begin{minted}{dart}
-		void main() {
-		  runApp(const MyApp());
-		}
+		\captionof{listing}{Todo app - MaterialApp and main function definition} \mbox{}
+	\begin{minted}{dart}
 	
-	class MyApp extends StatefulWidget {
-	  const MyApp({Key? key}) : super(key: key);
-	
-	  @override
-	  State<MyApp> createState() => _MyAppState();
-	}
-	
-	class _MyAppState extends State<MyApp> {
-	
-	  @override
-	  Widget build(BuildContext context) {
-	    return MaterialApp(
-	      initialRoute: "/",
-	      routes: {
-	        "/": (context) => const HomePage(),
-	        "/updateTodo": (context) => UpdateTodoPage(),
-	        "/addTodo": (context) => AddTodoPage(),
-	
-	      },
-	    );
-	  }
-	}
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const HomePage(),
+        "/updateTodo": (context) => UpdateTodoPage(),
+        "/addTodo": (context) => AddTodoPage(),
+
+      },
+    );
+  }
+}
+
 	
 	\end{minted}
-	
-	\mbox{}
-	
 	\paragraph{Models and Repository} \mbox{} \\
 	\label{par:models_and_repository_todo_app}
-	First model presented is the TabState model. It models the tabs visualized in the HomePage. TabState are only two : \textit{todos} and \textit{stats}. In the \textit{todos} tab todos are visualized instead in the \textit{stats} tab some numerical recap of the todos is visualized.
+Source code \ref{code:tab_state_model_definition} presents the model of the HomePage's tab. Possible tabs are only two : \textit{todos} and \textit{stats}. In the \textit{todos} tab todos are visualized. In the \textit{stats} tab ,instead, some numerical recap of the todos is visualized.
 
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app TabState model definition} \mbox{}
+	\captionof{listing}{Todo app - TabState model definition}
+	
+	 \mbox{}
 	\begin{minted}{dart}
 	
 	enum TabState{
@@ -63,12 +68,11 @@
 	
 	\mbox{}
 	
-	
-	Possible filters for the \textit{filteredTodos} list are modelled by the VisibilityFilter enumeration.
+Possible filters for the \textit{filteredTodos} list are modelled by an enumeration with three values: all, notCompleted, completed.
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app BisibilityFilter model definition} \mbox{}
+	\captionof{listing}{Todo app - VisibilityFilter model definition} \mbox{}
 	\begin{minted}{dart}
 	
 	enum VisibilityFilter{
@@ -80,10 +84,10 @@
 	
 	\mbox{}
 	
-	For what concerns the Todo model is not possible to give a common implementation for every solution. Todo model will change in different implementations. The general strucutre of the Todo model il presented below. (It is presented here as an immutable class but in some implementation is will be change to mutable)
+Is not possible to give a common implementation for the Todo model matching every solution. Todo model change in different implementations. The sharable structure of the Todo model ,however, can defined as below RIFERIMENTO. (
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app Todo model definitio} \mbox{}
+	\captionof{listing}{Todo app - Todo model definitio} \mbox{}
 	\begin{minted}{dart}
 	
 	@immutable
@@ -123,11 +127,11 @@
 	\mbox{}
 	
 	
-	TodoRepository models a repository that simulate the todos fetching from a Database. It has two static functions. Those functions are async function with a duration of 2 seconds to give the impression of a real async operation.
+The TodoRepository class simulate todos's fetching from a Database. It has two static methods. Those methods are asynchronous and have a duration of 2 seconds to give the impression of a real asynchronous operation. The method \textit{loadTodos} , in particular , populate a list with six new todos ,after generating their unique ID's. Then, after 2 seconds, returns it to the caller.
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app TodoRepository definition} \mbox{}
+	\captionof{listing}{Todo app - TodoRepository definition} \mbox{}
 	\begin{minted}{dart}
 	
 	class TodoRepository {
@@ -166,12 +170,12 @@
 	
 	\paragraph{Pages} \mbox{} \\
 	\label{par:pages_todo_app}
-	Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterComponent only when the tab is set to \textit{todos}. The body can change from \textit{todos} to \textit{stats} tab using the BottomNaviagationBar TabSelecto widgetr. An empty FloatingActionButton is present for future implementation.
+Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterComponent only when the tab is set to \textit{todos}. The body can change from \textit{todos} to \textit{stats} tab using the BottomNaviagationBar TabSelecto widgetr. An empty FloatingActionButton is present for future implementation.
 	(note: some small pieces could change in different solution’s implementation. in the above example the tab changing is implemented through setState but it will not be always the case. Also the HomePage can be muted to Stateless widget in other implementations.).
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app HomePage definition} \mbox{}
+	\captionof{listing}{Todo app - HomePage definition} \mbox{}
 	\begin{minted}{dart}
 	class HomePage extends StatefulWidget {
 	  const HomePage({Key? key}) : super(key: key);
@@ -219,7 +223,7 @@
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app UpdatePage definition} \mbox{}
+	\captionof{listing}{Todo app - UpdatePage definition} \mbox{}
 	\begin{minted}{dart}
 	
 	class UpdateTodoPage extends StatefulWidget {
@@ -279,7 +283,7 @@
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app AddTodoPage definition} \mbox{}
+	\captionof{listing}{Todo app - AddTodoPage definition} \mbox{}
 	\begin{minted}{dart}
 	
 	class AddTodoPage extends StatefulWidget {
@@ -340,7 +344,7 @@
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app TodoView definition} \mbox{}
+	\captionof{listing}{Todo app - TodoView definition} \mbox{}
 	\begin{minted}{dart}
 	class TodoView extends StatelessWidget {
 	
@@ -371,7 +375,7 @@
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app TodoItem definition} \mbox{}
+	\captionof{listing}{Todo app - TodoItem definition} \mbox{}
 	\begin{minted}{dart}
 	class TodoItem extends StatelessWidget {
 	  final Todo todo;
@@ -414,7 +418,7 @@
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app TabSelector definition} \mbox{}
+	\captionof{listing}{Todo app - TabSelector definition} \mbox{}
 	\begin{minted}{dart}
 	class TabSelector extends StatelessWidget {
 	
@@ -450,7 +454,7 @@
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app VisibilityFilterSelector definition} \mbox{}
+	\captionof{listing}{Todo app - VisibilityFilterSelector definition} \mbox{}
 	\begin{minted}{dart}
 	class VisibilityFilterComponent extends StatelessWidget {
 	
@@ -481,7 +485,7 @@
 	
 	\mbox{}\\
 	
-	\captionof{listing}{Todo app Stats definition} \mbox{}
+	\captionof{listing}{Todo app - Stats definition} \mbox{}
 	\begin{minted}{dart}
 	class Stats extends StatelessWidget {
 	  const Stats({Key? key}) : super(key: key);

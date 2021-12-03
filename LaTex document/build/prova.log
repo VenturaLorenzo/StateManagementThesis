@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  1 DEC 2021 17:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  2 DEC 2021 19:16
 entering extended mode
 **./prova.tex
 (prova.tex
@@ -181,30 +181,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 runsystem(if not exist _minted-prova mkdir _minted-prova)...executed.
 
 
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count288
-\lst@gtempboxa=\box59
-\lst@token=\toks21
-\lst@length=\count289
-\lst@currlwidth=\dimen156
-\lst@column=\count290
-\lst@pos=\count291
-\lst@lostspace=\dimen157
-\lst@width=\dimen158
-\lst@newlines=\count292
-\lst@lineno=\count293
-\lst@maxwidth=\dimen159
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count294
-\lst@skipnumbers=\count295
-\lst@framebox=\box60
-)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2020/03/24 1.8d listings configuration
-))
-Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cf
@@ -236,79 +213,93 @@ runsystem(del prova.aex)...executed.
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count296
-\l__pdf_internal_box=\box61
+\l__color_backend_stack_int=\count288
+\l__pdf_internal_box=\box59
 )
-No file prova.aux.
+(C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
+nt\build\prova.aux)
 \openout1 = `prova.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-)
-\c@lstlisting=\count297
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count298
-\scratchdimen=\dimen160
-\scratchbox=\box62
-\nofMPsegments=\count299
-\nofMParguments=\count300
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count301
-\MPscratchDim=\dimen161
-\MPnumerator=\count302
-\makeMPintoPDFobject=\count303
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count289
+\scratchdimen=\dimen156
+\scratchbox=\box60
+\nofMPsegments=\count290
+\nofMParguments=\count291
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count292
+\MPscratchDim=\dimen157
+\MPnumerator=\count293
+\makeMPintoPDFobject=\count294
+\everyMPtoPDFconversion=\toks22
 )
-No file prova.lol.
-\tf@lol=\write5
-\openout5 = `prova.lol'.
+\openout3 = `prova.pyg'.
 
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-2.
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
+runsystem(pygmentize -S default -f latex -P commandprefix=PYG > _minted-prova\d
+efault-pyg-prefix.pygstyle)...executed.
 
-[1
+ (_minted-prova/default-pyg-prefix.pygstyle)
+runsystem(pygmentize -S default -f latex -P commandprefix=PYGdefault > _minted-
+prova\default.pygstyle)...executed.
 
-{C:/Users/Lorenzo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+ (_minted-prova/default.pygstyle)
+runsystem(pygmentize -l dart -f latex -P commandprefix=PYG -F tokenmerge -o _mi
+nted-prova/3FB35F5E935AD63395A35BAC156C47720799164356A636103B54800BB381DD8B.pyg
+tex prova.pyg)...executed.
+
+
+
+! Package minted Error: Missing Pygments output; \inputminted was
+probably given a file that does not exist--otherwise, you may need 
+the outputdir package option, or may be using an incompatible build tool,
+or may be using frozencache with a missing file.
+
+See the minted package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 \end{minted}
+                
+This could be caused by using -output-directory or -aux-directory 
+without setting minted's outputdir, or by using a build tool that 
+changes paths in ways minted cannot detect, 
+or using frozencache with a missing file.
+
+
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
-nt\build\prova.aux) ) 
+nt\build\prova.aux)
+runsystem(del prova.pyg)...executed.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6777 strings out of 478681
- 123070 string characters out of 2845587
- 460864 words of memory out of 3000000
- 24832 multiletter control sequences out of 15000+600000
- 404035 words of font info for 29 fonts, out of 8000000 for 9000
+ 5321 strings out of 478681
+ 103799 string characters out of 2845587
+ 436421 words of memory out of 3000000
+ 23386 multiletter control sequences out of 15000+600000
+ 403430 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,5n,77p,275b,1254s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/Lorenzo/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lorenzo/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lorenzo/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementT
-hesis\LaTex document\build\prova.pdf" (1 page, 34165 bytes).
+ 74i,1n,77p,270b,153s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+No pages of output.
 PDF statistics:
- 21 PDF objects out of 1000 (max. 8388607)
+ 0 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
