@@ -1,5 +1,5 @@
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kd}{class} \PYG{n+nc}{TodoInheritedData} \PYG{k+kd}{extends} \PYG{n}{InheritedModel}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+\PYG{k+kd}{class} \PYG{n+nc}{TodoInheritedData} \PYG{k+kd}{extends} \PYG{n}{InheritedWidget} \PYG{p}{\PYGZob{}}
   \PYG{p}{\PYGZob{}...\PYGZcb{}}
   \PYG{k+kd}{final} \PYG{k+kt}{void} \PYG{k+kt}{Function}\PYG{p}{(}\PYG{n}{VisibilityFilter}\PYG{p}{)} \PYG{n}{onChangeFilter}\PYG{p}{;}
   \PYG{p}{\PYGZob{}...\PYGZcb{}}

@@ -489,15 +489,16 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	\captionof{listing}{Todo app - Stats definition} \mbox{}
 	\begin{minted}{dart}
 	class Stats extends StatelessWidget {
-	  const Stats({Key? key}) : super(key: key);
-	
-	  @override
-	  Widget build(BuildContext context) {
-	    print("Building Stats");
-	
-	    return Text();
-	  }
-	}
+  const Stats({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print("Building Stats");
+
+    return Center(
+        child: Text());
+  }
+}
 	\end{minted}
 	
 	\mbox{}

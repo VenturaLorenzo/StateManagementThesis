@@ -26,6 +26,9 @@
 \contentsline {listing}{\numberline {2.24}{\ignorespaces Todo app - InheritedWidget - TodoInheritedData widget expansion\relax }}{28}{listing.2.24}%
 \contentsline {listing}{\numberline {2.25}{\ignorespaces Todo app - InheritedWidget -onChangeFilter function injection into TodoInheritedData widget\relax }}{29}{listing.2.25}%
 \contentsline {listing}{\numberline {2.26}{\ignorespaces Todo app - InheritedWidget - DropdownButton's onChanged field implementation\relax }}{29}{listing.2.26}%
+\contentsline {listing}{\numberline {2.27}{\ignorespaces Todo app - InheritedWidget - TodoProvider widget \textit {onSetCompleted} function implementation\relax }}{30}{listing.2.27}%
+\contentsline {listing}{\numberline {2.28}{\ignorespaces Todo app - InheritedWidget - TodoItem's Checkbox \textit {onChanged} field implementation\relax }}{30}{listing.2.28}%
+\contentsline {listing}{\numberline {2.29}{\ignorespaces Todo app - InheritedWidget - Stats component implementation\relax }}{31}{listing.2.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

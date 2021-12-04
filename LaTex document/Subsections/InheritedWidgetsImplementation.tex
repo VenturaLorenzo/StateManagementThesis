@@ -196,7 +196,7 @@ class TodoView extends StatelessWidget {
 
 \subparagraph{The VisibilityFilterSelector component}\mbox{}\\
 \label{subpar:todo_app_inherited_widget_visibilityfiltercomponent_component}
-At this point we got a single page (Homepage) that uses a TodoView widget to show the \textit{filteredTodos} list contained in the TodoInheritedData widget. When the application starts , and empty page appears (todo are empty at the beginning) and then ,after few seconds , a list of todos with their names, descriptions and completions is shown. The list of filtered todos can be visualized , but is not interactable yet. 
+At this point we got a single page (Homepage) that uses a TodoView widget to show the \textit{filteredTodos} list contained in the TodoInheritedData widget. When the application starts , and empty page appears (todo are empty at the beginning) and then ,after few seconds , a list of todos, with their names, descriptions and completions, is shown. The list of filtered todos can be visualized , but is not interactable yet. 
 In the HomePage’s AppBar, a VisibilityFilterComponent is already set up as defined RIFERIMENTO. Its DropdownButton’s \textit{value} field is set looking up for the \textit{filter} value in the TodoInheritedData widget. Then , the \textit{items} field is filled with a list of DropdownMenuItem widgets that comes from the mapping of all possible VisibilityFilter values to DropdownMenuItem widgets.
 \mbox{}\\
 
@@ -228,7 +228,7 @@ class VisibilityFilterComponent extends StatelessWidget {
 }
 \end{minted}
 
-The \textit{onChanged  }field must be populated with a function that takes as single argument a VisibilityFilter value. This function is called when a DropdownMenuItem is tapped by the user. It contains ,in its argument, the tapped DropdownMenuItem's filter value.  We want this function to change the state contained in the TodoInheritedData widget (the \textit{filter} variable) when fired. In order to do so , a state changing function must be provided by the TodoInheritedData widget to be accessed ,and called, by other widgets. As we mentioned earlier, TodoInheritedData widget contains only final fields and should never be modified. It is not possible ,indeed, to directly change the values inside the TodoInheritedData widget. For this reason , just adding a new function inside the TodoInheritedData widget ,to perform the change, is not a solution. Indeed, trying to change a part of the state, inside it, will generate an error at compile time (final variable cannot be set outside constructor). A completly new TodoInheritedData widget ,indeed, should be created. The TodoInheritedData widget is created in the TodoProvider widget, when the \textit{build} method runs, using its local variables \textit{todos }and \textit{filter}. In order to generate a new TodoInheritedData widget, is sufficient to change the TodoProvider widget's local state ,using the \textit{setState} method. This will cause the \textit{build} method to run again with the new values and generate a new TodoInheritedData widget. At this point should be clear that the state changing function comes from the TodoProvider widget. This function , once called, changes the local state of the TodoProvider stateful widget generating a new state for the application.\\
+The \textit{onChanged  }field must be populated with a function that takes as single argument a VisibilityFilter value. This function is called when a DropdownMenuItem is tapped by the user. It contains ,in its argument, the tapped DropdownMenuItem's filter value.  We want this function to change the state contained in the TodoInheritedData widget (the \textit{filter} variable) when fired. In order to do so , a state changing function must be provided by the TodoInheritedData widget to be accessed ,and called, by other widgets. As we mentioned earlier, TodoInheritedData widget contains only final fields and should never be modified. It is not possible ,indeed, to directly change the values inside the TodoInheritedData widget. For this reason , just adding a new function inside the TodoInheritedData widget ,to perform the change, is not a solution. Indeed, trying to change a part of the state, inside this ipotetic function, will generate an error at compile time (final variable cannot be set outside constructor). A completly new TodoInheritedData widget ,indeed, should be created. The TodoInheritedData widget is created in the TodoProvider widget, when the \textit{build} method runs, using its local variables \textit{todos }and \textit{filter}. In order to generate a new TodoInheritedData widget, is sufficient to change the TodoProvider widget's local state ,using the \textit{setState} method. This will cause the \textit{build} method to run again with the new values and generate a new TodoInheritedData widget. At this point should be clear that the state changing function comes from the TodoProvider widget. This function , once called, changes the local state of the TodoProvider stateful widget generating a new state for the application.\\
 In pratice ,a new function ,called \textit{onChangeFilter}, is added inside the TodoProvider widget. This function takes a VisibilityFilter value as parameter and set the  value of TodoProvider's \textit{filter} variable using \textit{setState} method. 
 
 \mbox{}\\
@@ -245,15 +245,15 @@ void onChangeFilter(VisibilityFilter filter) {
 \end{minted}
 
 Once called, being the state (the part concerning the filter) changed, another run of the \textit{build} method is performed. As a conseguence the TodoInheritedData widget ,present in the tree, is replaced with the new one.
-However, widgets access the state through the TodoInheritedWidget. For this reason,
-the \textit{onChangeFilter   }function must be provided to the TodoInheritedData to make it accessible in the subtree. A new parameter is added in the TodoInheritedData class.
+However, widgets access the state through the TodoInheritedData widget and not through the TodoProvider widget. For this reason,
+the \textit{onChangeFilter   }function must be provided to the TodoInheritedData to make it accessible in the subtree. A new parameter is added in the TodoInheritedData class, tough.
 
 
 \mbox{}\\
 
 \captionof{listing}{Todo app - InheritedWidget - TodoInheritedData widget expansion}
 \begin{minted}{dart}
-class TodoInheritedData extends InheritedModel<int> {
+class TodoInheritedData extends InheritedWidget {
   {...}
   final void Function(VisibilityFilter) onChangeFilter;
   {...}
@@ -292,44 +292,12 @@ It is now possible to apply different filters to the list of todos in the Homepa
 
 
 \subparagraph{The TodoItem component}\mbox{}\\
-\label{subpar:inheritedWidget_todoitem_component}
-TodoItem widget is stateless. It that take as paramenter a Todo and takes care of displaing it as defined in \ref{subsec:todo_app_shared_project_structure}.
+\label{subpar:todo_app_inherited_widget_todoitem_component}
+TodoItem widget is stateless for the moment. It that take as paramenter a Todo and takes care of displaing it as defined in \ref{subsec:todo_app_shared_project_structure}. TodoItem does not really access the state to read values. The todo to be displayed is ,indeed, passed by the parent widget (the TodoView). However, the TodoItem widget needs to "write" the state, once the checkbox is tapped. For the moment the Checkbox widget ,inside every TodoItem, is just showing their  todo's completion but its \textit{onChange   }function is still empty and does nothing when tapped. When the CheckBox is tapped a change in the corresponding Todo’s \textit{completed }field should be fired and a rebuild of the TodoItems performed. In order to do so, TodoIhneritedData should provide a state changing function, down the tree, that allow to perform this change. The process to be performed and the reasoning is the same exposed in the previous paragraph: paragraph \ref{subpar:todo_app_inherited_widget_visibilityfiltercomponent_component} . Going back again to the TodoProvider stateful widget a function ,called \textit{onSetCompleted  }, is added . This function takes as parameter the id of the todo to be changed and the new value for the \textit{completed }field.
 \mbox{}\\
 
 
-\begin{minted}{dart}
-
-class TodoItem extends StatelessWidget {
-  final Todo todo;
-
-  const TodoItem({Key? key, required this.id}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-        children: [
-          Column(
-            children: [
-              Text(todo.name,
-                  style: const TextStyle(fontSize: 14, color: Colors.black)),
-              Text(todo.description,
-                  style: const TextStyle(fontSize: 10, color: Colors.grey)),
-            ],
-          ),
-          Checkbox(
-              value: todo.completed,
-              onChanged: (value) {
-              }),
-        ],
-      ),
-    );
-  }
-}
-\end{minted}
-
-However, the Checkbox inside every TodoItem is just showing if the particular todo is completed or pending but its \textit{onChange   }function is still empty and does nothing when tapped. When a tap on the CheckBox occurs a change in the corresponding Todo’s \textit{completed }field should be fired and a rebuild of the TodoItems performed. (for the moment we don’t care if the TodoItem only or the entire TodoView is rebuilt). To do so TodoIhneritedData should provide also a function down the tree that allow to perform this change. Going back again to the TodoProvider stateful wdiget a \textit{onSetCompleted  }function is added . This function takes as parameter the id of the Todo to be changed and the new value for the \textit{completed }field.
-\mbox{}\\
-
+\captionof{listing}{Todo app - InheritedWidget -  TodoProvider widget \textit{onSetCompleted} function implementation}
 
 \begin{minted}{dart}
 void onSetCompleted(int id, bool completed) {
@@ -351,12 +319,37 @@ void onSetCompleted(int id, bool completed) {
 }
 \end{minted}
 
-The \textit{todos }list is scanned using a map. Once the todo with the corresponding id is found its \textit{completed }value is changed to the new value. Calling the \textit{onChangeFilter }method on the TodoProvider stateful widget will cause the \textit{build}  method to run again and to create another TodoInheritedData. All the elements of the TodoImheritedData subtree are rebuilt too.
+In the \textit{onSetCompleted }function the \textit{todos }list is scanned using a map. Once the todo with the corresponding id is found, its \textit{completed }value is modified to the new value. Calling the \textit{onChangeFilter }method on the TodoProvider stateful widget will cause the \textit{build}  method to run again and to create another TodoInheritedData. As usual , the function is passed from the TodoProvider widget to the TodoInheritedData widget on its creation. In this way the function is now accessible down the tree. It is now possible to call it inside the onChanged method of the TodoItem's Checkbox.
 
-At this point is possible to visualize the \textit{filteredTodos} list, change the filter and update Todo’s \textit{completed }field. To implement the \textit{stats} tab the Stats component must be connected to the corresponding data and  the TabSelector’s logic defined. First, the \textit{stats} value is retrieved in the Stats component widget using the \textit{of} method and visualized in the Ui.
 
 \mbox{}\\
 
+
+\captionof{listing}{Todo app - InheritedWidget -  TodoItem's Checkbox \textit{onChanged} field implementation}
+
+\begin{minted}{dart}
+Checkbox(
+value: todo.completed,
+    onChanged: (value) {
+    	TodoInheritedData.of(context).onSetCompleted(todo.id, value!);
+}),
+\end{minted}
+
+\mbox{}\\
+
+
+At this point is possible to visualize the \textit{filteredTodos} list, change the filter and update Todo’s \textit{completed }field.
+
+
+\subparagraph{The Stats component}\mbox{}\\
+\label{subpar:todo_app_inherited_widget_stats_component}
+
+Stats widget is stateless. It just needs to read the state, the part concerning the stats. The nearest instance of the TodoInheritedData widget is retrieved using the \textit{of} method and used to fill the Text widget.
+
+
+\mbox{}\\
+
+\captionof{listing}{Todo app - InheritedWidget -  Stats component implementation}
 
 \begin{minted}{dart}
 class Stats extends StatelessWidget {
@@ -366,10 +359,17 @@ class Stats extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Building Stats");
 
-    return Text(TodoInheritedData.of(context).stats.toString());
+    return Center(
+        child: Text(TodoInheritedData.of(context).stats.toString()));
   }
 }
 \end{minted}
+
+
+\subparagraph{The TabSelector component}\mbox{}\\
+\label{subpar:todo_app_inherited_widget_tabselector_component}
+The state of the tab is just one variable and is relate to the HomePage only. An important aspect of the state management is that not all the state must be mandatory contained in the tool the various solutions propose. Sometimes, indeed, for the parts of the state that can be refered as "local" ,meaning that are relative to a small part of the application only, is not necessary to use overcomplicated strucuture. Using a state management solution does not mean that every part of the state must be handled with it. It is better to keep things simple and use the tools that most adapt to the specific scenario.
+For example, there are two ways to implement the TabSelector widget: use \textit{setState} and stateful widget or use InheritedWidgets. The simpler one is to use setState as proposed RIFERIMENTO for more than one reason. First, it is a good practice to keep the global state of the application as small and clean as possible. The more it gets big and complicated the messier become to avoid bugs. Second, it is simpler , in pratice, to create a local variable and hadle it with setState and stateful widgets instead of adding it to the TodoInheritedData widget and to TodoProvider widget and then access it in the HomePage. The HomePage is already a stateful widget and is built using the \textit{tab }variable. It is sufficient to add a new function to change the tab value from \textit{todos} value to \textit{stats} value and the other way around. This new function ,called \textit{onTabChange}, takes a int value as parameter and uses the \textit{setState} method to set the \textit{tab} variabile with the corresponding TabState value. However, the function needs to be accessible in the TabSelector widget and not in the HomePage. The easiest way is to pass the function ,to the TabSelector widget ,as parameter.
 
 Then a new TabState variable is created in the HomePage called \textit{tab} and set as TabState.todos by default. A function called \textit{onTabChange} will call the \textit{setState} method modifying the tab value and causing the \textit{build} method to run again. 
 \mbox{}\\
