@@ -1,7 +1,7 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{k+kd}{class} \PYG{n+nc}{TabSelector} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
   \PYG{k+kd}{final} \PYG{n}{TabState} \PYG{n}{currTab}\PYG{p}{;}
-  \PYG{k+kd}{final} \PYG{k+kt}{Function}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{onTabChange}\PYG{p}{;}
+  \PYG{k+kd}{final} \PYG{k+kt}{Function}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{onTabChange}\PYG{p}{;} \PYG{c+c1}{// new parameter}
 
   \PYG{k}{const} \PYG{n}{TabSelector}\PYG{p}{(}
       \PYG{p}{\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{currTab}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{onTabChange}\PYG{p}{\PYGZcb{})}
@@ -13,7 +13,7 @@
 
     \PYG{k}{return} \PYG{n}{BottomNavigationBar}\PYG{p}{(}
       \PYG{n+nl}{currentIndex:} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{indexOf}\PYG{p}{(}\PYG{n}{currTab}\PYG{p}{),}
-      \PYG{n+nl}{onTap:} \PYG{n}{onTabChange}\PYG{p}{,}
+      \PYG{n+nl}{onTap:} \PYG{n}{onTabChange}\PYG{p}{,} \PYG{c+c1}{//used here}
       \PYG{n+nl}{items:} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{values}
           \PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{tab}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{BottomNavigationBarItem}\PYG{p}{(}
                 \PYG{n+nl}{label:} \PYG{n}{describeEnum}\PYG{p}{(}\PYG{n}{tab}\PYG{p}{),}

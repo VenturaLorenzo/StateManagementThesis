@@ -2,13 +2,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Todos app skeleton's folders structure.\relax }}{8}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Show the runtime Widget's tree and UI when visualizing todos tab.\relax }}{34}{figure.caption.26}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {todos tab runtime UI.}}}{34}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {todos tab runtime widget tree.}}}{34}{subfigure.2.2}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Show the runtime Widget's tree and UI when visualizing stats tab.\relax }}{34}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {stats tab runtime UI.}}}{34}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {stats tab runtime widget tree.}}}{34}{subfigure.3.2}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Show the tree structure after the FloatingActionButton in the HomePage is tapped.\relax }}{37}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Show the runtime Widget's tree and UI when visualizing todos tab.\relax }}{35}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {todos tab runtime UI.}}}{35}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {todos tab runtime widget tree.}}}{35}{subfigure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Show the runtime Widget's tree and UI when visualizing stats tab.\relax }}{35}{figure.caption.28}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {stats tab runtime UI.}}}{35}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {stats tab runtime widget tree.}}}{35}{subfigure.3.2}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Show the tree structure after the FloatingActionButton in the HomePage is tapped.\relax }}{38}{figure.caption.31}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

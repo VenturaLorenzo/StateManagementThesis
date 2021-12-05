@@ -1,6 +1,7 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{k+kd}{static} \PYG{n}{TodoInheritedData}\PYG{o}{?} \PYG{n}{of}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
- \PYG{k+kd}{final} \PYG{n}{TodoInheritedData}\PYG{o}{?} \PYG{n}{result} \PYG{o}{=} \PYG{n}{context}\PYG{p}{.}\PYG{n}{dependOnInheritedWidgetOfExactType}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoInheritedData}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+ \PYG{k+kd}{final} \PYG{n}{TodoInheritedData}\PYG{o}{?} \PYG{n}{result} \PYG{o}{=}
+  \PYG{n}{context}\PYG{p}{.}\PYG{n}{dependOnInheritedWidgetOfExactType}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoInheritedData}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
 \PYG{k}{assert}\PYG{p}{(}\PYG{n}{result} \PYG{o}{!=} \PYG{k+kc}{null}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}No TodoInheritedData found in context\PYGZsq{}}\PYG{p}{);}
 \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}

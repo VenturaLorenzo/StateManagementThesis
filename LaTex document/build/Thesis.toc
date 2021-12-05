@@ -28,18 +28,19 @@
 \contentsline {paragraph}{Base functionalities}{22}{paragraph*.19}%
 \contentsline {subparagraph}{Core state}{22}{subparagraph*.20}%
 \contentsline {subparagraph}{The TodoView component}{26}{subparagraph*.21}%
-\contentsline {subparagraph}{The VisibilityFilterSelector component}{26}{subparagraph*.22}%
-\contentsline {subparagraph}{The TodoItem component}{29}{subparagraph*.23}%
-\contentsline {subparagraph}{The Stats component}{31}{subparagraph*.24}%
-\contentsline {subparagraph}{The TabSelector component}{31}{subparagraph*.25}%
-\contentsline {paragraph}{Features addition}{35}{paragraph*.28}%
-\contentsline {subparagraph}{Todo addition feature}{35}{subparagraph*.29}%
-\contentsline {subparagraph}{Todo updating feature}{38}{subparagraph*.31}%
-\contentsline {subparagraph}{Render optimizations}{41}{subparagraph*.32}%
-\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{45}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{45}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{45}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{45}{subsection.2.2.6}%
+\contentsline {subparagraph}{The VisibilityFilterSelector component}{27}{subparagraph*.22}%
+\contentsline {subparagraph}{The TodoItem component}{30}{subparagraph*.23}%
+\contentsline {subparagraph}{The Stats component}{32}{subparagraph*.24}%
+\contentsline {subparagraph}{The TabSelector component}{32}{subparagraph*.25}%
+\contentsline {subparagraph}{Summary}{34}{subparagraph*.26}%
+\contentsline {paragraph}{Features addition}{36}{paragraph*.29}%
+\contentsline {subparagraph}{Todo addition feature}{36}{subparagraph*.30}%
+\contentsline {subparagraph}{Todo updating feature}{39}{subparagraph*.32}%
+\contentsline {subparagraph}{Render optimizations}{42}{subparagraph*.33}%
+\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{46}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{46}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{46}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{46}{subsection.2.2.6}%
 \contentsline {chapter}{\numberline {3}The Other app}{47}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Comparisons}{49}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Conslusions}{51}{chapter.5}%
@@ -47,7 +48,7 @@
 \vspace {2em}
 \contentsline {chapter}{\numberline {A}Appendix A}{53}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Appendix B}{55}{appendix.B}%
-\contentsline {chapter}{List of Figures}{57}{appendix*.39}%
-\contentsline {chapter}{List of Tables}{59}{appendix*.41}%
-\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{61}{appendix*.43}%
-\contentsline {chapter}{Acknowledgements}{63}{appendix*.45}%
+\contentsline {chapter}{List of Figures}{57}{appendix*.40}%
+\contentsline {chapter}{List of Tables}{59}{appendix*.42}%
+\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{61}{appendix*.44}%
+\contentsline {chapter}{Acknowledgements}{63}{appendix*.46}%
