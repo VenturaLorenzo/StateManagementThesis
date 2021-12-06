@@ -90,14 +90,11 @@
 %----------------------------------------------------------------------------
 
 % EXAMPLES OF NEW COMMANDS
-%\DeclareCaptionFormat{myformat}{} 
-%\captionsetup[listing]{format=myformat}
 
-%\renewcommand\listoflistingscaption{List of source codes}
-\renewcommand{\listingname}{Source code}
+%\renewcommand{\listingname}{Source code}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Source Code}
 
-%\newenvironment{code}{\captionsetup{type=source}}{}
-%\DeclareFloatingEnvironment{source}{name=Source code}
 \newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
 \newcommand{\eea}{\end{eqnarray}}
 \newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation

@@ -20,35 +20,35 @@
 \contentsline {section}{\numberline {2.2}Implementation}{7}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Shared project structure and files}{7}{subsection.2.2.1}%
 \contentsline {paragraph}{The application's Root}{8}{paragraph*.14}%
-\contentsline {paragraph}{Models and Repository}{9}{paragraph*.15}%
-\contentsline {paragraph}{Pages}{12}{paragraph*.16}%
-\contentsline {paragraph}{Components}{17}{paragraph*.17}%
+\contentsline {paragraph}{Models and Repository}{9}{paragraph*.16}%
+\contentsline {paragraph}{Pages}{12}{paragraph*.21}%
+\contentsline {paragraph}{Components}{17}{paragraph*.25}%
 \contentsline {subsection}{\numberline {2.2.2}Inherited widget/model and SetState implementation}{21}{subsection.2.2.2}%
-\contentsline {paragraph}{State management solution’s introduction}{21}{paragraph*.18}%
-\contentsline {paragraph}{Base functionalities}{22}{paragraph*.19}%
-\contentsline {subparagraph}{Core state}{22}{subparagraph*.20}%
-\contentsline {subparagraph}{The TodoView component}{26}{subparagraph*.21}%
-\contentsline {subparagraph}{The VisibilityFilterSelector component}{27}{subparagraph*.22}%
-\contentsline {subparagraph}{The TodoItem component}{30}{subparagraph*.23}%
-\contentsline {subparagraph}{The Stats component}{32}{subparagraph*.24}%
-\contentsline {subparagraph}{The TabSelector component}{32}{subparagraph*.25}%
-\contentsline {subparagraph}{Summary}{34}{subparagraph*.26}%
-\contentsline {paragraph}{Features addition}{36}{paragraph*.29}%
-\contentsline {subparagraph}{Todo addition feature}{36}{subparagraph*.30}%
-\contentsline {subparagraph}{Todo updating feature}{39}{subparagraph*.32}%
-\contentsline {subparagraph}{Render optimizations}{42}{subparagraph*.33}%
-\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{46}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{46}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{46}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{46}{subsection.2.2.6}%
-\contentsline {chapter}{\numberline {3}The Other app}{47}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Comparisons}{49}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conslusions}{51}{chapter.5}%
+\contentsline {paragraph}{State management solution’s introduction}{21}{paragraph*.31}%
+\contentsline {paragraph}{Base functionalities}{22}{paragraph*.33}%
+\contentsline {subparagraph}{Core state}{22}{subparagraph*.34}%
+\contentsline {subparagraph}{The TodoView component}{27}{subparagraph*.42}%
+\contentsline {subparagraph}{The VisibilityFilterSelector component}{28}{subparagraph*.44}%
+\contentsline {subparagraph}{The TodoItem component}{31}{subparagraph*.50}%
+\contentsline {subparagraph}{The Stats component}{33}{subparagraph*.53}%
+\contentsline {subparagraph}{The TabSelector component}{34}{subparagraph*.55}%
+\contentsline {subparagraph}{Summary}{36}{subparagraph*.58}%
+\contentsline {paragraph}{Features addition}{37}{paragraph*.61}%
+\contentsline {subparagraph}{Todo addition feature}{37}{subparagraph*.62}%
+\contentsline {subparagraph}{Todo updating feature}{42}{subparagraph*.70}%
+\contentsline {subparagraph}{Render optimizations}{46}{subparagraph*.78}%
+\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{50}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{50}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{50}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{50}{subsection.2.2.6}%
+\contentsline {chapter}{\numberline {3}The Other app}{51}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Comparisons}{53}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conslusions}{55}{chapter.5}%
 \vspace {2em}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix A}{53}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix B}{55}{appendix.B}%
-\contentsline {chapter}{List of Figures}{57}{appendix*.40}%
-\contentsline {chapter}{List of Tables}{59}{appendix*.42}%
-\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{61}{appendix*.44}%
-\contentsline {chapter}{Acknowledgements}{63}{appendix*.46}%
+\contentsline {chapter}{\numberline {A}Appendix A}{57}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{59}{appendix.B}%
+\contentsline {chapter}{List of Figures}{61}{appendix*.91}%
+\contentsline {chapter}{List of Tables}{63}{appendix*.93}%
+\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{65}{appendix*.95}%
+\contentsline {chapter}{Acknowledgements}{67}{appendix*.97}%

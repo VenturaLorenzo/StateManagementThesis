@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kd}{class} \PYG{n+nc}{TodoInheritedData} \PYG{k+kd}{extends} \PYG{n}{InheritedWidget} \PYG{p}{\PYGZob{}}
-\end{Verbatim}
