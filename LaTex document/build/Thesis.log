@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  6 DEC 2021 22:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  8 DEC 2021 17:04
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1226,14 +1226,7 @@ runsystem(del Thesis.aex)...executed.
 
 
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
-nt\build\Thesis.aux
-
-LaTeX Warning: Label `code:2.1' multiply defined.
-
-
-LaTeX Warning: Label `code:2.1@cref' multiply defined.
-
-)
+nt\build\Thesis.aux)
 \openout1 = `Thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
@@ -1629,7 +1622,7 @@ E6B5F38.pygtex [12] [13])
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/BABA11097FF351EAA5AA547369BF30D5EB85A5EE8A2FD01446B95FFAC
+(build/_minted-Thesis/EB8E1A4FA248B0A16584EFF03D375626EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex [14])
 \openout4 = `Thesis.pyg'.
 
@@ -1640,7 +1633,7 @@ E6B5F38.pygtex [15] [16])
 
 
 (build/_minted-Thesis/333B8C45A40794F269BD90049A095487EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [17])
+E6B5F38.pygtex) [17]
 \openout4 = `Thesis.pyg'.
 
 
@@ -1683,7 +1676,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--35
 
 
 (build/_minted-Thesis/EFBAE23F660FB19AFD14793FA8F9D6FBEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [22])
+E6B5F38.pygtex) [22]
 \openout4 = `Thesis.pyg'.
 
 
@@ -2070,12 +2063,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 712--716
 
 (build/_minted-Thesis/A2A4078D8F97CFE22CFFE34BF6EBA9C6EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex
-Underfull \hbox (badness 10000) in paragraph at lines 719--1
+Underfull \hbox (badness 10000) in paragraph at lines 718--1
 
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 727--728
+Underfull \hbox (badness 10000) in paragraph at lines 726--727
 
  []
 
@@ -2088,7 +2081,12 @@ E6B5F38.pygtex)
 
 
 (build/_minted-Thesis/C94BB6070C73AC8E2207529D3BF3AA6EEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [44]
+E6B5F38.pygtex
+Underfull \hbox (badness 10000) in paragraph at lines 748--1
+
+ []
+
+[44])
 \openout4 = `Thesis.pyg'.
 
 
@@ -2099,12 +2097,12 @@ E6B5F38.pygtex)
 
 (build/_minted-Thesis/7D63A329BF64DCCB5AE1A95FA470115FEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 796--802
+Underfull \hbox (badness 10000) in paragraph at lines 795--801
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 796--802
+Underfull \hbox (badness 10000) in paragraph at lines 795--801
 
  []
 
@@ -2113,23 +2111,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 796--802
 
 
 (build/_minted-Thesis/0B092370EC317054EBC01E50A0435ACBEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex
-Underfull \hbox (badness 10000) in paragraph at lines 814--1
-
- []
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 820--823
-
- []
-
-[46]
+E6B5F38.pygtex) [46]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/F56713B67863D23450823E002C651BC8EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 836--838
+Underfull \hbox (badness 10000) in paragraph at lines 834--837
 
  []
 
@@ -2138,10 +2126,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 836--838
 
 (build/_minted-Thesis/25D3E8EAB4F7446BC4CCD76A6A91D3B8EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 845--849
-
- []
-
 \openout4 = `Thesis.pyg'.
 
 
@@ -2150,23 +2134,23 @@ E6B5F38.pygtex [47])
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/19B3741A5163A504AD85D4ED08CD7A84EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [48]
+(build/_minted-Thesis/12135D279A202B007224207F2A9DBD5AEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [48]) [49]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/816E46274BDCEC8AE4A30FABF10CEFC0EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 919--925
+Underfull \hbox (badness 10000) in paragraph at lines 924--930
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 919--925
+Underfull \hbox (badness 10000) in paragraph at lines 924--930
 
  []
 
-) [49])) [50]
+))) [50]
 Chapter 3.
 [51
 
@@ -2389,78 +2373,39 @@ nt\build\Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: 2CACAC13A30B0E5F8E045237E06ED307;4338
-(rerunfilecheck)             After:  E1AF1E6659886035EE09212FB0245622;4338.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: E1AF1E6659886035EE09212FB0245622;4338.
 runsystem(del build\\Thesis.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 35117 strings out of 478681
- 709604 string characters out of 2845587
- 1072146 words of memory out of 3000000
- 52157 multiletter control sequences out of 15000+600000
+ 35109 strings out of 478681
+ 709486 string characters out of 2845587
+ 1072226 words of memory out of 3000000
+ 52159 multiletter control sequences out of 15000+600000
  421950 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,90p,2601b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{listing.caption.78} has been referenced but does 
-not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{listing.caption.70} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{listing.2.31} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.58} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{paragraph*.60} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.64} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix*.96} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix*.94} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix*.92} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix*.90} has been referenced but does not exis
-t, replaced by a fixed one
-
- <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm
-1000.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\tctt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
-n/ec/dpi600\ecit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/p
-k/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX
-\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Lorenzo\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecbx1200.pk> <C:\Users\Lorenzo\AppD
-ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi2500\ecbx1200.pk> <C:\Users\Lor
-enzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\U
-sers\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.p
-k> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi864\ec
-bx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\ecrm1728.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi1244\ecbx1200.pk>
+ <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ec
+rm1000.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\tctt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Lorenzo\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecbx1200.pk> <C:\Users\Lorenzo\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi2500\ecbx1200.pk> <C:\Users\L
+orenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:
+\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200
+.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi864\
+ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecrm1728.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi1244\ecbx1200.pk>
 Output written on "C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementT
-hesis\LaTex document\build\Thesis.pdf" (76 pages, 532409 bytes).
+hesis\LaTex document\build\Thesis.pdf" (76 pages, 533377 bytes).
 PDF statistics:
- 1239 PDF objects out of 1440 (max. 8388607)
- 216 named destinations out of 1000 (max. 500000)
+ 1232 PDF objects out of 1440 (max. 8388607)
+ 206 named destinations out of 1000 (max. 500000)
  307 words of extra memory for PDF output out of 10000 (max. 10000000)
 

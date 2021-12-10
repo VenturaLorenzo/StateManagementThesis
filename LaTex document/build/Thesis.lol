@@ -43,7 +43,11 @@
 \contentsline {listing}{\numberline {2.41}{\ignorespaces Todo app - InheritedWidget - onUpdateTodo function propagation\relax }}{44}{listing.caption.75}%
 \contentsline {listing}{\numberline {2.42}{\ignorespaces Todo app - InheritedWidget - onUpdateTodo function propagation\relax }}{45}{listing.caption.76}%
 \contentsline {listing}{\numberline {2.43}{\ignorespaces Todo app - InheritedWidget - onUpdateTodo function propagation\relax }}{45}{listing.caption.77}%
-\contentsline {listing}{\numberline {2.44}{\ignorespaces Todo app - InheritedWidget - onUpdateTodo function propagation\relax }}{46}{listing.caption.79}%
+\contentsline {listing}{\numberline {2.44}{\ignorespaces Todo app - InheritedModel - extension to InheritedModel \relax }}{46}{listing.caption.79}%
+\contentsline {listing}{\numberline {2.45}{\ignorespaces Todo app - InheritedModel - of method implementation\relax }}{47}{listing.caption.80}%
+\contentsline {listing}{\numberline {2.46}{\ignorespaces Todo app - InheritedModel - updateShouldNotifyDepented method implementation\relax }}{47}{listing.caption.82}%
+\contentsline {listing}{\numberline {2.47}{\ignorespaces Todo app - InheritedModel - updateShouldNotifyDepented method pseudocode\relax }}{48}{listing.caption.83}%
+\contentsline {listing}{\numberline {2.48}{\ignorespaces Todo app - InheritedModel - TodoItem widget todo look up\relax }}{50}{listing.caption.84}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

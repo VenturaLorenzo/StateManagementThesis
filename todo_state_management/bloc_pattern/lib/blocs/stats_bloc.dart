@@ -20,7 +20,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
       }
     }
 
-    onTodosStateChanged(todoBloc.state);
+    //onTodosStateChanged(todoBloc.state);
 
     todoSubscription = todoBloc.stream.listen(onTodosStateChanged);
   }
