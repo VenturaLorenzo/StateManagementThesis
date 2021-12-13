@@ -582,7 +582,7 @@ Widget build(BuildContext context) {
 }
 \end{minted}
 \end{code}
-mbox{}\\
+\mbox{}\\
 
 In the AddTodoPage ,a TextButton widget has been already set up and is ready to call the \textit{onAddTodo }function once tapped. However, there is a small inconvenient. The AddTodoPage is accessed by pushing on top of the HomePage another route as shown in figure \ref{fig:add_todo_page_tree_structure}. The AddTodoPage is added as a child of the MaterialApp widget.
 
@@ -604,6 +604,7 @@ The AddTodoPage is not a part of the subtree of the HomePage but is a standalone
 assert(result != null, 'No TodoInheritedData found in context');
 \end{minted}
 \end{code}
+\mbox{}\\
 inside its implementation, to return \textit{false} and rise a runtime error. The easiest method to proceed is to pass the \textit{onAddTodo} function as a parameter to the AddTodoPage when it is pushed on top of the HomePage. A new parameter, called \textit{addTodoCallback }, is added to the AddTodoPage .
 \mbox{}\\
 

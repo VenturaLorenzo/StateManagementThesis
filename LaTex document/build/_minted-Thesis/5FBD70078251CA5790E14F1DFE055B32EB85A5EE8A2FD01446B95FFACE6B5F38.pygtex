@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@override}
+\PYG{n}{Stream}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoState}\PYG{o}{\PYGZgt{}} \PYG{n}{mapEventToState}\PYG{p}{(}\PYG{n}{FilteredTodoEvent} \PYG{n}{event}\PYG{p}{)} \PYG{k+kd}{async}\PYG{o}{*} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{event} \PYG{k}{is} \PYG{n}{FilteredTodoChangeFilterEvent}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kd}{yield}\PYG{o}{*} \PYG{n}{\PYGZus{}mapTodoChangeFilterEventToState}\PYG{p}{(}\PYG{n}{event}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{event} \PYG{k}{is} \PYG{n}{TodoUpdatedEvent}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kd}{yield}\PYG{o}{*} \PYG{n}{\PYGZus{}mapTodoUpdatedEventToState}\PYG{p}{(}\PYG{n}{event}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

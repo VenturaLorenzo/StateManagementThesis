@@ -15,7 +15,7 @@
 \contentsline {listing}{\numberline {2.13}{\ignorespaces Todo app - Stats definition\relax }}{21}{listing.caption.30}%
 \contentsline {listing}{\numberline {2.14}{\ignorespaces Todo app - InheritedWidget - extension to InheritedWidget\relax }}{22}{listing.caption.35}%
 \contentsline {listing}{\numberline {2.15}{\ignorespaces Todo app - InheritedWidget- TodoInheritedData implementation\relax }}{23}{listing.caption.36}%
-\contentsline {listing}{\numberline {2.16}{\ignorespaces Todo app - InheritedWidget -updateShouldNotify method override\relax }}{24}{listing.caption.37}%
+\contentsline {listing}{\numberline {2.16}{\ignorespaces Todo app - InheritedWidget -updateShouldNotify method override\relax }}{23}{listing.caption.37}%
 \contentsline {listing}{\numberline {2.17}{\ignorespaces Todo app - InheritedWidget - TodoInheritedData of method override\relax }}{24}{listing.caption.38}%
 \contentsline {listing}{\numberline {2.18}{\ignorespaces Todo app - InheritedWidget - TodoProvider implementation\relax }}{25}{listing.caption.39}%
 \contentsline {listing}{\numberline {2.19}{\ignorespaces Todo app - InheritedWidget - TodoProvider 's init method implementation\relax }}{26}{listing.caption.40}%
@@ -27,7 +27,7 @@
 \contentsline {listing}{\numberline {2.25}{\ignorespaces Todo app - InheritedWidget -onChangeFilter function injection into TodoInheritedData widget\relax }}{30}{listing.2.25}%
 \contentsline {listing}{\numberline {2.26}{\ignorespaces Todo app - InheritedWidget - DropdownButton's onChanged field implementation\relax }}{31}{listing.2.26}%
 \contentsline {listing}{\numberline {2.27}{\ignorespaces Todo app - InheritedWidget - TodoProvider widget \textit {onSetCompleted} function implementation\relax }}{32}{listing.caption.51}%
-\contentsline {listing}{\numberline {2.28}{\ignorespaces Todo app - InheritedWidget - TodoItem's Checkbox \textit {onChanged} field implementation\relax }}{33}{listing.caption.52}%
+\contentsline {listing}{\numberline {2.28}{\ignorespaces Todo app - InheritedWidget - TodoItem's Checkbox \textit {onChanged} field implementation\relax }}{32}{listing.caption.52}%
 \contentsline {listing}{\numberline {2.29}{\ignorespaces Todo app - InheritedWidget - Stats component implementation\relax }}{33}{listing.2.29}%
 \contentsline {listing}{\numberline {2.30}{\ignorespaces Todo app - InheritedWidget - HomePage's onTabChange function implementation\relax }}{34}{listing.caption.56}%
 \contentsline {listing}{\numberline {2.31}{\ignorespaces Todo app - InheritedWidget - TabSelector component implementation\relax }}{35}{listing.caption.57}%
@@ -48,6 +48,38 @@
 \contentsline {listing}{\numberline {2.46}{\ignorespaces Todo app - InheritedModel - updateShouldNotifyDepented method implementation\relax }}{47}{listing.caption.82}%
 \contentsline {listing}{\numberline {2.47}{\ignorespaces Todo app - InheritedModel - updateShouldNotifyDepented method pseudocode\relax }}{48}{listing.caption.83}%
 \contentsline {listing}{\numberline {2.48}{\ignorespaces Todo app - InheritedModel - TodoItem widget todo look up\relax }}{50}{listing.caption.84}%
+\contentsline {listing}{\numberline {2.49}{\ignorespaces Todo app – Bloc - states definition for the list of todos\relax }}{51}{listing.caption.87}%
+\contentsline {listing}{\numberline {2.50}{\ignorespaces Todo app - Bloc - states definition for the filtered list of todos and the filter\relax }}{52}{listing.caption.89}%
+\contentsline {listing}{\numberline {2.51}{\ignorespaces Todo app - Bloc - states definition for the stats\relax }}{53}{listing.caption.91}%
+\contentsline {listing}{\numberline {2.52}{\ignorespaces Todo app - Bloc - state definition for the tab\relax }}{54}{listing.caption.93}%
+\contentsline {listing}{\numberline {2.53}{\ignorespaces Todo app - Bloc - event definition for the list of todos\relax }}{55}{listing.caption.96}%
+\contentsline {listing}{\numberline {2.54}{\ignorespaces Todo app - Bloc - events definition for the filtered list of todos and the filter\relax }}{56}{listing.caption.98}%
+\contentsline {listing}{\numberline {2.55}{\ignorespaces Todo app - Bloc - events definition for the stats and the tab \relax }}{57}{listing.caption.100}%
+\contentsline {listing}{\numberline {2.56}{\ignorespaces Todo app - Bloc - TodoBloc implementation\relax }}{60}{listing.caption.103}%
+\contentsline {listing}{\numberline {2.57}{\ignorespaces Todo app - Bloc - FilteredTodoBloc initial state definition\relax }}{61}{listing.caption.105}%
+\contentsline {listing}{\numberline {2.58}{\ignorespaces Todo app - Bloc - FilteredTodoBloc subscription to TodoBloc stream\relax }}{62}{listing.caption.106}%
+\contentsline {listing}{\numberline {2.59}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {mapEventToState }method implementatio\relax }}{63}{listing.caption.107}%
+\contentsline {listing}{\numberline {2.60}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {\_mapTodoChangeFilterEventToState}method implementation \relax }}{63}{listing.caption.108}%
+\contentsline {listing}{\numberline {2.61}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {\_mapTodoUpdatedEventToState }method implementatio\relax }}{64}{listing.caption.109}%
+\contentsline {listing}{\numberline {2.62}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {close }method implementation\relax }}{64}{listing.caption.110}%
+\contentsline {listing}{\numberline {2.63}{\ignorespaces Todo app - Bloc - StatsBloc constructor implementation\relax }}{65}{listing.caption.112}%
+\contentsline {listing}{\numberline {2.64}{\ignorespaces Todo app - Bloc - StatsBloc \textit {matEventToState } and \textit {close }methods implementation\relax }}{66}{listing.caption.113}%
+\contentsline {listing}{\numberline {2.65}{\ignorespaces Todo app - Bloc - TabBloc implementation\relax }}{66}{listing.caption.115}%
+\contentsline {listing}{\numberline {2.66}{\ignorespaces Todo app - Bloc - example of TodoBloc usage\relax }}{67}{listing.caption.117}%
+\contentsline {listing}{\numberline {2.67}{\ignorespaces Todo app - Bloc - AppBlocObserver implementation\relax }}{68}{listing.caption.118}%
+\contentsline {listing}{\numberline {2.68}{\ignorespaces Todo app - Bloc - application's observer setting\relax }}{69}{listing.caption.119}%
+\contentsline {listing}{\numberline {2.69}{\ignorespaces Todo app - Bloc - make the TodoBloc accessible\relax }}{69}{listing.caption.121}%
+\contentsline {listing}{\numberline {2.70}{\ignorespaces Todo app - Bloc - make other blocs accessible \relax }}{70}{listing.caption.122}%
+\contentsline {listing}{\numberline {2.71}{\ignorespaces Todo app - Bloc - wrapping the HomePage into a BlocBuilder\relax }}{71}{listing.caption.125}%
+\contentsline {listing}{\numberline {2.72}{\ignorespaces Todo app - Bloc - HomePage's Scaffold based on the tab \relax }}{72}{listing.caption.126}%
+\contentsline {listing}{\numberline {2.73}{\ignorespaces Todo app - Bloc - TodoView implementation\relax }}{73}{listing.caption.128}%
+\contentsline {listing}{\numberline {2.74}{\ignorespaces Todo app - Bloc - onChanged field implementation inside a TodoItem's Checkbox\relax }}{74}{listing.caption.130}%
+\contentsline {listing}{\numberline {2.75}{\ignorespaces Todo app - Bloc - wrapping the VisibilityFilterSelector component into a BlocBuilder\relax }}{75}{listing.caption.132}%
+\contentsline {listing}{\numberline {2.76}{\ignorespaces Todo app - Bloc - populating a filter variable based of the current state\relax }}{75}{listing.caption.133}%
+\contentsline {listing}{\numberline {2.77}{\ignorespaces Todo app - Bloc - DropdownMenuItem's onChange field implementation\relax }}{75}{listing.caption.134}%
+\contentsline {listing}{\numberline {2.78}{\ignorespaces Todo app - Bloc - wrapping the BottomNavigationBar into a BlocBuilder\relax }}{76}{listing.caption.136}%
+\contentsline {listing}{\numberline {2.79}{\ignorespaces Todo app - Bloc - BottomNavigationBar's \textit {onTap} field implementation\relax }}{76}{listing.caption.137}%
+\contentsline {listing}{\numberline {2.80}{\ignorespaces Todo app – Bloc - Stats component implementation\relax }}{77}{listing.caption.139}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@override}
+\PYG{n}{Future}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{void}\PYG{o}{\PYGZgt{}} \PYG{n}{close}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{todoSubscription}\PYG{p}{.}\PYG{n}{cancel}\PYG{p}{();}
+  \PYG{k}{return} \PYG{k}{super}\PYG{p}{.}\PYG{n}{close}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

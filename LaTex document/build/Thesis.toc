@@ -39,16 +39,40 @@
 \contentsline {subparagraph}{Render optimizations}{46}{subparagraph*.78}%
 \contentsline {subsection}{\numberline {2.2.3}Redux implementation}{50}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}BloC implementation}{50}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{50}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{50}{subsection.2.2.6}%
-\contentsline {chapter}{\numberline {3}The Other app}{51}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Comparisons}{53}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conslusions}{55}{chapter.5}%
+\contentsline {subparagraph}{States}{50}{subparagraph*.85}%
+\contentsline {subparagraph}{The states of the list of todos}{51}{subparagraph*.86}%
+\contentsline {subparagraph}{The state of the filtered list and the filter }{52}{subparagraph*.88}%
+\contentsline {subparagraph}{the state of the stats }{53}{subparagraph*.90}%
+\contentsline {subparagraph}{The state of the tab}{54}{subparagraph*.92}%
+\contentsline {subparagraph}{Events}{54}{subparagraph*.94}%
+\contentsline {subparagraph}{Events of the list of todos}{55}{subparagraph*.95}%
+\contentsline {subparagraph}{Events for the filtered list and the filter}{56}{subparagraph*.97}%
+\contentsline {subparagraph}{Events for the stat’s and tab’s state}{57}{subparagraph*.99}%
+\contentsline {subparagraph}{The Blocs}{58}{subparagraph*.101}%
+\contentsline {subparagraph}{The bloc for the list of todos}{58}{subparagraph*.102}%
+\contentsline {subparagraph}{The bloc for the filtered list and the filter}{61}{subparagraph*.104}%
+\contentsline {subparagraph}{The bloc for the stats}{65}{subparagraph*.111}%
+\contentsline {subparagraph}{The bloc for the tab}{66}{subparagraph*.114}%
+\contentsline {subparagraph}{Observe blocs}{67}{subparagraph*.116}%
+\contentsline {subparagraph}{Making the state accessible}{69}{subparagraph*.120}%
+\contentsline {subparagraph}{Integrazione dello stato all’interno dell’UI}{71}{subparagraph*.123}%
+\contentsline {subparagraph}{La Home Page}{71}{subparagraph*.124}%
+\contentsline {subparagraph}{Il componente TodoView}{73}{subparagraph*.127}%
+\contentsline {subparagraph}{Il componente TodoItem}{74}{subparagraph*.129}%
+\contentsline {subparagraph}{Il componente VisibilityFilterSelector}{75}{subparagraph*.131}%
+\contentsline {subparagraph}{The TabSelector component}{76}{subparagraph*.135}%
+\contentsline {subparagraph}{The Stats component}{76}{subparagraph*.138}%
+\contentsline {subparagraph}{Conclusions}{77}{subparagraph*.140}%
+\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{77}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{77}{subsection.2.2.6}%
+\contentsline {chapter}{\numberline {3}The Other app}{79}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Comparisons}{81}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conslusions}{83}{chapter.5}%
 \vspace {2em}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix A}{57}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix B}{59}{appendix.B}%
-\contentsline {chapter}{List of Figures}{61}{appendix*.91}%
-\contentsline {chapter}{List of Tables}{63}{appendix*.93}%
-\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{65}{appendix*.95}%
-\contentsline {chapter}{Acknowledgements}{67}{appendix*.97}%
+\contentsline {chapter}{\numberline {A}Appendix A}{85}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{87}{appendix.B}%
+\contentsline {chapter}{List of Figures}{89}{appendix*.147}%
+\contentsline {chapter}{List of Tables}{91}{appendix*.149}%
+\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{93}{appendix*.151}%
+\contentsline {chapter}{Acknowledgements}{97}{appendix*.153}%

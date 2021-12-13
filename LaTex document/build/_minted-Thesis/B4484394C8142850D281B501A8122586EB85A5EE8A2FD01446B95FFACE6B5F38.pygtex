@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TabBloc} \PYG{k+kd}{extends} \PYG{n}{Bloc}\PYG{o}{\PYGZlt{}}\PYG{n}{TabEvent}\PYG{p}{,}\PYG{n}{TabState}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}
+  \PYG{n}{TabBloc}\PYG{p}{()} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n}{TabState}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Stream}\PYG{o}{\PYGZlt{}}\PYG{n}{TabState}\PYG{o}{\PYGZgt{}} \PYG{n}{mapEventToState}\PYG{p}{(}\PYG{n}{TabEvent} \PYG{n}{event}\PYG{p}{)}\PYG{k+kd}{async}\PYG{o}{*}\PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{event} \PYG{k}{is} \PYG{n}{ChangeTabEvent}\PYG{p}{)\PYGZob{}}
+      \PYG{k+kd}{yield} \PYG{n}{event}\PYG{p}{.}\PYG{n}{tab}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
