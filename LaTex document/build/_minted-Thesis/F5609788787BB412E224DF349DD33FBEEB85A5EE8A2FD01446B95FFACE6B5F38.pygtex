@@ -36,6 +36,4 @@
     \PYG{k+kd}{yield} \PYG{n}{TodosLoadedState}\PYG{p}{(}\PYG{n}{newList}\PYG{p}{);}
   \PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{}}
-
-\PYG{p}{\PYGZcb{}}
 \end{Verbatim}

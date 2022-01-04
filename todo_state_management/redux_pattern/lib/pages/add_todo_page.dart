@@ -5,28 +5,52 @@ import 'package:redux/redux.dart';
 import 'package:redux_pattern/actions/todo_actions.dart';
 import 'package:redux_pattern/models/app_state.dart';
 import 'package:redux_pattern/models/todo.dart';
-class AddTodoPage extends StatelessWidget {
-  final String name;
-  final String desc;
 
-  const AddTodoPage({Key? key, required this.name, required this.desc})
-      : super(key: key);
+class AddTodoPage extends StatefulWidget {
+  const AddTodoPage({Key? key}) : super(key: key);
+
+  @override
+  State<AddTodoPage> createState() => _AddTodoPageState();
+}
+
+class _AddTodoPageState extends State<AddTodoPage> {
+  final textControllerName = TextEditingController();
+  final textControllerDesc = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    print("Building Add Todo Page");
-
     return Scaffold(
-      body: Column(
-        children: [Text(name), Text(desc)],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final AddTodoAction action=AddTodoAction(Todo(name: name, description: desc,completed: false, id: null));
-          StoreProvider.of<AppState>(context).dispatch(action);
-          Navigator.pop(context);
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("Add Todo"),
+        ),
+        body: Column(
+          children: [
+            TextField(
+              controller: textControllerName,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Enter a name'),
+            ),
+            TextField(
+              controller: textControllerDesc,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter a description'),
+            ),
+            TextButton(
+                onPressed: () {
+                  final AddTodoAction action= AddTodoAction(textControllerName.text, textControllerDesc.text);
+                  StoreProvider.of<AppState>(context).dispatch(action);
+                  Navigator.pop(context);
+                },
+                child: const Text("Create"))
+          ],
+        ));
+  }
+
+  @override
+  void dispose() {
+    textControllerName.dispose();
+    textControllerDesc.dispose();
+    super.dispose();
   }
 }

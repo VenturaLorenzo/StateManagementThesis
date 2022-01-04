@@ -29,6 +29,5 @@ class Todo {
   }
 
   @override
-  // TODO: implement hashCode
-  int get hashCode => name.hashCode;
+  int get hashCode => hashValues(name,description, id,completed);
 }

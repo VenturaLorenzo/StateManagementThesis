@@ -10,9 +10,13 @@ class Stats extends StatelessWidget {
   Widget build(BuildContext context) {
     print("building Stats");
 
-    final todoList= Provider.of<TodoList>(context);
+    final todoList = Provider.of<TodoList>(context);
     return Observer(
-        builder: (context){return Text(todoList.stats);},
-       );
+      builder: (context) {
+        print("building TabSelector");
+
+        return Center(child: Text(todoList.stats));
+      },
+    );
   }
 }

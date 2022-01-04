@@ -1,4 +1,3 @@
-
 import 'package:bloc_pattern/blocs/filtered_todo_bloc.dart';
 import 'package:bloc_pattern/components/todo_item.dart';
 import 'package:bloc_pattern/models/todo.dart';
@@ -18,8 +17,8 @@ class TodoView extends StatelessWidget {
       return !((previous is FilteredTodoLoadedState) &&
           (next is FilteredTodoLoadedState) &&
           previous.todos.length == next.todos.length &&
-          listEquals(next.todos.map((e) => e.id).toList(),
-              previous.todos.map((e) => e.id).toList()));
+          listEquals(next.todos.map((todo) => todo.id).toList(),
+              previous.todos.map((todo) => todo.id).toList()));
     }, builder: (context, filteredTodoState) {
       print("building: TodoView");
 

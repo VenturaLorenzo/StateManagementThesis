@@ -1,10 +1,10 @@
 In this section the state management solution called Bloc is used to implemented the todo application. The bloc overview can be found here RIFERIMENTO.
-
-\subparagraph{States}\mbox{}\\
+\subsubsection{Base funtionalities} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}
+\paragraph{States - }
 \label{subpar:todo_app_bloc_core_state}
 The application state is decomposed in four smaller states: the state of the list of todos, the state of the filtered list of todos and the filter, the state of the statistics and the state of the tab. The state of the list of todos contains the whole list of todos. The state of the filtered list of todos and of the filter contains a filter ,of type VisibilityFilter ,and a list of todos matching the filter value. The state of the stats contains an int number indicating the number of completed todos. Lastly, the state of the tab contains the value of the HomePage’s active tab. The state of the list of todos and the state of the tab are independent. The state of the filter and the state of the stats , instead, are directly linked to the state of the list of todos. They will , indeed, react to the changes in the state of the list of todos and update consequently. 
 
-\subparagraph{The states of the list of todos}\mbox{}\\
+\paragraph{The states of the list of todos - }
 \label{subpar:todo_app_bloc_core_state}
 First of all we start defining and naming the possible states of the list of todos. These states are only two: TodosLoadingState and TodoLoadedState. The Loading state indicates that the list of todos is still loading. The loaded state ,instead, indicates that the list of todos has been successfully fetched from the database and is available. In order to define these two states a new abstract class is created. It is called TodosState. It must extend the class Equatable. The  Equatable class is useful to define equality between states without the need to override the equality operator in every state class. The TodosLoadingState does not contains any other information. The TodosLoadedState contains ,instead, a list filled with todos.
 \begin{code}
@@ -38,9 +38,8 @@ class TodosLoadedState extends TodosState{
 \end{code}
 
 
-\subparagraph{The state of the filtered list and the filter }\mbox{}\\
+\paragraph{The state of the filtered list and the filter - }
 \label{subpar:todo_app_bloc_core_state}
-
 Also in this case there are only two possible states: FilteredTodosLoadingState and FilteredTodosLoadedState. The loading state identifies the fact that the filtered list hasn’t been computed (or todos fetched) yet. The Loaded state, instead,  identifies the fact that the list of todos has been successfully fetched and the list of filtered todos computed. It contains two variables: a VisibilityFilter and a List of todos. An abstract class , called FilteredTodosState, must be created and extended with Equatable class. All the others state classes ,belonging to the state relative to the filtered list and the filter, will extend the FilteredTodosState abstract class. Someone can notice that , the state of the filtered list and the filter ,contains two different aspects of the application state: the filter and the filtered list precisely. In this case it is possible to further split the state and create two separated blocs ,handling respectively the filter and the filtered list. From a general point of view ,the state should be divided in the more possible pieces to keep things well separated and clean , like we do for classes and methods. However, the bloc pattern do not specify how granular should be the state fragmentation and , theoretically, we could decide to use a single bloc to handle the whole application ‘s state , like in Redux. In this particular case , I decided to implement a trade of and keep the filter and the filtered list in the same bloc. They concern , indeed, two similar aspects of the data and ,splitting them , would require the bloc of the filtered todos to depend on the bloc of the filter also, making its dependencies  going from one bloc to two blocs ( the bloc of the todos and the bloc of the filter).
 \begin{code}
 \mbox{}\\
@@ -75,9 +74,8 @@ class FilteredTodoLoadedState extends FilteredTodoState {
 \mbox{}
 \end{code}
 
-\subparagraph{the state of the stats }\mbox{}\\
+\paragraph{The state of the stats - }
 \label{subpar:todo_app_bloc_core_state}
-
 Also in this case there only two possible states:  StatsLoadingState and StatsLoadedState. The first identifies the fact that stats hasn’t been computed yet and do not contains any additional information . The second identifies the fact that stats are available and contains an int variable inside ,  \textit{completed} that represents the actual stats.
 \begin{code}
 \mbox{}\\
@@ -116,10 +114,8 @@ class StatsLoadedState extends StatsState {
 \mbox{}
 \end{code}
 
-
-\subparagraph{The state of the tab}\mbox{}\\
+\paragraph{The state of the tab - }
 \label{subpar:todo_app_bloc_core_state}
-
 In order to define the states of the tab ,the enumeration presented HERE RIFERIMENTO is enough.
 \begin{code}
 \mbox{}\\
@@ -134,13 +130,13 @@ enum TabState{
 \end{code}
 
 
-\subparagraph{Events}\mbox{}\\
+\paragraph{Events - }
 \label{subpar:todo_app_bloc_core_state}
 
 Now that states for every possible part of the application have been defined, it’s the turn of Events. Events are just classes. They can represent a specific actions the user can perform or also internal changes. They enable the states to mutate creating transitions. 
 
 
-\subparagraph{Events of the list of todos}\mbox{}\\
+\paragraph{Events of the list of todos - }
 \label{subpar:todo_app_bloc_core_state}
 
 For the moment is sufficient to define two events only. One identifies the action of fetching todos from the database and is called LoadTodosEvent. It do not contains any other information. The other identifies the action of changing the \textit{completed} field of a specific todo and is called SetCompletedTodoEvent. It contains two informations, the \textit{id} of the specific todo to be modified and the new value for the \textit{completed }field. 
@@ -176,14 +172,14 @@ class SetCompletedTodoEvent extends TodosEvent {
 \mbox{}
 \end{code}
 
-\subparagraph{Events for the filtered list and the filter}\mbox{}\\
+\paragraph{Events for the filtered list and the filter - }
 \label{subpar:todo_app_bloc_core_state}
 
 Two events are enough to define all possible transition for the state of the filtered list and the filter. One is called FilteredTodoChangeFilterEvent and is used to change the state of the filter. It contains , indeed, a VisibilityFilter variable  that indicates the new value for the filter. The other event is called TodosUpdatedEvent . It informs the part of the state concerning the filtered list that the list of todo has changed. A new filtered list must be computed ,tough, and a new FilteredTodosLoadedState emitted. It contains internally a variable providing the changed list of todos.\\
 Also in this case ,all event classes extend a shared abstract class called FilteredTodoEvent which , in turn, extends the Equatable class. 
 
 \begin{code}
-\mbox{}\\
+\mbox{}
 \captionof{listing}{Todo app - Bloc - events definition for the filtered list of todos and the filter} \mbox{}
 \label{code:2.14}
 \begin{minted}{dart}
@@ -223,14 +219,14 @@ class TodoUpdatedEvent extends FilteredTodoEvent {
 \end{code}
 
 
-\subparagraph{Events for the stat’s and tab’s state}\mbox{}\\
+\paragraph{Events for the stat’s and tab’s state - }
 \label{subpar:todo_app_bloc_core_state}
 
 Both the state of the tab and the state of the stats require just one event. The event concerning the state of the tab is called ChangeTabEvent and contains internally a variable of type TabState indicating the value of the new tab. The event concerning the state of the stats is called StatsUpdatedEvent and is generated after the fetching or the updating of the list of todos in the TodoBloc. Precisely it is generated once a new state of type TodosLoadedState is emitted in the TodoBloc. It contains internally the new list of todos of the emitted state. \\
 Also in this case , both the event for the stats and the event for the tab extends respectively the abstact classes TabEvent and StatsEvent.
 
 \begin{code}
-\mbox{}\\
+\mbox{}
 \captionof{listing}{Todo app - Bloc - events definition for the stats and the tab } \mbox{}
 \label{code:2.14}
 \begin{minted}{dart}
@@ -274,12 +270,12 @@ class ChangeTabEvent extends TabEvent{
 \mbox{}
 \end{code}
 
-\subparagraph{The Blocs}\mbox{}\\
+\paragraph{The Blocs - }
 \label{subpar:todo_app_bloc_core_state}
 
 At this point ,both the events and the states necessary to implement di base functionalities of the application have been defined. Is possible ,then, to implement the classes, called \textit{blocs}, that are going to define the way in which new states are emitted in relation to the received events.
 
-\subparagraph{The bloc for the list of todos}\mbox{}\\
+\paragraph{The bloc for the list of todos - }
 \label{subpar:todo_app_bloc_core_state}
 
 To define the bloc for the list of todos is necessary to create a new class, we name TodoBloc, and make it extends the Bloc class, provided by the flutter\_bloc package. Moreover, it is necessary to provide , in the extension, also the type of events and states the bloc will manage. In our case , the ToboBloc class handles events of type TodosEvent and states of type TodosState, previously defined. A constructor must be defined where the bloc is initialized with a initial state. The initial state for the TodoBloc is of type TodoLoadingState by the fact that, at the application start, todos are still to be fetched from the database.
@@ -330,15 +326,12 @@ Stream<TodosState> _mapSetCompletedToState(
   }
 }
 
-}
+
 \end{minted}
 \mbox{}
 \end{code}
-
-\subparagraph{The bloc for the filtered list and the filter}\mbox{}\\
+\paragraph{The bloc for the filtered list and the filter - }
 \label{subpar:todo_app_bloc_core_state}
-
-
 The procedure is the same utilized for the todo bloc. A new class ,called FilteredTodosBloc ,is created and extended with the Bloc class. This new class handles the events of type FilteredTodosEvent and the states of type FilteredTodosState. Being the bloc of the filtered list of todos dependent from the bloc of the list of todos, an instance of this second one is passed inside the constructor at the initialization and used to listen for changes.
 The instance of the bloc of the todos is saved in a local variable of type TodoBloc. In this case the constructor is a bit more articulated with respect to the TodoBLoc's one. It emits the initial state based on the state of TodoBloc. If the state is of type loaded , the constructor computes ,and then emits , a state of type FilteredtodosLoadedState using a filter of type \textit{all}. If the state is of type loading, the constructor emits a state of type FilteredLoadingState.
 \begin{code}
@@ -414,7 +407,7 @@ Stream<FilteredTodoState> mapEventToState(FilteredTodoEvent event) async* {
 The \textit{mapTodoChangeFilterEventToState} method  checks that the state of the TodoBloc is of type TodosLoadedState ( in case it is not changing the filter is useless) and ,then ,it emits a new state of type FilteredTodosLoadedState containing the new filter and the new computed list of filtered todos.
 
 \begin{code}
-\mbox{}\\
+\mbox{}
 \captionof{listing}{Todo app - Bloc - FilteredTodoBloc  \textit{\_mapTodoChangeFilterEventToState}method implementation } \mbox{}
 \label{code:2.14}
 \begin{minted}{dart}
@@ -467,7 +460,7 @@ Future<void> close() {
 \end{code}
 
 
-\subparagraph{The bloc for the stats}\mbox{}\\
+\paragraph{The bloc for the stats - }
 \label{subpar:todo_app_bloc_core_state}
 
 This bloc is similar to the previous one , it has to deal with one event only, tough : the StatsUpdatedEvent. As usual, the class StatsBloc is defined an extended with the Bloc class. The StatsBloc class handles events of the type StatEvent and states of the type StatsState. Also in this case, the bloc depends on the bloc of the list of todo. For this reason, a variable of type TodoBloc is added and required in the constructor. In the constructor, a new initial state of type StatsLoadeingState is emitted. The subscription to the state's stream of the TodoBloc is perfomed passing a function ,called \textit{onTodosStateChanged}, that check if the TodoBloc’s state is of type TodoLoadedState and , in case it is ,emits a event of type StatsUpdatedEvent. This event will be handled by the \textit{mapEventToState} method implemented later. The function \textit{onTodosStateChanged} is called also once in the constructor to update the stats in case the TodoBloc is already of type TodosLoadedState on StatsBloc's creation.
@@ -523,13 +516,13 @@ In the \textit{close} method the subscription to the TodoBloc is terminated.
 \end{code}
 
 
-\subparagraph{The bloc for the tab}\mbox{}\\
+\paragraph{The bloc for the tab - }
 \label{subpar:todo_app_bloc_core_state}
 
 The procedure is the same as before. This time the bloc is really simple.  After creating the class TabBloc and extending it to the Bloc class,the states and events to be handled are specified.  In the contructor, the initial state is initialized and set to the TabState.todos value. The \textit{mapEventToState} method is overridden connecting the only event with the emission of a state corresponding to the event's TabState internal value.
 
 \begin{code}
-\mbox{}\\
+\mbox{}
 \captionof{listing}{Todo app - Bloc - TabBloc implementation} \mbox{}
 \label{code:2.14}
 \begin{minted}{dart}
@@ -542,13 +535,11 @@ class TabBloc extends Bloc<TabEvent,TabState>{
       yield event.tab;
     }
   }
-
 }
 \end{minted}
 \mbox{}
 \end{code}
-
-\subparagraph{Observe blocs}\mbox{}\\
+\paragraph{Observe blocs - }
 \label{subpar:todo_app_bloc_core_state}
 
 Terminates here the definition of the application’s state. All states ,events and blocs have been defined. It is possible to start testing the logic of the application, in the main function for example, initializing an object of type TodoBloc and trying to emit new events using the \textit{add} method offered by the Bloc package.
@@ -597,7 +588,6 @@ class AppBlocObserver extends BlocObserver{
 \end{code}
 
 Before running the application with the \textit{runApp} method ,the AppBlocObserver ,we just created , is set as the default observer for the blocs.
-
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Bloc - application's observer setting} \mbox{}
@@ -610,7 +600,7 @@ void main() async {
 \end{minted}
 \mbox{}
 \end{code}
-\subparagraph{Making the state accessible}\mbox{}\\
+\paragraph{Making the state accessible - }
 \label{subpar:todo_app_bloc_core_state}
 
 Similarly to the implementation with Redux and Inheritedwidget , also in this case, a particular widget called BlocProvider must be used to make the state , or part of it, accessible in the subtree. Since the information regarding the list of todos needs to be accessible by the entire application its BlocProvider is situated in the root. In the \textit{main} function , the first widget to be passed to the \textit{runApp} method is indeed a BlocProvider widget. A BlocProvider widget is a typed widget , meaning that, the type of the bloc it makes accessible ,must be provided. In our case it needs to provide a bloc of type TodoBloc. Inside the BlocProvider widget , two fields must  be filled: \textit{create} and \textit{child}. In the \textit{create} field, a function taking as single argument the context and returning a bloc of the previously specified type ,must be provided. This function is executed on the BlocProvider initialization. However, the initialization of the BlocProviders is lazy. This means that it is performed when the BlocProvider is accessed the first time and not when it is inserted in the widget tree. This type of procedure is used to postpone heavy methods execution as lately as possible to avoid, in case they are never accessed, to perform useless computation and waste time. It is possible to set the lazy flag to false in case of the \textit{create} function needs to be run instantly after the widget build. A function that instantiates a TodoBloc and emits the first event of the application, the LoadTodoEvent, is provided in the \textit{create} field. In order to emit new events the method \textit{add}, provided by the extension to Bloc class, is used. Moreover , the \textit{cascade} notation ,offered by Dart language , is used to increase de readability of the code. It allows to concatenate more actions using the  “..” notation.
@@ -666,17 +656,16 @@ class MyApp extends StatelessWidget {
 \end{code}
 
 
-\subparagraph{Integrazione dello stato all’interno dell’UI}\mbox{}\\
-
+\paragraph{The state intergration inside the UI - }
 \label{subpar:todo_app_bloc_core_state}
 Now that the application's state has been defined and also made accessible in the interested part of the widgets trees is the moment to connect it with the UI.
 
-\subparagraph{La Home Page}\mbox{}\\
+\paragraph{The HomePage - }
 \label{subpar:todo_app_bloc_core_state}
 
 The Scaffold widget is wrapped into a BlocBuilder widget. The BlocBuilder widget is used to access the state concerning the tab. Indeed, almost the entire HomePage is build on top of the tab value. The entire HomePage creation is moved inside the \textit{builder} field of the BlocBuilder widget. Moreover, the type of the bloc and the type of states the BlocBuilder has to manage are specified in its declaration. Inside the function provided in the \textit{builder} field ,indeed, we have access to the state in the form of an object of the type previously provided, in addition to the current context.
 \begin{code}
-\mbox{}\\
+\mbox{}
 \captionof{listing}{Todo app - Bloc - wrapping the HomePage into a BlocBuilder} \mbox{}
 \label{code:2.14}
 \begin{minted}{dart}
@@ -722,8 +711,7 @@ builder: (context, tabState) {
 \end{minted}
 \mbox{}
 \end{code}
-
-\subparagraph{Il componente TodoView}\mbox{}\\
+\paragraph{The TodoView component - }
 \label{subpar:todo_app_bloc_core_state}
 
 The TodoView component needs to access the state of the filtered list and the filter only. The ListView widget is wrapped in a BlocBuilder widget . We define ,using the <> notation ,that it will handle the bloc of type FilteredTodosBloc and its internal state (of type FilteredTodosState). In the function passed in the \textit{builder} field , the state is accessible using the variable called \textit{filteredTodosState}. The actual type of the state is defined using an \textit{if-else} statement. In case the state is of type FilteredTodosLoadingState a CircularProgressIndication widget is returned. In case the state is of type FilteredTodosLoadedState a variable containing the list of todos will be available inside the filteredTodosState object and can be used to populated the ListView widget.\begin{code}
@@ -760,10 +748,10 @@ class TodoView extends StatelessWidget {
 \mbox{}
 \end{code}
 
-\subparagraph{Il componente TodoItem}\mbox{}\\
+\paragraph{The TodoItem component - }
 \label{subpar:todo_app_bloc_core_state}
 
-Since this part of the development process do not consider any type of optimization, the TodoItem component does not need to be modified with respect to the implementation defined in RIFERIMENTO. The todo instance to be visualized is passed as argument in the constructor from the ancestor widget (TodoView). However, even if the TodoItem component does not access the state to read any value it needs to access the state to emit an event. Once the checkbox is tapped ,indeed, the list of todos should be modified. Emitting an event is easier than reading the state. It can be considered a constant action meaning that the widget should not be notified when the state changes. For this reason there is no need to use any BlocBuilder widget. It is sufficient to access the bloc ,in which the event must be emitted ,using the BlocProvider’s \textit{of} method , and emit the event. The Checkbox widget’s \textit{onChanged} function provides a Boolean variable (called \textit{completed} in our case) that represents the value the Checkbox will take after being clicked.  A new event of type SetCompletedTodoEvent is created , using this variable and the \textit{id} of the todo passed by the parent ,and emitted in the TodoBloc.
+Since this part of the development process does not consider any type of optimization, the TodoItem component does not need to be modified with respect to the implementation defined in RIFERIMENTO. The todo instance to be visualized is passed as argument in the constructor from the ancestor widget (TodoView). However, even if the TodoItem component does not access the state to read any value it needs to access the state to emit an event. Once the checkbox is tapped ,indeed, the list of todos should be modified. Emitting an event is easier than reading the state. It can be considered a constant action meaning that the widget should not be notified when the state changes. For this reason there is no need to use any BlocBuilder widget. It is sufficient to access the bloc ,in which the event must be emitted ,using the BlocProvider’s \textit{of} method , and emit the event. The Checkbox widget’s \textit{onChanged} function provides a Boolean variable (called \textit{completed} in our case) that represents the value the Checkbox will take after being clicked.  A new event of type SetCompletedTodoEvent is created , using this variable and the \textit{id} of the todo passed by the parent ,and emitted in the TodoBloc.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Bloc - onChanged field implementation inside a TodoItem's Checkbox} \mbox{}
@@ -778,7 +766,7 @@ onChanged: (completed) {
 \end{code}
 
 Summarizing ;  once the Checkbox is pressed, inside a TodoItem , a new event in the bloc of the list of todos is generated. This event causes a state transition in the TodoBloc passing from the current state to a new state where the corresponding todo has been modified. Then, the bloc of the filtered list and the bloc of the stats, listening for changes in the TodoBloc, react emitting a new internal event (respectively of type TodoUpdatedEvent and StatsUpdatedEvent) . This event causes a state transition of the questioned blocs to a new state where the filtered list and the stats are computed using the new TodoBloc’s state. As a conseguence of the change in the FilteredTodosBloc state , the TodoView component is notified and rebuilt showing the modification.
-\subparagraph{Il componente VisibilityFilterSelector}\mbox{}\\
+\paragraph{The VisibilityFilterSelector component - }
 \label{subpar:todo_app_bloc_core_state}
 
 The VisiblityFilterSelector component depends only by the bloc of the filtered list and the filter. It just need to visualize the current filter and to update the state with a new filter in case a DropdownMenuItem is tapped. The DropdownButton is  wrapped inside a BlocBuilder widget. The BlocBuilder widget is informed ,with the <> notation , it will handle the bloc of type FilteredTodosBloc and the states of type FilteredTodoState. 
@@ -816,8 +804,7 @@ onChanged: (filter) {
 \end{minted}
 \mbox{}
 \end{code}
-
-\subparagraph{The TabSelector component}\mbox{}\\
+\paragraph{The TabSelector component - }
 \label{subpar:todo_app_bloc_core_state}
 
 The entire component depends only on the state of the tab. It needs to read and write the state. The BottomNavigatorBar widget is wrapped inside a BlocBuilder widget. the BlocBuilder widget will handle the bloc of type TabBloc and the states of type TabState.
@@ -845,7 +832,7 @@ onTap: (index)=>BlocProvider.of<TabBloc>(context).add(ChangeTabEvent(TabState.va
 \end{code}
 
 
-\subparagraph{The Stats component}\mbox{}\\
+\paragraph{The Stats component - }
 \label{subpar:todo_app_bloc_core_state}
 
 Also in this case, the only dependency the Stats component has is about the part of the state concerning the stats. The component is, therefore, wrapped into a BlocBuilder widget. The Blocbuilder widget will handle the bloc of type StatsBloc and the states of type StatsState. Inside the function provided into the \textit{builder} field the type of the current state is checked. In case the state is of type StatsLoadedState , a widget of type Text is returned and populated using the \textit{completed} variable contained inside the state object. In case the state is of type StatsLoadingState a CircularProgressIndicator widget is returned ,indicating that the stats still need to be computed.
@@ -867,13 +854,293 @@ return BlocBuilder<StatsBloc, StatsState>(
 \end{code}
 
 
-\subparagraph{Conclusions}\mbox{}\\
+
+\subsubsection{Features addition} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}
+
+
+New features presented HERE RIEFERIMENTO are now added  to the base functionalities just implemented.
+
+\paragraph{New events - }
 \label{subpar:todo_app_bloc_core_state}
 
-All the base functionalities of the application have been implemented and work fine. In the overall the development process did not face big issues. The only hard part was to create the two blocs of the filter and the stats. Being them dependend by an external bloc, they required a little bit more attention to be handled correctly with respect to the rest of the application. Although the process was linear it required a lot of lines of code and a lot of boilerplate. In the follow some summarizing data are reported.\\
+The first thing to do is to make the state provide a way of adding and updating todos. Two new events are created and called AddTodoEvent and UpdateTodoEvent respectively. The AddTodoEvent will contain the name and the description to be used in the creation of the new todo instance. The id will be set by the method at the todo’s addition in order to generate a unique one. The \textit{completed} field will be set to false by default being the new todo obviously pending at its origin.  The UpdateTodoEvent will contain the id of the todo to be modified and the new name and description. The list of todos is contained in the TodoBloc . Moreover, the TodoBloc handles events of the type TodosEvent. Both the AddTodoEvent and the UpdateTodoEvent are extended ,tough, with the TodosEvent abstract class in order to be manageable by the TodoBloc.
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - AddTodoEvent and UpdateTodoEvent definition} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+class AddTodoEvent extends TodosEvent {
+  final String name;
+  final String desc;
 
-Time spent: 10-12 hours\\
-Lines of code written/updated: 367\\
-Classes/widget created: 24\\
-Created files: 12\\
+  const AddTodoEvent(this.name, this.desc);
 
+  @override
+  String toString() => 'TodosEvent - AddTodoEvent';
+}
+
+class UpdateTodoEvent extends TodosEvent {
+  final int id;
+  final String newName;
+  final String newDesc;
+
+  const UpdateTodoEvent(this.id, this.newName, this.newDesc);
+
+  @override
+  List<Object> get props => [id, newName, newDesc];
+
+  @override
+  String toString() => 'TodosEvent - UpdateTodoEvent';
+}
+\end{minted}
+\mbox{}
+\end{code}
+\paragraph{Bloc update - }
+\label{subpar:todo_app_bloc_core_state}
+
+It necessary now to “teach” the TodoBloc at handling these new events. The workflow will be the following: when the AddTodoEvent is received in the TodoBloc , a new instance of the list of todos , contained in the current state , is generated . A new todo is created using the name and description contained in the event. The new todo is added to new instance of the list. The new list is then used to creted a new state of the type TodosLoadedState before emitting it in the TodoBloc. When the UpdateTodoEvent is received in the TodoBloc a new instance of the list contained in the state is created. The todo with the id matching the one contained in the event is modified using the new name and description. Lastly, a state of type TodosLoadedState is emitted with thew new list. There is one more thing to do, adding to the TodoBloc’s mapEventToState method two new \textit{if-else} branches that check if the received event is of type AddTodoEvent of UpdateTodoEvent. In the first case the private method  \textit{mapTodoAddedToState} is called passing the event as parameter. In the second case the private method \textit{mapTodoUpdatedToState} is called, instead, passing the event as parameter.
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - TodoBloc mapEventToState new feature extension} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+@override
+Stream<TodosState> mapEventToState(TodosEvent event) async* {
+  if (event is LoadTodosEvent) {
+    yield* _mapLoadTodosToState(event);
+  } else if (event is AddTodoEvent) {
+    yield* _mapTodoAddedToState(event);
+  } else if (event is UpdateTodoEvent) {
+    yield* _mapTodoUpdatedToState(event);
+  } else if (event is SetCompletedTodoEvent) {
+    yield* _mapSetCompletedToState(event);
+  } 
+}
+\end{minted}
+\mbox{}
+\end{code}
+
+The \textit{mapTodoAddedToState}  method checks if the current state is of type TodosLoadedState ( if it is not is meaningless to perform any addition), then , creates a unique id and a new instance of the list of todos contained in the \textit{state} variable. It  then adds the todo to the new list, Lastly, the TodosLoadedState  created with the new list is emitted. 
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - states definition for the filtered list of todos and the filter} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+Stream<TodosState> _mapTodoAddedToState(AddTodoEvent event) async* {
+  if (state is TodosLoadedState) {
+    Random rand = Random();
+    List<int> ids =
+        (state as TodosLoadedState).todos.map((todo) => todo.id).toList();
+    int newId = rand.nextInt(1000) + 2;
+    while (ids.contains(newId)) {
+      newId = rand.nextInt(1000) + 2;
+    }
+    Todo newTodo = Todo(
+        id: newId,
+        name: event.name,
+        description: event.desc + " " + newId.toString(),
+        completed: false);
+    final List<Todo> updatedTodos =
+        List.from((state as TodosLoadedState).todos)..add(newTodo);
+    yield TodosLoadedState(updatedTodos);
+  }
+}
+\end{minted}
+\mbox{}
+\end{code}
+
+
+The \textit{mapTodoUpdatedToState} method checks if the current state is of type TodosLoadedState ( if it is not is meaningless to perform any modification), then , creates a new instance of the list of todos contained in the \textit{state} variable and modify the todo matching the id. Lastly, the TodosLoadedState  created with the new list is emitted. 
+
+\begin{code}
+\mbox{}
+\captionof{listing}{Todo app - Bloc - states definition for the filtered list of todos and the filter} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+Stream<TodosState> _mapTodoUpdatedToState(UpdateTodoEvent event) async* {
+  if (state is TodosLoadedState) {
+    List<Todo> newTodos = (state as TodosLoadedState)
+        .todos
+        .map((todo) => todo.id == event.id
+            ? Todo(
+                id: event.id,
+                name: event.newName,
+                description: event.newDesc,
+                completed: false)
+            : todo)
+        .toList();
+    yield TodosLoadedState(newTodos);
+  }
+}
+\end{minted}
+\mbox{}
+\end{code}
+\paragraph{Access new feature in the UI - }\label{subpar:todo_app_bloc_core_state}
+
+The state can now handle this new functionalities correctly. Thanks to the fact that we situated the TodoBloc on top of the widgets tree it is possible now to access the state in the AddTodoPage and in the UpdateTodoPage easily. An instance of the TodoBloc ,indeed , exists in the current context and can be accessed using the \textit{of} method. In case the TodoBloc was located in a lower level with respect to the MaterialApp widget ( from where routes are create)  it would have had to be passed by argument to the corresponding pages. However, being the TodoBloc accessible , it can be used in the AddTodoPage to perform the todo addition , at the TextButton’s push, using the parameters contained in the TextField widgets. The AddTodoPage implementation is reported RIFERIMENTO. The only part to be changed is the \textit{onPressed} field of the TextButton widget. Inside the provided function, the TodoBloc instance is accessed using the \textit{of} method and the AddTodoEvent emitted. The AddTodoPage is popped then to come back in the HomePage ,where the TodoView rebuilds due to the change of the state of the TodoBloc.
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - states definition for the filtered list of todos and the filter} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+TextButton(
+    onPressed: () {
+      BlocProvider.of<TodoBloc>(context).add(AddTodoEvent(
+          textControllerName.text, textControllerDesc.text));
+      Navigator.pop(context);
+    },
+    child: const Text("Create"))
+\end{minted}
+\mbox{}
+\end{code}
+
+The same process is done to implement the UpdateTodoPage. In the \textit{onPressed} field a function is provided. This function uses the TextField widgets’s parameters to create and emit an event of type UpdateTodoEvent. The UpdateTodoPage is then popped and the HomePage rebuilt due to the TodoBloc state change.
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - states definition for the filtered list of todos and the filter} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+TextButton(
+    onPressed: () {
+      BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(
+          widget.todo.id,
+          textControllerName.text,
+          textControllerDesc.text));
+      Navigator.pop(context);
+    },
+    child: const Text("Confirm"))
+\end{minted}
+\mbox{}
+\end{code}
+
+\subsubsection{Rendering optimization} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}
+
+To achieve the desired partial rendering is necessary to work on the TodoView and TodoItem widgets only. We will leverage on a specific field of the BlocBuilder widget called \textit{buildWhen}. In this field is possible to insert a Boolean function in order to determine whether or not to rebuild the questioned widget on a state transition. Inside this function , the previous state and the next state can be accessed. For the moment, when a state change occurs, the TodoView widget destroys all the children TodoItem widgets and rebuilds them using the data contained in the new state. Well, actually is not precisely like this. Flutter indeed uses some articulated mechanism in order to rebuild the few parts of the widget tree possible. From our prespective ,however, TodoItem widgets are destroyed and recreated at every transaction, also in case a single TodoItem changed. To make the TodoItem widgets self-rebuild , is necessary to make them sensible to changes in the state. For the moment , however, the TodoItem widget does not use any BlocBuilder widget at all. Indeed, it just visualize the todo passed from the parent widget without actually accessing the state. The first thing to do  is to wrap the TodoItem widget inside a BlocBuilder widget making it listen for changes in the FilteredTodoBloc. Instead of receiving ,from the TodoView parent widget ,a copy of the todo instance to be visualized is enough ,now, to receive the id and use it to obtain the instance of the todo accessing the state. Inside the \textit{builder} field, the function will look up for the corresponding todo in the list of filtered todos and use it to create the TodoItem. 
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - states definition for the filtered list of todos and the filter} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+class TodoItem extends StatelessWidget {
+  final int id; //Todo variable replaced with int
+
+  const TodoItem({Key? key, required this.id}) : super(key: key);
+
+@override
+Widget build(BuildContext context) {
+//added the BlocBuilder widget
+  return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
+builder: (context, state) {
+  print("building: Todo Item \$id " + key.toString());
+
+  if (state is FilteredTodoLoadedState) {
+    Todo t = (state).todos.firstWhere((element) => element.id == id);
+    return InkWell(. . .);
+        } else {
+    return Row(
+      children: const [
+        Text("ERROR"),
+      ],
+    );
+  }
+});
+\end{minted}
+\mbox{}
+\end{code}
+
+At this point, both TodoVIew and TodoItem widgets listen for changes in the state. The \textit{buildWhen} field ,introduced above , is used now to teach them when to rebuild. Starting from the TodoView widget we provide a function to the \textit{buildWhen} field that checks the types of the previous and the next state. If they are different there is no need to proceed further and a true value is returned meaning that the TodoView widget must be rebuilt. If they are equal the function checks if the length of the previous filtered list and the length of the new one are the same. If they differs is necessary to rebuild the entire TodoView widget. In case they are equal the function proceeds checking if the elements contained in the first list are exactly the ones contained in the second. ( note: it checks the ids only because we are not interested in knowing if the other field changed, the TodoItem will check it later) If all the elements are the same there is no need to rebuild the TodoView and the function terminates returning false.
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - states definition for the filtered list of todos and the filter} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
+    buildWhen: (previous, next) {
+  return !((previous is FilteredTodoLoadedState) &&
+      (next is FilteredTodoLoadedState) &&
+      previous.todos.length == next.todos.length &&
+      listEquals(next.todos.map((todo) => todo.id).toList(),
+          previous.todos.map((todo) => todo.id).toList()));
+},
+\end{minted}
+\mbox{}
+\end{code}
+
+The same must be done in the TodoItem widget. The TodoItem needs to be rebuilt when the new list still contains the todo matching its id and ,that todo ,changed one or more of its internal fields: the name , the description or the completed field. A function is provided in the \textit{buildWhen} field that checks if the previous and the next states are both of type FilteredTodoLoadedState. In case they aren’t is useless to rebuild the TodoItem widget and so the false value is returned. In case they are the function checks if the new state contains the corresponding todo. In case it does not contains the todo it is useless to rebuild the TodoItem and so the false value is returned. In case it contains the todo the function checks if the todo changed its internal fields with respect to the previous state. In case it does the function returns true and the  TodoItem is rebuilt.
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - states definition for the filtered list of todos and the filter} \mbox{}
+\label{code:2.14}
+\begin{minted}{dart}
+buildWhen: (previous, next) {
+  if (next is FilteredTodoLoadedState &&
+      previous is FilteredTodoLoadedState) {
+    if (next.todos.map((todo) => todo.id).toList().contains(id) == true) {
+      if (previous.todos.firstWhere((element) => element.id == id) ==
+          next.todos.firstWhere((element) => element.id == id)) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
+\end{minted}
+\mbox{}
+\end{code}
+
+
+
+
+\subsubsection{Conclusions} \mbox{} \\
+\label{subpar:render_optimizations_inherited_widget}
+\begin{table}[H]
+    \caption*{\textbf{Recap}}
+    \centering 
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+    \rowcolor{bluepoli!40} % comment this line to remove the color
+    \hline
+     & \textbf{lines of code} & \textbf{time} & \textbf{classes} \T\B \\
+    \hline
+    \textbf{base functionalities} & 367 & 10-12 h & 24 \T\B \\ 
+    \textbf{feature addition} & 67 & 15-20 m & 2 \T\B\\ 
+    \textbf{rendering optimization} & 33 & 6-8 h & 0
+    \T\B\\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Caption of the Table to appear in the List of Tables.}
+    \label{table:example}
+\end{table}
+
+\begin{figure}[H]
+ \caption*{\textbf{Hours}}
+\centering
+\begin{tikzpicture}
+
+\pie[rotate = 60]{
+    60/Base functionalities ,
+    1.81/Feature addition,
+    38.18/Optimizations 
+    }
+
+\end{tikzpicture}
+ \caption{Caption of the Table to appear in the List of Tables.}
+\end{figure}
+\begin{figure}[H]
+
+\caption*{\textbf{Lines}}
+\centering
+\begin{tikzpicture}
+
+\pie[rotate =90]{40.20/Structure - 314,
+    46.99/Base functionalities - 367,
+    8.57/Feature addition - 67,
+    4.22/Optimizations - 33
+    }
+ 
+\end{tikzpicture}
+ \caption{Caption of the Table to appear in the List of Tables.}
+\end{figure}

@@ -33,16 +33,19 @@ class _HomePageState extends State<HomePage> {
       converter: (store) => store.state.tabState,
       builder: (context, currTab) {
         return Scaffold(
-          appBar: AppBar(
-            title: const Text("testo"),
-            actions: const [VisibilityFilterComponent()],
-          ),
-          body: currTab == TabState.todos ? const TodoView() : const Stats(),
-          bottomNavigationBar: const TabSelector(),
-          floatingActionButton: FloatingActionButton(onPressed: () {
-            Navigator.pushNamed(context, "/addtodo");
-          }),
-        );
+            appBar: AppBar(
+              title: const Text("Todo App"),
+              actions: const [VisibilityFilterSelector()],
+            ),
+            body: currTab == TabState.todos ? const TodoView() : const Stats(),
+            bottomNavigationBar: const TabSelector(),
+            floatingActionButton: currTab == TabState.todos
+                ? FloatingActionButton(
+                    child: const Icon(Icons.plus_one),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/addTodo");
+                    })
+                : Container());
       },
     );
   }

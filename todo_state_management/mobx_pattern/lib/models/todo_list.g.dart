@@ -9,6 +9,13 @@ part of 'todo_list.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$TodoList on _TodoList, Store {
+  Computed<List<Todo>>? _$filteredTodosComputed;
+
+  @override
+  List<Todo> get filteredTodos => (_$filteredTodosComputed ??=
+          Computed<List<Todo>>(() => super.filteredTodos,
+              name: '_TodoList.filteredTodos'))
+      .value;
   Computed<int>? _$lenComputed;
 
   @override
@@ -26,13 +33,6 @@ mixin _$TodoList on _TodoList, Store {
   @override
   String get stats => (_$statsComputed ??=
           Computed<String>(() => super.stats, name: '_TodoList.stats'))
-      .value;
-  Computed<List<Todo>>? _$filteredTodosComputed;
-
-  @override
-  List<Todo> get filteredTodos => (_$filteredTodosComputed ??=
-          Computed<List<Todo>>(() => super.filteredTodos,
-              name: '_TodoList.filteredTodos'))
       .value;
 
   final _$todosAtom = Atom(name: '_TodoList.todos');
@@ -93,11 +93,33 @@ mixin _$TodoList on _TodoList, Store {
   }
 
   @override
-  void addTodo(Todo todo) {
+  void updateTodo(int id, String name, String desc) {
+    final _$actionInfo =
+        _$_TodoListActionController.startAction(name: '_TodoList.updateTodo');
+    try {
+      return super.updateTodo(id, name, desc);
+    } finally {
+      _$_TodoListActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCompleted(int id, bool completed) {
+    final _$actionInfo =
+        _$_TodoListActionController.startAction(name: '_TodoList.setCompleted');
+    try {
+      return super.setCompleted(id, completed);
+    } finally {
+      _$_TodoListActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void addTodo(String name, String desc) {
     final _$actionInfo =
         _$_TodoListActionController.startAction(name: '_TodoList.addTodo');
     try {
-      return super.addTodo(todo);
+      return super.addTodo(name, desc);
     } finally {
       _$_TodoListActionController.endAction(_$actionInfo);
     }
@@ -108,10 +130,10 @@ mixin _$TodoList on _TodoList, Store {
     return '''
 todos: ${todos},
 filter: ${filter},
+filteredTodos: ${filteredTodos},
 len: ${len},
 completed: ${completed},
-stats: ${stats},
-filteredTodos: ${filteredTodos}
+stats: ${stats}
     ''';
   }
 }

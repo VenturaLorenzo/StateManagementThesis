@@ -1,34 +1,54 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux_pattern/actions/todo_actions.dart';
 import 'package:redux_pattern/models/app_state.dart';
 import 'package:redux_pattern/models/todo.dart';
 
 class TodoItem extends StatelessWidget {
-  final ValueChanged<bool?> setCompleted;
-  final Todo todo;
+  final int id;
 
-  const TodoItem({Key? key, required this.todo, required this.setCompleted})
+  const TodoItem({Key? key, required this.id})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print("Building Todo Item");
+    return StoreConnector<AppState, Todo>(
+      distinct: true,
+        converter: (store) =>
+            store.state.todos.firstWhere((element) => element.id == id),
+        builder: (context, todo) {
+          print("building: Todo Item $id ");
 
-    return StoreConnector<AppState, _ViewModel>(converter: (store) {
-      final Todo t= store.state.todos.firstWhere((element) => element.name==todo.name);
-      return _ViewModel(completed: t.completed, text: t.name);
-    }, builder: (context, vm) {
-      return Row(
-        children: [
-          Text(vm.text),
-          Checkbox(value: vm.completed, onChanged: setCompleted),
-        ],
-      );
-    });
+          return InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, "/updateTodo", arguments: todo);
+            },
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    Text(todo.name,
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.black)),
+                    Text(todo.description,
+                        style:
+                            const TextStyle(fontSize: 10, color: Colors.grey)),
+                  ],
+                ),
+                Checkbox(
+                    value: todo.completed,
+                    onChanged: (completed) {
+                      StoreProvider.of<AppState>(context).dispatch(
+                          SetCompletedTodoAction(todo.id, completed!));
+                    }),
+              ],
+            ),
+          );
+        });
   }
 }
-
+/*
 class _ViewModel {
   String text;
   bool completed;
@@ -45,4 +65,4 @@ class _ViewModel {
   @override
   // TODO: implement hashCode
   int get hashCode => text.hashCode;
-}
+}*/

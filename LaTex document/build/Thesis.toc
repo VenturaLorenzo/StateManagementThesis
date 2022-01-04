@@ -24,55 +24,79 @@
 \contentsline {paragraph}{Pages}{12}{paragraph*.21}%
 \contentsline {paragraph}{Components}{17}{paragraph*.25}%
 \contentsline {subsection}{\numberline {2.2.2}Inherited widget/model and SetState implementation}{21}{subsection.2.2.2}%
-\contentsline {paragraph}{State management solution’s introduction}{21}{paragraph*.31}%
-\contentsline {paragraph}{Base functionalities}{22}{paragraph*.33}%
-\contentsline {subparagraph}{Core state}{22}{subparagraph*.34}%
-\contentsline {subparagraph}{The TodoView component}{27}{subparagraph*.42}%
-\contentsline {subparagraph}{The VisibilityFilterSelector component}{28}{subparagraph*.44}%
-\contentsline {subparagraph}{The TodoItem component}{31}{subparagraph*.50}%
-\contentsline {subparagraph}{The Stats component}{33}{subparagraph*.53}%
-\contentsline {subparagraph}{The TabSelector component}{34}{subparagraph*.55}%
-\contentsline {subparagraph}{Summary}{36}{subparagraph*.58}%
-\contentsline {paragraph}{Features addition}{37}{paragraph*.61}%
-\contentsline {subparagraph}{Todo addition feature}{37}{subparagraph*.62}%
-\contentsline {subparagraph}{Todo updating feature}{42}{subparagraph*.70}%
-\contentsline {subparagraph}{Render optimizations}{46}{subparagraph*.78}%
-\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{50}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{50}{subsection.2.2.4}%
-\contentsline {subparagraph}{States}{50}{subparagraph*.85}%
-\contentsline {subparagraph}{The states of the list of todos}{51}{subparagraph*.86}%
-\contentsline {subparagraph}{The state of the filtered list and the filter }{52}{subparagraph*.88}%
-\contentsline {subparagraph}{the state of the stats }{53}{subparagraph*.90}%
-\contentsline {subparagraph}{The state of the tab}{54}{subparagraph*.92}%
-\contentsline {subparagraph}{Events}{54}{subparagraph*.94}%
-\contentsline {subparagraph}{Events of the list of todos}{55}{subparagraph*.95}%
-\contentsline {subparagraph}{Events for the filtered list and the filter}{56}{subparagraph*.97}%
-\contentsline {subparagraph}{Events for the stat’s and tab’s state}{57}{subparagraph*.99}%
-\contentsline {subparagraph}{The Blocs}{58}{subparagraph*.101}%
-\contentsline {subparagraph}{The bloc for the list of todos}{58}{subparagraph*.102}%
-\contentsline {subparagraph}{The bloc for the filtered list and the filter}{61}{subparagraph*.104}%
-\contentsline {subparagraph}{The bloc for the stats}{65}{subparagraph*.111}%
-\contentsline {subparagraph}{The bloc for the tab}{66}{subparagraph*.114}%
-\contentsline {subparagraph}{Observe blocs}{67}{subparagraph*.116}%
-\contentsline {subparagraph}{Making the state accessible}{69}{subparagraph*.120}%
-\contentsline {subparagraph}{Integrazione dello stato all’interno dell’UI}{71}{subparagraph*.123}%
-\contentsline {subparagraph}{La Home Page}{71}{subparagraph*.124}%
-\contentsline {subparagraph}{Il componente TodoView}{73}{subparagraph*.127}%
-\contentsline {subparagraph}{Il componente TodoItem}{74}{subparagraph*.129}%
-\contentsline {subparagraph}{Il componente VisibilityFilterSelector}{75}{subparagraph*.131}%
-\contentsline {subparagraph}{The TabSelector component}{76}{subparagraph*.135}%
-\contentsline {subparagraph}{The Stats component}{76}{subparagraph*.138}%
-\contentsline {subparagraph}{Conclusions}{77}{subparagraph*.140}%
-\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{77}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{77}{subsection.2.2.6}%
-\contentsline {chapter}{\numberline {3}The Other app}{79}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Comparisons}{81}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conslusions}{83}{chapter.5}%
+\contentsline {subsubsection}{State management solution’s introduction}{21}{subsubsection*.31}%
+\contentsline {subsubsection}{Base functionalities}{22}{subsubsection*.33}%
+\contentsline {paragraph}{Core state - }{22}{paragraph*.34}%
+\contentsline {paragraph}{The TodoView component - }{27}{paragraph*.42}%
+\contentsline {paragraph}{The VisibilityFilterSelector component - }{28}{paragraph*.44}%
+\contentsline {paragraph}{The TodoItem component - }{31}{paragraph*.50}%
+\contentsline {paragraph}{The Stats component - }{32}{paragraph*.53}%
+\contentsline {paragraph}{The TabSelector component - }{33}{paragraph*.55}%
+\contentsline {subsubsection}{Features addition}{35}{subsubsection*.59}%
+\contentsline {paragraph}{Todo addition feature - }{35}{paragraph*.60}%
+\contentsline {paragraph}{Todo updating feature - }{39}{paragraph*.68}%
+\contentsline {subsubsection}{Rendering optimizations}{43}{subsubsection*.76}%
+\contentsline {subsubsection}{Conclusions}{48}{subsubsection*.83}%
+\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{49}{subsection.2.2.3}%
+\contentsline {subsubsection}{Base funtionalities}{49}{subsubsection*.87}%
+\contentsline {paragraph}{The AppState - }{49}{paragraph*.88}%
+\contentsline {paragraph}{The actions - }{50}{paragraph*.90}%
+\contentsline {paragraph}{Reducers - }{51}{paragraph*.94}%
+\contentsline {paragraph}{The todoReducer - }{52}{paragraph*.95}%
+\contentsline {paragraph}{The tab Reducer and the visibility Filter reducer - }{54}{paragraph*.100}%
+\contentsline {paragraph}{The AppState reducer - }{55}{paragraph*.102}%
+\contentsline {paragraph}{The Middleware - }{55}{paragraph*.104}%
+\contentsline {paragraph}{Making the state accessible - }{56}{paragraph*.106}%
+\contentsline {paragraph}{Selectors - }{59}{paragraph*.109}%
+\contentsline {paragraph}{The TodoView component - }{60}{paragraph*.111}%
+\contentsline {paragraph}{The TodoItem component - }{61}{paragraph*.113}%
+\contentsline {paragraph}{The VisibilityFilterSelector component - }{62}{paragraph*.115}%
+\contentsline {paragraph}{The TabSelector component - }{63}{paragraph*.117}%
+\contentsline {paragraph}{The Stats component - }{64}{paragraph*.119}%
+\contentsline {subsubsection}{Features addition}{65}{subsubsection*.121}%
+\contentsline {subsubsection}{Rendering optimization}{68}{subsubsection*.128}%
+\contentsline {subsubsection}{Conclusions}{72}{subsubsection*.133}%
+\contentsline {subsection}{\numberline {2.2.4}BloC implementation}{73}{subsection.2.2.4}%
+\contentsline {subsubsection}{Base funtionalities}{73}{subsubsection*.137}%
+\contentsline {paragraph}{States - }{73}{paragraph*.138}%
+\contentsline {paragraph}{The states of the list of todos - }{73}{paragraph*.139}%
+\contentsline {paragraph}{The state of the filtered list and the filter - }{74}{paragraph*.141}%
+\contentsline {paragraph}{The state of the stats - }{76}{paragraph*.143}%
+\contentsline {paragraph}{The state of the tab - }{77}{paragraph*.145}%
+\contentsline {paragraph}{Events - }{77}{paragraph*.147}%
+\contentsline {paragraph}{Events of the list of todos - }{77}{paragraph*.148}%
+\contentsline {paragraph}{Events for the filtered list and the filter - }{78}{paragraph*.150}%
+\contentsline {paragraph}{Events for the stat’s and tab’s state - }{79}{paragraph*.152}%
+\contentsline {paragraph}{The Blocs - }{81}{paragraph*.154}%
+\contentsline {paragraph}{The bloc for the list of todos - }{81}{paragraph*.155}%
+\contentsline {paragraph}{The bloc for the filtered list and the filter - }{83}{paragraph*.157}%
+\contentsline {paragraph}{The bloc for the stats - }{87}{paragraph*.164}%
+\contentsline {paragraph}{The bloc for the tab - }{88}{paragraph*.167}%
+\contentsline {paragraph}{Observe blocs - }{89}{paragraph*.169}%
+\contentsline {paragraph}{Making the state accessible - }{91}{paragraph*.173}%
+\contentsline {paragraph}{The state intergration inside the UI - }{93}{paragraph*.176}%
+\contentsline {paragraph}{The HomePage - }{93}{paragraph*.177}%
+\contentsline {paragraph}{The TodoView component - }{94}{paragraph*.180}%
+\contentsline {paragraph}{The TodoItem component - }{95}{paragraph*.182}%
+\contentsline {paragraph}{The VisibilityFilterSelector component - }{96}{paragraph*.184}%
+\contentsline {paragraph}{The TabSelector component - }{97}{paragraph*.188}%
+\contentsline {paragraph}{The Stats component - }{98}{paragraph*.191}%
+\contentsline {subsubsection}{Features addition}{99}{subsubsection*.193}%
+\contentsline {paragraph}{New events - }{99}{paragraph*.194}%
+\contentsline {paragraph}{Bloc update - }{100}{paragraph*.196}%
+\contentsline {paragraph}{Access new feature in the UI - }{102}{paragraph*.200}%
+\contentsline {subsubsection}{Rendering optimization}{103}{subsubsection*.203}%
+\contentsline {subsubsection}{Conclusions}{106}{subsubsection*.207}%
+\contentsline {subsection}{\numberline {2.2.5}MobX implementation}{107}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}GetX implementation}{107}{subsection.2.2.6}%
+\contentsline {chapter}{\numberline {3}The Other app}{109}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Comparisons}{111}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conslusions}{113}{chapter.5}%
 \vspace {2em}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix A}{85}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix B}{87}{appendix.B}%
-\contentsline {chapter}{List of Figures}{89}{appendix*.147}%
-\contentsline {chapter}{List of Tables}{91}{appendix*.149}%
-\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{93}{appendix*.151}%
-\contentsline {chapter}{Acknowledgements}{97}{appendix*.153}%
+\contentsline {chapter}{\numberline {A}Appendix A}{115}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{117}{appendix.B}%
+\contentsline {chapter}{List of Figures}{119}{appendix*.217}%
+\contentsline {chapter}{List of Tables}{121}{appendix*.219}%
+\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{123}{appendix*.221}%
+\contentsline {chapter}{Acknowledgements}{127}{appendix*.223}%

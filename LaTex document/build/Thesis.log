@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  12 DEC 2021 22:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  29 DEC 2021 10:48
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -186,101 +186,10 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \titlewidth=\dimen165
 \titlewidthlast=\dimen166
 \titlewidthfirst=\dimen167
-) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
-Package: color 2021/10/11 v1.3b Standard LaTeX Color (DPC)
+) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf-pie\pgf-pie.sty
+Package: pgf-pie 2021/07/30 v0.6 Some LaTeX macros for pie chart by using PGF/T
+ikz package.
 
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cf
-g
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 149.
-
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
-ef
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-))
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2021/11/29 3.67 The Babel package
-\babel@savecnt=\count275
-\U@D=\dimen168
-\l@unhyphenated=\language79
-
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
-\bbl@readstream=\read2
-\bbl@dirlevel=\count276
-*************************************
-* Local config file bblopts.cfg used
-*
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english
-.ldf
-Language: english 2017/06/06 v3.3r English support from the babel system
-Package babel Info: Hyphen rules for 'canadian' set to \l@english
-(babel)             (\language0). Reported on input line 102.
-Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 105.
-Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 108.
-))
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks21
-\inpenc@posthook=\toks22
-)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/moresize\moresize.sty
-Package: moresize 1999/07/26 v1.9 (more font sizes)
-)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
-.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 107.
-)
-\Gin@req@height=\dimen169
-\Gin@req@width=\dimen170
-)
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transpare
-nt.sty
-Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)
-
-
-(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.st
-y
-Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen171
-\ESO@tempdimb=\dimen172
-) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
-Package: subfig 2005/06/28 ver: 1.3 subfig package
-\c@KVtest=\count277
-\sf@farskip=\skip53
-\sf@captopadj=\dimen173
-\sf@capskip=\skip54
-\sf@nearskip=\skip55
-\c@subfigure=\count278
-\c@subfigure@save=\count279
-\c@lofdepth=\count280
-\c@subtable=\count281
-\c@subtable@save=\count282
-\c@lotdepth=\count283
-\sf@top=\skip56
-\sf@bottom=\skip57
-)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tik
 z.sty
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.st
@@ -289,9 +198,9 @@ y
 sty
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfut
 il-common.tex
-\pgfutil@everybye=\toks23
-\pgfutil@tempdima=\dimen174
-\pgfutil@tempdimb=\dimen175
+\pgfutil@everybye=\toks21
+\pgfutil@tempdima=\dimen168
+\pgfutil@tempdimb=\dimen169
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfut
 il-common-lists.tex))
@@ -309,6 +218,27 @@ Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcor
 e.sty
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
+.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
+ef
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen170
+\Gin@req@width=\dimen171
+)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsy
 s.sty
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
@@ -317,33 +247,33 @@ Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfke
 ys.code.tex
-\pgfkeys@pathtoks=\toks24
-\pgfkeys@temptoks=\toks25
+\pgfkeys@pathtoks=\toks22
+\pgfkeys@temptoks=\toks23
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfke
 ysfiltered.code.tex
-\pgfkeys@tmptoks=\toks26
+\pgfkeys@tmptoks=\toks24
 ))
-\pgf@x=\dimen176
-\pgf@y=\dimen177
-\pgf@xa=\dimen178
-\pgf@ya=\dimen179
-\pgf@xb=\dimen180
-\pgf@yb=\dimen181
-\pgf@xc=\dimen182
-\pgf@yc=\dimen183
-\pgf@xd=\dimen184
-\pgf@yd=\dimen185
+\pgf@x=\dimen172
+\pgf@y=\dimen173
+\pgf@xa=\dimen174
+\pgf@ya=\dimen175
+\pgf@xb=\dimen176
+\pgf@yb=\dimen177
+\pgf@xc=\dimen178
+\pgf@yc=\dimen179
+\pgf@xd=\dimen180
+\pgf@yd=\dimen181
 \w@pgf@writea=\write3
-\r@pgf@reada=\read3
-\c@pgf@counta=\count284
-\c@pgf@countb=\count285
-\c@pgf@countc=\count286
-\c@pgf@countd=\count287
-\t@pgf@toka=\toks27
-\t@pgf@tokb=\toks28
-\t@pgf@tokc=\toks29
-\pgf@sys@id@count=\count288
+\r@pgf@reada=\read2
+\c@pgf@counta=\count275
+\c@pgf@countb=\count276
+\c@pgf@countc=\count277
+\c@pgf@countd=\count278
+\t@pgf@toka=\toks25
+\t@pgf@tokb=\toks26
+\t@pgf@tokc=\toks27
+\pgf@sys@id@count=\count279
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
 .cfg
@@ -362,8 +292,8 @@ File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
 syssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count289
-\pgfsyssoftpath@bigbuffer@items=\count290
+\pgfsyssoftpath@smallbuffer@items=\count280
+\pgfsyssoftpath@bigbuffer@items=\count281
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
 sysprotocol.code.tex
@@ -377,7 +307,6 @@ g
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
-LaTeX Info: Redefining \color on input line 711.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
 Package xcolor Info: Model `RGB' extended on input line 1368.
@@ -400,12 +329,12 @@ c.code.tex
 l.code.tex)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathpar
 ser.code.tex
-\pgfmath@dimen=\dimen186
-\pgfmath@count=\count291
+\pgfmath@dimen=\dimen182
+\pgfmath@count=\count282
 \pgfmath@box=\box97
-\pgfmath@toks=\toks30
-\pgfmath@stack@operand=\toks31
-\pgfmath@stack@operation=\toks32
+\pgfmath@toks=\toks28
+\pgfmath@stack@operand=\toks29
+\pgfmath@stack@operation=\toks30
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
 ctions.code.tex
@@ -427,39 +356,39 @@ ctions.misc.code.tex)
 ctions.integerarithmetics.code.tex)))
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathflo
 at.code.tex
-\c@pgfmathroundto@lastzeros=\count292
+\c@pgfmathroundto@lastzeros=\count283
 ))
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.cod
 e.tex)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen187
-\pgf@picmaxx=\dimen188
-\pgf@picminy=\dimen189
-\pgf@picmaxy=\dimen190
-\pgf@pathminx=\dimen191
-\pgf@pathmaxx=\dimen192
-\pgf@pathminy=\dimen193
-\pgf@pathmaxy=\dimen194
-\pgf@xx=\dimen195
-\pgf@xy=\dimen196
-\pgf@yx=\dimen197
-\pgf@yy=\dimen198
-\pgf@zx=\dimen199
-\pgf@zy=\dimen256
+\pgf@picminx=\dimen183
+\pgf@picmaxx=\dimen184
+\pgf@picminy=\dimen185
+\pgf@picmaxy=\dimen186
+\pgf@pathminx=\dimen187
+\pgf@pathmaxx=\dimen188
+\pgf@pathminy=\dimen189
+\pgf@pathmaxy=\dimen190
+\pgf@xx=\dimen191
+\pgf@xy=\dimen192
+\pgf@yx=\dimen193
+\pgf@yy=\dimen194
+\pgf@zx=\dimen195
+\pgf@zy=\dimen196
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen257
-\pgf@path@lasty=\dimen258
+\pgf@path@lastx=\dimen197
+\pgf@path@lasty=\dimen198
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orepathusage.code.tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen259
-\pgf@shorten@start@additional=\dimen260
+\pgf@shorten@end@additional=\dimen199
+\pgf@shorten@start@additional=\dimen256
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orescopes.code.tex
@@ -467,19 +396,19 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box98
 \pgf@hbox=\box99
 \pgf@layerbox@main=\box100
-\pgf@picture@serial@count=\count293
+\pgf@picture@serial@count=\count284
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 oregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen261
+\pgflinewidth=\dimen257
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 oretransformations.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen262
-\pgf@pt@y=\dimen263
-\pgf@pt@temp=\dimen264
+\pgf@pt@x=\dimen258
+\pgf@pt@y=\dimen259
+\pgf@pt@temp=\dimen260
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orequick.code.tex
@@ -496,14 +425,14 @@ File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orearrows.code.tex
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen265
+\pgfarrowsep=\dimen261
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 oreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count294
-\pgf@shadingcount=\count295
+\pgf@max=\dimen262
+\pgf@sys@shading@range@num=\count285
+\pgf@shadingcount=\count286
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 oreimage.code.tex
@@ -542,8 +471,8 @@ File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
 comp-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen267
-\pgf@nodesepend=\dimen268
+\pgf@nodesepstart=\dimen263
+\pgf@nodesepend=\dimen264
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
 comp-version-1-18.sty
@@ -564,10 +493,10 @@ Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.co
 de.tex)
-\pgffor@iter=\dimen269
-\pgffor@skip=\dimen270
-\pgffor@stack=\toks33
-\pgffor@toks=\toks34
+\pgffor@iter=\dimen265
+\pgffor@skip=\dimen266
+\pgffor@stack=\toks31
+\pgffor@toks=\toks32
 ))
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
 ikz\tikz.code.tex
@@ -576,39 +505,111 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
 braryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count296
-\pgfplotmarksize=\dimen271
+\pgf@plot@mark@count=\count287
+\pgfplotmarksize=\dimen267
 )
-\tikz@lastx=\dimen272
-\tikz@lasty=\dimen273
-\tikz@lastxsaved=\dimen274
-\tikz@lastysaved=\dimen275
-\tikz@lastmovetox=\dimen276
-\tikz@lastmovetoy=\dimen277
-\tikzleveldistance=\dimen278
-\tikzsiblingdistance=\dimen279
+\tikz@lastx=\dimen268
+\tikz@lasty=\dimen269
+\tikz@lastxsaved=\dimen270
+\tikz@lastysaved=\dimen271
+\tikz@lastmovetox=\dimen272
+\tikz@lastmovetoy=\dimen273
+\tikzleveldistance=\dimen274
+\tikzsiblingdistance=\dimen275
 \tikz@figbox=\box103
 \tikz@figbox@bg=\box104
 \tikz@tempbox=\box105
 \tikz@tempbox@bg=\box106
-\tikztreelevel=\count297
-\tikznumberofchildren=\count298
-\tikznumberofcurrentchild=\count299
-\tikz@fig@count=\count300
+\tikztreelevel=\count288
+\tikznumberofchildren=\count289
+\tikznumberofcurrentchild=\count290
+\tikz@fig@count=\count291
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
 lematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count301
-\pgfmatrixcurrentcolumn=\count302
-\pgf@matrix@numberofcolumns=\count303
+\pgfmatrixcurrentrow=\count292
+\pgfmatrixcurrentcolumn=\count293
+\pgf@matrix@numberofcolumns=\count294
 )
-\tikz@expandcount=\count304
+\tikz@expandcount=\count295
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
 ikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pgf-pie\tikzlibrarypi
+e.code.tex
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty
+)
+\pgfpie@angleEnd=\dimen276
+\pgfpie@explodeLength=\count296
+\pgfpie@colorLength=\count297
+\pgfpie@sliceLength=\count298
+)) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/11/29 3.67 The Babel package
+\babel@savecnt=\count299
+\U@D=\dimen277
+\l@unhyphenated=\language79
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read3
+\bbl@dirlevel=\count300
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english
+.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+))
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks33
+\inpenc@posthook=\toks34
+)
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/moresize\moresize.sty
+Package: moresize 1999/07/26 v1.9 (more font sizes)
+)
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transpare
+nt.sty
+Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)
+
+
+(C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.st
+y
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen278
+\ESO@tempdimb=\dimen279
+) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+\c@KVtest=\count301
+\sf@farskip=\skip53
+\sf@captopadj=\dimen280
+\sf@capskip=\skip54
+\sf@nearskip=\skip55
+\c@subfigure=\count302
+\c@subfigure@save=\count303
+\c@lofdepth=\count304
+\c@subtable=\count305
+\c@subtable@save=\count306
+\c@lotdepth=\count307
+\sf@top=\skip56
+\sf@bottom=\skip57
+)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks35
@@ -624,7 +625,7 @@ Package: amsthm 2020/05/29 v2.20.6
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/thmtools\thmtools.sty
 Package: thmtools 2020/08/01 v0.72
 \thmt@toks=\toks41
-\c@thmt@dummyctr=\count305
+\c@thmt@dummyctr=\count308
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/thmtools\thm-patch.st
 y
@@ -661,7 +662,7 @@ Package: thm-amsthm 2020/08/01 v0.72
 \thmt@style@headstyle=\toks43
 )) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count306
+\c@float@type=\count309
 \float@exts=\toks44
 \float@box=\box107
 \@float@everytoks=\toks45
@@ -677,11 +678,11 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
 Package: fancyvrb 2021/11/24~ 4.1a~verbatim text (tvz,hv)
-\FV@CodeLineNo=\count307
+\FV@CodeLineNo=\count310
 \FV@InFile=\read4
 \FV@TabBox=\box109
-\c@FancyVerbLine=\count308
-\FV@StepNumber=\count309
+\c@FancyVerbLine=\count311
+\FV@StepNumber=\count312
 \FV@OutFile=\write4
 ) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
@@ -691,56 +692,56 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ))
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count310
+\linenopenalty=\count313
 \output=\toks46
-\linenoprevgraf=\count311
-\linenumbersep=\dimen280
-\linenumberwidth=\dimen281
-\c@linenumber=\count312
-\c@pagewiselinenumber=\count313
-\c@LN@truepage=\count314
-\c@internallinenumber=\count315
-\c@internallinenumbers=\count316
-\quotelinenumbersep=\dimen282
-\bframerule=\dimen283
-\bframesep=\dimen284
+\linenoprevgraf=\count314
+\linenumbersep=\dimen281
+\linenumberwidth=\dimen282
+\c@linenumber=\count315
+\c@pagewiselinenumber=\count316
+\c@LN@truepage=\count317
+\c@internallinenumber=\count318
+\c@internallinenumbers=\count319
+\quotelinenumbersep=\dimen283
+\bframerule=\dimen284
+\bframesep=\dimen285
 \bframebox=\box110
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count317
-\c@FV@TrueTabCounter=\count318
+\c@FV@TrueTabGroupLevel=\count320
+\c@FV@TrueTabCounter=\count321
 \FV@TabBox@Group=\box111
 \FV@TmpLength=\skip61
-\c@FV@HighlightLinesStart=\count319
-\c@FV@HighlightLinesStop=\count320
-\FV@LoopCount=\count321
+\c@FV@HighlightLinesStart=\count322
+\c@FV@HighlightLinesStop=\count323
+\FV@LoopCount=\count324
 \FV@NCharsBox=\box112
-\FV@BreakIndent=\dimen285
-\FV@BreakIndentNChars=\count322
-\FV@BreakSymbolSepLeft=\dimen286
-\FV@BreakSymbolSepLeftNChars=\count323
-\FV@BreakSymbolSepRight=\dimen287
-\FV@BreakSymbolSepRightNChars=\count324
-\FV@BreakSymbolIndentLeft=\dimen288
-\FV@BreakSymbolIndentLeftNChars=\count325
-\FV@BreakSymbolIndentRight=\dimen289
-\FV@BreakSymbolIndentRightNChars=\count326
-\c@FancyVerbLineBreakLast=\count327
+\FV@BreakIndent=\dimen286
+\FV@BreakIndentNChars=\count325
+\FV@BreakSymbolSepLeft=\dimen287
+\FV@BreakSymbolSepLeftNChars=\count326
+\FV@BreakSymbolSepRight=\dimen288
+\FV@BreakSymbolSepRightNChars=\count327
+\FV@BreakSymbolIndentLeft=\dimen289
+\FV@BreakSymbolIndentLeftNChars=\count328
+\FV@BreakSymbolIndentRight=\dimen290
+\FV@BreakSymbolIndentRightNChars=\count329
+\c@FancyVerbLineBreakLast=\count330
 \FV@LineBox=\box113
 \FV@LineIndentBox=\box114
-\FV@LineWidth=\dimen290
+\FV@LineWidth=\dimen291
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count328
-\calc@Bcount=\count329
-\calc@Adimen=\dimen291
-\calc@Bdimen=\dimen292
+\calc@Acount=\count331
+\calc@Bcount=\count332
+\calc@Adimen=\dimen292
+\calc@Bdimen=\dimen293
 \calc@Askip=\skip62
 \calc@Bskip=\skip63
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count330
+\calc@Ccount=\count333
 \calc@Cskip=\skip64
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
@@ -777,17 +778,17 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.st
 y
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
-\integerpart=\count331
-\decimalpart=\count332
+\integerpart=\count334
+\decimalpart=\count335
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 ) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip65
-\fb@frw=\dimen293
-\fb@frh=\dimen294
-\FrameRule=\dimen295
-\FrameSep=\dimen296
+\fb@frw=\dimen294
+\fb@frh=\dimen295
+\FrameRule=\dimen296
+\FrameSep=\dimen297
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/newfloat\newfloat.sty
 Package: newfloat 2019/09/02 v1.1l Defining new floating environments (AR)
@@ -796,13 +797,13 @@ Package newfloat Info: Document class `book' detected.
 \minted@appexistsfile=\read5
 \minted@bgbox=\box115
 \minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count333
-\c@minted@pygmentizecounter=\count334
+\c@minted@FancyVerbLineTemp=\count336
+\c@minted@pygmentizecounter=\count337
 Package newfloat Info: New float `listing' with options `fileext=lol,placement=
 tbp' on input line 1151.
-\c@listing=\count335
+\c@listing=\count338
 Package newfloat Info: float type `listing'=4 on input line 1151.
-\c@loldepth=\count336
+\c@loldepth=\count339
 )
 runsystem(if not exist build\_minted-Thesis mkdir build\_minted-Thesis)...execu
 ted.
@@ -850,47 +851,47 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks48
-\ex@=\dimen297
+\ex@=\dimen298
 ))
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 LaTeX Info: Redefining \boldsymbol on input line 28.
-\pmbraise@=\dimen298
+\pmbraise@=\dimen299
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count337
+\inf@bad=\count340
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count338
-\leftroot@=\count339
+\uproot@=\count341
+\leftroot@=\count342
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count340
-\DOTSCASE@=\count341
+\classnum@=\count343
+\DOTSCASE@=\count344
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box116
 \strutbox@=\box117
-\big@size=\dimen299
+\big@size=\dimen300
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count342
-\c@MaxMatrixCols=\count343
+\macc@depth=\count345
+\c@MaxMatrixCols=\count346
 \dotsspace@=\muskip16
-\c@parentequation=\count344
-\dspbrk@lvl=\count345
+\c@parentequation=\count347
+\dspbrk@lvl=\count348
 \tag@help=\toks49
-\row@=\count346
-\column@=\count347
-\maxfields@=\count348
+\row@=\count349
+\column@=\count350
+\maxfields@=\count351
 \andhelp@=\toks50
-\eqnshift@=\dimen300
-\alignsep@=\dimen301
-\tagshift@=\dimen302
-\tagwidth@=\dimen303
-\totwidth@=\dimen304
-\lineht@=\dimen305
+\eqnshift@=\dimen301
+\alignsep@=\dimen302
+\tagshift@=\dimen303
+\tagwidth@=\dimen304
+\totwidth@=\dimen305
+\lineht@=\dimen306
 \@envbody=\toks51
 \multlinegap=\skip67
 \multlinetaggap=\skip68
@@ -902,34 +903,34 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count349
-\l_MT_multwidth_dim=\dimen306
+\g_MT_multlinerow_int=\count352
+\l_MT_multwidth_dim=\dimen307
 \origjot=\skip69
-\l_MT_shortvdotswithinadjustabove_dim=\dimen307
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen308
-\l_MT_above_intertext_sep=\dimen309
-\l_MT_below_intertext_sep=\dimen310
-\l_MT_above_shortintertext_sep=\dimen311
-\l_MT_below_shortintertext_sep=\dimen312
+\l_MT_shortvdotswithinadjustabove_dim=\dimen308
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen309
+\l_MT_above_intertext_sep=\dimen310
+\l_MT_below_intertext_sep=\dimen311
+\l_MT_above_shortintertext_sep=\dimen312
+\l_MT_below_shortintertext_sep=\dimen313
 \xmathstrut@box=\box118
-\xmathstrut@dim=\dimen313
+\xmathstrut@dim=\dimen314
 )
-\l_EQ_equationtype_int=\count350
-\l_EQ_alignmentmode_int=\count351
-\l_EQ_totalwidth_dim=\dimen314
-\l_EQ_displaywidth_dim=\dimen315
-\l_EQ_temp_linewidth_dim=\dimen316
-\l_EQ_linewidth_dim=\dimen317
-\EmphEqdelimitershortfall=\dimen318
-\EmphEqdelimiterfactor=\count352
-\g_EQ_toptag_height_dim=\dimen319
-\g_EQ_bottomtag_depth_dim=\dimen320
-\g_EQ_toprow_height_dim=\dimen321
-\g_EQ_bottomrow_depth_dim=\dimen322
-\g_EQ_widesttag_dim=\dimen323
+\l_EQ_equationtype_int=\count353
+\l_EQ_alignmentmode_int=\count354
+\l_EQ_totalwidth_dim=\dimen315
+\l_EQ_displaywidth_dim=\dimen316
+\l_EQ_temp_linewidth_dim=\dimen317
+\l_EQ_linewidth_dim=\dimen318
+\EmphEqdelimitershortfall=\dimen319
+\EmphEqdelimiterfactor=\count355
+\g_EQ_toptag_height_dim=\dimen320
+\g_EQ_bottomtag_depth_dim=\dimen321
+\g_EQ_toprow_height_dim=\dimen322
+\g_EQ_bottomrow_depth_dim=\dimen323
+\g_EQ_widesttag_dim=\dimen324
 \EQ_mathdisplay_box=\box119
 \EQ_tag_box=\box120
-\g_EQ_temprow_int=\count353
+\g_EQ_temprow_int=\count356
 ) (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/base\fix-cm.sty
 Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
 
@@ -942,20 +943,20 @@ Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen324
+\col@sep=\dimen325
 \ar@mcellbox=\box121
-\extrarowheight=\dimen325
+\extrarowheight=\dimen326
 \NC@list=\toks53
 \extratabsurround=\skip70
 \backup@length=\skip71
 \ar@cellbox=\box122
 )
-\TX@col@width=\dimen326
-\TX@old@table=\dimen327
-\TX@old@col=\dimen328
-\TX@target=\dimen329
-\TX@delta=\dimen330
-\TX@cols=\count354
+\TX@col@width=\dimen327
+\TX@old@table=\dimen328
+\TX@old@col=\dimen329
+\TX@target=\dimen330
+\TX@delta=\dimen331
+\TX@cols=\count357
 \TX@ftn=\toks54
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
@@ -964,17 +965,17 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTright=\skip73
 \LTpre=\skip74
 \LTpost=\skip75
-\LTchunksize=\count355
-\LTcapwidth=\dimen331
+\LTchunksize=\count358
+\LTcapwidth=\dimen332
 \LT@head=\box123
 \LT@firsthead=\box124
 \LT@foot=\box125
 \LT@lastfoot=\box126
 \LT@gbox=\box127
-\LT@cols=\count356
-\LT@rows=\count357
-\c@LT@tables=\count358
-\c@LT@chunks=\count359
+\LT@cols=\count359
+\LT@rows=\count360
+\c@LT@tables=\count361
+\c@LT@chunks=\count362
 \LT@p@ftn=\toks55
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
@@ -987,15 +988,15 @@ sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 \@float@every@algorithm=\toks57
-\c@algorithm=\count360
+\c@algorithm=\count363
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmi
 c.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count361
-\c@ALC@line=\count362
-\c@ALC@rem=\count363
-\c@ALC@depth=\count364
+\c@ALC@unique=\count364
+\c@ALC@line=\count365
+\c@ALC@rem=\count366
+\c@ALC@depth=\count367
 \ALC@tlm=\skip77
 \algorithmicindent=\skip78
 )
@@ -1017,9 +1018,9 @@ Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-\@linkdim=\dimen332
-\Hy@linkcounter=\count365
-\Hy@pagecounter=\count366
+\@linkdim=\dimen333
+\Hy@linkcounter=\count368
+\Hy@pagecounter=\count369
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
@@ -1034,7 +1035,7 @@ nguages
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count367
+\Hy@SavedSpaceFactor=\count370
  (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -1048,13 +1049,13 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count368
+\c@Hy@tempcnt=\count371
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen333
+\XeTeXLinkMargin=\dimen334
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -1064,9 +1065,9 @@ lc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count369
-\Field@Width=\dimen334
-\Fld@charsize=\dimen335
+\Fld@menulength=\count372
+\Field@Width=\dimen335
+\Fld@charsize=\dimen336
 Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
@@ -1081,9 +1082,9 @@ LaTeX Info: Redefining \pageref on input line 6150.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count370
-\c@Item=\count371
-\c@Hfootnote=\count372
+\Hy@abspage=\count373
+\c@Item=\count374
+\c@Hfootnote=\count375
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -1096,8 +1097,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count373
-\c@bookmark@seq@number=\count374
+\Fld@listcount=\count376
+\c@bookmark@seq@number=\count377
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunf
 ilecheck.sty
@@ -1132,25 +1133,25 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip80
 \bibsep=\skip81
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count375
+\c@NAT@ctr=\count378
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count376
+\lst@mode=\count379
 \lst@gtempboxa=\box128
 \lst@token=\toks58
-\lst@length=\count377
-\lst@currlwidth=\dimen336
-\lst@column=\count378
-\lst@pos=\count379
-\lst@lostspace=\dimen337
-\lst@width=\dimen338
-\lst@newlines=\count380
-\lst@lineno=\count381
-\lst@maxwidth=\dimen339
+\lst@length=\count380
+\lst@currlwidth=\dimen337
+\lst@column=\count381
+\lst@pos=\count382
+\lst@lostspace=\dimen338
+\lst@width=\dimen339
+\lst@newlines=\count383
+\lst@lineno=\count384
+\lst@maxwidth=\dimen340
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count382
-\lst@skipnumbers=\count383
+\c@lstnumber=\count385
+\lst@skipnumbers=\count386
 \lst@framebox=\box129
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
@@ -1160,19 +1161,19 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
 Package: pdfpages 2021/03/06 v0.5t Insert pages of external PDF documents (AM)
-\AM@pagewidth=\dimen340
-\AM@pageheight=\dimen341
-\AM@fboxrule=\dimen342
+\AM@pagewidth=\dimen341
+\AM@pageheight=\dimen342
+\AM@fboxrule=\dimen343
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
 File: pppdftex.def 2021/03/06 v0.5t Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count384
+\pdfpages@includegraphics@status=\count387
 \AM@pagebox=\box130
 \AM@global@opts=\toks59
-\AM@pagecnt=\count385
+\AM@pagecnt=\count388
 \AM@toc@title=\toks60
-\c@AM@survey=\count386
+\c@AM@survey=\count389
 \AM@templatesizebox=\box131
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/tools\afterpage.sty
@@ -1190,15 +1191,15 @@ Package: expl3 2021-11-22 L3 programming layer (loader)
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count387
+\l__color_backend_stack_int=\count390
 \l__pdf_internal_box=\box134
 ))
 Package: l3keys2e 2021-11-12 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count388
-\l__lipsum_a_int=\count389
-\l__lipsum_b_int=\count390
+\g__lipsum_par_int=\count391
+\l__lipsum_a_int=\count392
+\l__lipsum_b_int=\count393
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex
 ))
@@ -1215,9 +1216,9 @@ rs
 \f@nch@O@olf=\skip89
 \f@nch@O@orf=\skip90
 ) (Configuration_Files/config.tex
-\c@theorem=\count391
-\c@proposition=\count392
-\c@algsubstate=\count393
+\c@theorem=\count394
+\c@proposition=\count395
+\c@algsubstate=\count396
 )
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > Th
 esis.aex <nul: /p x=^%~$PATH:i>> Thesis.aex)...executed.
@@ -1228,10 +1229,10 @@ runsystem(del Thesis.aex)...executed.
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
 nt\build\Thesis.aux
 
-LaTeX Warning: Label `code:2.29' multiply defined.
+LaTeX Warning: Label `code:2.36' multiply defined.
 
 
-LaTeX Warning: Label `code:2.29@cref' multiply defined.
+LaTeX Warning: Label `code:2.36@cref' multiply defined.
 
 
 LaTeX Warning: Label `code:2.42' multiply defined.
@@ -1246,6 +1247,318 @@ LaTeX Warning: Label `code:2.47' multiply defined.
 LaTeX Warning: Label `code:2.47@cref' multiply defined.
 
 
+LaTeX Warning: Label `subpar:render_optimizations_inherited_widget' multiply de
+fined.
+
+
+LaTeX Warning: Label `subpar:render_optimizations_inherited_widget@cref' multip
+ly defined.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction' multiply defi
+ned.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction@cref' multiply
+ defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction' multiply defi
+ned.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction@cref' multiply
+ defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction' multiply defi
+ned.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction@cref' multiply
+ defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:render_optimizations_inherited_widget' multiply de
+fined.
+
+
+LaTeX Warning: Label `subpar:render_optimizations_inherited_widget@cref' multip
+ly defined.
+
+
+LaTeX Warning: Label `table:example' multiply defined.
+
+
+LaTeX Warning: Label `table:example@cref' multiply defined.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction' multiply defi
+ned.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction@cref' multiply
+ defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
 LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
 
 
@@ -1570,32 +1883,128 @@ LaTeX Warning: Label `code:2.14' multiply defined.
 LaTeX Warning: Label `code:2.14@cref' multiply defined.
 
 
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction' multiply defi
+ned.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction@cref' multiply
+ defined.
+
+
 LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
 
 
 LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction' multiply defi
+ned.
+
+
+LaTeX Warning: Label `par:todo_app_inherited_widget_introduction@cref' multiply
+ defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `subpar:render_optimizations_inherited_widget' multiply de
+fined.
+
+
+LaTeX Warning: Label `subpar:render_optimizations_inherited_widget@cref' multip
+ly defined.
+
+
+LaTeX Warning: Label `table:example' multiply defined.
+
+
+LaTeX Warning: Label `table:example@cref' multiply defined.
 
 )
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1646,16 +2055,16 @@ Package caption Info: End \AtBeginDocument code.
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count394
-\scratchdimen=\dimen343
+\scratchcounter=\count397
+\scratchdimen=\dimen344
 \scratchbox=\box135
-\nofMPsegments=\count395
-\nofMParguments=\count396
+\nofMPsegments=\count398
+\nofMParguments=\count399
 \everyMPshowfont=\toks62
-\MPscratchCnt=\count397
-\MPscratchDim=\dimen344
-\MPnumerator=\count398
-\makeMPintoPDFobject=\count399
+\MPscratchCnt=\count400
+\MPscratchDim=\dimen345
+\MPnumerator=\count401
+\makeMPintoPDFobject=\count402
 \everyMPtoPDFconversion=\toks63
 )
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
@@ -1669,9 +2078,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package newfloat Info: `float' package detected.
-LaTeX Info: Redefining \[ on input line 114.
-LaTeX Info: Redefining \] on input line 114.
-Package hyperref Info: Link coloring ON on input line 114.
+LaTeX Info: Redefining \[ on input line 115.
+LaTeX Info: Redefining \] on input line 115.
+Package hyperref Info: Link coloring ON on input line 115.
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1683,11 +2092,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 itlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count400
+\c@section@level=\count403
 )
-LaTeX Info: Redefining \ref on input line 114.
-LaTeX Info: Redefining \pageref on input line 114.
-LaTeX Info: Redefining \nameref on input line 114.
+LaTeX Info: Redefining \ref on input line 115.
+LaTeX Info: Redefining \pageref on input line 115.
+LaTeX Info: Redefining \nameref on input line 115.
 
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
 nt\build\Thesis.out)
@@ -1696,7 +2105,7 @@ nt\build\Thesis.out)
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
 
-\c@lstlisting=\count401
+\c@lstlisting=\count404
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.s
 ty
@@ -1718,7 +2127,7 @@ O-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=Images/
 02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf Images/02_ING_IND_INF
 ORMAZIONE_COL_POSITIVO.eps>
-(epstopdf)             \includegraphics on input line 137.
+(epstopdf)             \includegraphics on input line 138.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1731,14 +2140,14 @@ File: Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf Graphic
 file (type pdf)
 <use Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf>
 Package pdftex.def Info: Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-conver
-ted-to.pdf  used on input line 137.
+ted-to.pdf  used on input line 138.
 (pdftex.def)             Requested size: 302.73503pt x 150.052pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 137
+LaTeX Font Info:    Trying to load font information for U+msa on input line 138
 .
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 137
+LaTeX Font Info:    Trying to load font information for U+msb on input line 138
 .
 
 (C:\Users\Lorenzo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1753,7 +2162,7 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 137.
+(epstopdf)             \includegraphics on input line 138.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1764,7 +2173,7 @@ pdfTeX warning: pdflatex (file ./Images//./raggiera_polimi-eps-converted-to.pdf
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 137.
+ on input line 138.
 (pdftex.def)             Requested size: 418.25368pt x 418.24866pt.
 [1
 
@@ -1782,17 +2191,17 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 142.
+(epstopdf)             \includegraphics on input line 143.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 142.
+ on input line 143.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 147--151
+Underfull \hbox (badness 10000) in paragraph at lines 148--152
 
  []
 
@@ -1800,7 +2209,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.153 \chapter*{Abstract in lingua italiana}
+l.154 \chapter*{Abstract in lingua italiana}
                                              [1
 
 
@@ -1808,7 +2217,7 @@ l.153 \chapter*{Abstract in lingua italiana}
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.153 \chapter*{Abstract in lingua italiana}
+l.154 \chapter*{Abstract in lingua italiana}
                                             
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
 (epstopdf)                    date: 2021-11-29 18:09:46
@@ -1819,17 +2228,17 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 153.
+(epstopdf)             \includegraphics on input line 154.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 153.
+ on input line 154.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 154--158
+Underfull \hbox (badness 10000) in paragraph at lines 155--159
 
  []
 
@@ -1845,12 +2254,12 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 165.
+(epstopdf)             \includegraphics on input line 166.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 165.
+ on input line 166.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [4
 
@@ -1877,12 +2286,12 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 194.
+(epstopdf)             \includegraphics on input line 195.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 194.
+ on input line 195.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [2
 
@@ -1900,12 +2309,12 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 198.
+(epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 198.
+ on input line 199.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [4
 
@@ -2003,7 +2412,7 @@ E6B5F38.pygtex) [20]
 
 (build/_minted-Thesis/2FD0E83758BDB3A0FFD212230A9D9C6BEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)) (Subsections/InheritedWidgetsImplementation.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--7
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
 
@@ -2012,15 +2421,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
 (build/_minted-Thesis/6712ABFAAFD52C92432FD1C250E1E544EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 14--23
+Underfull \hbox (badness 10000) in paragraph at lines 12--21
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 30--35
-
- []
-
 \openout4 = `Thesis.pyg'.
 
 
@@ -2036,25 +2441,11 @@ E6B5F38.pygtex) [23]
 
 (build/_minted-Thesis/AF2474B2B3C149C2E41C3241640081BEEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-
- []
-
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/4977BE215A42A5A0EDAD73F29179DEF3EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
-
- []
-
-[24]
+E6B5F38.pygtex) [24]
 \openout4 = `Thesis.pyg'.
 
 
@@ -2064,13 +2455,13 @@ E6B5F38.pygtex [25])
 
 
 (build/_minted-Thesis/2D3071203268B5976F19F3972B1CD3E3EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [26]
+E6B5F38.pygtex)
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/DBA59F08026B7B5F6FF65D546127EA5AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 183--187
+E6B5F38.pygtex [26])
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
 
  []
 
@@ -2078,22 +2469,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--187
 
 
 (build/_minted-Thesis/568CF2F89556D614A2B773E6FEEA9E54EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [27])
+E6B5F38.pygtex) [27]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/32E4CDE8A5352829DDC4884084B8613AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [28])
-Underfull \hbox (badness 10000) in paragraph at lines 256--257
-
- []
-
-[29]
+E6B5F38.pygtex) [28]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/D4C706E6E4F38ACE65F37BBE89F451E3EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex) [29]
 \openout4 = `Thesis.pyg'.
 
 
@@ -2101,16 +2487,16 @@ E6B5F38.pygtex)
 E6B5F38.pygtex)
 
 Package caption Warning: \captionsetup{type*=...} or \captionof
-(caption)                outside box or environment on input line 290.
+(caption)                outside box or environment on input line 281.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 290.
+(caption)                particular \caption on input line 281.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--290
+Underfull \hbox (badness 10000) in paragraph at lines 278--281
 
  []
 
@@ -2118,14 +2504,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--290
 
 
 (build/_minted-Thesis/3E43EEC95F222DB66B616225444406ABEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [30])
+E6B5F38.pygtex)
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 311.
+(caption)                particular \caption on input line 301.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
+Underfull \hbox (badness 10000) in paragraph at lines 298--301
 
  []
 
@@ -2133,153 +2519,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
 
 (build/_minted-Thesis/3CB2C6B7DF2FB0EA245B9DD4EFD8C774EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
+E6B5F38.pygtex [30])
+Underfull \hbox (badness 10000) in paragraph at lines 312--313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--331
+Underfull \hbox (badness 10000) in paragraph at lines 319--321
 
  []
 
-[31]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/32C87FB3CC34A3CF03D9E2737F778467EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
-
- []
-
-[32]
+E6B5F38.pygtex [31])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/15D764B85D73A3381DC8A8673DA49E58EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--389
-
- []
-
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 390.
+(caption)                particular \caption on input line 370.
 See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--370
+
+ []
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/553C2805BA9BFA4B27C141051B163AFEEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [33]
+E6B5F38.pygtex [32])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/EAE2FEAD87E8F3BA7C65E714E6BE4762EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 429--430
-
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
-
- []
-
+E6B5F38.pygtex [33])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/FC8C54885FA6E56F6BF94DDE8B514F16EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [35]
-<Images/shot_runtime_todoapp.png, id=437, 375.65344pt x 253.69781pt>
-File: Images/shot_runtime_todoapp.png Graphic file (type png)
-<use Images/shot_runtime_todoapp.png>
-Package pdftex.def Info: Images/shot_runtime_todoapp.png  used on input line 48
-3.
-(pdftex.def)             Requested size: 225.3938pt x 152.21985pt.
-<Images/tree_structure_on_HomePage_todos.png, id=439, 319.94531pt x 410.2828pt>
+E6B5F38.pygtex [34])
+<Images/tree_structure_on_HomePage_todos.png, id=432, 319.94531pt x 410.2828pt>
 
 File: Images/tree_structure_on_HomePage_todos.png Graphic file (type png)
 <use Images/tree_structure_on_HomePage_todos.png>
 Package pdftex.def Info: Images/tree_structure_on_HomePage_todos.png  used on i
-nput line 487.
+nput line 453.
 (pdftex.def)             Requested size: 191.96866pt x 246.17157pt.
-<Images/shot_runtime_todoapp_stats.png, id=442, 374.14781pt x 255.95625pt>
-File: Images/shot_runtime_todoapp_stats.png Graphic file (type png)
-<use Images/shot_runtime_todoapp_stats.png>
-Package pdftex.def Info: Images/shot_runtime_todoapp_stats.png  used on input l
-ine 498.
-(pdftex.def)             Requested size: 224.4904pt x 153.57492pt.
-<Images/tree_structure_on_HomePage_stats.png, id=443, 258.9675pt x 234.1247pt>
+<Images/tree_structure_on_HomePage_stats.png, id=434, 258.9675pt x 234.1247pt>
 File: Images/tree_structure_on_HomePage_stats.png Graphic file (type png)
 <use Images/tree_structure_on_HomePage_stats.png>
 Package pdftex.def Info: Images/tree_structure_on_HomePage_stats.png  used on i
-nput line 502.
+nput line 457.
 (pdftex.def)             Requested size: 155.38168pt x 140.47589pt.
- [36 <./Images/shot_runtime_todoapp.png> <./Images/tree_structure_on_HomePage_t
-odos.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 507--512
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 507--512
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 519--523
-
- []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 525.
+(caption)                particular \caption on input line 476.
 See the caption package documentation for explanation.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 474--476
+
+ []
+
+[35 <./Images/tree_structure_on_HomePage_todos.png> <./Images/tree_structure_on
+_HomePage_stats.png>]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/56B57323B3D5329C7456554407888C08EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [37 <./Images/shot_runtime_todoapp_stats.png> <./Images/tree_str
-ucture_on_HomePage_stats.png>])
-Underfull \hbox (badness 10000) in paragraph at lines 551--552
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 553--557
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
-
- []
-
+E6B5F38.pygtex) [36]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/9B343B4523613A7F321A5F231EDA6969EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [38])
-Underfull \hbox (badness 10000) in paragraph at lines 585--586
-
- []
-
-<Images/tree_structure_on_AddTodoPage.png, id=476, 276.28218pt x 311.66437pt>
+E6B5F38.pygtex)
+<Images/tree_structure_on_AddTodoPage.png, id=457, 276.28218pt x 311.66437pt>
 File: Images/tree_structure_on_AddTodoPage.png Graphic file (type png)
 <use Images/tree_structure_on_AddTodoPage.png>
 Package pdftex.def Info: Images/tree_structure_on_AddTodoPage.png  used on inpu
-t line 591.
+t line 539.
 (pdftex.def)             Requested size: 273.14923pt x 308.13017pt.
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 597--599
+ [37]
+Underfull \hbox (badness 10000) in paragraph at lines 545--547
 
  []
 
@@ -2288,50 +2616,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 597--599
 
 (build/_minted-Thesis/E0C5C47AD8C172873EA84996C9F89892EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 607--609
-
- []
-
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 611.
+(caption)                particular \caption on input line 557.
 See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--557
+
+ []
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/9BB93106477D46E1B96AD6ABE890705CEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [40 <./Images/tree_structure_on_AddTodoPage.png>])
-Underfull \hbox (badness 10000) in paragraph at lines 623--626
-
- []
-
+E6B5F38.pygtex [38 <./Images/tree_structure_on_AddTodoPage.png>])
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 628.
+(caption)                particular \caption on input line 572.
 See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 569--572
+
+ []
 
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/897935FACB93E1111B56E982B1F4E5D5EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 643--644
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 645--647
-
- []
-
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 649.
+(caption)                particular \caption on input line 590.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--651
+Underfull \hbox (badness 10000) in paragraph at lines 587--590
 
  []
 
@@ -2340,63 +2661,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 650--651
 
 (build/_minted-Thesis/6000E0F8D3AB351134FDC9EF3886A819EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 662--663
+Underfull \hbox (badness 10000) in paragraph at lines 602--604
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 664--666
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 664--666
-
- []
-
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 667--670
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 675--676
-
- []
-
+[39]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/E9617FCAAC96450E78D6DE890A070478EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 703--704
-
- []
-
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 712--713
-
- []
-
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/B03FCD44CBA232FEB85E5A59A8FB3F18EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 737--741
+E6B5F38.pygtex [40])
+Underfull \hbox (badness 10000) in paragraph at lines 668--672
 
  []
 
-[43]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/A2A4078D8F97CFE22CFFE34BF6EBA9C6EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 752--753
-
- []
-
+E6B5F38.pygtex) [41]
 \openout4 = `Thesis.pyg'.
 
 
@@ -2406,38 +2694,33 @@ E6B5F38.pygtex)
 
 
 (build/_minted-Thesis/C94BB6070C73AC8E2207529D3BF3AA6EEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [44])
+E6B5F38.pygtex)
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/9A596FBCD2712C0A675A465A159E484DEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex [42])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/7D63A329BF64DCCB5AE1A95FA470115FEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 825--831
+Underfull \hbox (badness 10000) in paragraph at lines 756--758
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--831
-
- []
-
-[45]
+[43]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/0B092370EC317054EBC01E50A0435ACBEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [46]
+E6B5F38.pygtex)
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/F56713B67863D23450823E002C651BC8EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 866--869
+E6B5F38.pygtex [44])
+Underfull \hbox (badness 10000) in paragraph at lines 794--797
 
  []
 
@@ -2450,46 +2733,313 @@ E6B5F38.pygtex)
 
 
 (build/_minted-Thesis/7829E0B8E74D9FC7FAF0012EA8FF5A70EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [47])
+E6B5F38.pygtex [45])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/12135D279A202B007224207F2A9DBD5AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [48]) [49]
+E6B5F38.pygtex) [46]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/816E46274BDCEC8AE4A30FABF10CEFC0EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [47])
+Underfull \hbox (badness 10000) in paragraph at lines 888--890
+
+ []
+
+) [48] (Subsections/ReduxImplementation.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--8
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/03940589550A2245732653489210AB1DEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [49])
+Underfull \hbox (badness 10000) in paragraph at lines 25--28
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/BF6D66515BCDBEA1F9AD564C8022FBB3EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 961--967
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
 
  []
 
+[50]
+\openout4 = `Thesis.pyg'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 961--967
+
+(build/_minted-Thesis/6FDE24A127DE84F2D238231FF31F743FEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
 
  []
 
-) (Subsections/BlocImplementation.tex [50]
-Underfull \hbox (badness 10000) in paragraph at lines 7--12
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/6D8075B2B68D14250B31996081920C9BEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [51]
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
 
  []
 
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/56E4FC950A311FCAFB53672AFE5FAB32EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/FC4ACC90E12B5246EE1D8A823F92F677EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [52])
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/0E9BD8F55CAF9C62902F33AAFE5EC7D7EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 1946) in paragraph at lines 135--138
+[]\T1/cmr/m/n/12 the al-ter-na-tive would have been to write the to-dosRe-ducer
+ like pre-sented RI-
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/93459DADCD07F4D49F90BB3CAD487D7CEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [53])
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/5E8F1C8D967CE373E07572D4494637F9EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 186--189
+
+ []
+
+[54]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/BC580B77E2418D4502E0BABDEA3E11BAEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 204--207
+
+ []
+
+[55]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/A700B08ECFFD7D2200DF438FD2DEBDEDEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 225--229
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/3E33128B3169500437A15B767A400D61EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [56])
+Underfull \hbox (badness 10000) in paragraph at lines 271--274
+
+ []
+
+[57]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/3EAC0327BB0ED680DA2A0AEB55797B92EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [58])
+Underfull \hbox (badness 10000) in paragraph at lines 314--317
+
+ []
+
+[59]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/E25374A111844AEDFF0CE561930E911DEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 353--356
+
+ []
+
+[60]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/1D2121809645D26CD216492F489AD831EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [61]
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/EEB1A270DC5512E56154BB6704445282EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 408--411
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/5C0BDADFCD51D13D64704098B4358F6DEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [62])
+Underfull \hbox (badness 10000) in paragraph at lines 440--443
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/7E9750A93F0BC8F757EF2576F64A08DBEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [63])
+Underfull \hbox (badness 10000) in paragraph at lines 478--481
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/DCA07F55479F6E1B024BB80A94210B55EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [64])
+Underfull \hbox (badness 10000) in paragraph at lines 509--512
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/5F24914698546B5DD7DF6520CEF9665CEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [65])
+Underfull \hbox (badness 10000) in paragraph at lines 533--536
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/A010B248A7D89CDFE4BFC4635BEACD44EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 558--561
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/13D05C23EB311DEFF04D2532DB722A74EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [66])
+Underfull \hbox (badness 10000) in paragraph at lines 580--583
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/E2FE9216DE83FFD5FA1C6FC96B9AB30FEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 596--599
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/C3AC459F1131EE53C2E0EE5B61E028A8EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [67])
+Underfull \hbox (badness 10000) in paragraph at lines 613--616
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/614D37AD9CEAFA9F49F197B08CAD5A98EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 633--636
+
+ []
+
+[68]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/DD70E7073E52AAB0727889704E626D4CEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 662--665
+
+ []
+
+[69]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/D12187AC70608ACA39EB24953B024199EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 678--681
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/09199CC8F506144A3770A6B813BA8ABCEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [70])
+Underfull \hbox (badness 10000) in paragraph at lines 699--702
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/89481323B3FA4E42BFBE92E1F9780FFEEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [71]) [72] (Subsections/BlocImplementation.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+
+ []
+
+[73]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/A6C7FCB64AA41659B3EE6856CEA44426EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [51])
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 
  []
 
+[74]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/E604EED8FD3CBCD6F72378253EAF6730EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [52])
-Underfull \hbox (badness 10000) in paragraph at lines 81--84
+E6B5F38.pygtex [75])
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
 
  []
 
@@ -2497,8 +3047,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--84
 
 
 (build/_minted-Thesis/774AF04C4A4098FC146A9287214BAAF9EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [53])
-Underfull \hbox (badness 10000) in paragraph at lines 123--126
+E6B5F38.pygtex [76])
+Underfull \hbox (badness 10000) in paragraph at lines 119--122
 
  []
 
@@ -2506,8 +3056,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--126
 
 
 (build/_minted-Thesis/C6C33475249F7032411185849D21883DEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [54]
-Underfull \hbox (badness 10000) in paragraph at lines 146--150
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 142--146
 
  []
 
@@ -2515,36 +3065,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--150
 
 
 (build/_minted-Thesis/4E9E660970A3C5FCD1B6C84B91D70A61EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [55])
-Underfull \hbox (badness 10000) in paragraph at lines 186--187
-
- []
-
+E6B5F38.pygtex [77])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/D279EFD0B407340D7AB64F734527D2ADEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [56])
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
-
- []
-
+E6B5F38.pygtex [78]) [79]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/DC45E29A0A26EBF368C96377BEAA4793EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [57])
-Underfull \hbox (badness 10000) in paragraph at lines 285--290
+E6B5F38.pygtex [80])
+Underfull \hbox (badness 10000) in paragraph at lines 281--286
 
  []
 
-[58] [59]
+[81]
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/914D00318156D3CD09A8E4EB10035C69EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [60])
-Underfull \hbox (badness 10000) in paragraph at lines 342--346
+(build/_minted-Thesis/F5609788787BB412E224DF349DD33FBEEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [82])
+Underfull \hbox (badness 10000) in paragraph at lines 335--339
 
  []
 
@@ -2552,8 +3094,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 342--346
 
 
 (build/_minted-Thesis/0D22D651F9FDA47FC3F82805B0CBA52FEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [61])
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
+E6B5F38.pygtex [83])
+Underfull \hbox (badness 10000) in paragraph at lines 360--363
 
  []
 
@@ -2561,8 +3103,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 367--370
 
 
 (build/_minted-Thesis/30AFC81DFF635B63451C9A889EAEC78AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [62])
-Underfull \hbox (badness 10000) in paragraph at lines 396--399
+E6B5F38.pygtex [84])
+Underfull \hbox (badness 10000) in paragraph at lines 389--392
 
  []
 
@@ -2571,16 +3113,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 396--399
 
 (build/_minted-Thesis/5FBD70078251CA5790E14F1DFE055B32EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
-
- []
-
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/DBDEB3D1CCCCAC85A2CDBEE9FF4A8E72EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [63])
-Underfull \hbox (badness 10000) in paragraph at lines 433--436
+E6B5F38.pygtex [85])
+Underfull \hbox (badness 10000) in paragraph at lines 426--429
 
  []
 
@@ -2589,7 +3127,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 433--436
 
 (build/_minted-Thesis/A54E8034044A8B553CFDAE3FA879957BEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 454--457
+Underfull \hbox (badness 10000) in paragraph at lines 447--450
 
  []
 
@@ -2597,8 +3135,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 454--457
 
 
 (build/_minted-Thesis/10BF0A2C68E031A50816EA2DBF1E0C15EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [64])
-Underfull \hbox (badness 10000) in paragraph at lines 473--476
+E6B5F38.pygtex [86])
+Underfull \hbox (badness 10000) in paragraph at lines 466--469
 
  []
 
@@ -2606,8 +3144,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 473--476
 
 
 (build/_minted-Thesis/2E9D71B25B06617A68B19DA01F53AD0FEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [65]
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
+E6B5F38.pygtex) [87]
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
@@ -2616,16 +3154,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
 (build/_minted-Thesis/596D36C2FCD146CDED0AD9B25A399A97EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 532--533
-
- []
-
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/B4484394C8142850D281B501A8122586EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [66])
-Underfull \hbox (badness 10000) in paragraph at lines 554--557
+(build/_minted-Thesis/41FBCAFD85AC25A209E702143DDE0368EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [88])
+Underfull \hbox (badness 10000) in paragraph at lines 545--548
 
  []
 
@@ -2634,87 +3168,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 554--557
 
 (build/_minted-Thesis/E4451BD49ED4A6D0D89E21C89EC3B460EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 571--574
+Underfull \hbox (badness 10000) in paragraph at lines 562--565
 
  []
 
-[67]
+[89]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/0AB47333284ACFC46A48B985E5103F18EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 602--603
+Underfull \hbox (badness 10000) in paragraph at lines 590--593
 
  []
 
-[68]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/4FF3F4D5317F0CE54C02D519328AD771EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 616--620
+E6B5F38.pygtex [90])
+Underfull \hbox (badness 10000) in paragraph at lines 606--610
 
  []
 
-[69]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/7DDC0B70611DBBC784DE85F75DC957ADEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 632--635
+Underfull \hbox (badness 10000) in paragraph at lines 622--625
 
  []
 
+[91]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/C4332F1290C44B2179D8D8D74CD8A6B3EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [70])
-Underfull \hbox (badness 10000) in paragraph at lines 669--670
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 677--680
-
- []
-
+E6B5F38.pygtex [92])
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/DB36361B7F31CB11DDC7AA6E38F13FB7EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [71])
-Underfull \hbox (badness 10000) in paragraph at lines 695--700
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 684--689
 
  []
 
+[93]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/F6F4C809625FB57048A13863A38BEEA6EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [72]
-Underfull \hbox (badness 10000) in paragraph at lines 729--731
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 717--719
 
  []
 
+[94]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/0E1D5F6AC865AC21195425834344F7D2EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [73])
-Underfull \hbox (badness 10000) in paragraph at lines 766--769
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 754--757
 
  []
 
+[95]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/175D8FFD58250404F7E086159AFC78F5EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [74]
-Underfull \hbox (badness 10000) in paragraph at lines 784--787
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 772--775
 
  []
 
@@ -2722,8 +3249,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 784--787
 
 
 (build/_minted-Thesis/0A8A01D5E470D96041D92DC9D90AAC16EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 796--799
+E6B5F38.pygtex [96])
+Underfull \hbox (badness 10000) in paragraph at lines 784--787
 
  []
 
@@ -2732,7 +3259,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 796--799
 
 (build/_minted-Thesis/7E9EA417BD0AD27DBC39AF29F80C5F87EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 807--810
+Underfull \hbox (badness 10000) in paragraph at lines 795--798
 
  []
 
@@ -2740,8 +3267,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 807--810
 
 
 (build/_minted-Thesis/15EF154D96F4BE9A115F68EEFD1CE79CEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex [75])
-Underfull \hbox (badness 10000) in paragraph at lines 823--826
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 810--813
 
  []
 
@@ -2749,8 +3276,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 823--826
 
 
 (build/_minted-Thesis/8B162DF40D8E25C8FCC171AFE63AC47CEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 834--839
+E6B5F38.pygtex [97])
+Underfull \hbox (badness 10000) in paragraph at lines 821--826
 
  []
 
@@ -2759,26 +3286,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 834--839
 
 (build/_minted-Thesis/BD26A803F1DB56DABD54E408D854A512EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 851--854
+Underfull \hbox (badness 10000) in paragraph at lines 838--841
 
  []
 
-[76]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/32A2F7370B86CA00783B9A4E0F739A8EEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [98]
+Underfull \hbox (badness 10000) in paragraph at lines 866--869
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/70F5D8FEF74487D742B2219EC49F53C8EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [99])
+Underfull \hbox (badness 10000) in paragraph at lines 901--904
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/D447D092E6F7BE345C487E637A8F322DEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [100])
+Underfull \hbox (badness 10000) in paragraph at lines 923--926
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/E4403B9F6DD7D720EE0D702A9213FFF8EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [101]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/22737195E1B94BD4E62DA2F892FC0E78EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 873--874
+Underfull \hbox (badness 10000) in paragraph at lines 980--983
 
  []
 
+[102]
+\openout4 = `Thesis.pyg'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 875--879
+
+(build/_minted-Thesis/D2785DDE45F0DE4E828F6D2F608B74CBEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 997--1000
 
  []
 
-))) [77]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/80374B1BEDBA4B12D8BA642026F8EB56EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1021
+
+ []
+
+[103]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/5402353D0AD0EC432E2BCCFCFF47EB19EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex [104])
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1054
+
+ []
+
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/397EF3F571B8D358F983836D110DBD49EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 1069--1072
+
+ []
+
+[105]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/7A792A7B9BF6C199F809894362E34D10EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [106]))) [107]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
 (epstopdf)                    date: 2021-11-29 18:09:46
 (epstopdf)                    size: 1813066 bytes
@@ -2788,18 +3384,18 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 204.
+(epstopdf)             \includegraphics on input line 205.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 204.
+ on input line 205.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [78
+ [108
 
 ]
 Chapter 3.
-[79
+[109
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2811,18 +3407,18 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 207.
+(epstopdf)             \includegraphics on input line 208.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 207.
+ on input line 208.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [80
+ [110
 
 ]
 Chapter 4.
-[81
+[111
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2834,19 +3430,19 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 210.
+(epstopdf)             \includegraphics on input line 211.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 210.
+ on input line 211.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [82
+ [112
 
 ]
 Chapter 5.
 No file Thesis.bbl.
-[83
+[113
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2858,18 +3454,18 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 224.
+(epstopdf)             \includegraphics on input line 225.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 224.
+ on input line 225.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [84
+ [114
 
 ]
 Appendix A.
-[85
+[115
 
 
 ]
@@ -2882,18 +3478,18 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 232.
+(epstopdf)             \includegraphics on input line 233.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 232.
+ on input line 233.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [86
+ [116
 
 ]
 Appendix B.
-[87
+[117
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2905,14 +3501,14 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 237.
+(epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 237.
+ on input line 238.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [88
+ [118
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
@@ -2920,7 +3516,7 @@ nt\build\Thesis.lof)
 \tf@lof=\write8
 \openout8 = `Thesis.lof'.
 
- [89
+ [119
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2932,14 +3528,14 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 240.
+(epstopdf)             \includegraphics on input line 241.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 240.
+ on input line 241.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [90
+ [120
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
@@ -2947,7 +3543,7 @@ nt\build\Thesis.lot)
 \tf@lot=\write9
 \openout9 = `Thesis.lot'.
 
- [91
+ [121
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -2959,14 +3555,14 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 243.
+(epstopdf)             \includegraphics on input line 244.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 243.
+ on input line 244.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [92
+ [122
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
@@ -2976,44 +3572,26 @@ Underfull \hbox (badness 1122) in paragraph at lines 27--27
 tion in-jec-tion into 
  []
 
-[93
+[123
 
-] [94]
-Underfull \hbox (badness 3029) in paragraph at lines 62--62
+] [124]
+Underfull \hbox (badness 3029) in paragraph at lines 91--91
  [][] [][][]\T1/cmr/m/n/12 Todo app - Bloc - Fil-teredTodoBloc \T1/cmr/m/it/12 
 _mapTodoChange-FilterEvent- 
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 63--63
+Underfull \hbox (badness 1215) in paragraph at lines 92--92
  [][] [][][]\T1/cmr/m/n/12 Todo app - Bloc - Fil-teredTodoBloc \T1/cmr/m/it/12 
 _mapTodoUp-dat-edE-vent-ToState 
  []
 
-)
+[125])
 \tf@lol=\write10
 \openout10 = `Thesis.lol'.
 
- [95]
-Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
-(epstopdf)                    date: 2021-11-29 18:09:46
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images//./raggiera_polimi-eps-converted-
-to.pdf>
-(epstopdf)                    date: 2021-11-30 18:52:08
-(epstopdf)                    size: 40418 bytes
-(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
-s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 245.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images//./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 245.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [96
+ [126] [127
 
-] [97
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -3025,20 +3603,16 @@ to.pdf>
 (epstopdf)                    size: 40418 bytes
 (epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
 s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 248.
+(epstopdf)             \includegraphics on input line 249.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 248.
+ on input line 249.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [98
+ [128
 
 ]
-
-Package caption Warning: Unused \captionsetup[table] on input line 12.
-See the caption package documentation for explanation.
-
 
 Package caption Warning: Unused \captionsetup[algorithm] on input line 13.
 See the caption package documentation for explanation.
@@ -3053,18 +3627,18 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A41D920FDC738E759531BF4419CB905E;4342.
+(rerunfilecheck)             Checksum: 87C562690C86612C23A4710A49A5752C;4342.
 runsystem(del build\\Thesis.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 35529 strings out of 478681
- 737479 string characters out of 2845587
- 1082815 words of memory out of 3000000
- 52394 multiletter control sequences out of 15000+600000
+ 36610 strings out of 478681
+ 784259 string characters out of 2845587
+ 1093181 words of memory out of 3000000
+ 53255 multiletter control sequences out of 15000+600000
  421950 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,90p,2601b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,12n,118p,2600b,949s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ec
 rm1000.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\tctt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
@@ -3082,9 +3656,9 @@ ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
 appen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/lj
 four/jknappen/ec/dpi1244\ecbx1200.pk>
 Output written on "C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementT
-hesis\LaTex document\build\Thesis.pdf" (106 pages, 614655 bytes).
+hesis\LaTex document\build\Thesis.pdf" (136 pages, 686185 bytes).
 PDF statistics:
- 1483 PDF objects out of 1728 (max. 8388607)
- 292 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1747 PDF objects out of 2073 (max. 8388607)
+ 390 named destinations out of 1000 (max. 500000)
+ 297 words of extra memory for PDF output out of 10000 (max. 10000000)
 

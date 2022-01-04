@@ -11,11 +11,13 @@ class TabSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Building Tab Selector");
 
     return StoreConnector<AppState, TabState>(
+      distinct: true,
       converter:(store)=>store.state.tabState,
       builder: (context, currTab) {
+        print("Building Tab Selector");
+
         return BottomNavigationBar(
           currentIndex: TabState.values.indexOf(currTab),
           onTap: (index)=>StoreProvider.of<AppState>(context).dispatch(SetTabAction(TabState.values.elementAt(index))),

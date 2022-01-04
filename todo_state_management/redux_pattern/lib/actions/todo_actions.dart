@@ -1,15 +1,22 @@
 import '../models/todo.dart';
 
 class AddTodoAction {
-final Todo newTodo;
-AddTodoAction(this.newTodo);
-}
-class RemoveTodoAction{
-  final Todo todo;
-   RemoveTodoAction(this.todo);
+  final String name;
+  final String desc;
+
+  AddTodoAction(this.name, this.desc);
 }
 
-class SetTodoAction{
-  final Todo todo;
-  SetTodoAction(this.todo);
+class UpdateTodoAction{
+  final String name;
+  final String desc;
+  final int id;
+
+  UpdateTodoAction(this.name,this.desc,this.id);
+}
+class SetCompletedTodoAction {
+  final int id;
+  final bool completed;
+
+  SetCompletedTodoAction(this.id, this.completed);
 }

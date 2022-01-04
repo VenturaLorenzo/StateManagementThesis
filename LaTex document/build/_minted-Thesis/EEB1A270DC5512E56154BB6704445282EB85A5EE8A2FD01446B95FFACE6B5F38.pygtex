@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Checkbox}\PYG{p}{(}
+    \PYG{n+nl}{value:} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{completed}\PYG{p}{,}
+    \PYG{n+nl}{onChanged:} \PYG{p}{(}\PYG{n}{completed}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{StoreProvider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{AppState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{).}\PYG{n}{dispatch}\PYG{p}{(}
+          \PYG{n}{SetCompletedTodoAction}\PYG{p}{(}\PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{,} \PYG{n}{completed}\PYG{o}{!}\PYG{p}{));}
+    \PYG{p}{\PYGZcb{}),}
+\end{Verbatim}

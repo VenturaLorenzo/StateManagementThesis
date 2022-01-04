@@ -16,7 +16,6 @@ class TodoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
         buildWhen: (previous, next) {
-      print(key);
       if (next is FilteredTodoLoadedState &&
           previous is FilteredTodoLoadedState) {
         if (next.todos.map((todo) => todo.id).toList().contains(id) == true) {
@@ -24,6 +23,8 @@ class TodoItem extends StatelessWidget {
               next.todos.firstWhere((element) => element.id == id)) {
             return false;
           }
+        } else {
+          return false;
         }
       }
       return true;
@@ -31,36 +32,31 @@ class TodoItem extends StatelessWidget {
       print("building: Todo Item $id " + key.toString());
 
       if (state is FilteredTodoLoadedState) {
-        if (state.todos.map((todo) => todo.id).contains(id)) {
-          Todo t = (state).todos.firstWhere((element) => element.id == id);
-          return InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, "/updateTodo", arguments: t);
-            },
-            child: Row(
-              children: [
-                Column(
-                  children: [
-                    Text(t.name,
-                        style:
-                            const TextStyle(fontSize: 14, color: Colors.black)),
-                    Text(t.description,
-                        style:
-                            const TextStyle(fontSize: 10, color: Colors.grey)),
-                  ],
-                ),
-                Checkbox(
-                    value: t.completed,
-                    onChanged: (completed) {
-                      BlocProvider.of<TodoBloc>(context)
-                          .add(SetCompletedTodoEvent(id, completed!));
-                    }),
-              ],
-            ),
-          );
-        } else {
-          return Container();
-        }
+        Todo t = (state).todos.firstWhere((element) => element.id == id);
+        return InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, "/updateTodo", arguments: t);
+          },
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  Text(t.name,
+                      style:
+                          const TextStyle(fontSize: 14, color: Colors.black)),
+                  Text(t.description,
+                      style: const TextStyle(fontSize: 10, color: Colors.grey)),
+                ],
+              ),
+              Checkbox(
+                  value: t.completed,
+                  onChanged: (completed) {
+                    BlocProvider.of<TodoBloc>(context)
+                        .add(SetCompletedTodoEvent(id, completed!));
+                  }),
+            ],
+          ),
+        );
       } else {
         return Row(
           children: const [
