@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx_pattern/components/todo_item.dart';
-import 'package:mobx_pattern/models/todo.dart';
-import 'package:mobx_pattern/models/todo_list.dart';
-import 'package:mobx_pattern/models/todo_list.dart';
+import 'package:mobx_pattern/models/todo_store.dart';
 import 'package:provider/provider.dart';
 
 class TodoView extends StatelessWidget {
@@ -11,16 +9,16 @@ class TodoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final todoList = Provider.of<TodoList>(context);
+    final store = Provider.of<TodoStore>(context);
     return Observer(
       builder: (_) {
         print("building TodoView");
 
         return ListView.builder(
-          itemCount: todoList.filteredTodos.length,
+          itemCount: store.filteredTodos.length,
           itemBuilder: (context, index) {
             return TodoItem(
-              todo: todoList.filteredTodos.elementAt(index),
+               id: store.filteredTodos.elementAt(index).id,
             );
           },
         );

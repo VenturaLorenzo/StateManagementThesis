@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{FilteredTodoBloc} \PYG{k+kd}{extends} \PYG{n}{Bloc}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoEvent}\PYG{p}{,} \PYG{n}{FilteredTodoState}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+  \PYG{c+c1}{//this variable is used to listen for changes in the todoBloc}
+  \PYG{k+kd}{final} \PYG{n}{TodoBloc} \PYG{n}{todoBloc}\PYG{p}{;}
+
+  \PYG{n}{FilteredTodoBloc}\PYG{p}{(\PYGZob{}}\PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{todoBloc}\PYG{p}{\PYGZcb{})}
+      \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}
+      \PYG{c+c1}{//initialize the state based on the todoBloc\PYGZsq{}s state}
+          \PYG{n}{todoBloc}\PYG{p}{.}\PYG{n}{state} \PYG{k}{is} \PYG{n}{TodosLoadedState}
+              \PYG{o}{?} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{(}
+                  \PYG{p}{(}\PYG{n}{todoBloc}\PYG{p}{.}\PYG{n}{state} \PYG{k}{as} \PYG{n}{TodosLoadedState}\PYG{p}{).}\PYG{n}{todos}\PYG{p}{,}
+                  \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n}{all}\PYG{p}{,}
+                \PYG{p}{)}
+              \PYG{o}{:} \PYG{n}{FilteredTodoLoadingState}\PYG{p}{(),}
+        \PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

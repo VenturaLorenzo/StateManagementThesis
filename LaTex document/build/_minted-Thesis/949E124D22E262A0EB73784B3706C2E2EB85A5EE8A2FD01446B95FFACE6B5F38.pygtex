@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@override}
+\PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{StoreConnector}\PYG{o}{\PYGZlt{}}\PYG{n}{AppState}\PYG{p}{,} \PYG{n}{VisibilityFilter}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+    \PYG{n+nl}{converter:} \PYG{p}{(}\PYG{n}{store}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{filterSelector}\PYG{p}{(}\PYG{n}{store}\PYG{p}{.}\PYG{n}{state}\PYG{p}{),}
+    \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{activeFilter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Building Visibility filter\PYGZdq{}}\PYG{p}{);}
+
+      \PYG{k}{return} \PYG{n}{DropdownButton}\PYG{o}{\PYGZlt{}}\PYG{n}{VisibilityFilter}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+        \PYG{n+nl}{value:} \PYG{n}{activeFilter}\PYG{p}{,}
+        \PYG{n+nl}{items:} \PYG{p}{(...),}
+        \PYG{n+nl}{onChanged:} \PYG{p}{(}\PYG{n}{filter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+          \PYG{n}{StoreProvider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{AppState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{)}
+              \PYG{p}{.}\PYG{n}{dispatch}\PYG{p}{(}\PYG{n}{SetVisibilityFilterAction}\PYG{p}{(}\PYG{n}{filter}\PYG{o}{!}\PYG{p}{));}
+        \PYG{p}{\PYGZcb{},}
+      \PYG{p}{);}
+    \PYG{p}{\PYGZcb{},}
+  \PYG{p}{);}
+\end{Verbatim}

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:bloc_pattern/events/todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:bloc_pattern/repository/todo_repository.dart';
+import 'package:bloc_pattern/repository/utility.dart';
 import 'package:bloc_pattern/states/todos_state.dart';
 
 class TodoBloc extends Bloc<TodosEvent, TodosState> {
@@ -35,13 +36,7 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
 
   Stream<TodosState> _mapTodoAddedToState(AddTodoEvent event) async* {
     if (state is TodosLoadedState) {
-      Random rand = Random();
-      List<int> ids =
-          (state as TodosLoadedState).todos.map((todo) => todo.id).toList();
-      int newId = rand.nextInt(1000) + 2;
-      while (ids.contains(newId)) {
-        newId = rand.nextInt(1000) + 2;
-      }
+      int newId = generateId((state as TodosLoadedState).todos);
       Todo newTodo = Todo(
           id: newId,
           name: event.name,
@@ -69,19 +64,6 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
     }
   }
 
-  Stream<TodosState> _mapToggleAllToState() async* {
-    if (state is TodosLoadedState) {
-      List<Todo> toggled = (state as TodosLoadedState)
-          .todos
-          .map((todo) => Todo(
-              completed: true,
-              description: todo.description,
-              name: todo.name,
-              id: todo.id))
-          .toList();
-      yield TodosLoadedState(toggled);
-    }
-  }
 
   Stream<TodosState> _mapClearCompletedToState() async* {
     if (state is TodosLoadedState) {

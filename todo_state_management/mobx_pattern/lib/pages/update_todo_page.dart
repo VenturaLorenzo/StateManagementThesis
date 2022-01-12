@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx_pattern/models/todo.dart';
-import 'package:mobx_pattern/models/todo_list.dart';
+import 'package:mobx_pattern/models/todo_store.dart';
 import 'package:provider/provider.dart';
 
 class UpdateTodoPage extends StatefulWidget {
@@ -38,8 +38,10 @@ class _UpdateTodoPageState extends State<UpdateTodoPage> {
             ),
             TextButton(
                 onPressed: () {
-                  final todoList = Provider.of<TodoList>(context,listen: false);
-                  todoList.updateTodo(widget.todo.id, textControllerName.text, textControllerDesc.text);
+                  final store =
+                      Provider.of<TodoStore>(context, listen: false);
+                  store.updateTodo(widget.todo.id, textControllerName.text,
+                      textControllerDesc.text);
                   Navigator.pop(context);
                 },
                 child: const Text("Confirm"))

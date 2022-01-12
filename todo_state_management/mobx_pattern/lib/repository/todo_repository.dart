@@ -1,7 +1,6 @@
 import 'dart:math';
 
-import 'package:mobx_pattern/models/todo_classic.dart';
-
+import 'package:mobx_pattern/models/todo.dart';
 
 
 class TodoRepository {

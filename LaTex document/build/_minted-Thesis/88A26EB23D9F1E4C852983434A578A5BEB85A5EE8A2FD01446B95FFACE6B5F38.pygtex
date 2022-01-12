@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//add the aspect argument}
+\PYG{k+kd}{static} \PYG{n}{TodoInheritedData} \PYG{n}{of}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{k+kd}{required} \PYG{k+kt}{int} \PYG{n}{aspect}\PYG{p}{\PYGZcb{})} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{n}{TodoInheritedData}\PYG{o}{?} \PYG{n}{result} \PYG{o}{=}
+  \PYG{c+c1}{//calling the inheritFrom method using the aspect parameter}
+      \PYG{n}{InheritedModel}\PYG{p}{.}\PYG{n}{inheritFrom}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoInheritedData}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n+nl}{aspect:} \PYG{n}{aspect}\PYG{p}{);}
+  \PYG{k}{assert}\PYG{p}{(}\PYG{n}{result} \PYG{o}{!=} \PYG{k+kc}{null}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}No TodoInheritedData found in context\PYGZsq{}}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{result}\PYG{o}{!}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -13,23 +13,21 @@ class TabSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("building TabSelector");
-    return Observer(
-      builder: (context) {
-        return BottomNavigationBar(
-          currentIndex: TabState.values.indexOf(tab.value),
-          onTap: (index) {
-            runInAction(() => tab.value = TabState.values.elementAt(index));
-          },
-          items: TabState.values
-              .map((tab) => BottomNavigationBarItem(
-                    label: describeEnum(tab),
-                    icon: Icon(
-                      tab == TabState.todos ? Icons.list : Icons.show_chart,
-                    ),
-                  ))
-              .toList(),
-        );
-      }
-    );
+
+      return BottomNavigationBar(
+        currentIndex: TabState.values.indexOf(tab.value),
+        onTap: (index) {
+          runInAction(() => tab.value = TabState.values.elementAt(index));
+        },
+        items: TabState.values
+            .map((tab) => BottomNavigationBarItem(
+                  label: describeEnum(tab),
+                  icon: Icon(
+                    tab == TabState.todos ? Icons.list : Icons.show_chart,
+                  ),
+                ))
+            .toList(),
+      );
+
   }
 }

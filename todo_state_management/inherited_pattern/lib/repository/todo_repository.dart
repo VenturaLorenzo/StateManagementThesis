@@ -1,24 +1,19 @@
 import 'dart:math';
 import 'package:inherited_pattern/models/todo.dart';
+import 'package:inherited_pattern/repository/utility.dart';
 
 class TodoRepository {
   static Future<List<Todo>> loadTodos() async {
-    Random rand = Random();
     List<Todo> todos = [];
-    List<int> ids = [];
-    while (ids.length < 6) {
-      int newInt = rand.nextInt(1000)+2;
-      if (!ids.contains(newInt)) {
-        ids.add(newInt);
-      }
+    Random rand = Random();
+    while (todos.length < 6) {
+      int newInt = generateId(todos);
+      todos.add(Todo(
+          id: newInt,
+          name: "Todo " + newInt.toString(),
+          description: "description " + newInt.toString(),
+          completed: rand.nextBool()));
     }
-    todos = ids
-        .map((number) => Todo(
-            id: number,
-            name: "Todo " + number.toString(),
-            description: "description " + number.toString(),
-            completed: rand.nextBool()))
-        .toList();
 
     await Future.delayed(const Duration(seconds: 2));
     return todos;

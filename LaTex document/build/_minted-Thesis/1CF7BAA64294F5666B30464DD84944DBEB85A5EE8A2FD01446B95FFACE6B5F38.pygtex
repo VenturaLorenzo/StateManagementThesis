@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{\PYGZus{}HomePageState} \PYG{k+kd}{extends} \PYG{n}{State}\PYG{o}{\PYGZlt{}}\PYG{n}{HomePage}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+  \PYG{n}{TabState} \PYG{n}{tab} \PYG{o}{=} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{;}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{TodoProvider}\PYG{p}{(}\PYG{c+c1}{// new TodoProvider widget}
+      \PYG{n+nl}{child:} \PYG{n}{Builder}\PYG{p}{(}\PYG{c+c1}{// new Builder widget}
+      \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{Scaffold}\PYG{p}{(...)} \PYG{c+c1}{// the rest of the HomePage;}
+        \PYG{p}{\PYGZcb{}}
+      \PYG{p}{),}
+    \PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{return} \PYG{n}{Provider}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoStore}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+    \PYG{n+nl}{create:} \PYG{p}{(}\PYG{n}{\PYGZus{}}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{TodoStore}\PYG{p}{()..}\PYG{n}{fetchTodos}\PYG{p}{(),}
+    \PYG{n+nl}{child:} \PYG{n}{MaterialApp}\PYG{p}{(.} \PYG{p}{.} \PYG{p}{.),}
+    \PYG{p}{\PYGZcb{}));}
+\end{Verbatim}

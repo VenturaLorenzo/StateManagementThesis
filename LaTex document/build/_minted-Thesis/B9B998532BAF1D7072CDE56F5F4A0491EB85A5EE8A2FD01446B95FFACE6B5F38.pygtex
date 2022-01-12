@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k+kt}{void} \PYG{n}{onUpdateTodo}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{,} \PYG{k+kt}{String} \PYG{n}{newName}\PYG{p}{,} \PYG{k+kt}{String} \PYG{n}{newDesc}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//control the todo\PYGZsq{}s existance}
+    \PYG{k}{assert}\PYG{p}{(}\PYG{n}{todoExists}\PYG{p}{(}\PYG{n}{todos}\PYG{p}{,} \PYG{n}{id}\PYG{p}{)} \PYG{o}{==} \PYG{k+kc}{true}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}No todo with id : }\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}}\PYG{l+s+s1}{id\PYGZsq{}}\PYG{p}{);}
+    \PYG{c+c1}{//create a new list with the updated todo}
+    \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{newTodosList} \PYG{o}{=} \PYG{n}{todos}\PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{todo}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{todo}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{Todo}\PYG{p}{(}
+            \PYG{n+nl}{completed:} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{completed}\PYG{p}{,}
+            \PYG{n+nl}{description:} \PYG{n}{newDesc}\PYG{p}{,}
+            \PYG{n+nl}{name:} \PYG{n}{newName}\PYG{p}{,}
+            \PYG{n+nl}{id:} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{);}
+      \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{todo}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}).}\PYG{n}{toList}\PYG{p}{();}
+    \PYG{c+c1}{//update the state}
+    \PYG{n}{setState}\PYG{p}{(()} \PYG{p}{\PYGZob{}}
+      \PYG{n}{todos} \PYG{o}{=} \PYG{n}{newTodosList}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{});}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

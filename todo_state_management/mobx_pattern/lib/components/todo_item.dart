@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mobx_pattern/models/todo_classic.dart';
-import 'package:mobx_pattern/models/todo_list.dart';
+import 'package:mobx_pattern/models/todo.dart';
+import 'package:mobx_pattern/models/todo_store.dart';
 import 'package:provider/provider.dart';
 
 class TodoItem extends StatelessWidget {
-  final Todo todo;
+  final int id;
 
-  const TodoItem({Key? key, required this.todo}) : super(key: key);
+  const TodoItem({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-      final todoList = Provider.of<TodoList>(context);
-    //return Observer(builder: (_) {
+    final store = Provider.of<TodoStore>(context, listen: false);
+    final todo = store.todos.where((element) => element.id == id).first;
+    return Observer(builder: (_) {
       print("building TodoItem ${todo.id}");
 
       return InkWell(
@@ -33,12 +34,13 @@ class TodoItem extends StatelessWidget {
             Checkbox(
                 value: todo.completed,
                 onChanged: (value) {
-                  todoList.setCompleted(todo.id,value!);
-                 // todo.completed = value!;
+
+                  store.setCompleted(todo.id, value!);
+
                 }),
           ],
         ),
       );
-   // });
+    });
   }
 }

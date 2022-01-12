@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{setState}\PYG{p}{(()} \PYG{p}{\PYGZob{}} \PYG{n}{\PYGZus{}myState} \PYG{o}{=} \PYG{n}{newValue}\PYG{p}{;} \PYG{p}{\PYGZcb{});}
-\end{Verbatim}

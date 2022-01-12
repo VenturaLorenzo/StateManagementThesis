@@ -1,104 +1,80 @@
-In order to make comparisons even more fair , the code about the application's core and UI is shared between different solution's implementations. This subsection presents the shared code in details. Some parts of the shared code can change from one implementation to another in order to adapt to the solution. However, changes to this structure are kept minimal. And the same is for the UI. It uses the least widget and visual features possible. In the Figure \ref{fig:todo_app_shared_folder_structure} the shared folder's and file's structure is shown. Subsequent paragraphs exaplains how models, pages, components and the repository are implemented. 
+In order to make comparisons fairer , the code about the application's core and the UI is shared between different solution's implementations. In this way , measurements are taken on the part of the code added to the application by solution only. This subsection presents the shared code in details. Some parts of the shared code can change from one implementation to another in order to adapt to the solution. However, changes to this structure are kept minimal. The same is for the UI. It uses the least widgets and visual elements possible. In the Figure \ref{fig:todo_app_shared_folder_structure} the shared folder's and file's structure is shown. Subsequent paragraphs exaplain how models, pages, components and the repository are implemented. 
 
 		
 		\begin{figure}[H]
 		    \centering
 		    \includegraphics[width=0.6\textwidth]{Images/folder_structure.png}
-		    \caption{Todos app skeleton's folders structure.}
+		    \caption{Todos app's shared files structure}
 		    \label{fig:todo_app_shared_folder_structure}
 		\end{figure}
 		
 		
 		
-\paragraph{The application's Root} \mbox{} \\
+\paragraph{The application's Root - }
 		\label{par:todo_app_application_root}
 The root widget of the application is called MyApp.
-It is a stateful widget composed by a MaterialApp. Inside the MaterialApp, three routes are defined : the HomePage , the UpdateTodoPage and the AddTodoPage. The \textit{inizialRoute} is set to the HomePage as deafult. Inside the \textit{main} function the MyApp widget is passed to the \textit{runApp} method at the application's start.
-		
-		\begin{code}
-		
-		\mbox{}\\
-		\captionof{listing}{Todo app - MaterialApp and main function definition} \mbox{}
-		
-		\label{code:2.1}
+It is a stateless widget composed by a MaterialApp widget. Inside the MaterialApp widget, three routes are defined : the HomePage , the UpdateTodoPage and the AddTodoPage. The \textit{inizialRoute} is set to the HomePage as deafult. The UpdateTodoPage takes a Todo instance as argument. Inside the \textit{main} function the MyApp widget is passed to the \textit{runApp} method in order to start the application.
 
+		\begin{code}
+		\captionof{listing}{Todo app - MaterialApp and main function definition} 
+		\label{code:2.1}
 	\begin{minted}{dart}
 	
 void main() {
+  //launching the application
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/",
-      routes: {
+      initialRoute: "/", //setting initial route to the HomePage
+      routes: { //defining possible routes
         "/": (context) => const HomePage(),
-        "/updateTodo": (context) => UpdateTodoPage(),
+        "/updateTodo": (context) => UpdateTodoPage(
+              todo: (ModalRoute.of(context)!.settings.arguments
+                      as Todo),
         "/addTodo": (context) => AddTodoPage(),
-
       },
     );
   }
-}	
+}
 	\end{minted}
-	
 \end{code}	
 	
-	\paragraph{Models and Repository} \mbox{} \\
+	\paragraph{Models - }
 	\label{par:todo_app_models_and_repository}
-as show in code \ref{code:c-code} HomePage's tabs are only two : \textit{todos} and \textit{stats}. In the \textit{todos} tab todos are visualized. In the \textit{stats} tab ,instead, some numerical recap of the todos is visualized. They are defined using an enumeration for simplicity.
+The model for the HomePage's tabs is implemented using an enumeration.
 
-	\mbox{}\\
 	\begin{code}
-	
 	\captionof{listing}{Todo app - TabState model definition}
 			\label{code:2.2}
-
-	 \mbox{}
 	\begin{minted}{dart}
-	
-	enum TabState{
-	 todos,stats
-	}
-	
-	
+enum TabState{
+	todos,stats
+}
 	\end{minted}
 	\end{code}
-	\mbox{}
-	
+
 Filters for the \textit{filteredTodos} list are modelled by an enumeration too. They can take three values: \textit{all, notCompleted, completed}.
-	
-	\mbox{}\\
 \begin{code}	
-	\captionof{listing}{Todo app - VisibilityFilter model definition} \mbox{}\\
+	\captionof{listing}{Todo app - VisibilityFilter model definition}
 			\label{code:2.3}
-
 	\begin{minted}{dart}
-	
-	enum VisibilityFilter{
-	 completed,notCompleted,all
-	}
-	
-	
+enum VisibilityFilter{
+	completed,notCompleted,all
+}
 	\end{minted}
 	\end{code}
-	\mbox{}
 	
-It's not possible to give a common implementation of the Todo model matching every solution. Todo model ,indeed, change in different implementations. The sharable structure of the model ,however, can defined as below RIFERIMENTO. (
+It's not possible to give a common implementation for the Todo's model matching every solution. Todo's model, indeed, can change in different implementations. The sharable structure of the model, however, can defined as follows. (
 	\mbox{}\\
 	\begin{code}
 	
-	\captionof{listing}{Todo app - Todo model definition} \mbox{}
+	\captionof{listing}{Todo app - Todo model definition} 
 \label{code:2.4}
 	\begin{minted}{dart}
 	
@@ -136,232 +112,69 @@ It's not possible to give a common implementation of the Todo model matching eve
 	
 	\end{minted}
 	\end{code}
-	\mbox{}
 	
-	
-The TodoRepository class simulate todos's fetching from a Database. It has two static methods. These methods are asynchronous and have a duration of 2 seconds to give the impression of a real asynchronous operation. The method \textit{loadTodos} , in particular , populate a list with six new todos after the generation of their unique ID's. Subsequently, after 2 seconds, returns it to the caller.
-	
-	\mbox{}\\
-	\begin{code}
-	\captionof{listing}{Todo app - TodoRepository definition} \mbox{}
+\paragraph{Repository and utilities - }
+	\label{par:todo_app_models_and_repository}
+Some usefull functions are shared between different implementations. They are contained in the utility.dart file. \textit{generateId} function takes a list of todos and generate a new unique id. \textit{todoExists} function takes a list of todos and a id and check if a todo with that id exists.
+\mbox{}\\
+\begin{code}
+	\captionof{listing}{Todo app - TodoRepository definition} 
 			\label{code:2.5}
-
 	\begin{minted}{dart}
 	
-	class TodoRepository {
-	  static Future<List<Todo>> loadTodos() async {
-	    Random rand = Random();
-	    List<Todo> todos = [];
-	    List<int> ids = [];
-	    while (ids.length < 6) {
-	      int newInt = rand.nextInt(1000)+2;
-	      if (!ids.contains(newInt)) {
-	        ids.add(newInt);
-	      }
-	    }
-	    todos = ids
-	        .map((number) => Todo(
-	            id: number,
-	            name: "Todo " + number.toString(),
-	            description: "description " + number.toString(),
-	            completed: rand.nextBool()))
-	        .toList();
-	
-	    await Future.delayed(const Duration(seconds: 2));
-	    return todos;
-	  }
-	
-	  static Future<void> saveTodos(List<Todo> todos) async {
-	    await Future.delayed(const Duration(seconds: 2));
-	  }
-	}
-	
-	
+	int generateId(List<Todo> todos) {
+  Random rand = Random();
+  int newInt = rand.nextInt(1000) + 2;
+  List<int> ids = todos.map((todo) => todo.id).toList();
+  while (ids.contains(newInt)) {
+    newInt = rand.nextInt(1000) + 2;
+  }
+  return newInt;
+}
+
+bool todoExists(List<Todo> todos, int id) {
+  List<Todo> result = todos.where((todo) => todo.id == id).toList();
+  return result.isNotEmpty ? true : false;
+}
 	\end{minted}
 	\end{code}
-	\mbox{}
-	
-	
-	\paragraph{Pages} \mbox{} \\
-	\label{par:todo_app_pages}
-Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterComponent only when the tab is set to \textit{todos}. The body can change from \textit{todos} tab to \textit{stats} tab using the BottomNaviagationBar (the TabSelector). An empty FloatingActionButton is also present for future implementation.
-	(note: some small pieces could change in different solution’s implementation. in the above example the tab changing is implemented through setState but it will not be always the case. Also ,the HomePage, can be muted to Stateless widget in other implementations.).
-	
+The TodoRepository class simulates todos's fetching process from a Database. It has two static methods. These methods are asynchronous and have a duration of 2 seconds to give the impression of a real asynchronous operation. The method \textit{loadTodos}, in particular, populates a list with six new todo instances, using the \textit{generateId} function for the generation of their unique IDs. Subsequently, 2 seconds later, it returns the list to the caller.
 	\mbox{}\\
 	\begin{code}
-	\captionof{listing}{Todo app - HomePage definition} \mbox{}
-			\label{code:2.6}
+	\captionof{listing}{Todo app - TodoRepository definition} 
+			\label{code:2.5}
+	\begin{minted}{dart}
+	
+class TodoRepository {
+  //generate 6 unique todos
+  static Future<List<Todo>> loadTodos() async {
+    List<Todo> todos = [];
+    Random rand = Random();
+    while (todos.length < 6) {
+      int newInt = generateId(todos);
+      todos.add(Todo(
+          id: newInt,
+          name: "Todo " + newInt.toString(),
+          description: "description " + newInt.toString(),
+          completed: rand.nextBool()));
+    }
+//waiting 2 seconds before returning the list
+    await Future.delayed(const Duration(seconds: 2));
+    return todos;
+  }
 
-	\begin{minted}{dart}
-	class HomePage extends StatefulWidget {
-	  const HomePage({Key? key}) : super(key: key);
-	
-	  @override
-	  State<HomePage> createState() => _HomePageState();
-	}
-	
-	class _HomePageState extends State<HomePage> {
-	  TabState tab = TabState.todos; 
-	
-	  @override
-	  Widget build(BuildContext context) {
-	    return Scaffold(
-	          appBar: AppBar(
-	            actions: [
-	              tab == TabState.todos
-	                  ? const VisibilityFilterComponent()
-	                  : Container()
-	            ],
-	            title: const Text("Todo App"),
-	          ),
-	          body: tab == TabState.todos ? const TodoView() : const Stats(),
-	          bottomNavigationBar: TabSelector(
-	            currTab: tab,
-	            onTabChange:,
-	          ),
-	          floatingActionButton: tab == TabState.todos
-	              ? FloatingActionButton(
-	                  child: const Icon(Icons.plus_one),
-	            onPressed: () {},
-	          ) : null,
-	        )
-	    );
-	  }
-	}
-	
-	
+  static Future<void> saveTodos(List<Todo> todos) async {
+    await Future.delayed(const Duration(seconds: 2));
+  }
+}
 	\end{minted}
 	\end{code}
-	\mbox{}
 	
-	
-	The UpdateTodoPage uses a Scaffold widget. The body is filled with a Column with two TextFields and a TextButton inside. The TextButton is left empty for future implementation.
-	
-	\mbox{}\\
-	\begin{code}
-	\captionof{listing}{Todo app - UpdatePage definition} \mbox{}
-			\label{code:2.7}
-	\begin{minted}{dart}
-	class UpdateTodoPage extends StatefulWidget {
-	  final Todo todo;
-	  final void Function(String,String) callback;
-	
-	  const UpdateTodoPage({Key? key, required this.todo,required this.callback}) : super(key: key);
-	
-	  @override
-	  State<UpdateTodoPage> createState() => _UpdateTodoPageState();
-	}
-	
-	class _UpdateTodoPageState extends State<UpdateTodoPage> {
-	  final textControllerName = TextEditingController();
-	  final textControllerDesc = TextEditingController();
-	
-	  @override
-	  Widget build(BuildContext context) {
-	
-	    return Scaffold(
-	        appBar: AppBar(
-	          title: Text("Update Todo"+widget.todo.name),
-	        ),
-	        body: Column(
-	          children: [
-	            TextField(
-	              controller: textControllerName,
-	              decoration: const InputDecoration(
-	                  border: OutlineInputBorder(), hintText: 'Enter a new name'),
-	            ),
-	            TextField(
-	              controller: textControllerDesc,
-	              decoration: const InputDecoration(
-	                  border: OutlineInputBorder(), hintText: 'Enter a new description'),
-	            ),
-	            TextButton(onPressed: () {},
-	            child: const Text("Confirm"))
-	          ],
-	        ));
-	  }
-	
-	  @override
-	  void dispose() {
-	    textControllerName.dispose();
-	    textControllerDesc.dispose();
-	    super.dispose();
-	  }
-	}
-	
-	\end{minted}
-	\end{code}
-	\mbox{}
-	
-	
-	
-	The AddTodoPage uses a Scaffold widget. The body is filled with Column with two TextField widgets and a TextButton widget inside. The TextButton is left empty for future implementation.
-	
-	\mbox{}\\
-	\begin{code}
-	\captionof{listing}{Todo app - AddTodoPage definition} \mbox{}
-			\label{code:2.8}
-
-	\begin{minted}{dart}
-	
-	class AddTodoPage extends StatefulWidget {
-	
-	  final void Function(String,String) addTodoCallback;
-	
-	  const AddTodoPage({Key? key, required this.addTodoCallback}) : super(key: key);
-	
-	  @override
-	  State<AddTodoPage> createState() => _AddTodoPageState();
-	}
-	
-	class _AddTodoPageState extends State<AddTodoPage> {
-	  final textControllerName = TextEditingController();
-	  final textControllerDesc = TextEditingController();
-	
-	  @override
-	  Widget build(BuildContext context) {
-	
-	    return Scaffold(
-	        appBar: AppBar(
-	          title: const Text("Add Todo"),
-	        ),
-	        body: Column(
-	          children: [
-	            TextField(
-	              controller: textControllerName,
-	              decoration: const InputDecoration(
-	                  border: OutlineInputBorder(), hintText: 'Enter a name'),
-	            ),
-	            TextField(
-	              controller: textControllerDesc,
-	              decoration: const InputDecoration(
-	                  border: OutlineInputBorder(), hintText: 'Enter a description'),
-	            ),
-	            TextButton(onPressed: () {}
-	            , child: const Text("Create"))
-	          ],
-	        ));
-	  }
-	
-	  @override
-	  void dispose() {
-	    textControllerName.dispose();
-	    textControllerDesc.dispose();
-	    super.dispose();
-	  }
-	}
-	
-	\end{minted}
-	\end{code}
-	\mbox{}
-	
-	
-	\paragraph{Components} \mbox{} \\
+	\paragraph{Components - } 
 	\label{par:todo_app_components}
-	Components are widgets created with a specific aims.
-	TodoView component take care to visualize a list of todos. Todos are accessed in different ways depending on the implementation. TodoView uses a ListView widget. \textit{itemCount} and \textit{itemBuilder} fields are left empty for future implementation.
-	
-	\mbox{}\\
+	Components are widgets created with a specific task. They provide some sort of indipendent functionality.
+	TodoView widget component, for example, takes care of visualizing a list of todos. Todos are accessed in different ways depending on the implementation. TodoView widget uses a ListView widget filled with TodoItem widgets. \textit{itemCount} and \textit{itemBuilder} fields are left empty for future implementation.
+\mbox{}
 	\begin{code}
 	\captionof{listing}{Todo app - TodoView definition} \mbox{}
 			\label{code:2.9}
@@ -374,26 +187,22 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	  Widget build(BuildContext context) {
 	    print("Building TodoView");
 	
-	
 	    return ListView.builder(
-	      itemCount:,
+	      itemCount: //to be filled,
 	      itemBuilder: (context, index) {
 	        return TodoItem(
-	          
+	        todo: //to be filled 
 	        );
 	      },
 	    );
 	  }
 	}
-	
 	\end{minted}
 	\end{code}
+
+TodoItem widget component takas care of visualizing a specific todo. TodoItem widget is a stateless. It uses two Text widgets in order to display the todo's information and a Checkbox widget to allow the changing of the todo’s completed field. It is wrapped into an InkWell widget to make it responsive to taps. Functions fields are left empty for future implementation.
+	
 	\mbox{}
-	
-	
-	TodoItem is a component that take care to visualize a specific todo. TodoItem is a stateless widget. It uses two Text widgets to display the todo's information and a Checkbox to change the todo’s completion. It is wrapped in a InkWell widget to make is responsive to taps. Functions are left empty for future implementation.
-	
-	\mbox{}\\
 	\begin{code}
 	\captionof{listing}{Todo app - TodoItem definition} \mbox{}
 			\label{code:2.10}
@@ -409,7 +218,7 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	
 	    return InkWell(
 	      onTap: () {
-	        Navigator.pushNamed(context, "/updateTodo");
+	        Navigator.pushNamed(context, "/updateTodo" , arguments: todo);
 	      },
 	      child: Row(
 	        children: [
@@ -423,7 +232,9 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	          ),
 	          Checkbox(
 	              value: todo.completed,
-	              onChanged: (value) {}),
+	              onChanged: (value) {
+	              //to be filled
+	              }),
 	        ],
 	      ),
 	    );
@@ -431,87 +242,84 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
 	}
 	
 	\end{minted}
-	\end{code}
+	\end{code}	
+TabSelector widget component provides the tab switching feature. It uses a BottomNavigationBar widget filled with as many BottomNavigationBarItem widgets as TabState.values (in our case two). Functions fields are left empty for future implementation.
+	
 	\mbox{}
-	
-	
-	TabSelector component provides a way to switch from tabs. Tabselector uses a BottomNavigationBar with as many BottomNavigationBarItems as TabState.values (in our case two). Functions's fields are left empty for future implementation.
-	
-	\mbox{}\\
 	\begin{code}
 	\captionof{listing}{Todo app - TabSelector definition} \mbox{}
 			\label{code:2.11}
 	\begin{minted}{dart}
-	class TabSelector extends StatelessWidget {
-	
-	
-	  const TabSelector(
-	      {Key? Key})
-	      : super(key: key);
-	
-	  @override
-	  Widget build(BuildContext context) {
-	    print("Building Tab Selector");
-	
-	    return BottomNavigationBar(
-	      currentIndex: ,
-	      onTap: (){},
-	      items: TabState.values
-	          .map((tab) => BottomNavigationBarItem(
-	                label: describeEnum(tab),
-	                icon: Icon(
-	                  tab == TabState.todos ? Icons.list : Icons.show_chart,
-	                ),
-	              ))
-	          .toList(),
-	    );
-	  }
-	}
-	
+class TabSelector extends StatelessWidget {
+
+  const TabSelector(
+      {Key? Key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print("Building Tab Selector");
+
+    return BottomNavigationBar(
+      currentIndex: //to be filled ,
+      onTap: (){
+      //to be filled
+      },
+      items: TabState.values
+          .map((tab) => BottomNavigationBarItem(
+                label: describeEnum(tab),
+                icon: Icon(
+                  tab == TabState.todos ? Icons.list : Icons.show_chart,
+                ),
+              ))
+          .toList(),
+    );
+  }
+}
+
 	\end{minted}
 	\end{code}
+VisibilityFilterSelector widget component uses a DropdownButton widget filled with as many DropdownMenuItems widget as VisibilityFilter.values (in our case three). Function fields are left empty for future implementation.
+	
 	\mbox{}
-	
-	VisibilityFilterComponent uses a DropdownButton with as many DropdownMenuItems as VisibilityFilter.values (in our case three). Function fields are left empty for future implementation.
-	
-	\mbox{}\\
 	\begin{code}
-	\captionof{listing}{Todo app - VisibilityFilterSelector definition} \mbox{}
-			\label{code:2.12}
-	\begin{minted}{dart}
-	class VisibilityFilterComponent extends StatelessWidget {
-	
-	  const VisibilityFilterComponent(
-	      {Key? key})
-	      : super(key: key);
-	
-	  @override
-	  Widget build(BuildContext context) {
-	    print("Building Visibility filter");
-	    return DropdownButton<VisibilityFilter>(
-	      value:,
-	      items: VisibilityFilter.values.map((filter) {
-	        return DropdownMenuItem<VisibilityFilter>(
-	            child: Text(describeEnum(filter)), value: filter);
-	      }).toList(),
-	      onChanged: (filter) {
-	       
-	      },
-	    );
-	  }
-	}
+\captionof{listing}{Todo app - VisibilityFilterSelector definition} \mbox{}
+		\label{code:2.12}
+\begin{minted}{dart}
+class VisibilityFilterComponent extends StatelessWidget {
+
+  const VisibilityFilterComponent(
+      {Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print("Building Visibility filter");
+    
+    return DropdownButton<VisibilityFilter>(
+      value: //to be filled,
+      items: VisibilityFilter.values.map((filter) {
+        return DropdownMenuItem<VisibilityFilter>(
+            child: Text(describeEnum(filter)), value: filter);
+      }).toList(),
+      onChanged: (filter) {
+       //to be filled
+      },
+    );
+  }
+}
+
 	\end{minted}
 	\end{code}
+
+Stats widget component takes care of visualizing some numerical representation regarding the list of todos. Stats component is a stateless widget composed by a Text widget, showing the stats value, wrapped into a Center widget.
+	
 	\mbox{}
-	
-	Stats component takes care to visualize some numerical representation of the list of todos. Stats component is a Stateless widget composed by Text widget showing stats value.
-	
-	\mbox{}\\
 	\begin{code}
 	\captionof{listing}{Todo app - Stats definition} \mbox{}
 		\label{code:2.13}
 	\begin{minted}{dart}
-	class Stats extends StatelessWidget {
+class Stats extends StatelessWidget {
   const Stats({Key? key}) : super(key: key);
 
   @override
@@ -519,10 +327,184 @@ Homepage uses a simple Scaffold widget. The AppBar contains a VisibilityFilterCo
     print("Building Stats");
 
     return Center(
-        child: Text());
+        child: Text(
+	// to be filled        
+        ));
   }
 }
 	\end{minted}
 	\end{code}
+	\paragraph{Pages - } 
+	\label{par:todo_app_pages}
+The HomePage can be a statefull widget or a stateless  widget depending on the utilized solution. In both cases it uses a simple Scaffold widget. The AppBar widget contains a VisibilityFilterSelector only when the tab is set to \textit{todos}. The body is filled with a TodoView component when the tab is set to \textit{todos} and with a Stats component when the tab is set to \textit{stats}. The body can change from \textit{todos} tab to \textit{stats} tab using the BottomNaviagationBar (filled with the TabSelector widget). An empty FloatingActionButton is also present for future implementation.
+	(note: some small pieces could change in different solution’s implementation. In the above example the tab value is contained in the HomePage but it will not be always the case).
+
 	\mbox{}
-	
+	\begin{code}
+	\captionof{listing}{Todo app - HomePage definition} \mbox{}
+			\label{code:2.6}
+
+	\begin{minted}{dart}
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  TabState tab = TabState.todos;
+
+  @override
+  Widget build(BuildContext context) {
+    return TodoProvider(
+      child: Builder(builder: (context) {
+        return Scaffold(
+          appBar: AppBar(
+            actions: [
+              tab == TabState.todos
+                  ? const VisibilityFilterComponent()
+                  : Container()
+            ],
+            title: const Text("Todo App"),
+          ),
+          body: tab == TabState.todos ? const TodoView() : const Stats(),
+          bottomNavigationBar: TabSelector(),
+          floatingActionButton: tab == TabState.todos
+              ? FloatingActionButton(
+                  child: const Icon(Icons.plus_one),
+            onPressed: () {
+              Navigator.pushNamed(context, "/addTodo");
+
+            },
+          ) : Container(),
+        );
+      }),
+    );
+  }
+}
+	\end{minted}
+	\end{code}
+
+The UpdateTodoPage is statefull and uses a Scaffold widget too. The reason it is implemented with a statefull widget is that it uses TextEditingController objects that need a statefull widget to work properly. The body is filled with a Column with two TextField widgets and a TextButton widget. The TextButton is left empty for future implementation.
+	\mbox{}
+	\begin{code}
+	\captionof{listing}{Todo app - UpdatePage definition} \mbox{}
+			\label{code:2.7}
+	\begin{minted}{dart}
+
+class UpdateTodoPage extends StatefulWidget {
+  final Todo todo;
+
+  const UpdateTodoPage({Key? key, required this.todo})
+      : super(key: key);
+
+  @override
+  State<UpdateTodoPage> createState() => _UpdateTodoPageState();
+}
+
+class _UpdateTodoPageState extends State<UpdateTodoPage> {
+  final textControllerName = TextEditingController();
+  final textControllerDesc = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Update Todo" + widget.todo.name),
+        ),
+        body: Column(
+          children: [
+            TextField(
+              controller: textControllerName,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), 
+                  hintText: 'Enter a new name'),
+            ),
+            TextField(
+              controller: textControllerDesc,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter a new description'),
+            ),
+            TextButton(
+                onPressed: () {
+                  //to be filled
+                },
+                child: const Text("Confirm"))
+          ],
+        ));
+  }
+
+  @override
+  void dispose() {
+    textControllerName.dispose();
+    textControllerDesc.dispose();
+    super.dispose();
+  }
+}
+
+	\end{minted}
+	\end{code}
+
+The AddTodoPage is statefull too and uses a Scaffold widget. The body is filled with a Column widget with two TextField widgets and a TextButton widget inside. The TextButton \textit{onChanged }field is left empty for future implementation.
+	\mbox{}
+	\begin{code}
+	\captionof{listing}{Todo app - AddTodoPage definition} \mbox{}
+			\label{code:2.8}
+	\begin{minted}{dart}
+
+class AddTodoPage extends StatefulWidget {
+  final void Function(String, String) addTodoCallback;
+
+  const AddTodoPage({Key? key, required this.addTodoCallback})
+      : super(key: key);
+
+  @override
+  State<AddTodoPage> createState() => _AddTodoPageState();
+}
+
+class _AddTodoPageState extends State<AddTodoPage> {
+  final textControllerName = TextEditingController();
+  final textControllerDesc = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Add Todo"),
+        ),
+        body: Column(
+          children: [
+            TextField(
+              controller: textControllerName,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Enter a name'),
+            ),
+            TextField(
+              controller: textControllerDesc,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter a description'),
+            ),
+            TextButton(
+                onPressed: () {
+                  //to be filled
+                },
+                child: const Text("Create"))
+          ],
+        ));
+  }
+
+  @override
+  void dispose() {
+    textControllerName.dispose();
+    textControllerDesc.dispose();
+    super.dispose();
+  }
+}
+
+	\end{minted}
+	\end{code}
+Here ends the implementation of the shared files.

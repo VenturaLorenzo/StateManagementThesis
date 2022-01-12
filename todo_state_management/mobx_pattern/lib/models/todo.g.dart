@@ -9,21 +9,6 @@ part of 'todo.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$Todo on _Todo, Store {
-  final _$idAtom = Atom(name: '_Todo.id');
-
-  @override
-  int get id {
-    _$idAtom.reportRead();
-    return super.id;
-  }
-
-  @override
-  set id(int value) {
-    _$idAtom.reportWrite(value, super.id, () {
-      super.id = value;
-    });
-  }
-
   final _$nameAtom = Atom(name: '_Todo.name');
 
   @override
@@ -72,7 +57,6 @@ mixin _$Todo on _Todo, Store {
   @override
   String toString() {
     return '''
-id: ${id},
 name: ${name},
 description: ${description},
 completed: ${completed}

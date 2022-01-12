@@ -7,9 +7,6 @@ import 'package:mobx_pattern/components/tab_selector.dart';
 import 'package:mobx_pattern/components/todo_view.dart';
 import 'package:mobx_pattern/components/visibility_filter_component.dart';
 import 'package:mobx_pattern/models/tab_state.dart';
-import 'package:mobx_pattern/models/todo.dart';
-import 'package:mobx_pattern/models/todo_list.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -18,27 +15,33 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("building HomePage");
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Todo App"),
-        actions: const [VisibilityFilterComponent()],
-      ),
-      body: Observer(builder: (_) {
-        return _tab.value == TabState.todos ? const TodoView() : const Stats();
-      }),
-      bottomNavigationBar: TabSelector(
-        tab: _tab,
-      ),
-      floatingActionButton: Observer(builder: (context) {
-        return _tab.value == TabState.todos
-            ? FloatingActionButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "/addTodo");
-                },
-                child: const Icon(Icons.plus_one),
-              )
-            : Container();
-      }),
+    return Observer(
+      builder: (context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("Todo App"),
+            actions: [
+             _tab.value == TabState.todos
+                    ? const VisibilityFilterSelector()
+                    : Container()
+
+            ],
+          ),
+          body: _tab.value == TabState.todos ? const TodoView() : const Stats(),
+          bottomNavigationBar: TabSelector(
+            tab: _tab,
+          ),
+          floatingActionButton:  _tab.value == TabState.todos
+                ? FloatingActionButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/addTodo");
+                    },
+                    child: const Icon(Icons.plus_one),
+                  )
+                : Container()
+
+        );
+      }
     );
   }
 }

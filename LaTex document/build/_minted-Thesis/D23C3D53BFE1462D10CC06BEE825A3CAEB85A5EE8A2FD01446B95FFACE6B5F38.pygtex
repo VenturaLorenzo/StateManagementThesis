@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n}{main}\PYG{p}{()} \PYG{k+kd}{async} \PYG{p}{\PYGZob{}}
+  \PYG{n}{Bloc}\PYG{p}{.}\PYG{n}{observer} \PYG{o}{=} \PYG{n}{AppBlocObserver}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

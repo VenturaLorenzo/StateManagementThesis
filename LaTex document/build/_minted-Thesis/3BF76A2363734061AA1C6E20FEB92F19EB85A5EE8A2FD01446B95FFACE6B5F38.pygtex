@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TabSelector} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+
+  \PYG{k}{const} \PYG{n}{TabSelector}\PYG{p}{(}
+      \PYG{p}{\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{Key}\PYG{p}{\PYGZcb{})}
+      \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Building Tab Selector\PYGZdq{}}\PYG{p}{);}
+
+    \PYG{k}{return} \PYG{n}{BottomNavigationBar}\PYG{p}{(}
+      \PYG{n+nl}{currentIndex:} \PYG{c+c1}{//to be filled ,}
+      \PYG{n+nl}{onTap:} \PYG{p}{()\PYGZob{}}
+      \PYG{c+c1}{//to be filled}
+      \PYG{p}{\PYGZcb{},}
+      \PYG{n+nl}{items:} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{values}
+          \PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{tab}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{BottomNavigationBarItem}\PYG{p}{(}
+                \PYG{n+nl}{label:} \PYG{n}{describeEnum}\PYG{p}{(}\PYG{n}{tab}\PYG{p}{),}
+                \PYG{n+nl}{icon:} \PYG{n}{Icon}\PYG{p}{(}
+                  \PYG{n}{tab} \PYG{o}{==} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{todos} \PYG{o}{?} \PYG{n}{Icons}\PYG{p}{.}\PYG{n}{list} \PYG{o}{:} \PYG{n}{Icons}\PYG{p}{.}\PYG{n}{show\PYGZus{}chart}\PYG{p}{,}
+                \PYG{p}{),}
+              \PYG{p}{))}
+          \PYG{p}{.}\PYG{n}{toList}\PYG{p}{(),}
+    \PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

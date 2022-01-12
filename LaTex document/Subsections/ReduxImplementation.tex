@@ -1,8 +1,8 @@
-In questa sezione la gestione dello stato verrà gestita tramite Redux.
-\subsubsection{Base funtionalities} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}
+In this section the Redux state management solution is used to implement the application.
+\subsubsection{Base funtionalities}  \label{par:todo_app_inherited_widget_introduction}
 \paragraph{The AppState - }
 \label{subpar:todo_app_bloc_core_state}
-Being the state centralized when the redux solution is used, another model must be defined to connect all the components in a unique class. Subparts of the state have been already modelled in the implementation of the shared parts of the application RIFERIMENTO. They are used now to compose a new class, called AppState, that will group all the subparts in a unique place throughout the entire application. The list of filtered todos will not be part of the AppState. In Redux the centralized state is kept as simple as possible and the parts of the state that can be computed or derived should not take part in it. There are two possibilities basically; compute every time the filtered list on the visualization side or use Selectors. This aspect will be deeper investigated later but for now lets start to define the three main reducers.
+Redux solution requires the state to be centrilized in a unique location. A model for this centrilized component must be defined to wrap up all the subparts. Subparts of the state have been already modelled in the implementation of the shared parts of the application RIFERIMENTO. They are used now to compose a new class, called AppState, that groups all the subparts in a unique place throughout the entire application. 
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - AppState model definition} \mbox{}
@@ -20,9 +20,9 @@ class AppState {
 \mbox{}
 \end{code}
 
+Notice that the list of filtered todos does not take part in the AppState. In Redux, indeed, the centralized state is kept as simple as possible and the parts of the state that can be computed or derived should be omitted. The filtered list of todo should be computed in the presentation layer when needed. This approach, however, can introduce reduntant computations due to the fact that the filtered list is calculated at every widget build. This is where Selectors come into play; they propose a mechanism based on the memoization techinque in order to reuse precomputed value. This aspect will be deeper investigated later.
 \paragraph{The actions - }
-\label{subpar:todo_app_bloc_core_state}
-The application’s state is basically composed by model classes. In order to mutate the state is necessary to define actions. Actions will then be processed by reducers to change the state. Actions are simple classes. We start defining the actions needed to change the state regarding the list of todos. The list of todos is represented by a object of type list in the AppState. Actions can generate a state transition or none but cannot generate more than one state emission. For this reason two actions are needed to define the todos fetching. One action to indicate the start of the fetching process and one action to actually insert the fetched todos in the todos list in the AppState. The first action will be called LoadTodoAction. The second one will be called LoadTodoSucceededAction and will contain the list of fetched todos.
+\label{subpar:todo_app_bloc_core_state}In order to mutate the state is necessary to define actions. Actions are processed by reducers to produce new states. Actions are just instances of predefined classes. We start defining the action's classes needed to change the state regarding the list of todos. As usual, the first two features to be implemented are the fetching of todos and the setting of the completed field of a specific todo. Due to the way Redux works, asynchronous actions are handled by Middlewares. Reducers, indeed, are pure functions and are not suited for handling asynchronous code. Two actions are defined just for the fetching process. One is called LoadTodoAction and will be intercepted by the middleware which will take care of fetching the todos from the database. The second is called LoadTodoSuccededAction and carries the list of todos fetched from the database. When the fetching process terminates in the middleware a new LoadTodoSuccededAction is emited and handled by reducers in the AppState.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - Loading todos actions definition} \mbox{}
@@ -42,7 +42,7 @@ class LoadTodoSucceededAction{
 \mbox{}
 \end{code}
 
-Moreover , an action to set the completed field of a specific todo is required to be used in the TodoItem checkbox. This action will be called SetCompletedAction and will contain the id of the todo to be changed and the new value for the completed field.
+Another action class is create to handle the setting o the completed field. In this case the action is synchronous and is directly handled by reducers. This new action is called \textit{SetCompletedAction} and contains the id of the todo to be changed and the new value for the completed field.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - InheritedWidget - SetCompletedTodoAction definitio} \mbox{}
@@ -58,7 +58,7 @@ class SetCompletedTodoAction {
 \mbox{}
 \end{code}
 
-Only two more action are needed to handle the tab and the visibility filter changes. They will be called respectively  SetTabAction and SetVisibilityFilterAction. They brings the new tab and the new filter to be set.
+Two more action are needed to handle the tab and the visibility filter changes. They are called respectively  \textit{SetTabAction} and \textit{SetVisibilityFilterAction}. They contains the new tab value and the new filter value to be set.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - SetTabAction definition} \mbox{}
@@ -81,10 +81,10 @@ class SetVisibilityFilterAction{
 
 \paragraph{Reducers - }
 \label{subpar:todo_app_bloc_core_state}
-Defining the state model and the actions was very simple. Is the turn now for reducers which will link the state with the actions. Although the usage of the Redux state management solution requires to centralize all the state in a unique component doesn’t mean that the state’s logic(?) cannot be split in subparts. It is like a tree with a single root where the root is represented by the app state’s reducer.  It can split up, however, in many sub-reducers and every one of them can split up furthermore into other sub-reducers. So, in the end, the state is segmented and stored in single place, but its pieces can still be managed separately and independently. During the reasoning(?) process the whole state is broken into small pieces step by step using a top-down approach however in the implementation process a bottom-up approach is usually used. This is due to the fact that, during the implementation process , smaller bricks are needed to build bigger components. In this presentation, for example, is not possible to define directly the AppState reducer even if, logically, it should be the first one to be implemented. The AppState reducer will be composed by multiple sub reducers, in our case three. There will be a reducer for the list of todos, a reducers for the filter and a reducer for the tab. 
+Is the turn now for reducer's definition. They will link actions with new states. Even if the usage of the Redux state management solution requires the centralization of the state in a unique component the state’s logic can be in any case be split up in subparts. It is like a tree with a single root where the root is represented by the AppState's reducer.  It can split up in many sub-reducers and every one of them can further split up into other sub-reducers. Therefore the state is segmented and stored in single place, but its pieces can still be managed separately and independently. During the reasoning process is easier to break the whole state into small pieces step by step using a top-down approach, however, in the implementation process, a bottom-up approach is usually used. This is due to the fact that, during the implementation, smaller bricks are required to build bigger components. In this presentation, for example, is not possible to define directly the AppState reducer even if, logically, it should be the first reducer to be implemented. The AppState reducer will be composed by multiple sub reducers, in our case three. There will be a reducer for the list of todos, a reducers for the filter and a reducer for the tab. 
 \paragraph{The todoReducer - }
 \label{subpar:todo_app_bloc_core_state}
-The required functionalities are the loading of the todos from the db and the setting of the completed field of a specific todo. As said before, reducers are basically functions. They take the previous state and an action and return the next state. Speaking about the list of todos , the state is an object of type List<Todo>. It initially empty and is filled up once an event of type loadTodoSucceededAction is received. The list of fetched todos is found inside the action and used to return the new state for the list of todos. The reducer in this case just takes the list and returns it.
+The reducer for the list of todos needs to handle two actions, the LoadTodoSuccedeedAction and the SetCompletedTodoAction. The TodoReducer is tough a combination of two subreducers which handle a specific action. As we already said, reducers are pure functions. They take the previous state and an action and return the next state. The reducer for the LoadTodoSuccedeedAction is called \textit{setLoadedTodo} and just returns the list contained in the received action.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - LoadTodoSuccedeedAction reducer} \mbox{}
@@ -96,8 +96,7 @@ List<Todo> _setLoadedTodo(List<Todo> todos, LoadTodoSucceededAction action) {
 \end{minted}
 \mbox{}
 \end{code}
-
-Another reducer is needed to handle the action of setting the completed field of a specific todos. In the case the received action will be of type SetCompletedTodoAction. The todo matching the id contained in the action is searched and updated using the list’s map method and then a new instance of the list is created and returned. The necessity to create another instance comes from the fact that the transition would not be recognised in case the state’s list is just updated and not substituted.
+The reducer for the \textit{SetCompletedTodoAction} is called \textit{setCompletedTodo} and takes care of searching in the current todos state the one matching the id contained in the action element. Once the todo is updated the a new instance of the whole list is created and returned. The necessity to create another instance comes from the fact that, in case the state’s list is just updated and not substituted, the transition would not be recognised.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - SetCompletedTodoAction reducer} \mbox{}
@@ -118,7 +117,7 @@ List<Todo> _setCompletedTodo(List<Todo> todos, SetCompletedTodoAction action) {
 \mbox{}
 \end{code}
 
-Now that the two reducers for the action previously created has been implemented we will usesome tools the redux package provides in order to combine them in a unique reducer that binds the received action to the correct sub-reducer. These tools are the combineReducers function and the TypedReducer class. The TypedReducer class is, indeed, a typed class that helps to avoid nested if-else structure which can generate lot of boilerplate and code unreadability. It binds a specific action to a reducer. combineReducers , instead, is a function that creates a reducer composing sub-reducers provided in the form of TypedReducers. The two previously defined reducers are now merged to an unique one called todosReducer.
+Now that all the needed reducers has been implemented we  use some tools, the Redux package provides, in order to combine them in a single reducer that binds the received action to the correct sub-reducer. These tools are the \textit{combineReducers} function and the \textit{TypedReducer} class. The \textit{TypedReducer} class is, indeed, a typed class that helps avoiding nested if-else structures which can generate lot of boilerplate and code unreadability. It binds a specific action to a reducer. \textit{combineReducers} , instead, is a function that creates a new reducer composing sub-reducers provided in the form of \textit{TypedReducers}. The two previously defined reducers are now merged into a single one called \textit{todosReducer}.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - combine reducers using combineReducers function} \mbox{}
@@ -132,7 +131,7 @@ final todoReducer = combineReducers<List<Todo>>([
 \mbox{}
 \end{code}
 
-the alternative would have been to write the todosReducer like presented RIERIEMENTO. The output is the same but the code is clearly more readable.
+the alternative would have been to write the \textit{todosReducer} as presented RIERIEMENTO. The output is the same but the code is clearly less readable.
 \begin{code}
 \mbox{}
 \captionof{listing}{Todo app - Redux - combine reducers using the traditional way} \mbox{}
@@ -153,7 +152,7 @@ final todosReducer = (List<Todo> todos, action) {
 
 \paragraph{The tab Reducer and the visibility Filter reducer - }
 \label{subpar:todo_app_bloc_core_state}
-The process is the same as before. Two reducers ,called setTabState and setVisibilityFilter ,are created to handle respectively actions of type SetTabAction and SetVisibilityFilter action. In both cases the value contained in the action is used to produce a new state. Both of them are used to create other two reducers called tabReducer and visibilityFilterReducer using the combineReducers function introduced earlier. In this case the usage of the combineReducers function wasn’t really necessary by the fact that it combines only one reducer. However in case new actions may be introduced it will get handy.
+The process is the same as before. Two reducers, called \textit{setTabState} and \textit{setVisibilityFilter}, are created to handle actions of type SetTabAction and SetVisibilityFilter respectively. In both cases the value contained in the action is used to produce a new state. Both of them are used to create other two reducers called \textit{tabReducer} and \textit{visibilityFilterReducer} using the \textit{combineReducers} function introduced earlier. In this case the usage of the \textit{combineReducers} function wasn’t really necessary by the fact that it combines only one reducer. However in case new actions may be introduced it will get handy.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - reducers definition for the tab and the filter state} \mbox{}
@@ -183,7 +182,7 @@ final visibilityFilterReducer = combineReducers<VisibilityFilter>([
 
 \paragraph{The AppState reducer - }
 \label{subpar:todo_app_bloc_core_state}
-Finally all the basic bricks have been implemented and can be used now to create the biggest reducer; the AppState reducer. It is of course a function that takes the current AppState and an action. It then compose a new AppState instance using the sub-reducers just created and passing to them the received action. Every sub-reducer processes the action to understand if it needs to perfom a transition in the handled part of the state. And that’s it, a unique component handling all the application’s state has been defined combining more sub parts.
+All the basic bricks have been implemented and can be used now to create the biggest reducer; the AppState reducer. It is a function that takes the current \textit{AppState} and an action. It then composes a new AppState instance using the sub-reducers it is composed of. Every sub-reducer processes the received action in order to understand if it needs to perfom a transition in the part of the state it handles. 
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - AppState definition} \mbox{}
@@ -201,7 +200,7 @@ AppState appStateReducer(AppState appState, action) {
 
 \paragraph{The Middleware - }
 \label{subpar:todo_app_bloc_core_state}
-All we need to start accessing the state in the UI is settled up but the way in which the todos are fetched from the database is not really clear yet. Two actions were set up for this purpose but only has been handled by a reducer for the moment. The fact is that the process of fetching todos from the database is not immediate. It is asynchronous with respect to the application workflow. Reducers are not suited for handling asynchronous code , they need to be pure and as simple as possible. There are many ways in practice to deal with asyn code but the most “correct” one is to use middlewares. Middlewares has been introduce HERE RIEFERIMENTO. The act as a sort of proxy from the action dispatch and the reducers. One or more middleware can be provided to be executed on a action call. They are used to handle asynchronous code but also action that generate side effects. In our case we defined an action called LoadTodoAction that do not have any meaning in terms of reducers. Once dispatched it will pass through one or more middleware before reaching the reducers. A middleware is just a function that takes three parameters: the store, an action and the next dispatcher. It processes the action , probably accessing the store, and the pass the action to the next middleware. In our case a new middleware function is defined and called loadTodoMiddleware. It just check is the dispatched action if of type LoadTodoAction and in case it is starts to load the todos from the database. Once the fetching process is completed it dispatches another action of type LoadTodoSuccededAction that , this time will be handled, by the AppState reducer.
+All the necessary to start accessing the state in the presentation layer is settled up but the way in which the todos are fetched from the database is not clear yet. Two actions were set up for this purpose but only one has been handled by a reducer. The process of fetching todos from the database is not immediate. It is asynchronous with respect to the application workflow. Reducers are not suited for handling asynchronous code, they need to be pure and as simple as possible. There are many ways, in practice, to deal with asynchronous code using Redux  but, the most correct one (and also the one proposed in the documentation) is to use Middlewares. Middlewares has been introduce HERE RIEFERIMENTO. They act as a sort of proxy between actions dispatch and reducers. One or more middlewares can be set to execute on actions call. They are used to handle asynchronous code but also action that generate side effects. In our case, an action of type LoadTodoAction has been defined but is not handled by any reducer yet and is ignored once received. However, if dispatched, it will pass through one or more middleware before reaching the reducers. Is necessary tough to set up a middleware that intercepts it and starts the fetching process. A middleware is just a function that takes three parameters: the store, an action and the next dispatcher. It processes the action , probably accessing the store, and then pass the action to the next middleware. A new middleware function is defined and called \textit{loadTodoMiddleware}. It  checks if the dispatched action if of type LoadTodoAction and, in case it is, starts to load the todos from the database. Once the fetching process is completed it dispatches an action of type LoadTodoSuccededAction that contains the list of fetched todo. We previously set up a specific reducer in order to handle this type of action in the AppState reducer.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - loadTodosMiddleware middleware definition} \mbox{}
@@ -222,7 +221,7 @@ All the ingredients are now available to start composing our UI.
 
 \paragraph{Making the state accessible - }
 \label{subpar:todo_app_bloc_core_state}
-Like almost every solution used in this overview , also redux uses providers to make the state accessible down the widgets tree. The state is unique and tough should obviously be placed in the root of the widgets tree or some part of the tree would not be covered by its accessibility. To do so a StoreProvider is used to wrap the entire app positioned right below the MyApp widget. An object of type Store must be provided to the StoreProvider widget. The typed class Store is provided by the redux package. Store class is a typed class meaning that the type of the global state to be handled must be provided. In our case the global state is of the type AppState defined above. The Store class constructor takes three parameters. The reducer for the AppState , an instance of an object of type AppState that identifies the initial state and a list of middlewares. In our case a single middleware is passed. In order to fetch the todos on the application start we will use the init method of the stateful widgets.  The HomePage widget is already stateful and so its init method is used to dispatch the first action : the LoadTodosAction. For simplicity the function to be executed in the init method is passed from the MyApp widget where the store is already available to the HomePage using a newly created parameter.
+Redux uses Provider widgets to make the state accessible down the widgets tree. The state is unique and tough should  be placed in the root of the widgets tree or some part of the tree would not be covered by its accessibility. To do so, a StoreProvider widget is positioned at the root of app, right below the MyApp widget. An object of type Store must be provided to the StoreProvider widget, in the \textit{store }field. The typed class Store is provided by the redux package. In our case the global state is of the type AppState defined above. The Store class constructor takes three parameters. The reducer for the AppState , an instance of type AppState that identifies the initial state and a list of middlewares. In our case a single middleware is passed. In order to fetch the todos at the application start we will use the \textit{init} method of stateful widgets.  The HomePage is already stateful and its \textit{init} method is used in order to dispatch the first action : the LoadTodosAction. For simplicity the function to be executed in the init method is passed from the MyApp widget, where the store is already available, to the HomePage using a newly created parameter.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo a
@@ -230,15 +229,10 @@ pp - Redux - Widgets tree root definition} \mbox{}
 		\label{code:2.14}
 \begin{minted}{dart}
 void main() {
-
-
   WidgetsFlutterBinding.ensureInitialized();
-
   runApp(MyApp(
       store: Store<AppState>(appStateReducer,
           initialState: AppState(), middleware: [loadTodosMiddleware])));
-
-
 }
 
 class MyApp extends StatelessWidget {
@@ -256,9 +250,8 @@ class MyApp extends StatelessWidget {
           "/": (context) => HomePage(onInit: (){
             store.dispatch(LoadTodoAction());
             },),
-          "/addTodo":(context) =>const AddTodoPage(),
-          "/updateTodo" : (context)=> UpdateTodoPage(todo: (ModalRoute.of(context)?.settings.arguments as Todo))
-        },
+            (...)
+         },
       ),
     );
 
@@ -268,7 +261,7 @@ class MyApp extends StatelessWidget {
 \mbox{}
 \end{code}
 
-Inside the HomePage widget the initState method is defined and the store is accessed for the first time. To access the store a StoreConnector widget is used. Its task is to access the state and to create a viewmodel containing the information related to the pages usage only. The viewmodel is really important because idenfies the prospective from which the widget is looking at the state. If the viewmodel changes the widget is rebuilt. Not always a state change produces a viewmodel change. The StoreConnector widget takes two types in its definition. The global state’s type,the AppState, and the type of the viewmodel it is going to compose, in our case just a TabState object. The HomePage ,indeed, only need the part of the state related to the tab and so it is not necessary to create an ad hoc view model. The model of the TabState defined hereRIFERIMENTO is enough to contain the interesting part of the state.  Two StoreConnector’s fields must be filled to make it work correctly. The converter field and the builder field. In the first one a function must be provided that manipulate the state to return an object of the type previously specified, in our case a object of type TabState. The builder field is populated with a function that returns a widget. Inside this function the current context and the object returned from the converter function are available. The current tab value is used to populate the Scaffold widget as usual.
+Inside the HomePage, the \textit{initState} method is set up in order to dispatch a LoadTodoAction using the function passed as parameter by the MaterialApp widget. In order to access the store, a StoreConnector widget is used. A StoreConnector widget takes two functions in its \textit{converter }and \textit{builder }fields. The \textit{converter} function takes the state and creates a viewmodel containing the minimal information necessary to build the widget. The \textit{builder} function actually uses the viewmodel in order to create the widget. The viewmodel is really important because idenfies the prospective from which, the widget, is looking at the centralized state. If the viewmodel changes the widget is rebuilt. Not always a state change produces a viewmodel change. The StoreConnector widget is a typed widget also and takes two types in its definition/usage: the store's type, the AppState, and the viewmodel's type, in our case just a TabState object. The HomePage, indeed, only needs the part of the state related to the tab and, for this reason, it is not necessary to create an ad hoc viewmodel. The model of the TabState defined hereRIFERIMENTO is enough to contain the interesting part of the state. In the \textit{converter }field a function is provided which manipulates the state returning the current TabState value. The \textit{builder} field is populated with a function that returns a Scaffold widget. Inside this function, the current context and the object returned from the converter function can be used. This last one is used to populate the Scaffold widget as usual.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - state integration in the HomePage} \mbox{}
@@ -288,18 +281,11 @@ Widget build(BuildContext context) {
     converter: (store) => store.state.tabState,
     builder: (context, currTab) {
       return Scaffold(
-          appBar: AppBar(
-            title: const Text("Todo App"),
-            actions: const [VisibilityFilterComponent()],
-          ),
+          appBar: AppBar(...),
           body: currTab == TabState.todos ? const TodoView() : const Stats(),
           bottomNavigationBar: const TabSelector(),
           floatingActionButton: currTab == TabState.todos
-              ? FloatingActionButton(
-                  child: const Icon(Icons.plus_one),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/addTodo");
-                  })
+              ? FloatingActionButton(...)
               : Container());
     },
   );
@@ -308,13 +294,26 @@ Widget build(BuildContext context) {
 \mbox{}
 \end{code}
 
-We could now start to implement the component widgets using the AppState but first a short digression about Selectors must be taken.
+We can now start implementing the component widgets using the AppState but, first, a short digression about Selectors is taken.
 \paragraph{Selectors - }
 \label{subpar:todo_app_bloc_core_state}
-They are introduced hereRIFERIMENTO . Selectors are used to compute those parts of the state that entirely depends on other parts. In our case the filtered list is not included in the AppState , also because would be hard to deal with it in the centralized state syncornizing it with the changes in the todos list and the filter. The easiest way to deal with the filtered list is to compute it in the UI layer before buildeing the widget, in our case the TodoView widget. However, this way of doing can become quite heavy soon by the fact that the computation of the filtered list is perfomed every time the widge tis rebuilt and it can be costly sometimes. For this reason Selector are used to memoize the previously computed value and reuse them in case they did not change. Selectors are just functions that take as input the state an return an object composed with it. All the memorization part is perfomed by a third party package called Reselect. In order to use it it must be included in the pubspec.yaml file under the dependencies field. It provides some functions with the name createSelector that take care of memoize the values and understand when to recompute them. Selectors can be simple o composed. For example two simple selectors can be implemented in our case. One that takes the state and return the filter and on that takes the state and return the list of todos. Selectors can be composed with other selector to create articulated objects. Selectors are composed using the createSelector function followed by a number. For example a selector computing the list of completed todos can be built using the todos selctor we just created and the same for computing the list of pending todos. A Selector is created then to compute the filtered list. It will use four other selectors. The list of todos selector, the filter selector, the list of pending todos selector and the list of completed todos selector outputs are composed to compute the filtered list of todos. Besides of making the code more readable , selectors also optimize the application performances.
+They are introduced hereRIFERIMENTO . Selectors are used to compute those parts of the state that entirely depends on other parts. In our case, for example, the filtered list is not included in the AppState with the idea of computing it in the presentation layer. This decision also comes from the fact that would be hard to syncornize it with the changes in the todos list and in the filter if situated in the centralized state. The easiest way to deal with the filtered list is to compute it in the UI layer before building the TodoView widget. However, this way of doing can become quite heavy soon by the fact that the computation of the filtered list is perfomed every time the widget is rebuilt. In this scenario Selectors come into play to memoize the previously computed value and to reuse them once accessed. Selectors are just functions that take as input the state an return an element composed with it. All the memorization part is perfomed by a third party package called \textit{Reselect}. In order to use this package it must be included in the pubspec.yaml file under the \textit{dependencies} field. It provides some functions with the called \textit{createSelector} that take care of memoizing some values and understanding when to recompute them. Selectors can be simple o composed. For example, two simple selectors can be implemented in our case. One  takes the state and return the filter and the other takes the state and returns the list of todos.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - Redux - Selectors definition} \mbox{}
+\captionof{listing}{Todo app - Redux - base Selectors definition} \mbox{}
+		\label{code:2.14}
+\begin{minted}{dart}
+final todosSelector = (AppState state) => state.todos;
+
+final filterSelector = (AppState state) => state.visibilityFilter;
+\end{minted}
+\mbox{}
+\end{code}
+
+Selectors can be composed with other selector to create articulated objects. Selectors are composed using the \textit{createSelector} function followed by a number. For example, a selector computing the list of completed todos can be built using the \textit{todosSelector }and the \textit{createSelector1} function. The same con be done to compute the list of pending todos. Another Selector is created to finally compute the filtered list. It uses the four other selectors we just implemented and the \textit{createSelector4 }function. Besides of making the code more readable , selectors, allow to optimize the application's performances.
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Redux - composed  Selectors definition} \mbox{}
 		\label{code:2.14}
 \begin{minted}{dart}
 final todosSelector = (AppState state) => state.todos;
@@ -350,7 +349,7 @@ final filteredTodosSelector = createSelector4(
 
 \paragraph{The TodoView component - }
 \label{subpar:todo_app_bloc_core_state}
-After this short digression about selectors we are ready now to set up the TodoView component. The ListView widget is wrapped into a StoreConnector widget type with the AppState and a list of todos. Indeed, the TodoView component just needs to access the part of the state concerning the filtered list of todos that is in the end an object of type List<Todo>. However, the list of filtered todos is not directly available in the AppState but the selectors we just defined can to be used to compute the filtered list. In the StoreConnector converter field a function is provided that takes the store and returns the filtered list using the filteredTodosSelector function. The converter function output is then available inside the builder field function and we can use it to populate the ListView widget as usual. 
+After this short digression about selectors, we are ready to set up the TodoView component. The ListView widget is wrapped into a StoreConnector widget typed with the AppState and List<Todo> types. The TodoView component just needs to access the part of the state concerning the filtered list of todos that is representable with an object of type List<Todo>. The list of filtered todos is not directly available in the AppState but selectors can be used to compute it. In the \textit{converter }field of the StoreConnector widget, a function is provided which takes the store and returns the filtered list using the \textit{filteredTodosSelector}. The \textit{converter} function output is available inside the \textit{builder} field's function and is used to populate the ListView widget as usual. 
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - state integration in the TodoView component} \mbox{}
@@ -362,7 +361,6 @@ class TodoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, List<Todo> >(
-        distinct: true,
         builder: (context, todos) {
           print("Building TodoView");
           return ListView.builder(
@@ -386,10 +384,10 @@ class TodoView extends StatelessWidget {
 \paragraph{The TodoItem component - }
 \label{subpar:todo_app_bloc_core_state}
 
-The TodoItem component does not need any modification with respect to the implementation reposrted HERE RIFERIMENTO. Indeed, it just receives a todo from the parent widget and exposes it to the user. The only missing part in the onChanged field of the Checkbox that is left empty because its implementation changes between diffent solutions. Inside the onChage field a function must be provided that updates the completed field of the todo visualized by the TodoView widget. Providing that function is really easy, the store is accessed using the of method of the StoreProvider widget. ( the of method gets the nearest instance of the store of type provided in the call, in our case AppState)The store is then used to dispatch an action of type SetCompletedTodoAction created using the id of the visualized todo and the completed Boolean value provided by the onChange fuction.
+The TodoItem component does not require any modification with respect to the implementation proposed HERE RIFERIMENTO. It just receives a todo from the parent widget and exposes it to the user. The only missing part is the \textit{onChanged} field of the Checkbox widget which is still to be implemented. Inside the \textit{onChage} field, a function must be provided which updates the \textit{completed} field of the visualized todo. The store is accessed using the \textit{of} method of the StoreProvider widget (the of method gets the nearest instance of provided type, in our case AppState). The store is then used to dispatch an action of type SetCompletedTodoAction created using the id, of the visualized todo, and the \textit{completed} Boolean value provided by the \textit{onChange} fuction.
 
 \begin{code}
-\mbox{}\\
+\mbox{}
 \captionof{listing}{Todo app - Redux - state integration in the TodoItem component} \mbox{}
 		\label{code:2.14}
 \begin{minted}{dart}
@@ -405,7 +403,7 @@ Checkbox(
 
 \paragraph{The VisibilityFilterSelector component - }
 \label{subpar:todo_app_bloc_core_state}
-The dfhdhfdhs component only accesses the part of the state concerning the filter. The entire DropdownButton widget is wrapped into a StoreConnector widget. The StoreConnector’s converter function will return a value of type VisibilityFilter. In the converter field a function taking the store and returning the filter value must be provided. To do so the filterSelector implemented earlier can be used or instead the filter value can be accessed directly by the store, both solution are equivalent. The ouput of the converter function can be accessed in the builder field function and used to populate the DropdownButton widget. The only part that differs from the implementation provided HERE RIFERIMENTO is the function used in the onChanged field of the DropdownMenuItem widgets. It gets an instance of the store using the StoreProvider widget’s of method and then dispatches an action of type SetVisibilityFilterAction using the DropdownMenuItem corresponding filter value.
+The VisibilityFilterSelector component only accesses the part of the state concerning the filter. The entire DropdownButton widget is wrapped into a StoreConnector widget. The StoreConnector’s \textit{converter} field  is filled with a function taking the store and returning the current filter value. To do so, it uses the \textit{filterSelector} implemented earlier. The output of the \textit{converter} function is accessed in the \textit{builder} field function and used to populate the DropdownButton widget. The function used in the \textit{onChanged} field of the DropdownMenuItem widgets gets an instance of the store using the StoreProvider widget’s \textit{of} method and dispatches an action of type SetVisibilityFilterAction using the DropdownMenuItem 's filter value.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - state integration in the VisibilityFilterSelector component} \mbox{}
@@ -420,10 +418,7 @@ Widget build(BuildContext context) {
 
       return DropdownButton<VisibilityFilter>(
         value: activeFilter,
-        items: VisibilityFilter.values.map((filter) {
-          return DropdownMenuItem<VisibilityFilter>(
-              child: Text(describeEnum(filter)), value: filter);
-        }).toList(),
+        items: (...),
         onChanged: (filter) {
           StoreProvider.of<AppState>(context)
               .dispatch(SetVisibilityFilterAction(filter!));
@@ -437,7 +432,7 @@ Widget build(BuildContext context) {
 
 \paragraph{The TabSelector component - }
 \label{subpar:todo_app_bloc_core_state}
-Also in this case the TabSelector components needs to read and write the AppState. A StoreConnecgor widget is used to wrap the BottomNavigationBar widget making the state accessible to it. The view model to be outputted by the converter function is just an object of type TabState. An arrow function that returns the current AppState’s tab is provided to the converter field. The function output is then used in the builder field function to populate the BottomNavigationBar widget. To notice the function provided in the onTap field that accesses the AppState using the StoreProvider’s of method and dispatches a new action of type SetTabAction with the corresponding bottomNavigationBarItem’s teb value.
+Also in this case, the TabSelector component requires to read and write the AppState. A StoreConnector widget is used to wrap the BottomNavigationBar widget and to connect it to the state. The viewmodel to be returned by the \textit{converter} function is just an object of type TabState. An arrow function returning the current AppState’s tab value is provided to the converter field. The function output is then used in the \textit{builder} field's function to populate the BottomNavigationBar widget. The \textit{onTap} field of the BottomNavigatioBar widget is filled with a function that dispatches an action of type SetTabAction when fired.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - state integration into TabSelector component} \mbox{}
@@ -457,13 +452,7 @@ class TabSelector extends StatelessWidget {
         return BottomNavigationBar(
           currentIndex: TabState.values.indexOf(currTab),
           onTap: (index)=>StoreProvider.of<AppState>(context).dispatch(SetTabAction(TabState.values.elementAt(index))),
-          items: TabState.values
-              .map((tab) => BottomNavigationBarItem(label: describeEnum(tab),
-                    icon: Icon(
-                      tab == TabState.todos ? Icons.list : Icons.show_chart,
-                    ),
-                  ))
-              .toList(),
+          items: (...)
         );
       },
     );
@@ -475,7 +464,7 @@ class TabSelector extends StatelessWidget {
 
 \paragraph{The Stats component - }
 \label{subpar:todo_app_bloc_core_state}
-The stats component only needs to read the state. The Center widget is wrapped into a StoreConnector widget. In the converter field function the completedTodoSelector function is used to access the list of completed todos and its length is then computed. In this case ,indeed, the viewmodel to be outputted is just an int value. The int value is then displayed in the Text widget.
+The stats component only requires to read the state. The Center widget is wrapped into a StoreConnector widget. In the \textit{converter} field's function the \textit{completedTodoSelector} selector is used to access the list of completed todos. In this case the viewmodel to be outputted is just an int value representing the number of completed todos.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - state integration into Stats component} \mbox{}
@@ -506,7 +495,7 @@ At this point all the base functionalities have been implemented and are working
 
 \subsubsection{Features addition}  \label{par:todo_app_inherited_widget_introduction}
 
-As usual the first thing to do is to make the state provide a way of adding and updating todos. For this purpose two new action are created with the name AddTodoAction and UpdateTodoAction respectively. In the AddTodoAction the name and the description for the todo to be create are contained. In the UpdateTodoAction ,besides the new name and description for the todo, also the id of the todo to be modified is provided.
+The first thing to do is to make the state provide a way of adding and updating todos. For this purpose two new actions are created with the name AddTodoAction and UpdateTodoAction respectively. In the AddTodoAction, are contained the name and the description for the todo to be create. In the UpdateTodoAction, besides the new name and description, also the id of the todo to be modified is contained.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - AddTodoAction and UpdateTodoAction definition} \mbox{}
@@ -530,7 +519,7 @@ class UpdateTodoAction{
 \mbox{}
 \end{code}
 
-In order to handle these new actions two reducers must be created. They are called respectively addTodo and updateTodo and are just functions. They are inserted in the reducers of the list of todos. The addTodo reducer takes as argument the current list of todos and the AddTodoAction object. It first creates the new todo using the information contained in the action object and generating a new unique id. Then creates a completely new list and populates it with the old list elements and the new todo.
+In order to handle these new actions two new reducers must be created. They are called respectively \textit{addTodo} and \textit{updateTodo}. The \textit{addTodo} reducer first creates a new todo using the information contained in the \textit{AddTodoAction}  instace and a newly generated unique id. Then, it creates a new list instace and populates it with the elements of the old list plus the new todo.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - AddTodoAction's reducer definition} \mbox{}
@@ -555,7 +544,7 @@ List<Todo> _addTodo(List<Todo> todos, AddTodoAction action) {
 \mbox{}
 \end{code}
 
-The updateTodo reducer takes the current list of todo and an action of type UpdateTodoAction as arguments.  It first modifies the todoof the current list of todos with the id matching the one contained in the action. Then it generates a new list with the element contained in the current one and returns it.
+The \textit{updateTodo} reducer first modifies the todo with the id matching the one contained in the action. Then, it generates a new list and fills it with the element contained in the current one.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - UpdateTodoAction's reducer definition} \mbox{}
@@ -577,7 +566,7 @@ List<Todo> _updateTodo(List<Todo> todos, UpdateTodoAction action){
 \mbox{}
 \end{code}
 
-These new reducers are then combined with the other existing ones in the combineReducers function and linked with the corresponding action using the type class TypedReducer.
+These new reducers are then combined with the already existing ones in the \textit{combineReducers} function and linked with the corresponding action using the typed class \textit{TypedReducer}.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - combining new reducers to the old ones} \mbox{}
@@ -593,7 +582,7 @@ final todoReducer = combineReducers<List<Todo>>([
 \mbox{}
 \end{code}
 
-And that’s it, the AppState can now handle actions of type AddTodoAction and UpdateTodoAction. These new functionalities can now be used in the AddTodoPage and in the UpdateTodoPage easilt due to the fact that they can be accesses directly. The StoreProvider widget has been , indeed, positioned in the root of the application to be available in all the sub trees. The onPressed field ‘s function of the TextButton widget in the AddTodoPage dispatches an Action of type AddTodoAction in the AppState utilizing the name and description’s textControlled text field.
+The AppState can now handle actions of type AddTodoAction and UpdateTodoAction. These new functionalities can now be used in the AddTodoPage and in the UpdateTodoPage. The StoreProvider widget has been positioned in the root of the application to be available in all the subtrees. Is sufficient, tough, to access the store in the AddTodoPage and dispatch an action of type AddTodoAction, when the TextButton widget is tapped.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - using the AddTodoAction in the AddTodoPage} \mbox{}
@@ -610,7 +599,7 @@ TextButton(
 \mbox{}
 \end{code}
 
-And the same is done in the UpdateTodoPage dispatching an action of type UpdateTodoAction composed using the textControllers’s text values and the id of the todo passed as argument from the TodoItem widget.
+The same is done in the UpdateTodoPage. Once the TextButton widget is tapped an action of type UpdateTodoAction is dispatched.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - using the UpdateTodoAction into the UpdateTodoPage} \mbox{}
@@ -627,10 +616,10 @@ TextButton(
 \mbox{}
 \end{code}
 
-All the features have been successfully added and work well.
+All the features have been successfully added.
 \subsubsection{Rendering optimization}  \label{par:todo_app_inherited_widget_introduction}
 
-In order to perform the optimizations, we will leverage on the fact that the StoreConnector widgets only rebuilds when the viewmodel ,it relies on , changes. Or better, this behavior happens when a specific field of the StoreConnector widget ,called distinct, is set to true. This feature ,the redux package provides, makes the optimization process really easy. We just need to define the correct viewmodel and the correct equality operator between viewmodels. Some changes must be done in the TodoView widget and in the TodoItem widget. Firstly, the TodoItem widget needs to interact with the state to understand when a change regarding its todo is performed. For the moment , indeed ,the TodoItem widget just receives a todo instance from the parent widget and visualizes it. As usual, we use a StoreConnector widget to read the state in the TodoItem widget. The complete instance of the todo to be visualized is not necessary to be passed by the parent anymore but the id only is enough. Using the id , the corresponding todo is searched in the store by the converter field’s function and passed to the builder field. The widget returned by the builder function remains the same with the only exception that it uses the todo instance got from the store instead of the one passed by the parent widget. 
+In order to perform the optimizations we will leverage on the fact that the StoreConnector widgets only rebuilds when the viewmodel, it relies on, changes. Or better, this happens when a specific field of the StoreConnector widget, called \textit{distinct}, is set to true. This feature, the Redux package provides, makes the optimization process really easy. We just need to define the correct viewmodel and provide it with the correct equality operator. Some changes must be done in the TodoView widget and in the TodoItem widget. Firstly, the TodoItem widget needs to interact with the state in order to understand when a change regarding its todo is performed. For the moment , indeed, the TodoItem widget just receives a todo instance from the parent widget and exposes it to the user.A StoreConnector widget is used to read the state in the TodoItem widget. The complete instance of the todo to be visualized is not necessary anymore but the id only is enough. Using the id , the corresponding todo is searched in the store by the \textit{converter} field’s function and passed to the \textit{builder} field. The widget returned by the \textit{builder} function remains the same with the only exception that it uses the todo instance got from the store instead of the one passed by the parent widget. 
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - make the TodoItem component read the state} \mbox{}
@@ -659,7 +648,7 @@ class TodoItem extends StatelessWidget {
 \mbox{}
 \end{code}
 
-Now that the TodoItem widget watches for its own todo changes ,the optimization process regarding the TodoItem widget is automatically performed. We said, indeed, that the Storeconnector widget is rebuilt every time its viewmodel changes and we set the viewmodel as the corresponding todo instance in the AppStore. Once a state change occurs, the StoreConnector widget compares the current todo with the new one and, in case they differ, it rebuilds. To notice that this mechanism works because we redefined the equality operator between objects of type Todo HERE RIFERIMENTO. An object of type Todo is equal to another one if all their internal values match. This equality differs from the traditional one by the fact that do not check for the entity’s equality. Indeed, if it would, the two todos would appear to be different everytime. This because every time a new state is emitted the list of todos is recreated from scratch and   also its internal todos are. In the dart language two different objects end to be different also if their internal values are exactly the same. This way of handling object already showed up numerous times in this overview and will show up even more in the next implementations. Going back to the to the TodoItem component , it already uses the correct equality operator to compare different viewmodels and so is capable to understand when to rebuild by itself. The same process must be done in the TodoView widget. It already uses a StoreConnector widget but in the converter function derives the list of filtered todos from the store. However, as we just said, two plain lists appear to be always different by default. Moreover, it is not possible to redefine the equality operator for list and in every case it would not be a good idea. A simple way to handle this scenario is to create ad hoc viewmodel and refine its equality operator in order to implement our own rebuilding logic. To do so a local class is created and called ViewModel. This local class just contains a list of todos.
+Now that the TodoItem widget listens for its own todo changes, the optimization process concerning the TodoItem widget is automatically performed. We said, indeed, that the StoreConnector widget is rebuilt every time its viewmodel changes and we set the viewmodel as the corresponding todo instance in the AppStore. Once a state change occurs, the StoreConnector widget compares the current todo with the new one and, in case they differ, it rebuilds. To notice that this mechanism works because we redefined the equality operator between objects of type Todo HERE RIFERIMENTO. An object of type Todo is equal to another one if all their internal values match. This equality differs from the traditional one by the fact that do not check for the entity’s equality. Indeed, if it would, the two todos would appear to be different everytime. This because, once a new state is emitted, the list of todos is recreated from scratch and its internal todos are replaced with new instances. In the dart language two different objects end to be different also if their internal values are exactly the same. This way of handling object already showed up numerous times in this overview and will show up even more in the next implementations. Going back to the to the TodoItem component , it already uses the correct equality operator to compare different viewmodels and so is capable to understand when to rebuild autonomously. The same process must be done in the TodoView widget. It already uses a StoreConnector widget to derive the list of filtered todos from the store. However, as we just said, two different plain lists appear to be always different by default also if their internal aspects matches. Moreover, it is not possible to redefine the equality operator for lists and, in case, it would not be a good idea. A simple way to handle this scenario is to create an ad hoc viewmodel and redefine its equality operator in order to match our own rebuilding logic. To do so, a local class is created and called ViewModel. This local class just contains a list of todos.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - TodoView ad hoc ViewModel definition} \mbox{}
@@ -696,7 +685,7 @@ class _ViewModel {
 \mbox{}
 \end{code}
 
-After setting the distinct field to true and modifying the converter function to return a ViewModel instead of a plain List the optimizations are basically done.
+After setting the \textit{distinct} field to true and modifying the \textit{converter} function to return a ViewModel instead of a plain List the optimizations are basically done.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Redux - TodoView renders optimization} \mbox{}
@@ -729,7 +718,7 @@ class TodoView extends StatelessWidget {
 \mbox{}
 \end{code}
 
-To put the  the icing on the cake we set the distinct field to true also in the VisibilityFilterSelector compoenent and in the TabSelector component. In this way they are rebuilt only in case their prospective of the state changes and not at every transition.
+To put the  the icing on the cake we set the \textit{distinct} field to true also in the VisibilityFilterSelector component and in the TabSelector component. In this way they are rebuilt only in case their prospective of the state changes and not at every state transition.
 
 \subsubsection{Conclusions} \mbox{} \\
 \label{subpar:render_optimizations_inherited_widget}
@@ -783,3 +772,29 @@ To put the  the icing on the cake we set the distinct field to true also in the 
 \end{tikzpicture}
  \caption{Caption of the Table to appear in the List of Tables.}
 \end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/struttura_cartelle_redux.png}
+    \caption{Show the tree structure after the FloatingActionButton in the HomePage is tapped.}
+    \label{fig:add_todo_page_tree_structure}
+\end{figure}
+Down below some images taken from an execution of the application. In this execution ,six todos are randomly created and only two of them are marked as completed. 
+
+\begin{figure}[H]
+    \centering
+    \subfloat[todos tab runtime UI.\label{fig:todos_tab_UI}]{
+        \includegraphics[scale=0.6]{Images/albero_redux_todos.png}
+    }
+    \quad
+    \subfloat[todos tab runtime widget tree.\label{fig:todos_tab_tree}]{
+        \includegraphics[scale=0.6]{Images/albero_redux_stats.png}
+    }
+    \caption{Show the runtime Widget's tree and UI when visualizing todos tab.}
+    \label{fig:todos_tab}
+\end{figure}
+
+
+Figure~\ref{fig:todos_tab_UI} shows how the application's UI looks like after few seconds from the start. Figure~\ref{fig:todos_tab_tree} show the widget's tree related with the run. Notice the TodoInheritedData widget as a child of the HomePage widget,it provides the state to the subtree.

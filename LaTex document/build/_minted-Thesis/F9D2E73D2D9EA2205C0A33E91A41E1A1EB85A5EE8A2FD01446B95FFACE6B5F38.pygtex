@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TodoView} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k}{const} \PYG{n}{TodoView}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{\PYGZcb{})} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoBloc}\PYG{p}{,} \PYG{n}{FilteredTodoState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{c+c1}{//using a BlocBuilder}
+        \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{filteredTodoState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building: TodoView\PYGZdq{}}\PYG{p}{);}
+	\PYG{c+c1}{//dependeing on the current state}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{filteredTodoState} \PYG{k}{is} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{ListView}\PYG{p}{.}\PYG{n}{builder}\PYG{p}{(}
+            \PYG{n+nl}{itemCount:} \PYG{n}{filteredTodoState}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{length}\PYG{p}{,}\PYG{c+c1}{//access it here}
+            \PYG{n+nl}{itemBuilder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{index}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+              \PYG{k}{return} \PYG{n}{TodoItem}\PYG{p}{(}
+                  \PYG{n+nl}{todo:} \PYG{n}{filteredTodoState}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{elementAt}\PYG{p}{(}\PYG{n}{index}\PYG{p}{));} \PYG{c+c1}{//here}
+            \PYG{p}{\PYGZcb{});}
+      \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{filteredTodoState} \PYG{k}{is} \PYG{n}{FilteredTodoLoadingState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{k}{const} \PYG{n}{Center}\PYG{p}{(}\PYG{n+nl}{child:} \PYG{n}{CircularProgressIndicator}\PYG{p}{());}
+      \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{k}{const} \PYG{n}{Center}\PYG{p}{(}\PYG{n+nl}{child:} \PYG{n}{CircularProgressIndicator}\PYG{p}{());}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{});}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

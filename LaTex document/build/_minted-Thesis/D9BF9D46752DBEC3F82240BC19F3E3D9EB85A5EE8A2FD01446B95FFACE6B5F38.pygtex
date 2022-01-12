@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nl}{onPressed:} \PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{n}{store} \PYG{o}{=}
+      \PYG{n}{Provider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoStore}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n+nl}{listen:} \PYG{k+kc}{false}\PYG{p}{);}
+  \PYG{n}{store}\PYG{p}{.}\PYG{n}{addTodo}\PYG{p}{(}
+      \PYG{n}{textControllerName}\PYG{p}{.}\PYG{n}{text}\PYG{p}{,} \PYG{n}{textControllerDesc}\PYG{p}{.}\PYG{n}{text}\PYG{p}{);}
+  \PYG{n}{Navigator}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{context}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

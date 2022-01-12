@@ -35,7 +35,11 @@ class _HomePageState extends State<HomePage> {
         return Scaffold(
             appBar: AppBar(
               title: const Text("Todo App"),
-              actions: const [VisibilityFilterSelector()],
+              actions:  [
+                currTab == TabState.todos
+                    ? const VisibilityFilterSelector()
+                    : Container()
+              ],
             ),
             body: currTab == TabState.todos ? const TodoView() : const Stats(),
             bottomNavigationBar: const TabSelector(),
