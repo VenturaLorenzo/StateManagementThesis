@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//allow the code generation to create the todo.g.dart file}
+\PYG{k}{part} \PYG{l+s+s1}{\PYGZsq{}todo.g.dart\PYGZsq{}}\PYG{p}{;}
+
+\PYG{c+c1}{//use the generated file}
+\PYG{k+kd}{class} \PYG{n+nc}{Todo} \PYG{o}{=} \PYG{n}{\PYGZus{}Todo} \PYG{k+kd}{with} \PYG{n}{\PYGZus{}}\PYG{err}{\PYGZbs{}}\PYG{n}{\PYGZdl{}Todo}\PYG{p}{;}
+
+\PYG{k+kd}{abstract} \PYG{k+kd}{class} \PYG{n+nc}{\PYGZus{}Todo} \PYG{k+kd}{with} \PYG{n}{Store}\PYG{p}{\PYGZob{}}
+
+   \PYG{k+kd}{final} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{;}
+  \PYG{n+nd}{@observable}
+   \PYG{k+kt}{String} \PYG{n}{name}\PYG{p}{;}
+  \PYG{n+nd}{@observable}
+   \PYG{k+kt}{String} \PYG{n}{description}\PYG{p}{;}
+  \PYG{n+nd}{@observable}
+   \PYG{k+kt}{bool} \PYG{n}{completed}\PYG{p}{;}
+
+ \PYG{c+c1}{//the rest of the class is unchanged}
+ \PYG{p}{(}\PYG{err}{…}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

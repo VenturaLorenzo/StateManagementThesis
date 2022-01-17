@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@computed} \PYG{c+c1}{//compute todos list length}
+\PYG{k+kt}{int} \PYG{k+kd}{get} \PYG{n}{len} \PYG{o}{=\PYGZgt{}} \PYG{n}{todos}\PYG{p}{.}\PYG{n}{length}\PYG{p}{;}
+
+\PYG{n+nd}{@computed} \PYG{c+c1}{//compute the completed todos}
+\PYG{k+kt}{int} \PYG{k+kd}{get} \PYG{n}{completed} \PYG{o}{=\PYGZgt{}} \PYG{n}{completedTodos}\PYG{p}{.}\PYG{n}{length}\PYG{p}{;}
+
+\PYG{n+nd}{@computed} \PYG{c+c1}{//compute the pending todos}
+\PYG{k+kt}{int} \PYG{k+kd}{get} \PYG{n}{pending} \PYG{o}{=\PYGZgt{}} \PYG{n}{pendingTodos}\PYG{p}{.}\PYG{n}{length}\PYG{p}{;}
+
+\PYG{n+nd}{@computed} \PYG{c+c1}{//compute the filtered list}
+\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{k+kd}{get} \PYG{n}{filteredTodos} \PYG{p}{\PYGZob{}}
+  \PYG{k}{switch} \PYG{p}{(}\PYG{n}{filter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n+nl}{all:}
+      \PYG{k}{return} \PYG{n}{todos}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n+nl}{completed:}
+      \PYG{k}{return} \PYG{n}{completedTodos}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n+nl}{notCompleted:}
+      \PYG{k}{return} \PYG{n}{pendingTodos}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nd}{@computed} \PYG{c+c1}{//compute stats}
+\PYG{k+kt}{String} \PYG{k+kd}{get} \PYG{n}{stats} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{completed}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

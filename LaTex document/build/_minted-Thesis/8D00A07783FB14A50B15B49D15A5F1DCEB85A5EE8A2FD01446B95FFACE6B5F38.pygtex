@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n}{loadTodosMiddleware}\PYG{p}{(}\PYG{n}{Store}\PYG{o}{\PYGZlt{}}\PYG{n}{AppState}\PYG{o}{\PYGZgt{}} \PYG{n}{store}\PYG{p}{,} \PYG{n}{action}\PYG{p}{,}
+ \PYG{n}{NextDispatcher} \PYG{n}{next}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{action} \PYG{k}{is} \PYG{n}{LoadTodoAction}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{TodoRepository}\PYG{p}{.}\PYG{n}{loadTodos}\PYG{p}{().}\PYG{n}{then}\PYG{p}{((}\PYG{n}{todos}\PYG{p}{)}
+     \PYG{p}{\PYGZob{}}\PYG{n}{store}\PYG{p}{.}\PYG{n}{dispatch}\PYG{p}{(}\PYG{n}{LoadTodoSucceededAction}\PYG{p}{(}\PYG{n}{todos}\PYG{p}{));\PYGZcb{}} \PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n}{next}\PYG{p}{(}\PYG{n}{action}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

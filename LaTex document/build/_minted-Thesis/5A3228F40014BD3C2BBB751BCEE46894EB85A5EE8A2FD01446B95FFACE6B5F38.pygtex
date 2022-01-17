@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{SetCompletedTodoAction} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{;}
+  \PYG{k+kd}{final} \PYG{k+kt}{bool} \PYG{n}{completed}\PYG{p}{;}
+
+  \PYG{n}{SetCompletedTodoAction}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n}{id}\PYG{p}{,} \PYG{k}{this}\PYG{p}{.}\PYG{n}{completed}\PYG{p}{);}
+
+   \PYG{n+nd}{@override}
+  \PYG{k+kt}{String} \PYG{n}{toString}\PYG{p}{()\PYGZob{}}
+    \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}SetCompletedTodoAction\PYGZdq{}}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

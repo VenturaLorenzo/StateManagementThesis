@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{part} \PYG{l+s+s1}{\PYGZsq{}todo\PYGZus{}store.g.dart\PYGZsq{}}\PYG{p}{;}
-
-\PYG{k+kd}{class} \PYG{n+nc}{TodoStore} \PYG{o}{=} \PYG{n}{\PYGZus{}TodoStore} \PYG{k+kd}{with} \PYG{n}{\PYGZus{}}\PYG{err}{\PYGZbs{}}\PYG{n}{\PYGZdl{}TodoStore}\PYG{p}{;}
-\end{Verbatim}

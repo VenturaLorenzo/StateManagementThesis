@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:redux_pattern/actions/app_state_actions.dart';
 import 'package:redux_pattern/actions/todo_actions.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_pattern/repository/utility.dart';
 import '../models/todo.dart';
 
 final todoReducer = combineReducers<List<Todo>>([
@@ -13,12 +14,8 @@ final todoReducer = combineReducers<List<Todo>>([
 ]);
 
 List<Todo> _addTodo(List<Todo> todos, AddTodoAction action) {
-  Random rand = Random();
-  List<int> ids = todos.map((todo) => todo.id).toList();
-  int newId = rand.nextInt(1000) + 2;
-  while (ids.contains(newId)) {
-    newId = rand.nextInt(1000) + 2;
-  }
+  int newId = generateId(todos);
+
   Todo newTodo = Todo(
       id: newId,
       name: action.name,
@@ -33,27 +30,29 @@ List<Todo> _setLoadedTodo(List<Todo> todos, LoadTodoSucceededAction action) {
 }
 
 List<Todo> _setCompletedTodo(List<Todo> todos, SetCompletedTodoAction action) {
-  List<Todo> newList= todos.map((todo) => todo.id == action.id
-      ? Todo(
-          id: action.id,
-          name: todo.name,
-          description: todo.description,
-          completed: action.completed)
-      : todo).toList();
+  List<Todo> newList = todos
+      .map((todo) => todo.id == action.id
+          ? Todo(
+              id: action.id,
+              name: todo.name,
+              description: todo.description,
+              completed: action.completed)
+          : todo)
+      .toList();
 
   return List.from(newList);
 }
 
-List<Todo> _updateTodo(List<Todo> todos, UpdateTodoAction action){
-
-  List<Todo> newList= todos.map((todo) => todo.id == action.id
-      ? Todo(
-      id: action.id,
-      name: action.name,
-      description: action.desc,
-      completed: todo.completed)
-      : todo).toList();
+List<Todo> _updateTodo(List<Todo> todos, UpdateTodoAction action) {
+  List<Todo> newList = todos
+      .map((todo) => todo.id == action.id
+          ? Todo(
+              id: action.id,
+              name: action.name,
+              description: action.desc,
+              completed: todo.completed)
+          : todo)
+      .toList();
 
   return List.from(newList);
 }
-

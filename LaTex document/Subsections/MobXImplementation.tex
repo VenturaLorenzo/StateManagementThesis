@@ -2,14 +2,15 @@ Here start the implementation process that utilizes the MobX state management so
 
 \subsubsection{Base funtionalities}  \label{par:todo_app_inherited_widget_introduction} 
  
-As mentioned in the Chapter XX RIFERIMENTO the MobX package makes part of the state Observable and uses a particular widget, called Observer, to keep track of changes in the observed variables. To be able to define observables is necessary to extend the intrested class with the Store class offedered by the package. Moreover, the container class must be made abstract. The usual definition of the Todo class is used momentarily remembering that no rendering optimizations are kept into account. The parts of the state to be made observable are: the list of todos , the filter and the tab value. The whole application, indeed, relies on them to track changes and update correspondingly. 
+As mentioned in the Chapter XX RIFERIMENTO the MobX package makes one or more parts of the state Observable and uses a particular widget, called Observer, to keep track of changes in the observed variables. To be able to define observables is necessary to extend the intrested class with the Store class offedered by the package. Moreover, the container class must be made abstract. The usual definition of the Todo class is used momentarily remembering that no rendering optimizations are kept into account. The parts of the state to be made observable are: the list of todos , the filter and the tab value. The whole application, indeed, relies on them to track changes and update correspondingly. 
 \paragraph{The observable state - }
 \label{subpar:todo_app_bloc_core_state}A new abstract class is created and called \_TodoStore. It contains the list of todos and the filter. A separate observable variable will be used to implement the state of the tab. This design choice allows to show two different approaches the MobX package provides and divides the information regarding the todos from the information regarding the tab value. ( the filter value is in some way connected with the list of todo). This new abstract class is extended with the Store class. A list of todos and a visibility filter are created inside it and annoted with the @observable syntax. The @observable annotation informs the code generator that those variables need to be made observable, moreover, the code generator automatically creates a getter and a setter action for them. 
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX- TodoStore abstract class definition} \mbox{}
+\captionof{listing}{Todo app - MobX- TodoStore abstract class implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+//extend with the Store mixin to allow annotations
 abstract class _TodoStore with Store {
   @observable
   List<Todo> todos = [];
@@ -25,9 +26,9 @@ abstract class _TodoStore with Store {
 \label{subpar:todo_app_bloc_core_state}In this implementation the strict mode is set to “always”. This choice reflects the common usage of the pattern. It is indeed a common choice to allow state mutations only through actions. This behavior comes with a lot of advantages that make it the correct choice for the major of the cases. This subject will be deeper investigated in the latter sections but, for the moment , it is worth noting that the mobx package also provides the possibility to configure the strict mode to “never”  allowing to directly change the state without passing through an action.  A bunch of new methods are added to the TodoStore class and marked with the @action annotation. The simplest one is the \textit{changeFilter} method that allows to change the current filter.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - TodoStore's changeFilter action definition} \mbox{}
+\captionof{listing}{Todo app - MobX - TodoStore's \textit{changeFilter} action implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart} 
+\begin{minted}[bgcolor=bluepoli!10]{dart} 
  @action
   void changeFilter(VisibilityFilter filter) {
     this.filter = filter;
@@ -39,19 +40,16 @@ abstract class _TodoStore with Store {
 A method to set the \textit{completed} field of a particular todo is also required. This method is called \textit{setCompleted} and takes the id of the todo to be changed and its new completed value. As usual , a new list is created, after modifying the todo, in order to allow mobx to recognize the change in the list of todos.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - TodoStore's setCompleted action definition} \mbox{}
+\captionof{listing}{Todo app - MobX - TodoStore's \textit{setCompleted} action implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
-  @action
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+@action
   void setCompleted(int id, bool completed) {
-    assert(todoExists(id) != null, 'No todo with id : \$id');
+    //check the todo's existance
+    assert(todoExists(todos,id) ==true, 'No todo with id : \$id');
     todos.where((element) => element.id==id).first.completed=completed;
   }
 
-Todo? todoExists(int id) {
-  List<Todo> result = todos.where((element) => element.id == id).toList();
-  return result.isNotEmpty ? result.first : null;
-}
 \end{minted}
 \mbox{}
 \end{code}
@@ -59,9 +57,9 @@ Todo? todoExists(int id) {
 The two usual methods to fetch and save the todos into the DataBase/repository are implemented and annotated with the @action annotation too.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - TodoStore's fetchTodos and saveTodos actions definitions} \mbox{}
+\captionof{listing}{Todo app - MobX - TodoStore's \textit{fetchTodos} and \textit{saveTodos} actions implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 @action
 Future<void> fetchTodos() async {
   todos = await TodoRepository.loadTodos();
@@ -79,9 +77,9 @@ Future<void> saveTodos() async {
 \label{subpar:todo_app_bloc_core_state}computed fields are the part of the state that can be derived from other parts of the state. They are pivotal in the mobx state management solution because the package is able to smartly compute them and to perform lot of optimizations under the hood using memoization technique to prevent useless computations. They are a similar concept with respect to selector in Redux. The list of completed todos is well suited to demonstrate the power of the computed field. A new getter function is created and called \textit{completedTodos}. It computes the list of completed todos and returns it. The @computed annotation is positioned right above the method to make the code generator know how to implement it in order to perform the optimizations discussed earlier. During the application lifecycle the \textit{completedTodos} method will be accessed numerous times and automatically recomputed in case a part of the state, it depends on, changes. Moreover, its value is memoized and reused in case multiple accesses are necessary. Another method is created in the same way to compute the \textit{pendingTodos}.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - TodoStore's completedTodos and pendingTodos computed values definitions} \mbox{}
+\captionof{listing}{Todo app - MobX - TodoStore's \textit{completedTodos} and \textit{pendingTodos }computed values implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 @computed
 List<Todo> get completedTodos =>
     todos.where((element) => element.completed).toList();
@@ -97,31 +95,31 @@ List<Todo> get pendingTodos =>
 \textit{pendingTodos} and \textit{completedTodos} methods are then used to implement other computed values: the \textit{filteredTodos}, the number of completed todos and the number of pending todos. The \textit{filteredTodos} method returns the list of todos that match the visibility filter. It is composed using the computed values defined before. Also the \textit{stats} value can be obtained using the computed feature.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - filteredTodos and stats computed value definition} \mbox{}
+\captionof{listing}{Todo app - MobX - \textit{filteredTodos} and \textit{stats} computed value implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
-@computed
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+@computed //compute todos list length
+int get len => todos.length;
+
+@computed //compute the completed todos
+int get completed => completedTodos.length;
+
+@computed //compute the pending todos
+int get pending => pendingTodos.length;
+
+@computed //compute the filtered list
 List<Todo> get filteredTodos {
   switch (filter) {
     case VisibilityFilter.all:
       return todos;
     case VisibilityFilter.completed:
-      return todos.where((element) => element.completed).toList();
+      return completedTodos;
     case VisibilityFilter.notCompleted:
-      return todos.where((element) => !element.completed).toList();
+      return pendingTodos;
   }
 }
 
-@computed
-int get len => todos.length;
-
-@computed
-int get completed => completedTodos.length;
-
-@computed
-int get pending => pendingTodos.length;
-
-@computed
+@computed //compute stats
 String get stats {
   return completed.toString();
 }
@@ -135,9 +133,10 @@ String get stats {
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - TodoStore code generation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+//allow the code generator to create the todo_store.g.dart file
 part 'todo_store.g.dart';
-
+//use the generater file
 class TodoStore = _TodoStore with _\$TodoStore;
 \end{minted}
 \mbox{}
@@ -146,9 +145,9 @@ class TodoStore = _TodoStore with _\$TodoStore;
 In order to use the code generator and generate the code, a series of directives can be used into the terminal. For the sake of simplicity, the following line of code will be always used to generate code.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - code generator directives} \mbox{}
-		\label{code:2.14}
-\begin{minted}{dart}
+\captionof{listing}{Todo app - MobX - directive for code generation} \mbox{}
+		\label{code:2.127}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 flutter pub run build_runner watch --delete-conflicting-outputs
 \end{minted}
 \mbox{}
@@ -163,9 +162,11 @@ It automatically generates the code and handles all the possible conflicts that 
 \mbox{}
 \captionof{listing}{Todo app - MobX - spy feature attachment} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+//create a new configuration with strict mode set to "always"
 mainContext.config = mainContext.config
     .clone(isSpyEnabled: true, writePolicy: ReactiveWritePolicy.always);
+//provide a function to the spy feature
 mainContext.spy((event) {
   if (event.type == "action") {
     print("event name : " + event.name);
@@ -182,11 +183,12 @@ And that’s basically all we need in order to implement the application’s sta
 \label{subpar:todo_app_bloc_core_state} MobX, like every other solution used so far, uses a provider widget to supply the state to the subtree. In this case the mobx package do not self-implement the provider widget, instead it relies on and external package called \textit{Provider} which offers this feature. The procedure is the usual one, the MaterialApp widget is wrapped into a Provider widget of type TodoStore which supplies the instance of the TodoStore to the subtree. It has a \textit{create} field where the TodoStore can be initialized and where the fetching of todos can take place.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - dispatch TodoStore using Provider widget} \mbox{}
+\captionof{listing}{Todo app - MobX - making the state accessible using the Provider widget} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+//wrap the material app into a Provider widget
 return Provider<TodoStore>(
-    create: (_) => TodoStore()..fetchTodos(),
+    create: (_) => TodoStore()..fetchTodos(), //fetch todos at creation
     child: MaterialApp(. . .),
     }));
 \end{minted}
@@ -201,25 +203,36 @@ return Provider<TodoStore>(
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - HomePage implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key); 
+  //new observable variable
   final _tab = Observable<TabState>(TabState.todos);
 
-  @override
+ @override
   Widget build(BuildContext context) {
     print("building HomePage");
-    return Observer(
+    return Observer(//wrap the HomePage into a Observer widget
       builder: (context) {
         return Scaffold(
-          appBar: AppBar(. . .),
-          body: _tab.value == TabState.todos ? const TodoView() : const Stats(),
-          bottomNavigationBar: TabSelector(
-            tab: _tab,
+          appBar: AppBar(
+            title: const Text("Todo App"),
+            actions: [
+             _tab.value == TabState.todos //access the state here
+                    ? const VisibilityFilterSelector()
+                    : Container()
+
+            ],
           ),
-          floatingActionButton:  _tab.value == TabState.todos
-                ? FloatingActionButton(. . .)
+          //access the state here
+          body: _tab.value == TabState.todos ? const TodoView() :
+           const Stats(),
+          bottomNavigationBar: TabSelector(),
+          floatingActionButton:  _tab.value == //access the state here
+           TabState.todos
+                ? FloatingActionButton(...)
                 : Container()
+
         );
       }
     );
@@ -236,10 +249,11 @@ A new variable is added to the TabSelector widget and populated in the construct
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - TabSelector component implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TabSelector extends StatelessWidget {
-  final Observable<TabState> tab;
+  //new variable passes from the HomePage
+  final Observable<TabState> tab; 
 
   const TabSelector({Key? key, required this.tab}) : super(key: key);
 
@@ -247,14 +261,15 @@ class TabSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     print("building TabSelector");
 
-      return BottomNavigationBar(
+      return BottomNavigationBar( 
+        //use it here
         currentIndex: TabState.values.indexOf(tab.value),
         onTap: (index) {
+          //use a runInAction necessary for the strict mode
           runInAction(() => tab.value = TabState.values.elementAt(index));
         },
         items: (...),
       );
-
   }
 }
 \end{minted}
@@ -265,8 +280,8 @@ class TabSelector extends StatelessWidget {
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - retrieving the TodoStore} \mbox{}
-		\label{code:2.14}
-\begin{minted}{dart}
+		\label{code:2.132}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 final store = Provider.of<TodoStore>(context);
 \end{minted}
 \mbox{}
@@ -277,16 +292,17 @@ set the filter value to the tapped one.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - VisibilityFilterSelector component implementation} \mbox{}
-		\label{code:2.14}
-\begin{minted}{dart}
-return Observer(
+		\label{code:2.133}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+return Observer( //wrap the VisibilityFilterSelector into a Observer widget
   builder: (context) {
     print("building Visibilityfilter");
 
     return DropdownButton<VisibilityFilter>(
-      value: store.filter,
+      value: store.filter, //use the state here
       items: (...),
       onChanged: (tappedValue) {
+        //change the state here
         store.changeFilter(tappedValue!);
       },
     );
@@ -300,26 +316,29 @@ Notice that we could omit the usage of the \textit{changeFilter} action and set 
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - changing the state in the VisibilityFilterSelector without predefined action} \mbox{}
-		\label{code:2.14}
-\begin{minted}{dart}
+		\label{code:2.134}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 onChanged: (tappedValue) {
+        //another way of changing the state
         store.filter = tappedValue!; 
       },
 \end{minted}
 \mbox{}
 \end{code}
 
-I personally dislike this feature MobX offers in the Flutter framework. I investigated a bit in the usage of MobX with React and JS finding that, in that case, it behaves as expected raising a warning in case a field is directly changed. (violating the strict mode) I find the way of changing the filter value proposed in the Source Code RIFERIMENTO a lot more elegant with respect to the one proposed in the Source Code RIFERIMENTO. Explicitly using predefined actions, indeed, brings way more meaning for the reader and prevents programmers to accidentally mutate the state in the implementation process. Even if I prefer the first approach, in the end , both approaches pass though actions in order to change the state and this respect the MobX approach. Actions are, indeed, really important to the correct functioning of the application because using them allow the mobx package to generate atomic state transitions. Suppose a simple action, like the one we just used , produces reactions of different types and those reactions affects different parts of the state and the UI. Suppose now that the strict mode is disabled and set to "never". In that case can happen that the various reactions are completed/fired in different interval of time because their carried computation is heavier of lighter with respect of the others. Consequently the entire state of the application is not well synchronized and the UI could reflect this inconsistency bringing to a bad situations. Mobx package ensure that actions, and consequent reactions, are performed atomically without leaking any intermediate values as long as actions are used.
+I personally dislike this feature MobX offers in the Flutter framework. I investigated a bit in the usage of MobX with React and JS finding that, in that case, it behaves as expected raising a warning in case a field is directly changed. (violating the strict mode) I find the way of changing the filter value proposed in the Source Code \ref{code:2.133} a lot more elegant with respect to the one proposed in the Source Code \ref{code:2.134}. Explicitly using predefined actions, indeed, brings way more meaning for the reader and prevents programmers to accidentally mutate the state in the implementation process. Even if I prefer the first approach, in the end , both approaches pass though actions in order to change the state and this respect the MobX approach. Actions are, indeed, really important to the correct functioning of the application because using them allow the mobx package to generate atomic state transitions. Suppose a simple action, like the one we just used , produces reactions of different types and those reactions affects different parts of the state and the UI. Suppose now that the strict mode is disabled and set to "never". In that case can happen that the various reactions are completed/fired in different interval of time because their carried computation is heavier of lighter with respect of the others. Consequently the entire state of the application is not well synchronized and the UI could reflect this inconsistency bringing to a bad situations. Mobx package ensure that actions, and consequent reactions, are performed atomically without leaking any intermediate values as long as actions are used.
 \paragraph{The Stats component - }
-\label{subpar:todo_app_bloc_core_state} this component is really simple. It just needs to access the TodoStore to get the \textit{stats} value. The procedure shown in the Source Code RIFERIMENTo is used as usual to get an instance of the TodoStore and, consequently, of the \textit{stats} value. The entire widget is then wrapped into an Observer widget .
+\label{subpar:todo_app_bloc_core_state} this component is really simple. It just needs to access the TodoStore to get the \textit{stats} value. The procedure shown in the Source Code \ref{code:2.132} is used as usual to get an instance of the TodoStore and, consequently, of the \textit{stats} value. The entire widget is then wrapped into an Observer widget .
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - Stats component implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+//retrive the state
 final store = Provider.of<TodoStore>(context);
-return Observer(
+return Observer(//wrap the Stats component into an Observer widget
   builder: (context) {
+           //access the state
            return Center(child: Text(store.stats));
   },
 );
@@ -332,16 +351,17 @@ return Observer(
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - TodoView component implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+//retrieve the state
 final store = Provider.of<TodoStore>(context);
-return Observer(
+return Observer( //wrap the TodoView inside an Observer widget
   builder: (_) {
     print("building TodoView");
 
     return ListView.builder(
-      itemCount: store.filteredTodos.length,
+      itemCount: store.filteredTodos.length, //access the state here
       itemBuilder: (context, index) {
-        return TodoItem(
+        return TodoItem( //access the state here
           todo: store.filteredTodos.elementAt(index),
         );
       },
@@ -352,14 +372,16 @@ return Observer(
 \mbox{}
 \end{code}
 
-The TodoItem widget implementation is the same presented HERE RIFERIMENTo except for the \textit{onChanged} field of the TextButton widget that needs to be filled up. The provided function retrieves the store using the Provider widget and fires the \textit{setCompleted }action using the todo’s id and the new value for the completed field. Notice, that also in this case the \textit{completed} field could be changed directly without any error.
+The TodoItem widget implementation is the same presented \ref{code:2.8} except for the \textit{onChanged} field of the TextButton widget that needs to be filled up. The provided function retrieves the store using the Provider widget and fires the \textit{setCompleted }action using the todo’s id and the new value for the completed field. Notice, that also in this case the \textit{completed} field could be changed directly without any error.
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - changing the state in the TodoItem component's Checkbox} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 onChanged: (value) {
+  //retrieve the state
   final store = Provider.of<TodoStore>(context);
+  //change it
   store.setCompleted(todo.id, value!);
   // the state could also be changed using
   // todo.completed = value!;
@@ -369,35 +391,33 @@ onChanged: (value) {
 \end{code}
 
 The base functionalities are now working fine.
-\subsubsection{Features addition} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}In order to add and update todos its necessary to define two new actions. Also in this case the creation of these two new actions could be avoided because setter and getter methods already exists for the list of todos. However , actions carry a lot more meaning and enable to avoid code duplication. Two new methods are added to the TodoStore class and annoted with the @action syntax. The functioning is the usual one, in the \textit{addTodo} method a new todo instance is created with an unique id and added to the list of todos. In the \textit{updateTodo} method the id argument is used to search for the corresponding todo and the \textit{name} and \textit{desc} arguments are used to update it. Both methods need to substitute the todo’s list with a new instance to allow the MobX package to recognize the change. Subsequently the code is generated again using the line of code presented HERE RIFERIMENTO.
+\subsubsection{Features addition} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}In order to add and update todos its necessary to define two new actions. Also in this case the creation of these two new actions could be avoided because setter and getter methods already exists for the list of todos. However , actions carry a lot more meaning and enable to avoid code duplication. Two new methods are added to the TodoStore class and annoted with the @action syntax. The functioning is the usual one, in the \textit{addTodo} method a new todo instance is created with an unique id and added to the list of todos. In the \textit{updateTodo} method the id argument is used to search for the corresponding todo and the \textit{name} and \textit{desc} arguments are used to update it. Both methods need to substitute the todo’s list with a new instance to allow the MobX package to recognize the change. Subsequently the code is generated again using the line of code presented in Source Code \ref{code:2.127}.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - updateTodo and addTodo actions definition} \mbox{}
+\captionof{listing}{Todo app - MobX - \textit{updateTodo} action and \textit{addTodo} action definition} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 @action
 void updateTodo(int id, String name, String desc) {
-  assert(todoExists(id) != null, 'No todo with id : \$id');
+  //check the todo existance
+  assert(todoExists(todos,id) != null, 'No todo with id : \$id');
+  //update the todo
   Todo todo=todos.where((element) => element.id==id).first;
   todo.name=name;
   todo.description=desc;
 }
-
+ 
 @action
 void addTodo(String name, String desc) {
-  Random rand = Random();
-  List<int> ids = todos.map((e) => e.id).toList();
-  int newId = rand.nextInt(1000) + 2;
-  while (ids.contains(newId)) {
-    newId = rand.nextInt(1000) + 2;
-  }
+  //generate a new id
+  int newId = generateId(todos);
+  //create a new todo instance
   Todo newTodo = Todo(
       id: newId,
       name: name,
       description: desc + " " + newId.toString(),
       completed: false);
-
-  todos.add(newTodo);
+   todos.add(newTodo);
   todos = todos.toList();
 }
 \end{minted}
@@ -407,12 +427,14 @@ void addTodo(String name, String desc) {
 Accessing these new actions in the UpdateTodoPage and in the AddTodoPage is simple by the fact that the Provider widget has been positioned as parent of the MaterialApp widget (from where different routes generate). In the \textit{onPressed} field of the TextButton, situated in the AddTodoPage, the store is retrieved using the Provider’s \textit{of} method and used to fire a action of type addTodo. 
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - AddTodoPage implementation} \mbox{}
+\captionof{listing}{Todo app - MobX - AddTodoPage's \textit{onPressed} field implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 onPressed: () {
+  //retrieve the state
   final store =
       Provider.of<TodoStore>(context, listen: false);
+  //add the todo  
   store.addTodo(
       textControllerName.text, textControllerDesc.text);
   Navigator.pop(context);
@@ -424,12 +446,14 @@ onPressed: () {
 The same is done for the \textit{onPressed} field of the TextButton in the UpdateTodoPage.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - UpdateTodoPage implementation} \mbox{}
+\captionof{listing}{Todo app - MobX - UpdateTodoPage's \textit{onPressed} field implementation} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 onPressed: () {
+  //retrieve the state
   final store =
       Provider.of<TodoStore>(context, listen: false);
+  //update the todo    
   store.updateTodo(widget.todo.id, textControllerName.text,
       textControllerDesc.text);
   Navigator.pop(context);
@@ -444,10 +468,11 @@ Mobx package allows to perform the optimizations in an easy and direct way. All 
 \mbox{}\\
 \captionof{listing}{Todo app - MobX - Todo model redefinition} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+//allow the code generation to create the todo.g.dart file
 part 'todo.g.dart';
 
-
+//use the generated file
 class Todo = _Todo with _\$Todo;
 
 abstract class _Todo with Store{
@@ -459,28 +484,32 @@ abstract class _Todo with Store{
    String description;
   @observable
    bool completed;
-(…)
+   
+ //the rest of the class is unchanged
+ (…)
 }
 \end{minted}
 \mbox{}
 \end{code}
 
-Using the line of code presented HERE RIFERIMENTO the todo.g.dart file is generated. The TodoItem widget is “stateless” for the moment. It receives a copy of the corresponding todo instance from the parent. We need to retrieve the instance directly from the store if we want the Observer widget to rebuild correctly and react to changes. Instead of receiving the entire todo from the parent the id field is enough. It is used then in the build method to access the corresponding todo instance in the store using the Provider widget. The remaining TodoItem code remains the same except for the fact that it is wrapped into an Observer widget.
+The todo.g.dart file is generated using the line of code presented in Source Code \ref{code:2.127}. The TodoItem widget is “stateless” for the moment. It receives a copy of the corresponding todo instance from the parent. We need to retrieve the instance directly from the store if we want the Observer widget to rebuild correctly and react to changes. Instead of receiving the entire todo from the parent the id field is enough. It is used then in the build method to access the corresponding todo instance in the store using the Provider widget. The remaining TodoItem code remains the same except for the fact that it is wrapped into an Observer widget.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - MobX - Making the TodoItem responsive to state changes} \mbox{}
+\captionof{listing}{Todo app - MobX - access the state into TodoItem component} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class TodoItem extends StatelessWidget {
-  final int id;
+  final int id; //todo variable is substituted with an int one
 
   const TodoItem({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    //retrieve the state
     final store = Provider.of<TodoStore>(context, listen: false);
+    //retrieve the todo matching the id
     final todo = store.todos.where((element) => element.id == id).first;
-    return Observer(builder: (_) {
+    return Observer(builder: (_) { //wrap the TodoItem into an Observer widget
       print("building TodoItem \${todo.id}");
 
       return InkWell(…);
@@ -491,25 +520,47 @@ class TodoItem extends StatelessWidget {
 \mbox{}
 \end{code}
 
-\subsubsection{Conclusions} \mbox{}\\ \label{par:todo_app_inherited_widget_introduction}
+\subsubsection{Conclusions} \label{par:todo_app_inherited_widget_introduction}
+Table \ref{table:recap_mobx} reports some measurements taken from the MobX's implementation process. The \textit{lines of code} column represents the lines of code added or updated with respect to the shared project structure proposed in subsection \ref{subsec:todo_app_shared_project_structure}. The \textit{time }column represents the time spent in order to implement the corresponding subprocess. The unit of measure \textbf{h} stands for hours and \textbf{m} stands for minutes. The \textit{lines-time ratio} column represents the average number of lines written in a minute. The \textit{classes} column represents the number of created classes in each subprocess.
+
 \begin{table}[H]
-    \caption*{\textbf{Recap}}
+    \caption*{\textbf{Measurement for MobX process}}
     \centering 
-       \begin{tabular}{| l | c | c | c |}
+       \begin{tabular}{| l | c | c | c | c |}
     \hline
     \rowcolor{bluepoli!40} % comment this line to remove the color
     \hline
-     & \textbf{lines of code} & \textbf{time} & \textbf{classes} \T\B \\
+     & \textbf{lines of code} & \textbf{time} & \textbf{lines/time ratio} & \textbf{classes} \T\B \\
      \hline
-    \textbf{base functionalities and understanding} & 92 (+106) & 5-6 h & 2 (+1) \T\B \\ 
-    \textbf{feature addition} & 31 (+45) & 10-15 m & 0 \T\B\\ 
-    \textbf{rendering optimization} & 16 (+ 55) & 30 m & 1 (+1) \B\\
+    \textbf{base functionalities} & 92 (+106) & 5-6 h & 0.24 l/m & 2 (+1) \T\B \\ 
+    \textbf{feature addition} & 31 (+45) & 10-15 m & 1.82 l/m & 0 \T\B\\ 
+    \textbf{rendering optimization} & 16 (+ 55) & 30 m & 0.53 l/m & 1 (+1) \B\\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Caption of the Table to appear in the List of Tables.}
-    \label{table:example}
+    \caption{MobX measurements table}
+    \label{table:recap_mobx}
 \end{table}
+
+Figure \ref{image:mobx_lines_piechart} represents a pie chart showing the percentage of lines of code written in each implementation's process, including the one regarding the shared structure. The whole process is quite balanced in term of lines of code.
+
+\begin{figure}[H]
+\caption*{\textbf{Lines of code}}
+\centering
+\begin{tikzpicture}
+
+\pie[rotate =0 ]{
+	69.3/Shared structure - 314,
+    20.3/Base functionalities - 92,
+    6.8/Feature addition - 31,
+    3.5/Optimizations - 16
+    }
+ 
+\end{tikzpicture}
+ \caption{Shows the pie chart regarding the lines of code spent in each subprocess for the MobX implementation}
+ \label{image:mobx_lines_piechart}
+\end{figure}
+Figure \ref{image:mobx_hours_piechart} represents a pie chart showing the percentage of time spent in each implementation's process. Notice that the most of the time has been spent understaing the solution and implementing the base functionalities.
 
 \begin{figure}[H]
  \caption*{\textbf{Hours}}
@@ -523,47 +574,29 @@ class TodoItem extends StatelessWidget {
     }
 
 \end{tikzpicture}
- \caption{Caption of the Table to appear in the List of Tables.}
+\caption{Shows the pie chart regarding the hours spent in each process for the MobX implementation}
+ \label{image:mobx_hours_piechart}
 \end{figure}
-
-\begin{figure}[H]
-\caption*{\textbf{Lines}}
-\centering
-\begin{tikzpicture}
-
-\pie[rotate =0 ]{
-	69.3/Structure - 314,
-    20.3/Base functionalities - 92,
-    6.8/Feature addition - 31,
-    3.5/Optimizations - 16
-    }
- 
-\end{tikzpicture}
- \caption{Caption of the Table to appear in the List of Tables.}
-\end{figure}
-
+Figure \ref{fig:struttura_cartelle_mobx} shows the final folders structure for the MobX implementation process. The only file added with respect to the original folders's structure is the todo\_store.dart file and the two generated files.
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Images/struttura_cartelle_mobx.png}
-    \caption{Show the tree structure after the FloatingActionButton in the HomePage is tapped.}
-    \label{fig:add_todo_page_tree_structure}
+    \includegraphics[width=0.4\textwidth]{Images/struttura_cartelle_mobx.png}
+    \caption{Shows the final folders structure for the MobX implementation of the Todos app}
+    \label{fig:struttura_cartelle_mobx}
 \end{figure}
-Down below some images taken from an execution of the application. In this execution ,six todos are randomly created and only two of them are marked as completed. 
+Figure \ref{fig:widget_tree_structure_mobx} represents the widget's tree structure for the MobX final application. Notice the Provider widget, situated above the HomePage, providing an instance of the store to the subtree.
 
 \begin{figure}[H]
     \centering
-    \subfloat[todos tab runtime UI.\label{fig:todos_tab_UI}]{
+    \subfloat[Widgets tree structure \textit{todos }tab \label{fig:todos_tab_UI}]{
         \includegraphics[scale=0.6]{Images/albero_mobx_todos.png}
     }
     \quad
-    \subfloat[todos tab runtime widget tree.\label{fig:todos_tab_tree}]{
+    \subfloat[Widgets tree structure \textit{stats }tab\label{fig:todos_tab_tree}]{
         \includegraphics[scale=0.6]{Images/albero_mobx_stats.png}
     }
-    \caption{Show the runtime Widget's tree and UI when visualizing todos tab.}
-    \label{fig:todos_tab}
+    \caption{Shows the widgets tree structure for MobX Todos app}
+    \label{fig:widget_tree_structure_mobx}
 \end{figure}
-
-
-Figure~\ref{fig:todos_tab_UI} shows how the application's UI looks like after few seconds from the start. Figure~\ref{fig:todos_tab_tree} show the widget's tree related with the run. Notice the TodoInheritedData widget as a child of the HomePage widget,it provides the state to the subtree.

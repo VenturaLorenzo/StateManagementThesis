@@ -135,7 +135,8 @@ class _TodoProviderState extends State<TodoProvider> {
     List<Todo> newList = List.from(todos);
     newList.add(newTodo);
     setState(() {
-      todos = newList;
+     // todos = newList;
+todos.add(newTodo);
     });
   }
 

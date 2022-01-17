@@ -3,6 +3,7 @@ import 'package:mobx/mobx.dart';
 import 'package:mobx_pattern/models/todo.dart';
 import 'package:mobx_pattern/models/visibility_filter.dart';
 import 'package:mobx_pattern/repository/todo_repository.dart';
+import 'package:mobx_pattern/repository/utility.dart';
 
 part 'todo_store.g.dart';
 
@@ -57,7 +58,7 @@ abstract class _TodoStore with Store {
 
   @action
   void updateTodo(int id, String name, String desc) {
-    assert(todoExists(id) != null, 'No todo with id : $id');
+    assert(todoExists(todos,id) != null, 'No todo with id : $id');
     Todo todo=todos.where((element) => element.id==id).first;
     todo.name=name;
     todo.description=desc;
@@ -65,23 +66,16 @@ abstract class _TodoStore with Store {
 
   @action
   void setCompleted(int id, bool completed) {
-    assert(todoExists(id) != null, 'No todo with id : $id');
+    //check the todo's existance
+    assert(todoExists(todos,id) ==true, 'No todo with id : $id');
     todos.where((element) => element.id==id).first.completed=completed;
-  }
-
-  Todo? todoExists(int id) {
-    List<Todo> result = todos.where((element) => element.id == id).toList();
-    return result.isNotEmpty ? result.first : null;
   }
 
   @action
   void addTodo(String name, String desc) {
-    Random rand = Random();
-    List<int> ids = todos.map((e) => e.id).toList();
-    int newId = rand.nextInt(1000) + 2;
-    while (ids.contains(newId)) {
-      newId = rand.nextInt(1000) + 2;
-    }
+    //generate a new id
+    int newId = generateId(todos);
+    //create a new todo instance
     Todo newTodo = Todo(
         id: newId,
         name: name,

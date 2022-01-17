@@ -1,28 +1,28 @@
-In this section Todo app will be implemented using two standard tools Flutter’s framework provides in order to handle the	 state: \textbf{InheritedWidget} (or the more advanced \textbf{InheritedModel}) and \textbf{setState}.
+This section implements the Todo application using two standard tools the Flutter framework provides in order to handle the state. These tools are InheritedWidgets and InheritedModels plus the usual \textit{setState} function.
 
 \subsubsection{Base functionalities} 
 \label{par:todo_app_inherited_widget_base_app}
-Here starts the implementation of the base functionalities exposed in Subsection \ref{subsec:base_functionalities}.
-\paragraph{Core state - }
+
+\paragraph{The core state - }
 \label{subpar:todo_app_inherited_widget_core_state}
 In order to use InheritedWidget's functionalities, a new class must be defined and extended with InheritedWidget class. For our purpose, a single class will be enough to contain all the application's state. This new class is called \textit{TodoInheritedData}.
 \begin{code}
 \mbox{}
 \captionof{listing}{Todo app - InheritedWidget - extension to InheritedWidget} \mbox{}
 		\label{code:2.14}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class TodoInheritedData extends InheritedWidget{
 \end{minted}
 \mbox{}
 \end{code}
 
-The application's state is composed by: a list of Todos, a VisibilityFilter , a Int for the stats ( for conciseness it will represent the number of completed todos) and filtered list of todos that contains the todos matching the filter. Inside the constructor, final variables are initialized with their corresponding arguments and, \textit{stats} and \textit{filteredTodos} list, are computed. 
+The application's state is composed by: a list of Todos, a VisibilityFilter , an Int for the stats ( for conciseness it will represent the number of completed todos) and a filtered list of todos which contains the todos matching the visibility filter. Inside the constructor, final variables are initialized with their corresponding arguments, moreover, \textit{stats} and \textit{filteredTodos} list are computed. 
 \mbox{}\\
 \begin{code}
 \captionof{listing}{Todo app - InheritedWidget- TodoInheritedData implementation} 
 \mbox{}
 \label{code:2.15}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TodoInheritedData extends InheritedWidget{
  final List<Todo> todos;
@@ -43,16 +43,16 @@ TodoInheritedData(
 \end{minted}
 \end{code}
 \mbox{}\\
-\textit{filterTodos} function is just a function that takes a list of todos and a visibility filter and returns the filtered list. Important to notice is the fact that a \textit{child} widget must be also provided in the constructor. This is because TodoInheritedData is nothing else than a widget itself that wraps data and makes it accessible down the tree.
+\textit{filterTodos} function is just a function taking a list of todos and a visibility filter and returning the filtered list. Important to notice is the fact that a \textit{child} widget must also be provided in the constructor. This because TodoInheritedData is nothing else than a widget itself that wraps the state and makes it accessible down the tree.
 
-TodoInheritedData widget is stateless. It cannot be changed (every value is final) , instead, a new TodoInheritedData widget must be provided when a data change occurs. 
-The \textit{updateShouldNotify }method must be overridden inside the TodoInheritedData class. This method belongs to the InheritedWidget class and its override is mandatory. It helps to avoid useless UI rebuilding when a new state, without actual data changes, occurs. Once a TodoInheritedData element is replaced with a new one, the new element takes care of calling the \textit{updateShouldNotify }method and decides whether is necessary to notify changes in the subtree. If the method returns \textit{true }, the subtree is rebuilt, if  it returns \textit{false}, instead, it is not.
+TodoInheritedData widget is stateless. It cannot be changed (every value is final) and a new TodoInheritedData widget must be provided when a data change occurs. 
+The \textit{updateShouldNotify }method must be overridden inside the TodoInheritedData class. This method belongs to the InheritedWidget class and its override is mandatory. It helps avoiding useless UI rebuilding when a new state, without actual data changes, occurs. Once a TodoInheritedData widget is replaced with a new one, the new widget takes care of calling the \textit{updateShouldNotify }method and deciding whether is necessary to notify changes in the subtree. If the method returns \textit{true }, the subtree is rebuilt, if  it returns \textit{false}, instead, it is not.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget -updateShouldNotify method override} \mbox{}
+\captionof{listing}{Todo app - InheritedWidget - TodoInheritedData's \textit{ updateShouldNotify} method override} \mbox{}
 
-\label{code:2.16}
-\begin{minted}{dart}
+\label{code:2.17}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 @override
 bool updateShouldNotify(TodoInheritedData oldWidget) {
@@ -60,14 +60,14 @@ bool updateShouldNotify(TodoInheritedData oldWidget) {
 }
 \end{minted}
 \end{code}
-\mbox{}
-\textit{listEquals }function is provided by Dart language. It takes two lists and compares them element by element, returning true if all elements are equal. In the source code RIFEIRMENTO, it takes as parameters the old \textit{filteredTodos} list (the one belonging to the old widget)  and the new filteredTodos list and compares them. In case no changes were performed it returns \textit{true} and leads the \textit{updateShouldNotify }function to return \textit{false}, leaving the subtree unchanged.\\
-InheritedWidget class requires also the \textit{of} method override. The \textit{of }method makes the instance of the TodoInheritedData class accessible down the tree. It is a static method (it can be called without istantiating any TodoInheritedData object) and returns the instance of the nearest TodoInheritedData widget up in the tree. It extracts the instance from the current \textit{context} object using the method called \textit{dependOnInheritedWidgetOfExactType} provided by the framework. In case no TodoInheritedData instance is found it raises a runtime error.
+
+\textit{listEquals }function is provided by the Dart language. It takes two lists and compares them element by element, returning true if all elements are equal. In the Source Code \ref{code:2.17}, it takes as parameters the old \textit{filteredTodos} list (the one belonging to the old widget)  and the new \textit{filteredTodos} list and compares them. In case no changes were performed it returns \textit{true} and leads the \textit{updateShouldNotify }function to return \textit{false}, leaving the subtree unchanged.\\
+InheritedWidget class requires also the \textit{of} method override. The \textit{of }method makes the instance of the TodoInheritedData class accessible down the tree. It is a static method (it can be called without istantiating any TodoInheritedData object) and returns the instance of the nearest TodoInheritedData widget up in the tree. It extracts the instance from the current \textit{context} object using the method called \textit{dependOnInheritedWidgetOfExactType} provided by the Flutter framework. In case no TodoInheritedData widget is found it raises a runtime error.
 \mbox{}
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - TodoInheritedData of method override} \mbox{}
-\label{code:2.17}
-\begin{minted}{dart}
+\captionof{listing}{Todo app - InheritedWidget - TodoInheritedData \textit{of} method override} \mbox{}
+\label{code:2.18}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 static TodoInheritedData? of(BuildContext context) {
  final TodoInheritedData? result =
@@ -77,14 +77,14 @@ return result;
 }
 \end{minted}
 \end{code}
-\mbox{}
-TodoInheritedData widget is now ready to be used. In the overall it is a container for our state. It makes the state accessible in the subtree but, is not clear yet who is really filling it with the correct informations. TodoInheritedData widget represents the state of the appplication in a given moment. It cannot change its internal values neither substitute itself with another instance. In practice , what happends, is that a stateful widget is created. This stateful widget contains the state and bothers to create a new instance of the TodoInheritedData widget every time the state changes. Everytime its internal state is changed (using \textit{setState}), indeed, a new instance of TodoInheritedData widget is produced and substituted with the old one. In this way, changes are reported to the subtree which sees a different image of the state and reacts to it. I personally did not appreciate this way of doing InheritedWidget uses. On one way it is simple and works really well for its purpose , on the other hand it introduces a new level of data caching. The concept of data caching will be explained a bit more in details later but ,for the moment ,we can say that the application's state is not exactly atomic/unique. What is seen by the subtree is a screenshot of the state and not the state itself. The real state is contained in the stateful widget. It is important, though, that the real state and the screenshot provided in the subtree are well syncronized. A bad syncronization can produce inconsistency in what is visualized and the information contained in the internal state. More in general, it can be said , that the more data caching level are introduced the harder it gets to efficiently syncronize them. It is clear that ,in our scenario ,this problem does not really show up. Or better, it will in the optimization part but ,in that case, InheritedWidget tool is used with a purpose that goes behoind its real usage. Anyway, it is possible that different widgets sees different screenshots of the data and the bigger the application grows the higher will be the probability that this case show up. Now that the background is a bit clearer the implementation process can continue. As mentioned above, a new stateful widget must be created. This new stateful widget is called \textit{TodoProvider.} It has two variables representing the state: a list of todos and a filter. (the rest of the state is computed at each TodoInheritedData creation)
+
+TodoInheritedData widget is now ready to be used. In the overall it is a container for our state. It makes the state accessible in the subtree but, is not clear yet who is really filling it with the correct informations. TodoInheritedData widget represents the state of the appplication in a given moment. It cannot change its internal values neither substitute itself with another instance. In practice , what happends, is that a stateful widget is created. This stateful widget contains the state and bothers to create a new instance of the TodoInheritedData widget every time the state changes. Everytime its internal state is changed (using \textit{setState}), indeed, a new instance of TodoInheritedData widget is produced and substituted with the old one. In this way, changes are reported to the subtree which sees a different image of the state and rebuild with it. I personally did not appreciate this adjunctive data cache layer InheritedWidget introduces. On one way it is simple and works really well for its purpose , on the other hand it introduces a new level of data caching. The concept of data caching will be explained a bit more in details later but ,for the moment ,we can say that the application's state is not exactly atomic/unique. What is seen by the subtree is a screenshot of the state and not the state itself. The real state is contained in the stateful widget. It is important, though, that the real state and the screenshot provided in the subtree are well syncronized. A bad syncronization can produce inconsistency in what is visualized and the information contained in the internal state. More in general, it can be said , that the more data caching levels are introduced the harder it gets to efficiently syncronize them. It is clear that ,in our scenario ,this problem does not really show up. Or better, it will in the optimization part but ,in that case, InheritedWidget tool is used with a purpose that goes behoind its real usage. Anyway, it is possible that different widgets sees different screenshots of the data and the bigger the application grows the higher will be the probability that this scenario show up. Now that the background is a bit clearer the implementation process can continue. As mentioned above, a new stateful widget must be created. This new stateful widget is called \textit{TodoProvider.} It has two variables representing the state: a list of todos and a filter. (the rest of the state is computed at each TodoInheritedData creation)
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - TodoProvider implementation} \mbox{}
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider widget implementation} \mbox{}
 
-\label{code:2.18}
-\begin{minted}{dart}
+\label{code:2.19}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TodoProvider extends StatefulWidget {
   const TodoProvider({Key? key, required this.child}) : super(key: key);
@@ -114,10 +114,10 @@ Note that the VisibilityFilter is set as \textit{all} by default.
 In the statefull widget's \textit{init} method , todos are fetched from the repository and pushed inside the \textit{todos} variable using the \textit{setState} method.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - TodoProvider 's init method implementation} \mbox{}
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider 's \textit{init} method implementation} \mbox{}
 
-\label{code:2.19}
-\begin{minted}{dart}
+\label{code:2.20}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 @override
 void initState() {
@@ -130,15 +130,14 @@ void initState() {
 }
 \end{minted}
 \end{code}
-\mbox{}
-At this point, our TodoProvider widget can be incorporated as the parent of the Scaffold widget in the HomePage. The usage of the Builder widget is due to the fact that the instante of TodoInheritedData is accessible only in a context where a TodoProvider is already present. In other words, TodoProvider’s data cannot be accessed in the same \textit{build } method where it was instantiated into. Two options are possible; creating a separated file where to put our Scaffold ,or use a Builder widget that takes the current context and creates another containing the TodoProvider widget.
+At this point, our TodoProvider widget can be incorporated as the parent of the Scaffold widget in the HomePage. The usage of the Builder widget is due to the fact that the instante of TodoInheritedData is only accessible in a context where a TodoProvider is already present. In other words, TodoProvider’s data cannot be accessed in the same \textit{build } method where it was instantiated into. Two options are possible; creating a separated file where to put our Scaffold ,or use a Builder widget that takes the current context and creates another one containing the TodoProvider widget.
 \mbox{}\\
 \begin{code}
 
 \captionof{listing}{Todo app - InheritedWidget - Data injection in the HomePage's subtree} \mbox{}
 
-\label{code:2.20}
-\begin{minted}{dart}
+\label{code:2.21}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class _HomePageState extends State<HomePage> {
   TabState tab = TabState.todos;
 
@@ -157,14 +156,14 @@ class _HomePageState extends State<HomePage> {
 \end{code}
 \paragraph{The TodoView component - }
 \label{subpar:todo_app_inherited_widget_todoview_component}
-TodoView component can now be populated. It is a stateless widget that looks up for the \textit{filteredTodos} list, contained in the TodoInheritedData widget. It uses the \textit{of} method ,defined here RIFERIMENTO, to access the nearest TodoInheritedData instance. Then, it uses the list to populate the ListView widget. 
+TodoView component can now be populated. It is a stateless widget that looks up for the \textit{filteredTodos} list, contained in the TodoInheritedData widget. It uses the \textit{of} method, defined in Source Code \ref{code:2.18}, to access the nearest TodoInheritedData instance. Then, it uses the list to populate the ListView widget. 
 \mbox{}\\
 
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - TodoView implementation} \mbox{}
+\captionof{listing}{Todo app - InheritedWidget - TodoView component implementation} \mbox{}
 
-\label{code:2.21}
-\begin{minted}{dart}
+\label{code:2.22}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TodoView extends StatelessWidget {
 
@@ -173,8 +172,9 @@ class TodoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("Building TodoView");
-//retrieving the filtered list from the state
-    final List<Todo> filteredTodos = TodoInheritedData.of(context).filteredTodos;
+    //retrieving the filtered list from the state
+    final List<Todo> filteredTodos =
+     TodoInheritedData.of(context).filteredTodos;
 
     return ListView.builder(
       itemCount: filteredTodos.length,// to use it here
@@ -192,14 +192,14 @@ class TodoView extends StatelessWidget {
 \paragraph{The VisibilityFilterSelector component - }
 \label{subpar:todo_app_inherited_widget_visibilityfiltercomponent_component}
 At this point we got a single page (Homepage) that uses a TodoView widget to show the \textit{filteredTodos} list contained in the TodoInheritedData widget. When the application starts , and empty page appears (todo are empty at the beginning) and then ,after few seconds , a list of todos, with their names, descriptions and completions, is shown. The list of filtered todos can be visualized , but is not interactable yet. 
-In the HomePage’s AppBar, a VisibilityFilterSelector component is ready to be used as defined RIFERIMENTO. Its current DropdownButton’s \textit{value} field is filled looking up for the \textit{filter} value in the TodoInheritedData widget. Then, the \textit{items} field is filled with a list of DropdownMenuItem widgets that comes from the mapping of all possible VisibilityFilter values to DropdownMenuItem widgets.
+In the HomePage’s AppBar, a VisibilityFilterSelector component is ready to be used as defined in Source Code \ref{code:2.10} . Its current DropdownButton’s \textit{value} field is filled looking up for the \textit{filter} value in the TodoInheritedData widget. 
 \mbox{}\\
 \begin{code}
 
-\captionof{listing}{Todo app - InheritedWidget - VisibilityFilterComponent implementation} \mbox{}
+\captionof{listing}{Todo app - InheritedWidget - VisibilityFilterSelector component implementation} \mbox{}
 
-\label{code:2.22}
-\begin{minted}{dart}
+\label{code:2.23}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class VisibilityFilterComponent extends StatelessWidget {
 
   const VisibilityFilterComponent(
@@ -226,14 +226,14 @@ class VisibilityFilterComponent extends StatelessWidget {
 \end{minted}
 \end{code}
 \mbox{}\\
-The \textit{onChanged  }field must be populated with a function that takes as single argument a VisibilityFilter value. This function is called when a DropdownMenuItem is tapped by the user. It contains ,as argument, the tapped DropdownMenuItem's filter value.  We want this function to change the state contained in the TodoInheritedData widget (the \textit{filter} variable) when fired. In order to do so , a state changing function must be provided, by the TodoInheritedData widget, to be accessed ,and called, by widgets. As we mentioned earlier, TodoInheritedData widget contains only final fields and should never be modified. It is not possible ,indeed, to directly change the values inside the TodoInheritedData widget. For this reason , just adding a new function inside the TodoInheritedData widget ,to perform the change, is not a solution. Indeed, trying to change a part of the state, inside this ipotetic function, will generate an error at compile time (final variable cannot be set outside constructor). A completly new TodoInheritedData widget ,indeed, should be created. The TodoInheritedData widget is created in the TodoProvider widget, when the \textit{build} method runs, using its local variables \textit{todos }and \textit{filter}. In order to generate a new TodoInheritedData widget, is sufficient to change the TodoProvider widget's local state ,using the \textit{setState} method. This will cause the \textit{build} method to run again with the new values and to generate a new TodoInheritedData widget. At this point should be clear that the state changing function comes from the TodoProvider widget. This function , once called, changes the local state of the TodoProvider stateful widget generating a new state for the application.\\
+The \textit{onChanged  }field must be populated with a function that takes as single argument a VisibilityFilter value. This function is called when a DropdownMenuItem is tapped by the user. It contains ,as argument, the tapped DropdownMenuItem's filter value.  We want this function to change the state contained in the TodoInheritedData widget (the \textit{filter} variable) when fired. In order to do so , a state changing function must be provided, by the TodoInheritedData widget, to be accessed and called, by widgets. As we mentioned earlier, TodoInheritedData widget contains only final fields and should never be modified. It is not possible ,indeed, to directly change the values inside the TodoInheritedData widget. For this reason , just adding a new function inside the TodoInheritedData widget ,to perform the change, is not a solution. Indeed, trying to change a part of the state, inside this ipotetic function, will generate an error at compile time (final variable cannot be set outside constructor). A completly new TodoInheritedData widget ,indeed, should be created. The TodoInheritedData widget is created in the TodoProvider widget, when the \textit{build} method runs, using its local variables \textit{todos }and \textit{filter}. In order to generate a new TodoInheritedData widget, is sufficient to change the TodoProvider widget's local state ,using the \textit{setState} method. This will cause the \textit{build} method to run again with the new values and to generate a new TodoInheritedData widget. At this point should be clear that the state changing function comes from the TodoProvider widget. This function , once called, changes the local state of the TodoProvider stateful widget generating a new state for the application.\\
 In pratice, a new function, called \textit{onChangeFilter}, is added inside the TodoProvider widget. This function takes a VisibilityFilter value as parameter and sets the  value of TodoProvider's \textit{filter} variable using the \textit{setState} method. 
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - TodoProvider's onChangeFilter implementation} \mbox{}
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider's \textit{onChangeFilter} field implementation} \mbox{}
 
-\label{code:2.23}
-\begin{minted}{dart}
+\label{code:2.24}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 void onChangeFilter(VisibilityFilter filter) {
   setState(() {
     this.filter = filter;
@@ -250,7 +250,7 @@ an instance of the \textit{onChangeFilter   }function must be provided to the To
 \captionof{listing}{Todo app - InheritedWidget - TodoInheritedData widget expansion}
 \mbox{}
 \label{code:2.24}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class TodoInheritedData extends InheritedWidget {
   final List<Todo> todos;
   final List<Todo> filteredTodos;
@@ -262,11 +262,11 @@ class TodoInheritedData extends InheritedWidget {
 \mbox{}\\
 The \textit{onChangeFilter} function is then passed to the TodoInheritedData widget on its creation.
  \mbox{}\\
-\captionof{listing}{Todo app - InheritedWidget -onChangeFilter function injection into TodoInheritedData widget}
-\mbox{}
+
 \begin{code}
+\captionof{listing}{Todo app - InheritedWidget -  \textit{onChangeFilter} function injection into TodoInheritedData widget}
 \label{code:2.25}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 @override
 Widget build(BuildContext context) {
   return TodoInheritedData(
@@ -282,12 +282,12 @@ Widget build(BuildContext context) {
  \mbox{}\\
 Now that the \textit{onChangeFilter   }function is accessible down in the tree, it can be called in the \textit{onChange }field of the DropdownButton widget, inside the VisibilityFilterSelector component.
 \mbox{}\\
-\captionof{listing}{Todo app - InheritedWidget -  DropdownButton's onChanged field implementation}
+\captionof{listing}{Todo app - InheritedWidget -  DropdownButton's \textit{onChanged} field implementation}
 \mbox{}
 \begin{code}
 
 \label{code:2.26}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 onChanged: (filter) {
   TodoInheritedData.of(context).onChangeFilter(filter!);
 },
@@ -299,14 +299,14 @@ It is now possible to apply different filters to the list of todos in the Homepa
 
 \paragraph{The TodoItem component - }
 \label{subpar:todo_app_inherited_widget_todoitem_component}
-TodoItem widget is stateless for the moment. It takes as paramenter a Todo instance and takes care of displaing it. TodoItem widget does not access the state. The todo to be displayed is, indeed, passed by the parent widget (the TodoView). However, the TodoItem widget needs to write the state once the checkbox is tapped. For the moment, the Checkbox widget is just showing the value of the completed field and Its \textit{onChange   }function is still empty. When the checkbox is tapped, a change into the corresponding Todo’s \textit{completed }field should be fired and a rebuild of the TodoItem widget performed. In order to do so, TodoIhneritedData widget should provide a state changing function for the completed field. The process to be done is the same exposed in the previous paragraph. Into the TodoProvider stateful widget a new function ,called \textit{onSetCompleted  }, is created. This function takes as parameter the \textit{id} of the todo to be changed and the new value for the \textit{completed }field.
+TodoItem widget is stateless for the moment. It takes as paramenter a Todo instance and takes care of displaing it. TodoItem widget does not access the state. The todo to be displayed is, indeed, passed by the parent widget (the TodoView). However, TodoItem widget needs to write the state once the checkbox is tapped. For the moment, the Checkbox widget is just showing the value of the completed field and Its \textit{onChange   }function is still empty. When the checkbox is tapped, a change into the corresponding Todo’s \textit{completed }field should be fired and a rebuild of the TodoItem widget performed. In order to do so, TodoIhneritedData widget should provide a state changing function for the \textit{completed} field. The process to be done is the same exposed in the previous paragraph. Into the TodoProvider stateful widget a new function ,called \textit{onSetCompleted  }, is created. This function takes as parameter the \textit{id} of the todo to be changed and the new value for the \textit{completed }field.
 \mbox{}\\
 
 \begin{code}
 \captionof{listing}{Todo app - InheritedWidget -  TodoProvider widget \textit{onSetCompleted} function implementation}
 \mbox{}
 \label{code:2.27}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 void onSetCompleted(int id, bool completed) {
     //control the todo's existance
     assert(todoExists(todos, id) == true, 'No todo with id : \$id');
@@ -334,7 +334,7 @@ In the \textit{onSetCompleted }function , \textit{todos }list is scanned using t
 \captionof{listing}{Todo app - InheritedWidget -  TodoItem's Checkbox \textit{onChanged} field implementation}
 \mbox{}
 \label{code:2.28}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 Checkbox(
 value: todo.completed,
     onChanged: (value) {
@@ -356,7 +356,7 @@ Stats widget is stateless. It just needs to read the part of the state concernin
 \mbox{}
 \begin{code}
 \label{code:2.29}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class Stats extends StatelessWidget {
   const Stats({Key? key}) : super(key: key);
 
@@ -375,15 +375,15 @@ class Stats extends StatelessWidget {
 
 \paragraph{The TabSelector component - }
 \label{subpar:todo_app_inherited_widget_tabselector_component}
-The part of the state concerning the tab just includes  one variable and is related to the HomePage only. The fact that a state management solution is being used to handle the application's state does not mean that it has to be used to handle everything. An important aspect of the state management in medium-large applications is that, the core objective, still remains to handle things in the easiest way possible, as long as it works fine. There is no meaning in overcomplicating procedures that are easy to implement. Sometimes, indeed, for the parts of the state that can be refered as "local" ,meaning that they are relative to a small part of the application only, is not necessary to use complicated state management solutions. It is better to keep things simple and use the tools that most adapt to the specific scenario.
-In our case, there are two ways to implement the TabSelector widget: use \textit{setState} and stateful widgets or use InheritedWidgets. The simpler one is to use setState as proposed RIFERIMENTO for more than one aspect. First, it is a good practice to keep the global state of the application as small and clean as possible. The bigger and the more complicated it gets the messier becomes to avoid bugs. Second, it is simpler , in pratice, to create a local variable and to hadle it with \textit{setState} and stateful widgets instead of adding a new variable to the TodoInheritedData widget , manage it using the to TodoProvider widget and  access it in the HomePage. The HomePage is already a stateful widget and is built using the \textit{tab }variable. It is sufficient to add a new tab changing function to accomplish the task. This new function, called \textit{onTabChange}, takes a int value as parameter and uses the \textit{setState} method to update the \textit{tab} variabile. This int value refers to the index of the tapped element inside the list of BottomNavigationBarItem widgets provided to the \textit{items} field.
+The part of the state concerning the tab just includes  one variable and is related to the HomePage only. The fact that a state management solution is being used does not mean that it has to be adopted to handle everything. An important aspect of the state management in medium-large applications is that, the core objective, still remains to handle things in the easiest way possible, as long as it works fine. There is no meaning in overcomplicating procedures that are easy to implement. Sometimes, indeed, for the parts of the state that can be refered as "local" ,meaning that they are relative to a small part of the application only, is not necessary to use complicated state management solutions. It is better to keep things simple and use the tools that most adapt to the specific scenario.
+In our case, there are two ways to implement the TabSelector widget: use \textit{setState} and stateful widgets or use InheritedWidgets. The simpler one is to use \textit{setState} as proposed in Source Code \ref{code:2.30} for more than one aspect. Firstly, it is a good practice to keep the global state of the application as small and clean as possible. The bigger and the more complicated it gets the messier becomes to avoid bugs. Secondly, it is simpler , in pratice, to create a local variable and to hamdle it with \textit{setState} and stateful widgets instead of adding a new variable to the TodoInheritedData widget , manage it using the to TodoProvider widget and access it in the HomePage. The HomePage is already a stateful widget and is built using the \textit{tab }variable. It is sufficient to add a new tab changing function to accomplish the task. This new function, called \textit{onTabChange}, takes a int value as parameter and uses the \textit{setState} method to update the \textit{tab} variabile. This int value refers to the index of the tapped element inside the list of BottomNavigationBarItem widgets provided to the \textit{items} field.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - HomePage's onTabChange function implementation}
+\captionof{listing}{Todo app - InheritedWidget - HomePage's \textit{onTabChange} function implementation}
 \mbox{}
 \label{code:2.30}
-\begin{minted}{dart}
-TabState tab = TabState.todos;
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+TabState tab = TabState.todos; // new variable inserted in the HomePage
 
 void onTabChange(int index) {
  setState(() {
@@ -392,14 +392,13 @@ void onTabChange(int index) {
 }
 \end{minted}
 \end{code}
-\mbox{}\\
-However, the function  \textit{onTabChange ,}needs to be called in the TabSelector widget (and not in the HomePage). The easiest way is to pass the function, togheter with the tab variable, as parameter and use it in the BottomNavigationBar's \textit{onTap }field.
+However, the function  \textit{onTabChange ,}needs to be called in the TabSelector widget (and not in the HomePage). The easiest way is to pass it, togheter with the tab variable, as parameter and use it in the BottomNavigationBar's \textit{onTap }field.
 \mbox{}\\
 \begin{code}
 \captionof{listing}{Todo app - InheritedWidget - TabSelector component implementation}
 \mbox{}
 \label{code:2.31}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 class TabSelector extends StatelessWidget {
   final TabState currTab; // new parameter
   final Function(int) onTabChange; // new parameter
@@ -423,23 +422,23 @@ class TabSelector extends StatelessWidget {
 \end{minted}
 \end{code}
 \mbox{}\\
-It is now possible to switch from tabs. All the baase functionalities were implemented. The whole process was fast and straight forward. 
+It is now possible to switch from tabs. All the base functionalities were implemented. The whole process was fast and straight forward. 
 
 
 
 \subsubsection{Features addition} 
 \label{par:feature_addition_inherited_widget}
-Here stats the development process which aims to add the new feature proposed HER RIFERIMENTO.
+Here stats the development process described in subsection \ref{subsec:adding_new_features}.
 
 \paragraph{Todo addition feature - } 
 \label{subpar: todo_addition_feature_inherited_widget}
-TodoInheritedData widget must provide a way in order to add todos to the list. A new function is created in the TodoProvider widget and passed to the TodoInheritedData widget as parameter. This new function is called \textit{onAddTodo} and takes two parameters (name and description).
+TodoInheritedData widget must provide a way of adding todos to the list. A new function is created, in the TodoProvider widget, and passed to the TodoInheritedData widget as parameter. This new function is called \textit{onAddTodo} and takes two parameters (\textit{name} and \textit{description}).
 \mbox{}\\
-\captionof{listing}{Todo app - InheritedWidget - TodoProvider \textit{onAddTodo} function implementation}
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider's \textit{onAddTodo} function implementation}
 \mbox{}
 \begin{code}
 \label{code:2.32}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
   void onAddTodo(String name, String desc) {
     //generate a new unique id
     int newId = generateId(todos);
@@ -459,17 +458,17 @@ TodoInheritedData widget must provide a way in order to add todos to the list. A
 \end{minted}
 \end{code}
 \mbox{}\\
-After generating a new unique id, it creates a new Todo instance called \textit{newTodo }with the \textit{completed }field set to \textit{false }. Adding the \textit{newTodo} to the TodoProvider’s state \textit{todos }list requires a bit of workaround. The state of a stateful widget is immutable. It is a bit counterintuitive but, as we already discussed, in functional programming is generally better to create new instances instead of mutating existing ones. Stateful widget's state can only be changed by the \textit{setState } method. Unfortunately, the method \textit{add} for lists, dart languege provides, is of type void and do not return a new list but adds the new value to the existing list's instance. For this reason, directly calling the \textit{add} method to the TodoProvider’s local lists \textit{todos }would have no effect. That list is immutable and cannot be changed.
-TodoProvider’s \textit{todos }list must be completely replaced with a new instance containing the new todo. First, a new temporary list, called \textit{newList}, is created and populated with the elements present in the \textit{todos }list. Then, the \textit{newTodo }is added to this new list. At this point, is sufficient to replace the \textit{todos }list with the new one inside the \textit{setState} method.\\
-To make the \textit{onAddTodo} function accessible down the tree, is sufficient to add a new field in the TodoInheritedData widget and pass the function to it, on its creation.
+After generating a new unique id, it creates a new Todo instance, called \textit{newTodo}, with the \textit{completed }field set to \textit{false }. Adding the \textit{newTodo} to the TodoProvider’s \textit{todos }list requires a bit of workaround. The state of a stateful widget is immutable. It is a bit counterintuitive but, as we already discussed, in functional programming is generally easier to create new instances instead of mutating existing ones. Stateful widget's state can only be changed by the \textit{setState } method. Unfortunately, the \textit{add} method for lists, dart languege provides, is of type void just adds the new value to the existing list's instance without returning anything. For this reason, directly calling the \textit{add} method to the TodoProvider’s local \textit{todos }list would have no effect. The \textit{todos} list is immutable and cannot be changed.
+TodoProvider’s \textit{todos }list must be completely replaced with a new instance containing the new todo. Firstly, a new temporary list, called \textit{newList}, is created and populated with the elements present in the \textit{todos }list. Then, the \textit{newTodo }is added to this new list. At this point, is sufficient to replace the \textit{todos }list with the new one inside the \textit{setState} method.\\
+To make the \textit{onAddTodo} function accessible down the tree, is sufficient to add a new field in the TodoInheritedData widget and pass the \textit{onAddTodo} function to it, on its creation.
 \mbox{}\\
 \begin{code}
 
-\captionof{listing}{Todo app - InheritedWidget - onAddTodo function propagation}
+\captionof{listing}{Todo app - InheritedWidget - \textit{onAddTodo} function propagation}
 \mbox{}
 
 \label{code:2.33}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TodoInheritedData extends InheritedWidget {
   
@@ -497,7 +496,7 @@ Widget build(BuildContext context) {
 \end{minted}
 \end{code}
 \mbox{}\\
-In the AddTodoPage, a TextButton widget has been already set up and is ready to call the \textit{onAddTodo }function once tapped. However, there is a small inconvenient. The AddTodoPage is accessed by pushing on top of the HomePage another route as shown in figure \ref{fig:add_todo_page_tree_structure}. The AddTodoPage is added as a child of the MaterialApp widget.
+In the AddTodoPage, a TextButton widget has been already set up to call the \textit{onAddTodo }function once tapped. However, there is a small inconvenient. The AddTodoPage is accessed by pushing on top of the HomePage another route as shown in figure \ref{fig:add_todo_page_tree_structure}. The AddTodoPage is added as a child of the MaterialApp widget.
 
 \begin{figure}[H]
     \centering
@@ -507,23 +506,23 @@ In the AddTodoPage, a TextButton widget has been already set up and is ready to 
 \end{figure}
 
 
-The AddTodoPage is not a part of the subtree of the HomePage but is a standalone tree. There is no instance of TodoProvider widget as ancestor of the  Scaffold widget present in the AddTodoPage. It is not possible, tough, to call the \textit{of} method as  we did before. Indeed, calling the \textit{of} method in a context where a TodoProvider widget is not present will cause the line
+The AddTodoPage is not a part of the subtree of the HomePage but is a standalone tree. There is no instance of TodoProvider widget as ancestor of the  Scaffold widget present in the AddTodoPage. It is not possible, tough, to call the \textit{of} method as  we did before. Indeed, calling the \textit{of} method in a context where a TodoProvider widget is not present causes the assertion line (the one below) in Source Code \ref{code:2.18} to return \textit{false} and to rise a runtime error.
 \mbox{}\\
 
 \begin{code}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 assert(result != null, 'No TodoInheritedData found in context');
 \end{minted}
 \end{code}
 \mbox{}\\
-to return \textit{false} and to rise a runtime error. The easiest method to proceed is to pass the \textit{onAddTodo} function as a parameter to the AddTodoPage when it is pushed on top of the HomePage. A new parameter, called \textit{addTodoCallback }, is added to the AddTodoPage .
+The easiest method to proceed is to pass the \textit{onAddTodo} function as a parameter to the AddTodoPage when it is pushed on top of the HomePage. A new parameter, called \textit{addTodoCallback }, is added to the AddTodoPage .
 \mbox{}\\
 \captionof{listing}{Todo app - InheritedWidget - AddTodoPage's callback function parameter creation}
 \mbox{}
 \begin{code}
 \label{code:2.34}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class AddTodoPage extends StatefulWidget {
   final void Function(String, String) addTodoCallback; // new parameter
@@ -533,13 +532,13 @@ class AddTodoPage extends StatefulWidget {
 \end{minted}
 \end{code}
 \mbox{}\\
-Then, the MaterialApp is notified about the necessity of this new argument at the AddTodoPage creation. It will find the argument inside the context, in a specific variable called \textit{arguments.}
+Then, the MaterialApp is notified about the necessity of this new argument at the AddTodoPage creation. The argument is found inside the \textit{context}, in a specific variable called \textit{arguments.}
 \mbox{}\\
-\captionof{listing}{Todo app - InheritedWidget - MaterialApp AddTodoPage route re-definition}
+\captionof{listing}{Todo app - InheritedWidget - "\textbackslash\textit{addTodo}" route parameters re-definition}
 \mbox{}
 \begin{code}
 \label{code:2.36}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 routes: {
 {. . .}
@@ -552,13 +551,13 @@ routes: {
 \end{minted}
 \end{code}
 \mbox{}\\
-The callback function in then used in the \textit{onPressed} field of the TextButton widget in the AddTodoPage. Once the TextButton is tapped, the new todo is added to the list and the AddTodoPage is popped returning to the HomePage. Being the state change the HomePage is rebuilt.
+The \textit{addTodoCallback} function is then used in the \textit{onPressed} field of the TextButton widget in the AddTodoPage. Once the TextButton is tapped, the new todo is added to the list and the AddTodoPage is popped returning to the HomePage. Being the state changed the HomePage is rebuilt.
 \mbox{}\\
-\captionof{listing}{Todo app - InheritedWidget - AddTodoPage TextButton onPressed field implementation}
+\captionof{listing}{Todo app - InheritedWidget - AddTodoPage \textit{onPressed }field implementation}
 \mbox{}
 \begin{code}
 \label{code:2.36}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 TextButton(onPressed: () {
   widget.addTodoCallback(textControllerName.text,textControllerDesc.text);
@@ -575,10 +574,10 @@ Raising the TodoProvider widget above the MaterialApp widget would not be a good
 A new function must be implemented in the TodoProvider widget and passed to the TodoInheritedData widget. This new function is called \textit{onUpdateTodo } and takes three arguments: the \textit{id} of the todo to be updated, the \textit{newName } and the \textit{newDesc}.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - todoProvider's onUpdateTodo function implementation}
+\captionof{listing}{Todo app - InheritedWidget - TodoProvider's \textit{onUpdateTodo }function implementation}
 \mbox{}
 \label{code:2.37} 
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
   void onUpdateTodo(int id, String newName, String newDesc) {
     //control the todo's existance
@@ -609,11 +608,11 @@ This new \textit{onUpdateTodo} method is then made accessible down the tree addi
 \mbox{}\\
 \begin{code}
 
-\captionof{listing}{Todo app - InheritedWidget - onUpdateTodo function propagation}
+\captionof{listing}{Todo app - InheritedWidget - \textit{onUpdateTodo} function propagation}
 \mbox{}
 
 \label{code:2.38}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TodoInheritedData extends InheritedWidget {
   
@@ -647,16 +646,17 @@ Widget build(BuildContext context) {
 For the same problem faced during the implementation of the todo addition feature, also in this case, the \textit{onUpdateTodo } function must be passed to the new route (no TodoProvider present in this context) as parameter. A new variable is added to the UpdateTodoPage, beside the already existent one, called \textit{callback }. This new variable is of type Function taking two Strings as arguments (the id will be already set up by the calling page).
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - InheritedWidget - UpdateTodoPage callback variable creation}
+\captionof{listing}{Todo app - InheritedWidget - UpdateTodoPage callback function parameter creation}
 \mbox{}
 \label{code:2.39}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class UpdateTodoPage extends StatefulWidget {
   final Todo todo;
   final void Function(String, String) callback; // new variable
 
-  const UpdateTodoPage({Key? key, required this.todo, required this.callback})
+  const UpdateTodoPage({Key? key, required this.todo,
+   required this.callback})
       : super(key: key);
  
  (...)
@@ -664,13 +664,13 @@ class UpdateTodoPage extends StatefulWidget {
  \end{minted}
  \end{code}
  \mbox{}\\
-We are ready now to push the UpdateTodoPage on top of the Homepage when the InkWell widget (inside the TodoItem widget) is tapped. However, there is a small extra step to perform before proceeding.  Flutter Navigator ,indeed, allows to pass a single object ,as argument ,between routes. In this case not only the \textit{onUpdateTodo} function but also a instance of the Todo must be passed to the UpdateTodoPage. For this reason a wrapper class is created with the name \textit{UpdateTodoPageArguments }.
+We are ready now to push the UpdateTodoPage on top of the Homepage when the InkWell widget (inside the TodoItem widget) is tapped. However, there is a small extra step to perform before proceeding.  Flutter Navigator ,indeed, allows to pass a single object as argument between routes. In this case, besides the \textit{onUpdateTodo} function also a todo instance must be passed to the UpdateTodoPage. For this reason, a wrapper class is created with the name \textit{UpdateTodoPageArguments }.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - onUpdateTodo function propagation}
+\captionof{listing}{Todo app - InheritedWidget - UpdateTodoPageArguments class implementation}
 \mbox{}
 \label{code:2.40}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class UpdateTodoPageArguments {
   final Todo todo;
@@ -684,10 +684,10 @@ class UpdateTodoPageArguments {
 Inside the InkWell’s \textit{onTap }function ,the corresponding todo and the \textit{onUpdate} function are wrapped into an object of type UpdateTodoPageArguments. This object is then passed to the new route.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedWidget - onUpdateTodo function propagation}
+\captionof{listing}{Todo app - InheritedWidget - Using a UpdateTodoPageArguments instance to pass argument between routes}
 \mbox{}
 \label{code:2.42}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 Navigator.pushNamed(context, "/updateTodo",
 //passing the the state changing function using a wrapper class
@@ -700,14 +700,14 @@ Navigator.pushNamed(context, "/updateTodo",
 \end{minted}
 \end{code}
 \mbox{}\\
-It is necessary to specify to the MaterialApp widget where, the two parameters (necessary for the UpdateTodoPage creation), will be situated. As before , they are putted in a specific variable, inside the context object, called \textit{arguments.}
+It is necessary to specify to the MaterialApp widget where, the two parameters (necessary for the UpdateTodoPage creation), will be situated. As before , they are putted in a specific variable, inside the \textit{context} object, called \textit{arguments.}
 \mbox{}\\
 \begin{code}
 
-\captionof{listing}{Todo app - InheritedWidget - onUpdateTodo function propagation}
+\captionof{listing}{Todo app - InheritedWidget - "\textbackslash\textit{updateTodo}" route re-definition}
 \mbox{}
 \label{code:2.42}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 routes: {
   "/": (context) => const HomePage(),
@@ -724,14 +724,14 @@ routes: {
 \end{minted}
 \end{code}
 \mbox{}\\
-Now that the \textit{onUpdateTodo } function is set up and  passed to the UpdateTodoPage is  time to call it inside the TextButton \textit{onPressed  }field.
+Now that the \textit{onUpdateTodo }function is accessible in the UpdateTodoPage it is time to call it inside the TextButton \textit{onPressed  }field.
 \mbox{}\\
 \begin{code}
 
-\captionof{listing}{Todo app - InheritedWidget - onUpdateTodo function propagation}
+\captionof{listing}{Todo app - InheritedWidget - UpdateTodoPage \textit{onPressed }field implementation}
 \mbox{}
 \label{code:2.43}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 TextButton(onPressed: () {
   //call the onUpdateTodo function
@@ -741,64 +741,67 @@ TextButton(onPressed: () {
 \end{minted}
 \end{code}
 \mbox{}\\
-At this point, once the user taps the confirm button the page pops, the corresponding todo updates and the HomePage rebuilds.\\
+At this point, once the user taps the confirm button, the page pops, the corresponding todo updates and the HomePage rebuilds.\\
 
 
 
-\subsubsection{Rendering optimizations} \mbox{} \\
+\subsubsection{Rendering optimizations} 
 \label{subpar:render_optimizations_inherited_widget}
-I spent some hours trying to figure out how to make the single TodoItem widget rebuild only, after a non -structural change occurs. When a non-structural change occurs, may be instresting, tough, to limitate the tree rebuilding  to widgets affected by the mutation only. For example, when the Checkbox inside a TodoItem is tapped, would be nice to rebuild the TodoItem widget only, and not the entire TodoView widget. After some attempts, I realized that it was just not feasible using InheritedWidgets alone. InheritedWidgets, indeed, do not offer this possibility at all. Every widget that access the state in the TodoProvider’s subtree, using the \textit{of} method, is registered as \textit{listener} for state changes. Once a state change occurs ,there are only two possibilities: notify all listeners and rebuild them or notify none. In other words when a state change occurs, and it must be visualized , the entire TodoProvider’s subtree must be rebuilt unconditionally. Flutter framework, however, offers a particular widget, called InheritedModel, to handle this kind of scenario. InheritedModel works as InheritedWidget except for the fact that, when a widget accesses the state ,(calling the \textit{of} method) it must provide also a new additional parameter, called \textit{aspect}. The \textit{aspect} parameter can be whatever object. For example a String or a Int, but also a more complex data structure. The \textit{aspect} parameter identifies which part (or parts) of the state the widget is registering to. 
-With this new additional tool is possible to achive the partial rendering we were looking for. Indeed, with InheritedModel , widgets are rebuilt based on the changed aspect of the state. If a particular widget registered for a particular aspect and a state mutation, not affecting that aspect, occurs, the widget is not rebuilt. However, the entire logic defining which aspect of the data changed (when a state transition occurs) must be implemented by the programmer.\\
-The extension to InheritedWidget is substituted with the InheritedModel one, in the
+\hfill\\
+I spent some hours trying to figure out how to make the single TodoItem widget rebuild, after a non -structural change occurs. When a non-structural change occurs, may be instresting, tough, to limitate the tree rebuilding  to widgets affected by the mutation only. For example, when the Checkbox inside a TodoItem widget is tapped, would be nice to rebuild the TodoItem widget only, and not the entire TodoView widget. After some attempts, I realized that it was just not feasible using InheritedWidgets alone. InheritedWidgets, indeed, do not offer this possibility at all. Every time a widget accesses the state in the TodoProvider’s subtree, using the \textit{of} method, it is registered as \textit{listener} for state changes. Once a state change occurs ,there are only two possibilities: notify all listeners and rebuild them or notify none. In other words when a state change occurs, and it must be visualized , the entire TodoProvider’s subtree is rebuilt unconditionally. Flutter framework, however, offers a particular widget, called InheritedModel, to handle this kind of scenario. InheritedModel works as InheritedWidget except for the fact that, when a widget accesses the state ,(calling the \textit{of} method) it must provide also a new additional parameter, called \textit{aspect}. The \textit{aspect} parameter can be whatever object. For example a String or a Int, but also a more complex data structure. The \textit{aspect} parameter identifies which part (or parts) of the state the widget is registering to. 
+With this new additional tool is possible to achive the partial rendering we were looking for. Indeed, with InheritedModel , widgets are rebuilt based on the changed aspect of the state. If a widget registered for a particular aspect and a state mutation, not affecting that aspect, occurs, the widget is not rebuilt. However, the entire logic defining which aspect of the data changed (when a state transition occurs) must be implemented by the programmer.\\
+The extension to InheritedWidget is substituted with the extension to the InheritedModel, in the
 TodoInheritedData class.
 \mbox{}\\
 \begin{code}
 \captionof{listing}{Todo app - InheritedModel - extension to InheritedModel }
 \mbox{}
 \label{code:2.44}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TodoInheritedData extends InheritedModel<int> {
 \end{minted}
 \end{code}
 \mbox{}\\
-I decided to use Ints in order to identify aspects. In particular, widgets that need to rebuild on \textit{filteredTodos} list structural change, will register to the aspect identified with the number 0. Widgets that do never need to rebuild will register to the aspect identified with number 1. Widgets that need to rebuild when a non-structural change occurs affecting the specific Todo with id n  will register to the aspect identified with the number n. (no Todos will have id with value 0 or 1. This is a convention I used to keep things simple. Other ,more complex structure , could be used to avoid this behaviour). 
-At this point the method \textit{of}, in the TodoInheritedData widget, should be updated taking into account the aspect parameter. Morevover, the \textit{result} variable should be populated with the static \textit{inheritedFrom  } method belonging to the InheritedModel class, instead of the \textit{dependOnInheritedWidgetOfExactType} method belonging to InheritedWidget class.
+I decided to use Ints in order to identify aspects. In particular, widgets that need to rebuild on \textit{filteredTodos} list structural change, register to the aspect identified with the number 0. Widgets that do never need to rebuild register to the aspect identified with number 1. Widgets that need to rebuild when a non-structural change affecting the specific Todo with id n occurs register to the aspect identified with the number n. (no Todos will have id with value 0 or 1. This is a convention I used to keep things simple. Other ,more complex structure , could be used to avoid this behaviour). 
+At this point, the method \textit{of}, in the TodoInheritedData widget, should be updated taking into account the \textit{aspect} parameter. Morevover, the \textit{result} variable should be populated with the \textit{inheritedFrom} static method belonging to the InheritedModel class, instead of the \textit{dependOnInheritedWidgetOfExactType} static method belonging to InheritedWidget class.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedModel -  of method implementation}\mbox{}
+\captionof{listing}{Todo app - InheritedModel - TodoInheritedData's  \textit{of} method implementation}\mbox{}
 \label{code:2.45}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 //add the aspect argument
-static TodoInheritedData of(BuildContext context, {required int aspect}) {
+static TodoInheritedData of(BuildContext context, {required int aspect})
+ {
   final TodoInheritedData? result =
   //calling the inheritFrom method using the aspect parameter
-      InheritedModel.inheritFrom<TodoInheritedData>(context, aspect: aspect);
+      InheritedModel.inheritFrom<TodoInheritedData>(context,
+       aspect: aspect);
   assert(result != null, 'No TodoInheritedData found in context');
   return result!;
 }
 \end{minted}
 \end{code}
 \mbox{}\\
-All the lines of code that access the state with the \textit{of} method must now be changed taking into account the new implementation and the new \textit{aspect} argument.
+All the lines of code accessing the state with the \textit{of} method must now be changed taking into account the new implementation and the new \textit{aspect} argument.
 \mbox{}\\
 
 \begin{code}
 \label{code:2.47}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 TodoInheritedData.of(context, aspect: aspect)
 \end{minted}
 \end{code}
 \mbox{}\\
 In particular, the TodoView widget will pass as aspect argument the number 0 declaring that should be notified (and rebuild) only when a structural change occurs.
-Instead, TodoItem widgets will pass the corresponding Todo’s \textit{id} in the aspect parameter.
-Now that every widget is registered to the desired aspect of the data only, is necessary to “teach”, the TodoInheritedData widget ,how to recognize aspects changes. To do so, InheritedModel provides a method called \textit{updateShouldNotifyDepenedent} that is just like the InheritedWidget’s one, \textit{updateShouldNotify }, but takes as argument also a Set of ints called \textit{dependencies }  (aspects). Once a transition occurs this method is called once for every widget that registered to state changes. The \textit{dependencies }  variable will contain all aspects the widget registered to (only one for every widget in our case). 
+Instead, TodoItem widgets will pass the corresponding Todo’s \textit{id} in the \textit{aspect} parameter.
+Now that every widget is registered to the desired aspect of the data, it is necessary to “teach”, the TodoInheritedData widget ,how to recognize aspects' changes. To do so, InheritedModel provides a method called \textit{updateShouldNotifyDepenedent} that is similar to the InheritedWidget’s one, \textit{updateShouldNotify }, but takes as argument also a Set of ints called \textit{dependencies }  (aspects). Once a transition occurs this method is called once for every widget that registered to state changes. The \textit{dependencies }  variable will contain all \textit{aspects} the widget registered to (only one for every widget in our case). 
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedModel - updateShouldNotifyDepented method implementation}\mbox{}
+\captionof{listing}{Todo app - InheritedModel - TodoInheritedData's \textit{updateShouldNotifyDepented} method implementation}\mbox{}
 \label{code:2.46}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 @override
 bool updateShouldNotifyDependent(
@@ -809,7 +812,8 @@ bool updateShouldNotifyDependent(
   int prevLen = oldWidget.filteredTodos.length;
   //if updateShouldNotifyDependent is called in a structural
   // dependent widget and a structural change occured
-  bool structureRebuildlen = (dependencies.contains(0) && currLen != prevLen);
+  bool structureRebuildlen = (dependencies.contains(0) &&
+   currLen != prevLen);
   if (structureRebuildlen == true) {
   //rebuild
     return true;
@@ -834,11 +838,12 @@ bool updateShouldNotifyDependent(
       for (var element in filteredTodos) {
       //add the boolean && between
         components.add(
-      //if updateShouldNotifyDependent is called in a widget that registered 
-      // to the aspect with that id        
+      //if updateShouldNotifyDependent is called in a widget 
+      // that registered to the aspect with that id        
         dependencies.contains(element.id) 
         &&
-      // if the element with that id in the previous filtered list is different
+      // if the element with that id in the previous 
+      // filtered list is different
             !oldWidget.filteredTodos.contains(element));
       }
       //apply the or operator between all elements in the list
@@ -854,10 +859,10 @@ bool updateShouldNotifyDependent(
 This method was tough to code. The method's pseudocode is presented down below. 
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedModel - updateShouldNotifyDepented method pseudocode}
+\captionof{listing}{Todo app - InheritedModel - TodoInheritedData's \textit{updateShouldNotifyDepented} method pseudocode}
 \mbox{}
-\label{code:2.47}
-\begin{minted}{dart}
+\label{code:2.48}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 if( widgetRegisteredForStructuralChange && strucuturalChangeOccured){
         return true;
     }else{
@@ -870,26 +875,26 @@ if( widgetRegisteredForStructuralChange && strucuturalChangeOccured){
 \end{minted}
 \end{code}
 \mbox{}\\
-I propose now two pratical examples to clearify a bit the  updateShouldNotifyDepented behaviour.
+I propose now two pratical examples to clearify a bit the  \textit{updateShouldNotifyDepenedent} behaviour.
 \paragraph{Pratical example 1 - } 
 \label{subpar:todo_updating_feature_inherited_wdiget}
-Suppose to have a list of todos containing two todo instances, one with id 38 and one with id 121. In the HomePage there is a TodoView widget containing two TodoItem widgets. TodoView widget calls the \textit{of} method in order to access the state passing the int value 0 as parameter. The two TodoItem widgets call the \textit{of} method in order to access the state passing their todo's id value as parameter. Suppose now to add a new todo in the list using the AddTodoPage. The \textit{updateShouldNotifyDepented} method is called once for every widget that access the state. Note that also the TabSelector and the VisibilityFilterSelector widgets access the state using the \textit{of} method but their are not considered in this example. So, the \textit{updateShouldNotifyDepented} method is called once for the TodoView widget, with dependencies value equal to 0. It is also called once for every TodoItem widget with dependencies value equal to 38, in one case, and equal to 121, in the other. Before actually rebuilding any widget the framework executes all the \textit{updateShouldNotifyDepented} method calls. We start analizing the call for the TodoItem widget with id 38 with reference to the pseudocode RIFERIMENTo. In this case a structural change occured ( we added a todo)  but the widget did not registered for structural changes ( dependencies do not contains 0). Moreover, the widget registered for changes in the todo with id 38 but no changes occured in that todo. The function returns false and the widget is not rebuilt. The same happens for the \textit{updateShouldNotifyDepented} methods execution of the TodoItem widget with id 121. In the \textit{updateShouldNotifyDepented} method execution for the TodoView widget, instead, the dependencies list contains the value 0(and only that). In this case the TodoView widget registered for structural changes and a structural change occured (the new list is longer than the old one). The \textit{updateShouldNotifyDepented} method returns true and the widget is rebuilt creating a new TodoView widget composed by three TodoItem widgets this time.
+Suppose to have a list of todos containing two todo instances, one with id 38 and one with id 121. In the HomePage there is a TodoView widget containing two TodoItem widgets. TodoView widget calls the \textit{of} method in order to access the state passing the int value 0 as parameter. The two TodoItem widgets call the \textit{of} method in order to access the state passing their todo's id value as parameter. Suppose now to add a new todo in the list using the AddTodoPage. The \textit{updateShouldNotifyDepented} method is called once for every widget that access the state. Note that also the TabSelector and the VisibilityFilterSelector widgets access the state using the \textit{of} method but their are not considered in this example. So, the \textit{updateShouldNotifyDepenedent} method is called once for the TodoView widget, with dependencies value equal to 0. It is also called once for every TodoItem widget with dependencies value equal to 38, in one case, and equal to 121, in the other. Before actually rebuilding any widget the framework executes all the \textit{updateShouldNotifyDepenedent} method calls. We start analizing the call for the TodoItem widget with id 38 with reference to the pseudocode defined in Source Code \ref{code:2.48}. In this case a structural change occured ( we added a todo)  but the widget did not registered for structural changes ( dependencies do not contains 0). Moreover, the widget registered for changes in the todo with id 38 but no changes occured in that todo. The function returns false and the widget is not rebuilt. The same happens for the \textit{updateShouldNotifyDepenedent} methods execution of the TodoItem widget with id 121. In the \textit{updateShouldNotifyDepenedent} method execution for the TodoView widget, instead, the dependencies list contains the value 0(and only that). In this case the TodoView widget registered for structural changes and a structural change occured (the new list is longer than the old one). The \textit{updateShouldNotifyDepenedent} method returns true and the widget is rebuilt creating a new TodoView widget composed by three TodoItem widgets this time.
 \paragraph{Pratical example 2 - } 
 \label{subpar:todo_updating_feature_inherited_wdiget}
-Suppose to have a list of todos containing two todo instances as before, one with id 38 and one with id 121. In the HomePage there is a TodoView widget containing two TodoItem widgets. TodoView widget calls the \textit{of} method in order to access the state passing the int value 0 as parameter. The two TodoItem widgets call the \textit{of} method in order to access the state passing their corresponding todo's id value as parameter. Suppose now to tap on the TodoItem widget's checkbox with id 38 in order to change its completed value. As before the \textit{updateShouldNotifyDepented} method is called once for every widget that access the state. The \textit{updateShouldNotifyDepented} method execution regarding the TodoView widget returns false because the second if in the Source Code RIFERIMENTo evaluates to false due to the fact that the widget did not registered for specific todo's changes. The TodoView widget is not rebuilt then. In the \textit{updateShouldNotifyDepented} method execution regarding the TodoItem widget with id 121 the part that leads the entire method to return false is the second expression in the second if statement. Indeed, the todo with id 121 did not changed with respect to the one contained in the previous state. The TodoItem widget with is 121 is consequently not rebuilt. The execution of the \textit{updateShouldNotifyDepented} method concerning the TodoItem with id 38, instead, return true. The second condition is, indeed, satisfied by the fact that the widget registered for a specific todo's change and also that todo changed. The todo with id 38 is, indeed, changed with respect to the todo with id 38 in the previous state. This leads the TodoItem widget with id 38 to rebuild leaving all the other widgets unchanged.
+Suppose to have a list of todos containing two todo instances as before, one with id 38 and one with id 121. In the HomePage there is a TodoView widget containing two TodoItem widgets. TodoView widget calls the \textit{of} method in order to access the state passing the int value 0 as parameter. The two TodoItem widgets call the \textit{of} method in order to access the state passing their corresponding todo's id value as parameter. Suppose now to tap on the TodoItem widget's checkbox with id 38 in order to change its \textit{completed} value. As before the \textit{updateShouldNotifyDepenedent} method is called once for every widget that access the state. The \textit{updateShouldNotifyDepenedent} method execution regarding the TodoView widget returns false because the second if in the Source Code \ref{code:2.48} evaluates to false due to the fact that the widget did not registered for specific todo's changes. The TodoView widget is not rebuilt then. In the \textit{updateShouldNotifyDepenedent} method execution regarding the TodoItem widget with id 121 the part that leads the entire method to return false is the second expression in the second if statement. Indeed, the todo with id 121 did not changed with respect to the one contained in the previous state. The TodoItem widget with is 121 is consequently not rebuilt. The execution of the \textit{updateShouldNotifyDepenedent} method concerning the TodoItem with id 38, instead, return true. The second condition is, indeed, satisfied by the fact that the widget registered for a specific todo's change and also that todo changed. The todo with id 38 is, indeed, changed with respect to the todo with id 38 in the previous state. This leads the TodoItem widget with id 38 to rebuild leaving all the other widgets unchanged.
 
 
 \mbox{}\\
 
-At this point , when the TodoItem’s checkbox is tapped the single TodoItem widget is rebuilt. However, no visual changes are shown. The widget rebuilds with the same information as before . This is due to the fact that the \textit{build} method populates its internal widgets based on a local \textit{todo} variable. This variable is populated on the TodoItem widget's creation with a Todo instance provided by the parent widget(TodoView). Indeed, when the TodoView widget instantiates TodoItems  in its ListView, it creates a copy of the corresponding Todo before passing it to the constructor. Even if we changed the information contained in the TodoInheritedData widget, the TodoItem widget do not see any difference.  Its local todo variable , indeed, did not change. The fact that, before the optimizations, TodoItem widgets rebuilt correctly comes from the fact that the transition of the state caused actions leads the entire TodoView widget to rebuild. The conseguence was that TodoItems were detroyed and created again using new copies of the data coming from the TodoInheritedData widget. \\
+At this point , when the TodoItem’s checkbox is tapped the single TodoItem widget is rebuilt. However, no visual changes are shown. The widget rebuilds with the same information as before . This is due to the fact that, the \textit{build} method, populates its internal widgets based on a local \textit{todo} variable. This variable is populated on the TodoItem widget's creation with a Todo instance provided by the parent widget(TodoView). Indeed, when the TodoView widget instantiates TodoItems  in its ListView, it creates a copy of the corresponding Todo before passing it to the constructor. Even if we changed the information contained in the TodoInheritedData widget, the TodoItem widget do not see any difference.  Its local todo variable , indeed, did not change. The fact that, before the optimizations, TodoItem widgets rebuilt correctly comes from the fact that the transition of the state caused actions leads the entire TodoView widget to rebuild. The conseguence was that TodoItems were detroyed and created again using new copies of the data coming from the TodoInheritedData widget. \\
 To recap, the performance optimization we were looking for were achieved succesfully but an issue ,regarding the syncronization of the data, arised. The TodoItems widget sees a screenshot of the state different from the one seen by the rest of the application. This is a really bad behavior and is caused by the fact that ,sometimes, during programming , more than one level of information caching is required or used to avoid effort in coding and performance issues. In other words, a local copy of the data is kept and referred to in case of data access in order to optimize the accesses in the main storage that can become quite expensive in large scenarios. A great example of that is the local copy of the database’s data used in many applications. Is more effective to fetch data from the database, save them locally, manipulate this local copy and only in case of real necessity access again the database to store them or retrieve other data. In large applications (but also in small ones like in this cases) more than one level of data caching is used. Particular attention is required to handle those levels to avoid inconsistency in what is visualized and the real data. In this case the \textit{filteredTodos} list actually changed but the UI did not reflect this change. The problem was generate by the fact that a local copy of the real Todo instance was passed to the TodoItem widget. Instead , the "correct" way of handling this scenario is to pass the id of the Todo in the constructor and then use this id to look up for the Todo instance in the centralized state (the TodoInheritedData). This of course will require more computational effort but  will guarantee also a lot more stability and robustness. 
 Therefore, TodoItem widget's local variable of type Todo is replaced with a new int variable called \textit{id} that represents the id of the Todo the widget is visualizing. In the \textit{build} method, then, the corresponding Todo is looked up.
 \mbox{}\\
 \begin{code}
-\captionof{listing}{Todo app - InheritedModel - TodoItem widget todo look up}
+\captionof{listing}{Todo app - InheritedModel - accesing the state into TodoItem component}
 \mbox{}
 \label{code:2.48}
-\begin{minted}{dart}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class TodoItem extends StatelessWidget {
   final int id; // Todo variable replaced with a int one
@@ -909,27 +914,48 @@ class TodoItem extends StatelessWidget {
 At this point the application is working as intentioned and the rendering optimizations were successfully accomplished. \\
 
 
-\subsubsection{Conclusions} \mbox{} \\
+\subsubsection{Conclusions} 
 \label{subpar:render_optimizations_inherited_widget}
+Table \ref{table:recap_inheritedwidgets} reports some measurements taken from the InheritedWidget's implementation process. The \textit{lines of code} column represents the lines of code added or updated with respect to the shared project structure proposed in subsection \ref{subsec:todo_app_shared_project_structure}. The \textit{time }column represents the time spent in order to implement the corresponding subprocess. The unit of measure \textbf{h} stands for hours and \textbf{m} stands for minutes. The \textit{lines-time ratio} column represents the average number of lines written in a minute. The \textit{classes} column represents the number of created classes in each subprocess.
 \begin{table}[H]
-    \caption*{\textbf{Recap}}
+    \caption*{\textbf{Measurement for InheritedWidget process}}
     \centering 
-    \begin{tabular}{| l | c |c| c |}
+    
+    \begin{tabular}{| l | c | c | c | c |}
     \hline
     \rowcolor{bluepoli!40} % comment this line to remove the color
     \hline
-     & \textbf{lines of code} & \textbf{time} & \textbf{classes} \T\B \\
+     & \textbf{lines of code} & \textbf{time} & \textbf{lines/time ratio} & \textbf{classes} \T\B \\
      \hline
-    \textbf{base functionalities} & 86 & 2-3 h & 2 \T\B \\ 
-    \textbf{feature addition} & 43 & 20-30 m & 1 \T\B\\ 
-    \textbf{rendering optimization} & 49 & 8-10 h & 0 \B\\
+    \textbf{base functionalities} & 86 & 2-3 h & 0.57 l/m & 2  \T\B \\ 
+    \textbf{feature addition} & 43 & 20-30 m & 1.72 l/m & 1 \T\B\\ 
+    \textbf{rendering optimization} & 49 & 8-10 h & 0.092  l/m & 0 \B\\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Caption of the Table to appear in the List of Tables.}
-    \label{table:example}
+    \caption{InheritedWidget measurements table}
+    \label{table:recap_inheritedwidgets}
 \end{table}
 
+Figure \ref{image:inheritedwidgets_lines_piechart} represents a pie chart showing the percentage of lines of code written in each implementation's process, including the one regarding the shared structure. The whole process is quite balanced in term of lines of code. The 64\% of the code is used to produce the presentation layer and the remaining 36\% is used to manage the state and its optimizations. Considering the fact that the UI is kept minimal truncating the necessary lines of code accentuates even more the fact that the state management took less than a half of the entire written code. 
+
+\begin{figure}[H]
+\caption*{\textbf{Lines}}
+\centering
+\begin{tikzpicture}
+
+\pie[rotate =0 ]{63.82/Shared structure - 314,
+    17.47/Base functionalities - 86,
+    8.73/Feature addition - 43,
+    9.95/Optimizations - 49
+    }
+ 
+\end{tikzpicture}
+ \caption{Shows the pie chart regarding the lines of code spent in each subprocess for the InheritedWidget implementation}
+\label{image:inheritedwidgets_lines_piechart}
+\end{figure}
+
+Figure \ref{image:inheritedwidgets_hours_piechart} represents a pie chart showing the percentage of time spent in each implementation's process. Notice that the optimizations process took more than the 75\% of the entire time.
 \begin{figure}[H]
  \caption*{\textbf{Hours}}
 \centering
@@ -942,45 +968,30 @@ At this point the application is working as intentioned and the rendering optimi
     }
 
 \end{tikzpicture}
- \caption{Caption of the Table to appear in the List of Tables.}
-\end{figure}
-\begin{figure}[H]
-
-\caption*{\textbf{Lines}}
-\centering
-\begin{tikzpicture}
-
-\pie[rotate =0 ]{63.82/Structure - 314,
-    17.47/Base functionalities - 86,
-    8.73/Feature addition - 43,
-    9.95/Optimizations - 49
-    }
- 
-\end{tikzpicture}
- \caption{Caption of the Table to appear in the List of Tables.}
+ \caption{Shows the pie chart regarding the hours spent in each subprocess for the InheritedWidget implementation}
+ \label{image:inheritedwidgets_hours_piechart}
 \end{figure}
 
+Figure \ref{fig:struttura_cartelle_inherited} shows the final folders structure for the InheritedWidget implementation. The only  file added to the original folders structure is the todo\_provider.dart file.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Images/struttura_cartelle_inherited.png}
-    \caption{Show the tree structure after the FloatingActionButton in the HomePage is tapped.}
-    \label{fig:add_todo_page_tree_structure}
+    \includegraphics[width=0.4\textwidth]{Images/struttura_cartelle_inherited.png}
+    \caption{Shows the final folders structure for the InheritedWidget implementation of the Todos app}
+    \label{fig:struttura_cartelle_inherited}
 \end{figure}
-Down below some images taken from an execution of the application. In this execution ,six todos are randomly created and only two of them are marked as completed. 
+
+Figure \ref{fig:widget_tree_structure_inheritedwidget} represents the widget's tree structure for the InheritedWidget final application. Notice the TodoProvider widget, situated below the HomePage, providing an instance of the TodoInheritedData to the subtree.
 
 \begin{figure}[H]
     \centering
-    \subfloat[todos tab runtime UI.\label{fig:todos_tab_UI}]{
+    \subfloat[Widgets tree structure \textit{todos }tab \label{fig:widget_tree_structure_todostab_inheritedwidget}]{
         \includegraphics[scale=0.6]{Images/albero_inherited_todos.png}
     }
     \quad
-    \subfloat[todos tab runtime widget tree.\label{fig:todos_tab_tree}]{
+    \subfloat[Widgets tree structure \textit{stats }tab\label{fig:widget_tree_structure_todostab_inheritedwidget}]{
         \includegraphics[scale=0.6]{Images/albero_inherited_stats.png}
     }
-    \caption{Show the runtime Widget's tree and UI when visualizing todos tab.}
-    \label{fig:todos_tab}
+    \caption{Shows the widgets tree structure for InhritedWidget Todos app}
+    \label{fig:widget_tree_structure_inheritedwidget}
 \end{figure}
-
-
-Figure~\ref{fig:todos_tab_UI} shows how the application's UI looks like after few seconds from the start. Figure~\ref{fig:todos_tab_tree} show the widget's tree related with the run. Notice the TodoInheritedData widget as a child of the HomePage widget,it provides the state to the subtree.

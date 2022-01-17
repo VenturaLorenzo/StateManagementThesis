@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//wrap the material app into a Provider widget}
+\PYG{k}{return} \PYG{n}{Provider}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoStore}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+    \PYG{n+nl}{create:} \PYG{p}{(}\PYG{n}{\PYGZus{}}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{TodoStore}\PYG{p}{()..}\PYG{n}{fetchTodos}\PYG{p}{(),} \PYG{c+c1}{//fetch todos at creation}
+    \PYG{n+nl}{child:} \PYG{n}{MaterialApp}\PYG{p}{(.} \PYG{p}{.} \PYG{p}{.),}
+    \PYG{p}{\PYGZcb{}));}
+\end{Verbatim}
