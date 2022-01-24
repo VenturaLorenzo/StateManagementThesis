@@ -61,57 +61,56 @@
 \contentsline {subsection}{\numberline {2.2.4}BloC implementation}{83}{subsection.2.2.4}%
 \contentsline {subsubsection}{Base funtionalities}{83}{subsubsection*.146}%
 \contentsline {paragraph}{States - }{83}{paragraph*.147}%
-\contentsline {paragraph}{The states of the list of todos - }{84}{paragraph*.148}%
-\contentsline {paragraph}{The state of the filtered list and the filter - }{85}{paragraph*.150}%
+\contentsline {paragraph}{The states of the list of todos - }{83}{paragraph*.148}%
+\contentsline {paragraph}{The state of the filtered list and the filter - }{84}{paragraph*.150}%
 \contentsline {paragraph}{The state of the stats - }{86}{paragraph*.152}%
 \contentsline {paragraph}{The state of the tab - }{87}{paragraph*.154}%
 \contentsline {paragraph}{Events - }{87}{paragraph*.155}%
 \contentsline {paragraph}{Events of the list of todos - }{87}{paragraph*.156}%
 \contentsline {paragraph}{Events for the filtered list and the filter - }{88}{paragraph*.158}%
-\contentsline {paragraph}{Events for the stat’s and tab’s state - }{89}{paragraph*.160}%
+\contentsline {paragraph}{Events for the stat’s state and tab’s state - }{89}{paragraph*.160}%
 \contentsline {paragraph}{The Blocs - }{91}{paragraph*.162}%
 \contentsline {paragraph}{The bloc for the list of todos - }{91}{paragraph*.163}%
 \contentsline {paragraph}{The bloc for the filtered list and the filter - }{93}{paragraph*.165}%
 \contentsline {paragraph}{The bloc for the stats - }{97}{paragraph*.172}%
 \contentsline {paragraph}{The bloc for the tab - }{99}{paragraph*.175}%
-\contentsline {paragraph}{Observe blocs - }{100}{paragraph*.177}%
+\contentsline {paragraph}{Observing the blocs - }{100}{paragraph*.177}%
 \contentsline {paragraph}{Making the state accessible - }{102}{paragraph*.181}%
-\contentsline {paragraph}{The state intergration inside the UI - }{104}{paragraph*.184}%
-\contentsline {paragraph}{The HomePage - }{104}{paragraph*.185}%
-\contentsline {paragraph}{The TodoView component - }{106}{paragraph*.188}%
-\contentsline {paragraph}{The TodoItem component - }{107}{paragraph*.190}%
-\contentsline {paragraph}{The VisibilityFilterSelector component - }{108}{paragraph*.192}%
-\contentsline {paragraph}{The TabSelector component - }{109}{paragraph*.196}%
-\contentsline {paragraph}{The Stats component - }{110}{paragraph*.199}%
-\contentsline {subsubsection}{Features addition}{110}{subsubsection*.201}%
-\contentsline {paragraph}{New events - }{111}{paragraph*.202}%
-\contentsline {paragraph}{TodoBloc update - }{112}{paragraph*.204}%
-\contentsline {paragraph}{Access new feature in the UI - }{114}{paragraph*.208}%
-\contentsline {subsubsection}{Rendering optimization}{115}{subsubsection*.211}%
-\contentsline {subsubsection}{Conclusions}{118}{subsubsection*.215}%
+\contentsline {paragraph}{The HomePage - }{104}{paragraph*.184}%
+\contentsline {paragraph}{The TodoView component - }{106}{paragraph*.187}%
+\contentsline {paragraph}{The TodoItem component - }{107}{paragraph*.189}%
+\contentsline {paragraph}{The VisibilityFilterSelector component - }{108}{paragraph*.191}%
+\contentsline {paragraph}{The TabSelector component - }{109}{paragraph*.195}%
+\contentsline {paragraph}{The Stats component - }{110}{paragraph*.198}%
+\contentsline {subsubsection}{Features addition}{110}{subsubsection*.200}%
+\contentsline {paragraph}{New events - }{110}{paragraph*.201}%
+\contentsline {paragraph}{TodoBloc update - }{111}{paragraph*.203}%
+\contentsline {paragraph}{Access new feature in the UI - }{114}{paragraph*.207}%
+\contentsline {subsubsection}{Rendering optimization}{115}{subsubsection*.210}%
+\contentsline {subsubsection}{Conclusions}{118}{subsubsection*.214}%
 \contentsline {subsection}{\numberline {2.2.5}MobX implementation}{122}{subsection.2.2.5}%
-\contentsline {subsubsection}{Base funtionalities}{123}{subsubsection*.221}%
-\contentsline {paragraph}{The observable state - }{123}{paragraph*.222}%
-\contentsline {paragraph}{Actions - }{123}{paragraph*.224}%
-\contentsline {paragraph}{Computed fields - }{125}{paragraph*.228}%
-\contentsline {paragraph}{The code generation - }{127}{paragraph*.231}%
-\contentsline {paragraph}{The spy feature - }{128}{paragraph*.234}%
-\contentsline {paragraph}{Making the state accessible - }{128}{paragraph*.236}%
-\contentsline {paragraph}{The HomePage and the TabSelector component - }{129}{paragraph*.238}%
-\contentsline {paragraph}{The VisibilityFilterSelector component - }{132}{paragraph*.241}%
-\contentsline {paragraph}{The Stats component - }{133}{paragraph*.245}%
-\contentsline {paragraph}{The TodoView component and the TodoItem component - }{134}{paragraph*.247}%
-\contentsline {subsubsection}{Features addition}{135}{subsubsection*.250}%
-\contentsline {subsubsection}{Rendering optimizations}{138}{subsubsection*.254}%
-\contentsline {subsubsection}{Conclusions}{140}{subsubsection*.257}%
-\contentsline {chapter}{\numberline {3}The Other app}{145}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Comparisons}{147}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conslusions}{149}{chapter.5}%
+\contentsline {subsubsection}{Base funtionalities}{123}{subsubsection*.220}%
+\contentsline {paragraph}{The observable state - }{123}{paragraph*.221}%
+\contentsline {paragraph}{Actions - }{124}{paragraph*.223}%
+\contentsline {paragraph}{Computed fields - }{125}{paragraph*.227}%
+\contentsline {paragraph}{The code generation - }{127}{paragraph*.230}%
+\contentsline {paragraph}{The spy feature - }{128}{paragraph*.233}%
+\contentsline {paragraph}{Making the state accessible - }{128}{paragraph*.235}%
+\contentsline {paragraph}{The HomePage and the TabSelector component - }{129}{paragraph*.237}%
+\contentsline {paragraph}{The VisibilityFilterSelector component - }{132}{paragraph*.240}%
+\contentsline {paragraph}{The Stats component - }{133}{paragraph*.244}%
+\contentsline {paragraph}{The TodoView component and the TodoItem component - }{134}{paragraph*.246}%
+\contentsline {subsubsection}{Features addition}{135}{subsubsection*.249}%
+\contentsline {subsubsection}{Rendering optimizations}{138}{subsubsection*.253}%
+\contentsline {subsubsection}{Conclusions}{140}{subsubsection*.256}%
+\contentsline {chapter}{\numberline {3}The Other app}{143}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Comparisons}{145}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conslusions}{147}{chapter.5}%
 \vspace {2em}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix A}{151}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix B}{153}{appendix.B}%
-\contentsline {chapter}{List of Figures}{155}{appendix*.269}%
-\contentsline {chapter}{List of Tables}{157}{appendix*.271}%
-\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{159}{appendix*.273}%
-\contentsline {chapter}{Acknowledgements}{165}{appendix*.275}%
+\contentsline {chapter}{\numberline {A}Appendix A}{149}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{151}{appendix.B}%
+\contentsline {chapter}{List of Figures}{153}{appendix*.268}%
+\contentsline {chapter}{List of Tables}{155}{appendix*.270}%
+\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{157}{appendix*.272}%
+\contentsline {chapter}{Acknowledgements}{163}{appendix*.274}%

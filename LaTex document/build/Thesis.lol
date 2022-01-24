@@ -76,9 +76,9 @@
 \contentsline {listing}{\numberline {2.74}{\ignorespaces Todo app - Redux - AddTodoPage \textit {onPressed }field implementation\relax }}{75}{listing.caption.133}%
 \contentsline {listing}{\numberline {2.75}{\ignorespaces Todo app - Redux - UpdateTodoPage \textit {onPressed }field implementation\relax }}{75}{listing.caption.134}%
 \contentsline {listing}{\numberline {2.76}{\ignorespaces Todo app - Redux - accessing the state into TodoItem component\relax }}{76}{listing.caption.136}%
-\contentsline {listing}{\numberline {2.77}{\ignorespaces Todo app - Redux - TodoView component ad hoc ViewModel implementation\relax }}{77}{listing.caption.137}%
+\contentsline {listing}{\numberline {2.77}{\ignorespaces Todo app - Redux - TodoView component ad hoc ViewModel implementation\relax }}{78}{listing.caption.137}%
 \contentsline {listing}{\numberline {2.78}{\ignorespaces Todo app - Redux - ViewModel's equality operator override\relax }}{78}{listing.caption.138}%
-\contentsline {listing}{\numberline {2.79}{\ignorespaces Todo app - Redux - TodoView component renders optimization\relax }}{78}{listing.caption.139}%
+\contentsline {listing}{\numberline {2.79}{\ignorespaces Todo app - Redux - TodoView component renders optimization\relax }}{79}{listing.caption.139}%
 \contentsline {listing}{\numberline {2.80}{\ignorespaces Todo app – Bloc - states definition for the list of todos\relax }}{84}{listing.caption.149}%
 \contentsline {listing}{\numberline {2.81}{\ignorespaces Todo app - Bloc - states definition for the filtered list of todos and the filter\relax }}{85}{listing.caption.151}%
 \contentsline {listing}{\numberline {2.82}{\ignorespaces Todo app - Bloc - states definition for the stats\relax }}{86}{listing.caption.153}%
@@ -87,61 +87,61 @@
 \contentsline {listing}{\numberline {2.85}{\ignorespaces Todo app - Bloc - events definition for the stats and the tab \relax }}{90}{listing.caption.161}%
 \contentsline {listing}{\numberline {2.86}{\ignorespaces Todo app - Bloc - TodoBloc implementation\relax }}{92}{listing.caption.164}%
 \contentsline {listing}{\numberline {2.87}{\ignorespaces Todo app - Bloc - FilteredTodoBloc initialization\relax }}{94}{listing.caption.166}%
-\contentsline {listing}{\numberline {2.88}{\ignorespaces Todo app - Bloc - FilteredTodoBloc subscription to TodoBloc stream\relax }}{95}{listing.caption.167}%
-\contentsline {listing}{\numberline {2.89}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {mapEventToState }method override\relax }}{96}{listing.caption.168}%
+\contentsline {listing}{\numberline {2.88}{\ignorespaces Todo app - Bloc - FilteredTodoBloc subscription to TodoBloc stream\relax }}{94}{listing.caption.167}%
+\contentsline {listing}{\numberline {2.89}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {mapEventToState }method override\relax }}{95}{listing.caption.168}%
 \contentsline {listing}{\numberline {2.90}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {\_mapTodoChangeFilterEventToState} method implementation\relax }}{96}{listing.caption.169}%
-\contentsline {listing}{\numberline {2.91}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {\_mapTodoUpdatedEventToState }method implementation\relax }}{97}{listing.caption.170}%
+\contentsline {listing}{\numberline {2.91}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {\_mapTodoUpdatedEventToState }method implementation\relax }}{96}{listing.caption.170}%
 \contentsline {listing}{\numberline {2.92}{\ignorespaces Todo app - Bloc - FilteredTodoBloc \textit {close }method implementation\relax }}{97}{listing.caption.171}%
 \contentsline {listing}{\numberline {2.93}{\ignorespaces Todo app - Bloc - StatsBloc constructor implementation\relax }}{98}{listing.caption.173}%
-\contentsline {listing}{\numberline {2.94}{\ignorespaces Todo app - Bloc - StatsBloc \textit {mapEventToState } and \textit {close }methods implementation\relax }}{99}{listing.caption.174}%
+\contentsline {listing}{\numberline {2.94}{\ignorespaces Todo app - Bloc - StatsBloc \textit {mapEventToState } and \textit {close }methods implementation\relax }}{98}{listing.caption.174}%
 \contentsline {listing}{\numberline {2.95}{\ignorespaces Todo app - Bloc - TabBloc implementation\relax }}{99}{listing.caption.176}%
 \contentsline {listing}{\numberline {2.96}{\ignorespaces Todo app - Bloc - example of TodoBloc usage\relax }}{100}{listing.caption.178}%
 \contentsline {listing}{\numberline {2.97}{\ignorespaces Todo app - Bloc - AppBlocObserver implementation\relax }}{101}{listing.caption.179}%
-\contentsline {listing}{\numberline {2.98}{\ignorespaces Todo app - Bloc - setting the application's observer \relax }}{102}{listing.caption.180}%
+\contentsline {listing}{\numberline {2.98}{\ignorespaces Todo app - Bloc - setting the application's observer \relax }}{101}{listing.caption.180}%
 \contentsline {listing}{\numberline {2.99}{\ignorespaces Todo app - Bloc - make the TodoBloc accessible using a BlocProvider widget\relax }}{102}{listing.caption.182}%
 \contentsline {listing}{\numberline {2.100}{\ignorespaces Todo app - Bloc - make other blocs accessible using a MultiBlocProvider widget\relax }}{103}{listing.caption.183}%
-\contentsline {listing}{\numberline {2.101}{\ignorespaces Todo app - Bloc - wrapping the HomePage into a BlocBuilder\relax }}{104}{listing.caption.186}%
-\contentsline {listing}{\numberline {2.102}{\ignorespaces Todo app - Bloc - HomePage implementation \relax }}{105}{listing.caption.187}%
-\contentsline {listing}{\numberline {2.103}{\ignorespaces Todo app - Bloc - TodoView implementation\relax }}{106}{listing.caption.189}%
-\contentsline {listing}{\numberline {2.104}{\ignorespaces Todo app - Bloc - TodoItem component \textit {onChanged }field implementation\relax }}{107}{listing.caption.191}%
-\contentsline {listing}{\numberline {2.105}{\ignorespaces Todo app - Bloc - VisibilityFilterSelector component implementation\relax }}{108}{listing.caption.193}%
-\contentsline {listing}{\numberline {2.106}{\ignorespaces Todo app - Bloc - populating a filter variable based of the current state in the VisibilityFilterSelector component\relax }}{108}{listing.caption.194}%
-\contentsline {listing}{\numberline {2.107}{\ignorespaces Todo app - Bloc - VisibilityFilterSelector component \textit {onChange} field implementation\relax }}{109}{listing.caption.195}%
-\contentsline {listing}{\numberline {2.108}{\ignorespaces Todo app - Bloc - TabSelector component implementation\relax }}{109}{listing.caption.197}%
-\contentsline {listing}{\numberline {2.109}{\ignorespaces Todo app - Bloc - TabSelector component's \textit {onTap} field implementation\relax }}{109}{listing.caption.198}%
-\contentsline {listing}{\numberline {2.110}{\ignorespaces Todo app – Bloc - Stats component implementation\relax }}{110}{listing.caption.200}%
-\contentsline {listing}{\numberline {2.111}{\ignorespaces Todo app - Bloc - AddTodoEvent and UpdateTodoEvent definition\relax }}{111}{listing.caption.203}%
-\contentsline {listing}{\numberline {2.112}{\ignorespaces Todo app - Bloc - TodoBloc \textit {mapEventToState} extension for new events\relax }}{112}{listing.caption.205}%
-\contentsline {listing}{\numberline {2.113}{\ignorespaces Todo app - Bloc - TodoBloc's \textit {mapTodoAddedToState} method implementation\relax }}{113}{listing.caption.206}%
-\contentsline {listing}{\numberline {2.114}{\ignorespaces Todo app - Bloc - TodoBloc's \textit {mapTodoUpdatedToState} method implementation\relax }}{113}{listing.caption.207}%
-\contentsline {listing}{\numberline {2.115}{\ignorespaces Todo app - Bloc - emitting an AddTodoEvent in the AddTodoPage\relax }}{114}{listing.caption.209}%
-\contentsline {listing}{\numberline {2.116}{\ignorespaces Todo app - Bloc - emitting an UpdateTodoEvent in the UpdateTodoPage\relax }}{115}{listing.caption.210}%
-\contentsline {listing}{\numberline {2.117}{\ignorespaces Todo app - Bloc - accessing the state into TodoItem component\relax }}{116}{listing.caption.212}%
-\contentsline {listing}{\numberline {2.118}{\ignorespaces Todo app - Bloc - using the \textit {buildWhen} field to perform exclusive rebuild in te TodoView component\relax }}{117}{listing.caption.213}%
-\contentsline {listing}{\numberline {2.119}{\ignorespaces Todo app - Bloc - using the \textit {buildWhen} field to perform exclusive rebuild in te TodoItem component\relax }}{118}{listing.caption.214}%
-\contentsline {listing}{\numberline {2.120}{\ignorespaces Todo app - MobX- TodoStore abstract class implementation\relax }}{123}{listing.caption.223}%
-\contentsline {listing}{\numberline {2.121}{\ignorespaces Todo app - MobX - TodoStore's \textit {changeFilter} action implementation\relax }}{124}{listing.caption.225}%
-\contentsline {listing}{\numberline {2.122}{\ignorespaces Todo app - MobX - TodoStore's \textit {setCompleted} action implementation\relax }}{124}{listing.caption.226}%
-\contentsline {listing}{\numberline {2.123}{\ignorespaces Todo app - MobX - TodoStore's \textit {fetchTodos} and \textit {saveTodos} actions implementation\relax }}{124}{listing.caption.227}%
-\contentsline {listing}{\numberline {2.124}{\ignorespaces Todo app - MobX - TodoStore's \textit {completedTodos} and \textit {pendingTodos }computed values implementation\relax }}{125}{listing.caption.229}%
-\contentsline {listing}{\numberline {2.125}{\ignorespaces Todo app - MobX - \textit {filteredTodos} and \textit {stats} computed value implementation\relax }}{126}{listing.caption.230}%
-\contentsline {listing}{\numberline {2.126}{\ignorespaces Todo app - MobX - TodoStore code generation\relax }}{127}{listing.caption.232}%
-\contentsline {listing}{\numberline {2.127}{\ignorespaces Todo app - MobX - directive for code generation\relax }}{127}{listing.caption.233}%
-\contentsline {listing}{\numberline {2.128}{\ignorespaces Todo app - MobX - spy feature attachment\relax }}{128}{listing.caption.235}%
-\contentsline {listing}{\numberline {2.129}{\ignorespaces Todo app - MobX - making the state accessible using the Provider widget\relax }}{129}{listing.caption.237}%
-\contentsline {listing}{\numberline {2.130}{\ignorespaces Todo app - MobX - HomePage implementation\relax }}{129}{listing.caption.239}%
-\contentsline {listing}{\numberline {2.131}{\ignorespaces Todo app - MobX - TabSelector component implementation\relax }}{131}{listing.caption.240}%
-\contentsline {listing}{\numberline {2.132}{\ignorespaces Todo app - MobX - retrieving the TodoStore\relax }}{132}{listing.caption.242}%
-\contentsline {listing}{\numberline {2.133}{\ignorespaces Todo app - MobX - VisibilityFilterSelector component implementation\relax }}{132}{listing.caption.243}%
-\contentsline {listing}{\numberline {2.134}{\ignorespaces Todo app - MobX - changing the state in the VisibilityFilterSelector without predefined action\relax }}{133}{listing.caption.244}%
-\contentsline {listing}{\numberline {2.135}{\ignorespaces Todo app - MobX - Stats component implementation\relax }}{134}{listing.caption.246}%
-\contentsline {listing}{\numberline {2.136}{\ignorespaces Todo app - MobX - TodoView component implementation\relax }}{134}{listing.caption.248}%
-\contentsline {listing}{\numberline {2.137}{\ignorespaces Todo app - MobX - changing the state in the TodoItem component's Checkbox\relax }}{135}{listing.caption.249}%
-\contentsline {listing}{\numberline {2.138}{\ignorespaces Todo app - MobX - \textit {updateTodo} action and \textit {addTodo} action definition\relax }}{136}{listing.caption.251}%
-\contentsline {listing}{\numberline {2.139}{\ignorespaces Todo app - MobX - AddTodoPage's \textit {onPressed} field implementation\relax }}{137}{listing.caption.252}%
-\contentsline {listing}{\numberline {2.140}{\ignorespaces Todo app - MobX - UpdateTodoPage's \textit {onPressed} field implementation\relax }}{137}{listing.caption.253}%
-\contentsline {listing}{\numberline {2.141}{\ignorespaces Todo app - MobX - Todo model redefinition\relax }}{138}{listing.caption.255}%
-\contentsline {listing}{\numberline {2.142}{\ignorespaces Todo app - MobX - access the state into TodoItem component\relax }}{139}{listing.caption.256}%
+\contentsline {listing}{\numberline {2.101}{\ignorespaces Todo app - Bloc - wrapping the HomePage into a BlocBuilder\relax }}{104}{listing.caption.185}%
+\contentsline {listing}{\numberline {2.102}{\ignorespaces Todo app - Bloc - HomePage implementation \relax }}{105}{listing.caption.186}%
+\contentsline {listing}{\numberline {2.103}{\ignorespaces Todo app - Bloc - TodoView implementation\relax }}{106}{listing.caption.188}%
+\contentsline {listing}{\numberline {2.104}{\ignorespaces Todo app - Bloc - TodoItem component \textit {onChanged }field implementation\relax }}{107}{listing.caption.190}%
+\contentsline {listing}{\numberline {2.105}{\ignorespaces Todo app - Bloc - VisibilityFilterSelector component implementation\relax }}{108}{listing.caption.192}%
+\contentsline {listing}{\numberline {2.106}{\ignorespaces Todo app - Bloc - populating a filter variable based of the current state in the VisibilityFilterSelector component\relax }}{108}{listing.caption.193}%
+\contentsline {listing}{\numberline {2.107}{\ignorespaces Todo app - Bloc - VisibilityFilterSelector component \textit {onChange} field implementation\relax }}{109}{listing.caption.194}%
+\contentsline {listing}{\numberline {2.108}{\ignorespaces Todo app - Bloc - TabSelector component implementation\relax }}{109}{listing.caption.196}%
+\contentsline {listing}{\numberline {2.109}{\ignorespaces Todo app - Bloc - TabSelector component's \textit {onTap} field implementation\relax }}{109}{listing.caption.197}%
+\contentsline {listing}{\numberline {2.110}{\ignorespaces Todo app – Bloc - Stats component implementation\relax }}{110}{listing.caption.199}%
+\contentsline {listing}{\numberline {2.111}{\ignorespaces Todo app - Bloc - AddTodoEvent and UpdateTodoEvent definition\relax }}{110}{listing.caption.202}%
+\contentsline {listing}{\numberline {2.112}{\ignorespaces Todo app - Bloc - TodoBloc \textit {mapEventToState} extension for new events\relax }}{112}{listing.caption.204}%
+\contentsline {listing}{\numberline {2.113}{\ignorespaces Todo app - Bloc - TodoBloc's \textit {mapTodoAddedToState} method implementation\relax }}{112}{listing.caption.205}%
+\contentsline {listing}{\numberline {2.114}{\ignorespaces Todo app - Bloc - TodoBloc's \textit {mapTodoUpdatedToState} method implementation\relax }}{113}{listing.caption.206}%
+\contentsline {listing}{\numberline {2.115}{\ignorespaces Todo app - Bloc - emitting an AddTodoEvent in the AddTodoPage\relax }}{114}{listing.caption.208}%
+\contentsline {listing}{\numberline {2.116}{\ignorespaces Todo app - Bloc - emitting an UpdateTodoEvent in the UpdateTodoPage\relax }}{114}{listing.caption.209}%
+\contentsline {listing}{\numberline {2.117}{\ignorespaces Todo app - Bloc - accessing the state into TodoItem component\relax }}{115}{listing.caption.211}%
+\contentsline {listing}{\numberline {2.118}{\ignorespaces Todo app - Bloc - using the \textit {buildWhen} field to perform exclusive rebuild in te TodoView component\relax }}{117}{listing.caption.212}%
+\contentsline {listing}{\numberline {2.119}{\ignorespaces Todo app - Bloc - using the \textit {buildWhen} field to perform exclusive rebuild in te TodoItem component\relax }}{117}{listing.caption.213}%
+\contentsline {listing}{\numberline {2.120}{\ignorespaces Todo app - MobX- TodoStore abstract class implementation\relax }}{123}{listing.caption.222}%
+\contentsline {listing}{\numberline {2.121}{\ignorespaces Todo app - MobX - TodoStore's \textit {changeFilter} action implementation\relax }}{124}{listing.caption.224}%
+\contentsline {listing}{\numberline {2.122}{\ignorespaces Todo app - MobX - TodoStore's \textit {setCompleted} action implementation\relax }}{124}{listing.caption.225}%
+\contentsline {listing}{\numberline {2.123}{\ignorespaces Todo app - MobX - TodoStore's \textit {fetchTodos} and \textit {saveTodos} actions implementation\relax }}{125}{listing.caption.226}%
+\contentsline {listing}{\numberline {2.124}{\ignorespaces Todo app - MobX - TodoStore's \textit {completedTodos} and \textit {pendingTodos }computed values implementation\relax }}{125}{listing.caption.228}%
+\contentsline {listing}{\numberline {2.125}{\ignorespaces Todo app - MobX - \textit {filteredTodos} and \textit {stats} computed value implementation\relax }}{126}{listing.caption.229}%
+\contentsline {listing}{\numberline {2.126}{\ignorespaces Todo app - MobX - TodoStore code generation\relax }}{127}{listing.caption.231}%
+\contentsline {listing}{\numberline {2.127}{\ignorespaces Todo app - MobX - directive for code generation\relax }}{127}{listing.caption.232}%
+\contentsline {listing}{\numberline {2.128}{\ignorespaces Todo app - MobX - spy feature attachment\relax }}{128}{listing.caption.234}%
+\contentsline {listing}{\numberline {2.129}{\ignorespaces Todo app - MobX - making the state accessible using the Provider widget\relax }}{129}{listing.caption.236}%
+\contentsline {listing}{\numberline {2.130}{\ignorespaces Todo app - MobX - HomePage implementation\relax }}{129}{listing.caption.238}%
+\contentsline {listing}{\numberline {2.131}{\ignorespaces Todo app - MobX - TabSelector component implementation\relax }}{131}{listing.caption.239}%
+\contentsline {listing}{\numberline {2.132}{\ignorespaces Todo app - MobX - retrieving the TodoStore\relax }}{132}{listing.caption.241}%
+\contentsline {listing}{\numberline {2.133}{\ignorespaces Todo app - MobX - VisibilityFilterSelector component implementation\relax }}{132}{listing.caption.242}%
+\contentsline {listing}{\numberline {2.134}{\ignorespaces Todo app - MobX - changing the state in the VisibilityFilterSelector without predefined action\relax }}{133}{listing.caption.243}%
+\contentsline {listing}{\numberline {2.135}{\ignorespaces Todo app - MobX - Stats component implementation\relax }}{134}{listing.caption.245}%
+\contentsline {listing}{\numberline {2.136}{\ignorespaces Todo app - MobX - TodoView component implementation\relax }}{134}{listing.caption.247}%
+\contentsline {listing}{\numberline {2.137}{\ignorespaces Todo app - MobX - changing the state in the TodoItem component's Checkbox\relax }}{135}{listing.caption.248}%
+\contentsline {listing}{\numberline {2.138}{\ignorespaces Todo app - MobX - \textit {updateTodo} action and \textit {addTodo} action definition\relax }}{136}{listing.caption.250}%
+\contentsline {listing}{\numberline {2.139}{\ignorespaces Todo app - MobX - AddTodoPage's \textit {onPressed} field implementation\relax }}{137}{listing.caption.251}%
+\contentsline {listing}{\numberline {2.140}{\ignorespaces Todo app - MobX - UpdateTodoPage's \textit {onPressed} field implementation\relax }}{137}{listing.caption.252}%
+\contentsline {listing}{\numberline {2.141}{\ignorespaces Todo app - MobX - Todo model redefinition\relax }}{138}{listing.caption.254}%
+\contentsline {listing}{\numberline {2.142}{\ignorespaces Todo app - MobX - access the state into TodoItem component\relax }}{139}{listing.caption.255}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

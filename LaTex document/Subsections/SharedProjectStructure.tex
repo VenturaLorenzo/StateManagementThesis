@@ -455,9 +455,8 @@ The AddTodoPage is statefull and uses a Scaffold widget. The \textit{body} field
 	\begin{minted}[bgcolor=bluepoli!10]{dart}
 
 class AddTodoPage extends StatefulWidget {
-  final void Function(String, String) addTodoCallback;
 
-  const AddTodoPage({Key? key, required this.addTodoCallback})
+  const AddTodoPage({Key? key, required})
       : super(key: key);
 
   @override

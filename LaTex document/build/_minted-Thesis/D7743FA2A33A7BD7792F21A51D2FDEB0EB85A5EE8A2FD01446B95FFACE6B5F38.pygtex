@@ -8,11 +8,11 @@
 \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 \PYG{c+c1}{//new BlocBuilder widget}
   \PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoBloc}\PYG{p}{,} \PYG{n}{FilteredTodoState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
-\PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{state}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-  \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building: Todo Item }\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}}\PYG{l+s+s2}{id \PYGZdq{}} \PYG{o}{+} \PYG{n}{key}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{());}
+   \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{state}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+   \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building: Todo Item }\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}}\PYG{l+s+s2}{id \PYGZdq{}} \PYG{o}{+} \PYG{n}{key}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{());}
 
-  \PYG{k}{if} \PYG{p}{(}\PYG{n}{state} \PYG{k}{is} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-  \PYG{c+c1}{//retrieve the instance of the todo from the state using the id}
+   \PYG{k}{if} \PYG{p}{(}\PYG{n}{state} \PYG{k}{is} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//retrieve the instance of the todo from the state using the id}
     \PYG{n}{Todo} \PYG{n}{t} \PYG{o}{=} \PYG{p}{(}\PYG{n}{state}\PYG{p}{).}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{firstWhere}\PYG{p}{((}\PYG{n}{element}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{element}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{id}\PYG{p}{);}
     \PYG{c+c1}{//use it in the InkWell widget as usual}
     \PYG{k}{return} \PYG{n}{InkWell}\PYG{p}{(.} \PYG{p}{.} \PYG{p}{.);}
