@@ -34,11 +34,11 @@ mixin _$TodoStore on _TodoStore, Store {
   int get pending => (_$pendingComputed ??=
           Computed<int>(() => super.pending, name: '_TodoStore.pending'))
       .value;
-  Computed<String>? _$statsComputed;
+  Computed<Future<String>>? _$statsComputed;
 
   @override
-  String get stats => (_$statsComputed ??=
-          Computed<String>(() => super.stats, name: '_TodoStore.stats'))
+  Future<String> get stats => (_$statsComputed ??=
+          Computed<Future<String>>(() => super.stats, name: '_TodoStore.stats'))
       .value;
   Computed<List<Todo>>? _$completedTodosComputed;
 

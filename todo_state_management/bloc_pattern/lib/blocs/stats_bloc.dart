@@ -28,6 +28,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     if (event is StatsUpdatedEvent) {
+await      Future.delayed(Duration(seconds: 10));
       final numCompleted =
           event.todos.where((todo) => todo.completed).toList().length;
       yield StatsLoadedState(numCompleted);

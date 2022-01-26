@@ -64,7 +64,9 @@ class TodoInheritedData extends InheritedModel<int> {
   @override
   bool updateShouldNotifyDependent(
       TodoInheritedData oldWidget, Set<int> dependencies) {
-
+    if (dependencies.contains(1)) {
+      return true;
+    }
     int currLen = filteredTodos.length;
     int prevLen = oldWidget.filteredTodos.length;
     bool structureRebuildlen = (dependencies.contains(0) && currLen != prevLen);
@@ -86,7 +88,8 @@ class TodoInheritedData extends InheritedModel<int> {
         }
         bool res = components.fold(false,
             (bool previousValue, bool element) => previousValue || element);
-        print("sto eseguento per il widget ${dependencies.first} returning $res");
+        print(
+            "sto eseguento per il widget ${dependencies.first} returning $res");
         return res;
       }
     }
@@ -135,8 +138,8 @@ class _TodoProviderState extends State<TodoProvider> {
     List<Todo> newList = List.from(todos);
     newList.add(newTodo);
     setState(() {
-     // todos = newList;
-todos.add(newTodo);
+      // todos = newList;
+      todos.add(newTodo);
     });
   }
 

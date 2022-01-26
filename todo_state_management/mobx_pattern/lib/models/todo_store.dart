@@ -38,7 +38,8 @@ abstract class _TodoStore with Store {
   int get pending => pendingTodos.length;
 
   @computed
-  String get stats {
+  Future<String> get stats async {
+    await Future.delayed(const Duration(seconds: 5));
     return completed.toString();
   }
 
