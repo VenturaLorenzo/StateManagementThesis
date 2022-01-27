@@ -14,6 +14,7 @@ class TodoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
         buildWhen: (previous, next) {
       if (next is FilteredTodoLoadedState &&

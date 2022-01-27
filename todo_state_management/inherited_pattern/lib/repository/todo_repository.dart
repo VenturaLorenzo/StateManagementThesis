@@ -19,7 +19,9 @@ class TodoRepository {
     return todos;
   }
 
-  static Future<void> saveTodos(List<Todo> todos) async {
+  static Future<bool> saveTodos(List<Todo> todos) async {
+
     await Future.delayed(const Duration(seconds: 2));
+    return true;
   }
 }

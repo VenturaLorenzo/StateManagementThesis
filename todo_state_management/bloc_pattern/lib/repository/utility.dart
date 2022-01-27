@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bloc_pattern/models/todo.dart';
+import 'package:flutter/material.dart';
 
 int generateId(List<Todo> todos) {
   Random rand = Random();
@@ -16,3 +17,6 @@ bool todoExists(List<Todo> todos, int id) {
   List<Todo> result = todos.where((todo) => todo.id == id).toList();
   return result.isNotEmpty ? true : false;
 }
+const snackBar = SnackBar(
+  content: Text('Todos saved!'),
+);

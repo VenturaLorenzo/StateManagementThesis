@@ -15,14 +15,14 @@ class TodosLoadingState extends TodosState {
 
 class TodosLoadedState extends TodosState {
   final List<Todo> todos;
+  final bool saved;
 
-  const TodosLoadedState(this.todos);
+  const TodosLoadedState(this.todos,this.saved);
 
   @override
-  List<Object> get props => [todos];
+  List<Object> get props => [todos,saved];
 
   @override
   String toString() => 'TodosState - TodosLoadedState';
 }
 
-class TodoErrorState extends TodosState {}

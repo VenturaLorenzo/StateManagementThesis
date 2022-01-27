@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/visibility_filter.dart';
 import 'package:inherited_pattern/repository/todo_repository.dart';
 import 'package:inherited_pattern/repository/utility.dart';
@@ -88,8 +89,7 @@ class TodoInheritedData extends InheritedModel<int> {
         }
         bool res = components.fold(false,
             (bool previousValue, bool element) => previousValue || element);
-        print(
-            "sto eseguento per il widget ${dependencies.first} returning $res");
+
         return res;
       }
     }
@@ -137,11 +137,13 @@ class _TodoProviderState extends State<TodoProvider> {
     //perform the state change
     List<Todo> newList = List.from(todos);
     newList.add(newTodo);
+
     setState(() {
-      // todos = newList;
-      todos.add(newTodo);
+      todos = newList;
     });
-  }
+    TodoRepository.saveTodos(todos).then((value) {
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    });  }
 
   void onUpdateTodo(int id, String newName, String newDesc) {
     //control the todo's existance
@@ -162,6 +164,9 @@ class _TodoProviderState extends State<TodoProvider> {
     setState(() {
       todos = newTodosList;
     });
+    TodoRepository.saveTodos(todos).then((value) {
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    });
   }
 
   void onSetCompleted(int id, bool completed) {
@@ -181,8 +186,10 @@ class _TodoProviderState extends State<TodoProvider> {
         }
       }).toList();
     });
+    TodoRepository.saveTodos(todos).then((value) {
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    });
   }
-
   @override
   Widget build(BuildContext context) {
     return TodoInheritedData(

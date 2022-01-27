@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/todo.dart';
 
 int generateId(List<Todo> todos) {
@@ -16,3 +17,6 @@ bool todoExists(List<Todo> todos, int id) {
   List<Todo> result = todos.where((todo) => todo.id == id).toList();
   return result.isNotEmpty ? true : false;
 }
+const snackBar = SnackBar(
+  content: Text('Todos saved!'),
+);
