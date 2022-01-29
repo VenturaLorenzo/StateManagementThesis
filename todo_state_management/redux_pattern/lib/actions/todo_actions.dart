@@ -20,3 +20,8 @@ class SetCompletedTodoAction {
 
   SetCompletedTodoAction(this.id, this.completed);
 }
+class DeleteTodoAction{
+  final int id;
+
+  DeleteTodoAction(this.id);
+}

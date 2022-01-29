@@ -507,6 +507,7 @@ In the \textit{close} method the subscription to the \textit{TodoBloc} is termin
 @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     if (event is StatsUpdatedEvent) {
+      yield StatsLoadingState();
       final numCompleted =
           event.todos.where((todo) => todo.completed).toList().length;
       yield StatsLoadedState(numCompleted);
@@ -1029,6 +1030,7 @@ TextButton(
 
 \subsubsection{Rendering optimization}  \label{par:todo_app_inherited_widget_introduction}
 \hfill\\
+\paragraph{Optimizations using \textit{buildWhen }field - }\label{subpar:todo_app_bloc_core_state}
 To achieve the desired partial rendering is necessary to work on the TodoView widget and TodoItem widget only. We leverage on a specific field of the BlocBuilder widget called \textit{buildWhen}. This field is fillable with a Boolean function in order to determine whether or not to rebuild the BlocBuilder widget on a state transition. If the \textit{buildWhen} function return true, the widget is rebuilt otherwise it is not. Inside this function,  the previous state and the next state can be accessed. For the moment, when a state change occurs, the TodoView widget destroys all the children widgets and rebuilds them with the data contained in the new state. Well, actually is not precisely like this. Flutter indeed uses some articulated mechanism in order to rebuild the few parts of the widget tree possible. From our prespective, however, TodoItem widgets are destroyed and recreated at every transition, also in case a single TodoItem changed. To make the TodoItem widgets self-rebuild,  is necessary to make them sensible to changes in the state. For the moment the TodoItem widget does not use any BlocBuilder widget at all. Indeed, it just visualize the todo instance passed by the parent widget without actually accessing the state. The first thing to do  is to wrap the TodoItem widget inside a BlocBuilder widget making it listen for changes in the FilteredTodoBloc. Instead of receiving, from the TodoView parent widget, a copy of the todo instance is enough, now, to receive the id only and use it to obtain the instance of the todo through the state. Within the \textit{builder} the function the todo is looked up in the filtered list and used to create the TodoItem widget. 
 \begin{code}
 \mbox{}\\
@@ -1109,7 +1111,8 @@ buildWhen: (previous, next) {
 \mbox{}
 \end{code}
 
-
+\paragraph{Optimizations using BlocSelector widget - }\label{subpar:todo_app_bloc_core_state}
+I propose now another way in order to perform the rendering optimizations. After I got them implemented  using the buildeWhen field I found out that particular widget, called BlocSelector, is provided by the BLoC package for this specific scenario. The BlocSelector widget behaves exactly as the StoreConnector widget does in the Redux solution. It
 
 
 \subsubsection{Conclusions} \mbox{} \\

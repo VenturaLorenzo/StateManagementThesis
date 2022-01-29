@@ -42,8 +42,12 @@ class TodoItem extends StatelessWidget {
               onChanged: (value) {
                 TodoInheritedData.of(context, aspect: id)
                     .onSetCompleted(id, value!);
-
               }),
+          TextButton(
+              onPressed: () {
+                TodoInheritedData.of(context, aspect: id).onDeleteTodo(id);
+              },
+              child: Text("test"))
         ],
       ),
     );

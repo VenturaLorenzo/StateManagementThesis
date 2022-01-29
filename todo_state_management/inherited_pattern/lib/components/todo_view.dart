@@ -18,6 +18,7 @@ class TodoView extends StatelessWidget {
       itemCount: filteredTodos.length,
       itemBuilder: (context, index) {
         return TodoItem(
+          key: UniqueKey(),
           id: filteredTodos.elementAt(index).id,
         );
       },

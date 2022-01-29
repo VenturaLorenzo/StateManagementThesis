@@ -4,6 +4,8 @@
 \contentsline {chapter}{Contents\markboth {\MakeUppercase {Contents}}{\MakeUppercase {Contents}}}{v}{chapter*.6}%
 \vspace {2em}
 \contentsline {chapter}{Introduction}{1}{chapter*.8}%
+\contentsline {section}{\numberline {0.1}General Background}{1}{section.0.1}%
+\contentsline {section}{\numberline {0.2}The experiment the model}{1}{section.0.2}%
 \contentsline {chapter}{\numberline {1}State management solutions}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}SetState and InheritedWidget/InheritedModel}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Redux}{3}{section.1.2}%
@@ -38,26 +40,26 @@
 \contentsline {subsubsection}{Rendering optimizations}{44}{subsubsection*.78}%
 \contentsline {paragraph}{Pratical example 1 - }{48}{paragraph*.84}%
 \contentsline {paragraph}{Pratical example 2 - }{49}{paragraph*.85}%
-\contentsline {subsubsection}{Conclusions}{51}{subsubsection*.87}%
-\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{54}{subsection.2.2.3}%
-\contentsline {subsubsection}{Base funtionalities}{54}{subsubsection*.93}%
-\contentsline {paragraph}{The AppState - }{54}{paragraph*.94}%
-\contentsline {paragraph}{The actions - }{55}{paragraph*.96}%
-\contentsline {paragraph}{Reducers - }{57}{paragraph*.100}%
+\contentsline {subsubsection}{Conclusions}{52}{subsubsection*.87}%
+\contentsline {subsection}{\numberline {2.2.3}Redux implementation}{55}{subsection.2.2.3}%
+\contentsline {subsubsection}{Base funtionalities}{55}{subsubsection*.93}%
+\contentsline {paragraph}{The AppState - }{55}{paragraph*.94}%
+\contentsline {paragraph}{The actions - }{56}{paragraph*.96}%
+\contentsline {paragraph}{Reducers - }{58}{paragraph*.100}%
 \contentsline {paragraph}{The todoReducer - }{58}{paragraph*.101}%
 \contentsline {paragraph}{The tab's reducer and the visibility filter's reducer - }{60}{paragraph*.106}%
 \contentsline {paragraph}{The AppState reducer - }{61}{paragraph*.108}%
-\contentsline {paragraph}{The Middleware - }{61}{paragraph*.110}%
-\contentsline {paragraph}{Making the state accessible - }{62}{paragraph*.112}%
+\contentsline {paragraph}{The Middleware - }{62}{paragraph*.110}%
+\contentsline {paragraph}{Making the state accessible - }{63}{paragraph*.112}%
 \contentsline {paragraph}{Selectors - }{66}{paragraph*.115}%
 \contentsline {paragraph}{The TodoView component - }{68}{paragraph*.118}%
 \contentsline {paragraph}{The TodoItem component - }{69}{paragraph*.120}%
-\contentsline {paragraph}{The VisibilityFilterSelector component - }{69}{paragraph*.122}%
-\contentsline {paragraph}{The TabSelector component - }{70}{paragraph*.124}%
-\contentsline {paragraph}{The Stats component - }{71}{paragraph*.126}%
-\contentsline {subsubsection}{Features addition}{72}{subsubsection*.128}%
+\contentsline {paragraph}{The VisibilityFilterSelector component - }{70}{paragraph*.122}%
+\contentsline {paragraph}{The TabSelector component - }{71}{paragraph*.124}%
+\contentsline {paragraph}{The Stats component - }{72}{paragraph*.126}%
+\contentsline {subsubsection}{Features addition}{73}{subsubsection*.128}%
 \contentsline {subsubsection}{Rendering optimization}{76}{subsubsection*.135}%
-\contentsline {subsubsection}{Conclusions}{79}{subsubsection*.140}%
+\contentsline {subsubsection}{Conclusions}{80}{subsubsection*.140}%
 \contentsline {subsection}{\numberline {2.2.4}BloC implementation}{83}{subsection.2.2.4}%
 \contentsline {subsubsection}{Base funtionalities}{83}{subsubsection*.146}%
 \contentsline {paragraph}{States - }{83}{paragraph*.147}%
@@ -87,22 +89,24 @@
 \contentsline {paragraph}{TodoBloc update - }{111}{paragraph*.203}%
 \contentsline {paragraph}{Access new feature in the UI - }{114}{paragraph*.207}%
 \contentsline {subsubsection}{Rendering optimization}{115}{subsubsection*.210}%
-\contentsline {subsubsection}{Conclusions}{118}{subsubsection*.214}%
+\contentsline {paragraph}{Optimizations using \textit {buildWhen }field - }{115}{paragraph*.211}%
+\contentsline {paragraph}{Optimizations using BlocSelector widget - }{118}{paragraph*.215}%
+\contentsline {subsubsection}{Conclusions}{118}{subsubsection*.216}%
 \contentsline {subsection}{\numberline {2.2.5}MobX implementation}{122}{subsection.2.2.5}%
-\contentsline {subsubsection}{Base funtionalities}{123}{subsubsection*.220}%
-\contentsline {paragraph}{The observable state - }{123}{paragraph*.221}%
-\contentsline {paragraph}{Actions - }{124}{paragraph*.223}%
-\contentsline {paragraph}{Computed fields - }{125}{paragraph*.227}%
-\contentsline {paragraph}{The code generation - }{127}{paragraph*.230}%
-\contentsline {paragraph}{The spy feature - }{128}{paragraph*.233}%
-\contentsline {paragraph}{Making the state accessible - }{128}{paragraph*.235}%
-\contentsline {paragraph}{The HomePage and the TabSelector component - }{129}{paragraph*.237}%
-\contentsline {paragraph}{The VisibilityFilterSelector component - }{132}{paragraph*.240}%
-\contentsline {paragraph}{The Stats component - }{133}{paragraph*.244}%
-\contentsline {paragraph}{The TodoView component and the TodoItem component - }{134}{paragraph*.246}%
-\contentsline {subsubsection}{Features addition}{135}{subsubsection*.249}%
-\contentsline {subsubsection}{Rendering optimizations}{138}{subsubsection*.253}%
-\contentsline {subsubsection}{Conclusions}{140}{subsubsection*.256}%
+\contentsline {subsubsection}{Base funtionalities}{123}{subsubsection*.222}%
+\contentsline {paragraph}{The observable state - }{123}{paragraph*.223}%
+\contentsline {paragraph}{Actions - }{124}{paragraph*.225}%
+\contentsline {paragraph}{Computed fields - }{125}{paragraph*.229}%
+\contentsline {paragraph}{The code generation - }{127}{paragraph*.232}%
+\contentsline {paragraph}{The spy feature - }{128}{paragraph*.235}%
+\contentsline {paragraph}{Making the state accessible - }{128}{paragraph*.237}%
+\contentsline {paragraph}{The HomePage and the TabSelector component - }{129}{paragraph*.239}%
+\contentsline {paragraph}{The VisibilityFilterSelector component - }{132}{paragraph*.242}%
+\contentsline {paragraph}{The Stats component - }{133}{paragraph*.246}%
+\contentsline {paragraph}{The TodoView component and the TodoItem component - }{134}{paragraph*.248}%
+\contentsline {subsubsection}{Features addition}{135}{subsubsection*.251}%
+\contentsline {subsubsection}{Rendering optimizations}{138}{subsubsection*.255}%
+\contentsline {subsubsection}{Conclusions}{140}{subsubsection*.258}%
 \contentsline {chapter}{\numberline {3}The Other app}{143}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Comparisons}{145}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Conslusions}{147}{chapter.5}%
@@ -110,7 +114,7 @@
 \vspace {2em}
 \contentsline {chapter}{\numberline {A}Appendix A}{149}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Appendix B}{151}{appendix.B}%
-\contentsline {chapter}{List of Figures}{153}{appendix*.268}%
-\contentsline {chapter}{List of Tables}{155}{appendix*.270}%
-\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{157}{appendix*.272}%
-\contentsline {chapter}{Acknowledgements}{163}{appendix*.274}%
+\contentsline {chapter}{List of Figures}{153}{appendix*.270}%
+\contentsline {chapter}{List of Tables}{155}{appendix*.272}%
+\contentsline {chapter}{List of source codes\markboth {\MakeUppercase {List of source codes}}{\MakeUppercase {List of source codes}}}{157}{appendix*.274}%
+\contentsline {chapter}{Acknowledgements}{163}{appendix*.276}%

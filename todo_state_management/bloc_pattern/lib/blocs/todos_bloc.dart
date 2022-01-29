@@ -20,13 +20,15 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
       yield* _mapTodoUpdatedToState(event);
     } else if (event is SetCompletedTodoEvent) {
       yield* _mapSetCompletedToState(event);
+    } else if (event is DeleteTodoEvent) {
+      yield* _mapTodoDeletedToState(event);
     }
   }
 
   Stream<TodosState> _mapLoadTodosToState(LoadTodosEvent event) async* {
     try {
       final List<Todo> todos = await TodoRepository.loadTodos();
-      yield TodosLoadedState(todos, false);
+      yield TodosInitialState(todos);
     } catch (e) {
       yield TodosLoadingState();
     }
@@ -41,9 +43,10 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
           description: event.desc + " " + newId.toString(),
           completed: false);
       final List<Todo> updatedTodos =
-      List.from((state as TodosLoadedState).todos)
-        ..add(newTodo);
-      yield TodosLoadedState(updatedTodos, false);
+          List.from((state as TodosLoadedState).todos)..add(newTodo);
+      yield TodosMutatedState( false,updatedTodos);
+      await TodoRepository.saveTodos(updatedTodos);
+      yield TodosMutatedState( true,updatedTodos);
     }
   }
 
@@ -51,37 +54,47 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
     if (state is TodosLoadedState) {
       List<Todo> newTodos = (state as TodosLoadedState)
           .todos
-          .map((todo) =>
-      todo.id == event.id
-          ? Todo(
-          id: event.id,
-          name: event.newName,
-          description: event.newDesc,
-          completed: false)
-          : todo)
+          .map((todo) => todo.id == event.id
+              ? Todo(
+                  id: event.id,
+                  name: event.newName,
+                  description: event.newDesc,
+                  completed: false)
+              : todo)
           .toList();
-      yield TodosLoadedState(newTodos, false);
+      yield TodosMutatedState( false,newTodos);
+      await TodoRepository.saveTodos(newTodos);
+      yield TodosMutatedState( true,newTodos);
     }
   }
 
+  Stream<TodosState> _mapTodoDeletedToState(DeleteTodoEvent event) async* {
+    if (state is TodosLoadedState) {
+      List<Todo> newTodos = List.from((state as TodosLoadedState).todos)
+        ..removeWhere((element) => element.id == event.id);
+      yield TodosMutatedState( false,newTodos);
+      await TodoRepository.saveTodos(newTodos);
+      yield TodosMutatedState( true,newTodos);
+    }
+  }
 
   Stream<TodosState> _mapSetCompletedToState(
       SetCompletedTodoEvent event) async* {
     if (state is TodosLoadedState) {
       List<Todo> newList = (state as TodosLoadedState)
           .todos
-          .map((todo) =>
-      todo.id == event.id
-          ? Todo(
-          name: todo.name,
-          description: todo.description,
-          id: todo.id,
-          completed: event.completed)
-          : todo)
+          .map((todo) => todo.id == event.id
+              ? Todo(
+                  name: todo.name,
+                  description: todo.description,
+                  id: todo.id,
+                  completed: event.completed)
+              : todo)
           .toList();
-      yield TodosLoadedState(newList, false);
+      yield TodosMutatedState( false,newList);
       await TodoRepository.saveTodos(newList);
-      yield TodosLoadedState(newList, true);
+      yield TodosMutatedState( true,newList);
     }
+
   }
 }

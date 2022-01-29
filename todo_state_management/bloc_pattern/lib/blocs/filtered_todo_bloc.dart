@@ -15,7 +15,7 @@ class FilteredTodoBloc extends Bloc<FilteredTodoEvent, FilteredTodoState> {
 
   FilteredTodoBloc({required this.todoBloc})
       : super(
-          todoBloc.state is TodosLoadedState
+    (todoBloc.state is TodosLoadedState)
               ? FilteredTodoLoadedState(
                   (todoBloc.state as TodosLoadedState).todos,
                   VisibilityFilter.all,
@@ -64,7 +64,7 @@ class FilteredTodoBloc extends Bloc<FilteredTodoEvent, FilteredTodoState> {
     final filter = (state is FilteredTodoLoadedState)
         ? (state as FilteredTodoLoadedState).filter
         : VisibilityFilter.all;
-    if (todoBloc.state is TodosLoadedState) {
+    if (todoBloc.state is TodosLoadedState || todoBloc.state is TodosInitialState) {
       yield FilteredTodoLoadedState(
           filterTodos((todoBloc.state as TodosLoadedState).todos, filter),
           filter);

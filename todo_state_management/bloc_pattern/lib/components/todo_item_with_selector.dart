@@ -3,6 +3,7 @@ import 'package:bloc_pattern/blocs/todos_bloc.dart';
 import 'package:bloc_pattern/events/todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:bloc_pattern/states/filtered_todo_state.dart';
+import 'package:bloc_pattern/states/todos_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,13 +14,13 @@ class TodoItemSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
+    return BlocBuilder<TodoBloc, TodosState>(
         buildWhen: (previous, next) {
       return previous.runtimeType != next.runtimeType;
     }, builder: (context, state) {
       print("building: TodoITem builder");
 
-      if (state is FilteredTodoLoadedState) {
+      if (state is TodosLoadedState) {
         Todo newTodo = state.todos.where((element) => element.id == id).first;
         return BlocSelector<FilteredTodoBloc, FilteredTodoState, Todo>(
             selector: (state) {

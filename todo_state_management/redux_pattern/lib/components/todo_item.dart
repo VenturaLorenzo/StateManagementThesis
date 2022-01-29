@@ -15,8 +15,7 @@ class TodoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, Todo>(
       distinct: true,
-        converter: (store) =>
-            store.state.todos.firstWhere((element) => element.id == id),
+        converter: (store) =>store.state.todos.firstWhere((element) => element.id == id),
         builder: (context, todo) {
           print("building: Todo Item $id ");
 
@@ -42,27 +41,11 @@ class TodoItem extends StatelessWidget {
                       StoreProvider.of<AppState>(context).dispatch(
                           SetCompletedTodoAction(todo.id, completed!));
                     }),
+                TextButton(onPressed: (){StoreProvider.of<AppState>(context).dispatch(
+                    DeleteTodoAction(todo.id));}, child: Text("ciao"))
               ],
             ),
           );
         });
   }
 }
-/*
-class _ViewModel {
-  String text;
-  bool completed;
-
-  _ViewModel({required this.completed, required this.text});
-
-  @override
-  bool operator ==(Object other) {
-    return other is _ViewModel &&
-        other.text == text &&
-        other.completed == completed;
-  }
-
-  @override
-  // TODO: implement hashCode
-  int get hashCode => text.hashCode;
-}*/

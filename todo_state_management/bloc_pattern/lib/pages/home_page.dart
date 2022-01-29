@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<TodoBloc, TodosState>(
       listener: (context, state) {
-        if (state is TodosLoadedState && state.saved == true) {
+        if (state is TodosMutatedState && state.saved == true) {
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       },
@@ -31,12 +31,12 @@ class HomePage extends StatelessWidget {
               title: const Text("TodoApp"),
               actions: [
                 tabState == TabState.todos
-                    ? VisibilityFilterSelector()
+                    ? const VisibilityFilterSelector()
                     : Container()
               ],
             ),
             body: tabState == TabState.todos
-                ? const TodoViewSelector()
+                ? const TodoView()
                 : const Stats(),
             bottomNavigationBar: const TabSelector(),
             floatingActionButton: tabState == TabState.todos

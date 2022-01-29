@@ -17,6 +17,15 @@ class AddTodoEvent extends TodosEvent {
   @override
   String toString() => 'TodosEvent - AddTodoEvent';
 }
+
+class DeleteTodoEvent extends TodosEvent {
+  final int id;
+
+  const DeleteTodoEvent(this.id);
+
+  @override
+  String toString() => 'TodosEvent - DeleteTodoEvent';
+}
 class SaveTodosEvent extends TodosEvent{
   final List<Todo> todos;
   const SaveTodosEvent(this.todos);

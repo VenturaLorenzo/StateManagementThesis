@@ -34,6 +34,7 @@ class TodoInheritedData extends InheritedModel<int> {
   final void Function(int, bool) onSetCompleted;
   final void Function(int, String, String) onUpdateTodo;
   final void Function(VisibilityFilter) onChangeFilter;
+  final void Function(int) onDeleteTodo;
   final int stats;
   final VisibilityFilter filter;
 
@@ -45,6 +46,7 @@ class TodoInheritedData extends InheritedModel<int> {
       required this.onChangeFilter,
       required this.onAddTodo,
       required this.filter,
+      required this.onDeleteTodo,
       required Widget child})
       : stats = todos.where((todo) => todo.completed == true).length,
         filteredTodos = filterTodo(todos, filter),
@@ -59,7 +61,8 @@ class TodoInheritedData extends InheritedModel<int> {
 
   @override
   bool updateShouldNotify(TodoInheritedData oldWidget) {
-    return !listEquals(oldWidget.filteredTodos, filteredTodos);
+    return (!listEquals(oldWidget.filteredTodos, filteredTodos) ||
+        filter != oldWidget.filter);
   }
 
   @override
@@ -68,29 +71,49 @@ class TodoInheritedData extends InheritedModel<int> {
     if (dependencies.contains(1)) {
       return true;
     }
-    int currLen = filteredTodos.length;
-    int prevLen = oldWidget.filteredTodos.length;
-    bool structureRebuildlen = (dependencies.contains(0) && currLen != prevLen);
-    if (structureRebuildlen == true) {
-      return true;
-    } else {
-      List<int> currIds = filteredTodos.map((todo) => todo.id).toList();
-      List<int> prevIds =
-          oldWidget.filteredTodos.map((todo) => todo.id).toList();
-      bool sameIds = listEquals(currIds, prevIds);
-      bool structureRebuildcomp = (dependencies.contains(0) && !sameIds);
-      if (structureRebuildcomp == true) {
+    if (dependencies.contains(0)) {
+      bool structuralChange =
+          _checkStructuralChange(oldWidget.filteredTodos, filteredTodos);
+      if (structuralChange) {
         return true;
       } else {
-        List<bool> components = [];
-        for (var element in filteredTodos) {
-          components.add(dependencies.contains(element.id) &&
-              !oldWidget.filteredTodos.contains(element));
-        }
-        bool res = components.fold(false,
-            (bool previousValue, bool element) => previousValue || element);
+        return false;
+      }
+    }
+    List<bool> components = [];
+    for (var element in filteredTodos) {
+      components.add(dependencies.contains(element.id) &&
+          !oldWidget.filteredTodos.contains(element));
+    }
+    bool res = components.fold(
+        false, (bool previousValue, bool element) => previousValue || element);
+    return res;
+  }
 
-        return res;
+  bool _checkStructuralChange(List<Todo> before, List<Todo> current) {
+    //calculate the length of the current filtered list
+    int currLen = current.length;
+    //calculate the length of the previous filtered list
+    int prevLen = before.length;
+
+    bool structureRebuildLen = (currLen != prevLen);
+    //check if the two lengths differ
+    if (structureRebuildLen) {
+      // if they differ a structural change occured
+      return true;
+    } else {
+      //map the current list to a list containing the ids only
+      List<int> currIds = current.map((todo) => todo.id).toList();
+      //map the previous list to a list containing the ids only
+      List<int> prevIds = before.map((todo) => todo.id).toList();
+      //check they are the same
+      bool sameIds = listEquals(currIds, prevIds);
+      if (!sameIds) {
+        //if they differ a structural change uccurred
+        return true;
+      } else {
+        // no structural change occured
+        return false;
       }
     }
   }
@@ -141,9 +164,22 @@ class _TodoProviderState extends State<TodoProvider> {
     setState(() {
       todos = newList;
     });
-    TodoRepository.saveTodos(todos).then((value) {
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    });  }
+    // TodoRepository.saveTodos(todos).then((value) {
+    // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
+  }
+
+  void onDeleteTodo(int id) {
+    List<Todo> newList = List.from(todos)
+      ..removeWhere((element) => element.id == id);
+
+    setState(() {
+      todos = newList;
+    });
+    //TodoRepository.saveTodos(todos).then((value) {
+    //ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
+  }
 
   void onUpdateTodo(int id, String newName, String newDesc) {
     //control the todo's existance
@@ -164,9 +200,9 @@ class _TodoProviderState extends State<TodoProvider> {
     setState(() {
       todos = newTodosList;
     });
-    TodoRepository.saveTodos(todos).then((value) {
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    });
+    //TodoRepository.saveTodos(todos).then((value) {
+    //ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
   }
 
   void onSetCompleted(int id, bool completed) {
@@ -186,10 +222,11 @@ class _TodoProviderState extends State<TodoProvider> {
         }
       }).toList();
     });
-    TodoRepository.saveTodos(todos).then((value) {
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    });
+    //TodoRepository.saveTodos(todos).then((value) {
+    //ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
   }
+
   @override
   Widget build(BuildContext context) {
     return TodoInheritedData(
@@ -199,6 +236,7 @@ class _TodoProviderState extends State<TodoProvider> {
       onSetCompleted: onSetCompleted,
       onUpdateTodo: onUpdateTodo,
       filter: filter,
+      onDeleteTodo: onDeleteTodo,
       child: widget.child,
     );
   }

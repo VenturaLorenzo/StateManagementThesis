@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  22 JAN 2022 18:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  29 JAN 2022 18:47
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1229,6 +1229,12 @@ runsystem(del Thesis.aex)...executed.
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
 nt\build\Thesis.aux
 
+LaTeX Warning: Label `sec:general_overview' multiply defined.
+
+
+LaTeX Warning: Label `sec:general_overview@cref' multiply defined.
+
+
 LaTeX Warning: Label `fig:add_todo_page_tree_structure' multiply defined.
 
 
@@ -1972,6 +1978,18 @@ LaTeX Warning: Label `par:todo_app_inherited_widget_introduction@cref' multiply
  defined.
 
 
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
+
+
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
 LaTeX Warning: Label `code:2.14' multiply defined.
 
 
@@ -1984,10 +2002,10 @@ LaTeX Warning: Label `code:2.14' multiply defined.
 LaTeX Warning: Label `code:2.14@cref' multiply defined.
 
 
-LaTeX Warning: Label `code:2.14' multiply defined.
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
 
 
-LaTeX Warning: Label `code:2.14@cref' multiply defined.
+LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
 
 
 LaTeX Warning: Label `fig:todos_tab_UI' multiply defined.
@@ -2381,7 +2399,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-ep
 s-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most versio
 n <1.5> allowed
-<Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf, id=126, 493.
+<Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf, id=134, 493.
 845pt x 227.85126pt>
 File: Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -2415,7 +2433,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Images//./raggiera_polimi-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./Images//./raggiera_polimi-eps-converted-to.pdf, id=128, 502.87875pt x 502.87
+<./Images//./raggiera_polimi-eps-converted-to.pdf, id=136, 502.87875pt x 502.87
 875pt>
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
@@ -2571,20 +2589,20 @@ Chapter 2.
 (Subsections/BaseFunctionalities.tex [5
 
 ]
-<Images/shot_runtime_todoapp_todos.png, id=244, 375.65344pt x 253.69781pt>
+<Images/shot_runtime_todoapp_todos.png, id=254, 375.65344pt x 253.69781pt>
 File: Images/shot_runtime_todoapp_todos.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_todos.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_todos.png  used on input l
 ine 18.
 (pdftex.def)             Requested size: 187.82625pt x 126.84859pt.
-<Images/shot_runtime_todoapp_stats.png, id=246, 374.14781pt x 255.95625pt>
+<Images/shot_runtime_todoapp_stats.png, id=256, 374.14781pt x 255.95625pt>
 File: Images/shot_runtime_todoapp_stats.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_stats.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_stats.png  used on input l
 ine 22.
 (pdftex.def)             Requested size: 187.07344pt x 127.9778pt.
 ) (Subsections/AddingNewFeatures.tex
-<Images/shot_runtime_todoapp_addpage.png, id=247, 374.14781pt x 287.57437pt>
+<Images/shot_runtime_todoapp_addpage.png, id=257, 374.14781pt x 287.57437pt>
 File: Images/shot_runtime_todoapp_addpage.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_addpage.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_addpage.png  used on input
@@ -2593,7 +2611,7 @@ Package pdftex.def Info: Images/shot_runtime_todoapp_addpage.png  used on input
 
 [6 <./Images/shot_runtime_todoapp_todos.png> <./Images/shot_runtime_todoapp_sta
 ts.png>]
-<Images/shot_runtime_todoapp_updatepage.png, id=260, 374.90062pt x 289.08pt>
+<Images/shot_runtime_todoapp_updatepage.png, id=270, 374.90062pt x 289.08pt>
 File: Images/shot_runtime_todoapp_updatepage.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_updatepage.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_updatepage.png  used on in
@@ -2602,7 +2620,7 @@ put line 22.
 ) (Subsections/RendersOptimization.tex)) [7 <./Images/shot_runtime_todoapp_addp
 age.png> <./Images/shot_runtime_todoapp_updatepage.png>]
 (Sections/Implementation.tex (Subsections/SharedProjectStructure.tex
-<Images/folder_structure.png, id=272, 247.67531pt x 271.76532pt>
+<Images/folder_structure.png, id=282, 247.67531pt x 271.76532pt>
 File: Images/folder_structure.png Graphic file (type png)
 <use Images/folder_structure.png>
 Package pdftex.def Info: Images/folder_structure.png  used on input line 6.
@@ -2754,7 +2772,7 @@ E6B5F38.pygtex) [27]
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/1458EC0845850BF82D7CCD9737D58E5BEB85A5EE8A2FD01446B95FFAC
+(build/_minted-Thesis/C33CDED27C72421D2725E0E68AAE1856EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [28]
 \openout4 = `Thesis.pyg'.
 
@@ -2862,7 +2880,7 @@ Underfull \vbox (badness 1048) detected at line 496
  []
 
 [36]
-<Images/tree_structure_on_AddTodoPage.png, id=458, 276.28218pt x 311.66437pt>
+<Images/tree_structure_on_AddTodoPage.png, id=468, 276.28218pt x 311.66437pt>
 File: Images/tree_structure_on_AddTodoPage.png Graphic file (type png)
 <use Images/tree_structure_on_AddTodoPage.png>
 Package pdftex.def Info: Images/tree_structure_on_AddTodoPage.png  used on inpu
@@ -2977,7 +2995,11 @@ E6B5F38.pygtex)
 
 
 (build/_minted-Thesis/7522435BC0BAA72729D4BCF5E608D089EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [45]
+E6B5F38.pygtex)
+Overfull \vbox (0.70575pt too high) detected at line 783
+ []
+
+[45]
 Underfull \hbox (badness 10000) in paragraph at lines 783--788
 
  []
@@ -2989,14 +3011,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 783--788
 E6B5F38.pygtex)
 \openout4 = `Thesis.pyg'.
 
+runsystem(pygmentize -l dart -f latex -P commandprefix=PYG -F tokenmerge -o bui
+ld/_minted-Thesis/98A652CC07E34C20986AA3EFD7551BECEB85A5EE8A2FD01446B95FFACE6B5
+F38.pygtex build/Thesis.pyg)...executed.
 
-(build/_minted-Thesis/776A9CE42264FD412EBC147D6A0842FEEB85A5EE8A2FD01446B95FFAC
+
+(build/_minted-Thesis/98A652CC07E34C20986AA3EFD7551BECEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [46]
-Underfull \vbox (badness 10000) detected at line 856
+Underfull \vbox (badness 10000) detected at line 862
  []
 
 
-Underfull \vbox (badness 10000) detected at line 856
+Underfull \vbox (badness 10000) detected at line 862
  []
 
 [47]
@@ -3004,42 +3030,44 @@ Underfull \vbox (badness 10000) detected at line 856
 
 
 (build/_minted-Thesis/12135D279A202B007224207F2A9DBD5AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [48]
-Underfull \hbox (badness 10000) in paragraph at lines 887--888
+E6B5F38.pygtex) [48] [49]
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
 
  []
 
-[49] [50]
+[50]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/AF22C2D2299D8613CAEBC46E682A5875EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 911--915
+Underfull \hbox (badness 10000) in paragraph at lines 918--923
 
  []
 
 [51] [52]
-<Images/struttura_cartelle_inherited.png, id=564, 140.77594pt x 152.06813pt>
+<Images/struttura_cartelle_inherited.png, id=573, 140.77594pt x 152.06813pt>
 File: Images/struttura_cartelle_inherited.png Graphic file (type png)
 <use Images/struttura_cartelle_inherited.png>
 Package pdftex.def Info: Images/struttura_cartelle_inherited.png  used on input
- line 979.
+ line 987.
 (pdftex.def)             Requested size: 182.09486pt x 196.71397pt.
-<Images/albero_inherited_todos.png, id=566, 319.94531pt x 410.2828pt>
+ [53]
+<Images/albero_inherited_todos.png, id=582, 319.94531pt x 410.2828pt>
 File: Images/albero_inherited_todos.png Graphic file (type png)
 <use Images/albero_inherited_todos.png>
 Package pdftex.def Info: Images/albero_inherited_todos.png  used on input line 
-990.
+998.
 (pdftex.def)             Requested size: 191.96866pt x 246.17157pt.
-<Images/albero_inherited_stats.png, id=567, 258.9675pt x 234.1247pt>
+<Images/albero_inherited_stats.png, id=583, 258.9675pt x 234.1247pt>
 File: Images/albero_inherited_stats.png Graphic file (type png)
 <use Images/albero_inherited_stats.png>
 Package pdftex.def Info: Images/albero_inherited_stats.png  used on input line 
-994.
+1002.
 (pdftex.def)             Requested size: 155.38168pt x 140.47589pt.
-) [53 <./Images/struttura_cartelle_inherited.png>]
-(Subsections/ReduxImplementation.tex
+) (Subsections/ReduxImplementation.tex [54 <./Images/struttura_cartelle_inherit
+ed.png> <./Images/albero_inherited_todos.png> <./Images/albero_inherited_stats.
+png>]
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -3051,23 +3079,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--9
 
 \openout4 = `Thesis.pyg'.
 
-[54 <./Images/albero_inherited_todos.png> <./Images/albero_inherited_stats.png>
-]
+
 (build/_minted-Thesis/AD306A59565FF28A3DAED23D31B1D4B9EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex) [55]
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 
  []
 
 \openout4 = `Thesis.pyg'.
 
-[55]
+
 (build/_minted-Thesis/A2DDC04A0A54166458627BFEF6603FD8EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 53--56
 
  []
 
+[56]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3077,19 +3105,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
-[56]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/EFC64FEB5457B7CE2DA96FE1D882D69AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [57]
+E6B5F38.pygtex)
+Overfull \vbox (0.70575pt too high) detected at line 101
+ []
+
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 110--113
 
  []
 
 \openout4 = `Thesis.pyg'.
 
-
+[58]
 (build/_minted-Thesis/B6D96053BD157E5496096C1E11587ADEEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 120--125
@@ -3098,18 +3129,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--125
 
 \openout4 = `Thesis.pyg'.
 
-[58]
+
 (build/_minted-Thesis/16193FC4278D4E26A96A5716FA224BC6EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 144--147
 
  []
 
+[59]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/0E9BD8F55CAF9C62902F33AAFE5EC7D7EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [59]
+E6B5F38.pygtex)
 \openout4 = `Thesis.pyg'.
 
 
@@ -3119,58 +3151,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 179--182
 
  []
 
+[60]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/002B1C21EB705A85E47D958733DD5B1AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [60]
+E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
  []
 
 \openout4 = `Thesis.pyg'.
 
-
+[61]
 (build/_minted-Thesis/931DBFA0980296BF66BF09D765E79D5BEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 229--232
 
  []
 
-[61]
 \openout4 = `Thesis.pyg'.
 
-
+[62]
 (build/_minted-Thesis/8D00A07783FB14A50B15B49D15A5F1DCEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 252--256
 
  []
 
-[62]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/FE451F369E7AA01BE66BFC93F86E2995EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \vbox (badness 1655) detected at line 288
- []
-
-[63]
+E6B5F38.pygtex) [63]
 Underfull \hbox (badness 10000) in paragraph at lines 292--295
 
  []
 
+[64]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/EFEA6A4E4DC7A5D35770198FE3930C1FEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [64]
-Underfull \vbox (badness 10000) detected at line 343
- []
-
-
-Underfull \vbox (badness 10000) detected at line 343
+E6B5F38.pygtex)
+Underfull \vbox (badness 1655) detected at line 343
  []
 
 [65]
@@ -3178,6 +3202,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 350--353
 
  []
 
+[66]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3187,59 +3212,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--366
 
  []
 
-[66]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/1676AB55E83168AEED6B9577BEF3AE99EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
+Overfull \vbox (0.70575pt too high) detected at line 396
+ []
+
+[67]
 Underfull \hbox (badness 10000) in paragraph at lines 402--405
 
  []
 
-[67]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/AF54CEEA2BBC1AB792856D59FC6C0843EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Underfull \vbox (badness 1655) detected at line 432
- []
-
-[68]
+E6B5F38.pygtex) [68]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/EEB1A270DC5512E56154BB6704445282EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex) [69]
 Underfull \hbox (badness 10000) in paragraph at lines 458--461
 
  []
 
-[69]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/6C6BECE324B2F93E5834709388193D88EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex) [70]
 Underfull \hbox (badness 10000) in paragraph at lines 490--493
 
  []
 
 \openout4 = `Thesis.pyg'.
 
-[70]
+
 (build/_minted-Thesis/ADEF96E3BB6CF46A2FAABDBB6180DE5CEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex) [71]
 Underfull \hbox (badness 10000) in paragraph at lines 526--529
 
  []
 
 \openout4 = `Thesis.pyg'.
 
-[71]
+
 (build/_minted-Thesis/C104057543EFDE3B833C3E01575454BBEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex) [72]
 Underfull \hbox (badness 10000) in paragraph at lines 559--563
 
  []
@@ -3248,16 +3270,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 559--563
 
 
 (build/_minted-Thesis/5F24914698546B5DD7DF6520CEF9665CEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [72]
+E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 584--587
 
  []
 
+[73]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/1488A563ABA0FCEE62C9FC48D98A540FEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [73]
+E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 606--609
 
  []
@@ -3271,6 +3294,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 628--631
 
  []
 
+[74]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3280,7 +3304,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 644--647
 
  []
 
-[74]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3290,24 +3313,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 663--666
 
  []
 
+[75]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/DB38314EE25977C025174E6259EEF51DEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [75]
+E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 684--688
 
  []
 
 \openout4 = `Thesis.pyg'.
 
-
+[76]
 (build/_minted-Thesis/F16BDC80C979D3BFC14E75792AC30D26EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \vbox (badness 10000) detected at line 714
- []
-
-[76]
 Underfull \hbox (badness 10000) in paragraph at lines 718--721
 
  []
@@ -3327,30 +3347,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 734--737
 
 (build/_minted-Thesis/1119CC4A609D01EBF73DDC8A56B4E440EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
+Overfull \vbox (0.70575pt too high) detected at line 753
+ []
+
+[78]
 Underfull \hbox (badness 10000) in paragraph at lines 757--760
 
  []
 
-[78]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/B12C36477759821929DEEBFC725824EDEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [79] [80]
-<Images/struttura_cartelle_redux.png, id=760, 193.47281pt x 377.91188pt>
+<Images/struttura_cartelle_redux.png, id=769, 193.47281pt x 377.91188pt>
 File: Images/struttura_cartelle_redux.png Graphic file (type png)
 <use Images/struttura_cartelle_redux.png>
 Package pdftex.def Info: Images/struttura_cartelle_redux.png  used on input lin
 e 854.
 (pdftex.def)             Requested size: 182.09486pt x 355.69276pt.
  [81]
-<Images/albero_redux_todos.png, id=767, 344.03531pt x 408.02437pt>
+<Images/albero_redux_todos.png, id=776, 344.03531pt x 408.02437pt>
 File: Images/albero_redux_todos.png Graphic file (type png)
 <use Images/albero_redux_todos.png>
 Package pdftex.def Info: Images/albero_redux_todos.png  used on input line 865.
 
 (pdftex.def)             Requested size: 206.42278pt x 244.81651pt.
-<Images/albero_redux_stats.png, id=768, 302.63063pt x 224.33812pt>
+<Images/albero_redux_stats.png, id=777, 302.63063pt x 224.33812pt>
 File: Images/albero_redux_stats.png Graphic file (type png)
 <use Images/albero_redux_stats.png>
 Package pdftex.def Info: Images/albero_redux_stats.png  used on input line 869.
@@ -3691,16 +3714,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1011--1014
 
 (build/_minted-Thesis/80374B1BEDBA4B12D8BA642026F8EB56EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [114]
-Underfull \hbox (badness 10000) in paragraph at lines 1031--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1031--1032
 
  []
 
-\openout4 = `Thesis.pyg'.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1033--1036
+
+ []
 
 [115]
+\openout4 = `Thesis.pyg'.
+
+
 (build/_minted-Thesis/D7743FA2A33A7BD7792F21A51D2FDEB0EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 1067--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1068--1071
 
  []
 
@@ -3710,32 +3739,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 1067--1070
 
 (build/_minted-Thesis/8E69C2F983782BAD659DEF51518A5E86EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 1086--1089
+Underfull \hbox (badness 10000) in paragraph at lines 1087--1090
 
  []
 
+[117]
 \openout4 = `Thesis.pyg'.
 
-[117]
+
 (build/_minted-Thesis/29868779F4613B3CF23CD668B030B61DEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [118] [119]
-<Images/struttura_cartelle_bloc.png, id=1016, 181.42781pt x 394.47375pt>
+<Images/struttura_cartelle_bloc.png, id=1029, 181.42781pt x 394.47375pt>
 File: Images/struttura_cartelle_bloc.png Graphic file (type png)
 <use Images/struttura_cartelle_bloc.png>
 Package pdftex.def Info: Images/struttura_cartelle_bloc.png  used on input line
- 1180.
+ 1182.
 (pdftex.def)             Requested size: 182.09486pt x 395.93542pt.
  [120]
-<Images/albero_bloc_todos.png, id=1023, 427.5975pt x 480.29437pt>
+<Images/albero_bloc_todos.png, id=1036, 427.5975pt x 480.29437pt>
 File: Images/albero_bloc_todos.png Graphic file (type png)
 <use Images/albero_bloc_todos.png>
-Package pdftex.def Info: Images/albero_bloc_todos.png  used on input line 1190.
+Package pdftex.def Info: Images/albero_bloc_todos.png  used on input line 1192.
 
 (pdftex.def)             Requested size: 256.56047pt x 288.17883pt.
-<Images/albero_bloc_stats.png, id=1024, 329.73187pt x 295.85532pt>
+<Images/albero_bloc_stats.png, id=1037, 329.73187pt x 295.85532pt>
 File: Images/albero_bloc_stats.png Graphic file (type png)
 <use Images/albero_bloc_stats.png>
-Package pdftex.def Info: Images/albero_bloc_stats.png  used on input line 1194.
+Package pdftex.def Info: Images/albero_bloc_stats.png  used on input line 1196.
 
 (pdftex.def)             Requested size: 197.84064pt x 177.51454pt.
  [121 <./Images/struttura_cartelle_bloc.png>]) (Subsections/MobXImplementation.
@@ -3961,19 +3991,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 497--500
 
 (build/_minted-Thesis/ED798297A5FB7D8E1E6238064CBF1365EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [139] [140]
-<Images/struttura_cartelle_mobx.png, id=1163, 139.27031pt x 197.23688pt>
+<Images/struttura_cartelle_mobx.png, id=1176, 139.27031pt x 197.23688pt>
 File: Images/struttura_cartelle_mobx.png Graphic file (type png)
 <use Images/struttura_cartelle_mobx.png>
 Package pdftex.def Info: Images/struttura_cartelle_mobx.png  used on input line
  587.
 (pdftex.def)             Requested size: 182.09486pt x 257.8916pt.
  [141]
-<Images/albero_mobx_todos.png, id=1171, 264.99pt x 409.53pt>
+<Images/albero_mobx_todos.png, id=1184, 264.99pt x 409.53pt>
 File: Images/albero_mobx_todos.png Graphic file (type png)
 <use Images/albero_mobx_todos.png>
 Package pdftex.def Info: Images/albero_mobx_todos.png  used on input line 596.
 (pdftex.def)             Requested size: 158.99522pt x 245.7199pt.
-<Images/albero_mobx_stats.png, id=1172, 199.49532pt x 213.79875pt>
+<Images/albero_mobx_stats.png, id=1185, 199.49532pt x 213.79875pt>
 File: Images/albero_mobx_stats.png Graphic file (type png)
 <use Images/albero_mobx_stats.png>
 Package pdftex.def Info: Images/albero_mobx_stats.png  used on input line 600.
@@ -4197,6 +4227,9 @@ Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
 Package caption Warning: Unused \captionsetup[algorithm] on input line 13.
 See the caption package documentation for explanation.
 
+runsystem(del build\_minted-Thesis\A71A46E6BB55EDA7CF55A8D2F4EF7A13EB85A5EE8A2F
+D01446B95FFACE6B5F38.pygtex)...executed.
+
 
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
 nt\build\Thesis.aux)
@@ -4204,40 +4237,41 @@ nt\build\Thesis.aux)
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 737F076E6F2A7B62A6EEBB950A0A0478;4174.
+(rerunfilecheck)             Checksum: 8A760D617022783762CF4109FDC2C78D;4508.
 runsystem(del build\\Thesis.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 37138 strings out of 478681
- 811377 string characters out of 2845587
- 1103577 words of memory out of 3000000
- 53602 multiletter control sequences out of 15000+600000
- 422934 words of font info for 73 fonts, out of 8000000 for 9000
+ 37149 strings out of 478681
+ 811736 string characters out of 2845587
+ 1103614 words of memory out of 3000000
+ 53607 multiletter control sequences out of 15000+600000
+ 423633 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,12n,118p,2659b,949s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tc
-it1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\tctt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Lorenzo\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Lorenzo\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Lorenzo\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Lo
-renzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecbx1200.pk> <C:\
-Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi2500\ecbx1200
-.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+ <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ec
+bi1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\tcit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tctt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi600\ecit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Lorenzo\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Lorenzo\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Lo
+renzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\
+Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecbx1200.
+pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi2500\
 ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi864\ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/lj
-four/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\Local\Mi
-KTeX\fonts/pk/ljfour/jknappen/ec/dpi1244\ecbx1200.pk>
+/dpi600\ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecrm1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi864\ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\Lorenzo\AppData\Local\Mi
+KTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\
+Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi1244\ecbx1200.pk>
 Output written on "C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementT
-hesis\LaTex document\build\Thesis.pdf" (172 pages, 1042009 bytes).
+hesis\LaTex document\build\Thesis.pdf" (172 pages, 1050426 bytes).
 PDF statistics:
- 2159 PDF objects out of 2487 (max. 8388607)
- 483 named destinations out of 1000 (max. 500000)
- 359 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2187 PDF objects out of 2487 (max. 8388607)
+ 487 named destinations out of 1000 (max. 500000)
+ 375 words of extra memory for PDF output out of 10000 (max. 10000000)
 

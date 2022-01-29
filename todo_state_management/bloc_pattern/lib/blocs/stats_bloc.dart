@@ -15,7 +15,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
 
   StatsBloc({required this.todoBloc}) : super(StatsLoadingState()) {
     void onTodosStateChanged(state) {
-      if (state is TodosLoadedState) {
+      if (state is TodosLoadedState || state is TodosInitialState) {
         add(StatsUpdatedEvent(state.todos));
       }
     }
@@ -28,7 +28,8 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     if (event is StatsUpdatedEvent) {
-await      Future.delayed(Duration(seconds: 10));
+      yield StatsLoadingState();
+      await Future.delayed(const Duration(seconds: 5));
       final numCompleted =
           event.todos.where((todo) => todo.completed).toList().length;
       yield StatsLoadedState(numCompleted);

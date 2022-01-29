@@ -200,9 +200,9 @@ In the HomePage’s AppBar, a VisibilityFilterSelector component is ready to be 
 
 \label{code:2.23}
 \begin{minted}[bgcolor=bluepoli!10]{dart}
-class VisibilityFilterComponent extends StatelessWidget {
+class VisibilityFilterSelector extends StatelessWidget {
 
-  const VisibilityFilterComponent(
+  const VisibilityFilterSelector(
       {Key? key})
       : super(key: key);
 
@@ -763,8 +763,8 @@ class TodoInheritedData extends InheritedModel<int> {
 \end{minted}
 \end{code}
 \mbox{}\\
-I decided to use Ints in order to identify aspects. In particular, widgets that need to rebuild on \textit{filteredTodos} list structural change, register to the aspect identified with the number 0. Widgets that do never need to rebuild register to the aspect identified with number 1. Widgets that need to rebuild when a non-structural change affecting the specific Todo with id n occurs register to the aspect identified with the number n. (no Todos will have id with value 0 or 1. This is a convention I used to keep things simple. Other ,more complex structure , could be used to avoid this behaviour). 
-At this point, the method \textit{of}, in the TodoInheritedData widget, should be updated taking into account the \textit{aspect} parameter. Morevover, the \textit{result} variable should be populated with the \textit{inheritedFrom} static method belonging to the InheritedModel class, instead of the \textit{dependOnInheritedWidgetOfExactType} static method belonging to InheritedWidget class.
+I decided to use Ints in order to identify aspects. In particular, widgets that need to rebuild on \textit{filteredTodos} list structural change, register to the aspect identified with the number 0. Widgets that do always need to rebuild register to the aspect identified with number 1. Widgets that need to rebuild when a non-structural change, affecting the specific Todo with id n, occurs register to the aspect identified with the number n. (no Todos will have id with value 0 or 1. This is a convention I used to keep things simple. Other ,more complex structure , could be used to avoid this behaviour). 
+At this point, the \textit{of} method, contained in the TodoInheritedData widget, should be updated taking into account the \textit{aspect} parameter. Morevover, the \textit{result} variable should be populated with the \textit{inheritedFrom} static method belonging to the InheritedModel class, instead of the \textit{dependOnInheritedWidgetOfExactType} static method belonging to InheritedWidget class.
 \mbox{}\\
 \begin{code}
 \captionof{listing}{Todo app - InheritedModel - TodoInheritedData's  \textit{of} method implementation}\mbox{}
@@ -794,65 +794,71 @@ TodoInheritedData.of(context, aspect: aspect)
 \end{minted}
 \end{code}
 \mbox{}\\
-In particular, the TodoView widget will pass as aspect argument the number 0 declaring that should be notified (and rebuild) only when a structural change occurs.
+In particular, the TodoView widget will pass as \textit{aspect} argument the number 0 declaring that should be notified (and rebuild) only when a structural change occurs.
 Instead, TodoItem widgets will pass the corresponding Todo’s \textit{id} in the \textit{aspect} parameter.
-Now that every widget is registered to the desired aspect of the data, it is necessary to “teach”, the TodoInheritedData widget ,how to recognize aspects' changes. To do so, InheritedModel provides a method called \textit{updateShouldNotifyDepenedent} that is similar to the InheritedWidget’s one, \textit{updateShouldNotify }, but takes as argument also a Set of ints called \textit{dependencies }  (aspects). Once a transition occurs this method is called once for every widget that registered to state changes. The \textit{dependencies }  variable will contain all \textit{aspects} the widget registered to (only one for every widget in our case). 
+Now that every widget is registered to the desired aspect of the data, it is necessary to “teach” the TodoInheritedData widget to recognize aspects' changes. To do so, InheritedModel provides a method called \textit{updateShouldNotifyDepenedent} that is similar to the InheritedWidget’s one, \textit{updateShouldNotify }, but takes as argument also a Set of ints called \textit{dependencies }  (aspects). Once a transition occurs this method is called once for every widget that registered to state's changes. The \textit{dependencies }  variable will contain all the \textit{aspects} the widget registered to (only one for every widget in our case). Before proceeding with the \textit{updateShouldNotifyDepenedent} method's implementation we define a function called \textit{\_checkStructuralChange} that check if two lists have strctural differences.
 \mbox{}\\
 \begin{code}
 \captionof{listing}{Todo app - InheritedModel - TodoInheritedData's \textit{updateShouldNotifyDepented} method implementation}\mbox{}
 \label{code:2.46}
 \begin{minted}[bgcolor=bluepoli!10]{dart}
+ bool _checkStructuralChange(List<Todo> before, List<Todo> current) {
+    //calculate the length of the current filtered list
+    int currLen = current.length;
+    //calculate the length of the previous filtered list
+    int prevLen = before.length;
 
-@override
-bool updateShouldNotifyDependent(
-    TodoInheritedData oldWidget, Set<int> dependencies) {
-  //calculate the length of the current filtered list  
-  int currLen = filteredTodos.length;
-  //calculate the length of the previous filtered list  
-  int prevLen = oldWidget.filteredTodos.length;
-  //if updateShouldNotifyDependent is called in a structural
-  // dependent widget and a structural change occured
-  bool structureRebuildlen = (dependencies.contains(0) &&
-   currLen != prevLen);
-  if (structureRebuildlen == true) {
-  //rebuild
-    return true;
-  } else {
-    //compute the list of ids in the current filtered list
-    List<int> currIds = filteredTodos.map((todo) => todo.id).toList();
-    //compute the list of ids in the previous filtered list
-    List<int> prevIds =
-        oldWidget.filteredTodos.map((todo) => todo.id).toList();
-    //compute if ids changed
-    bool sameIds = listEquals(currIds, prevIds);
-    //computer if updateShouldNotifyDependent is called in a 
-    // structural dependent widget and a structural change occured
-    bool structureRebuildcomp = (dependencies.contains(0) && !sameIds);
-    if (structureRebuildcomp == true) {
-    //rebuild
+    bool structureRebuildLen = (currLen != prevLen);
+    //check if the two lengths differ
+    if (structureRebuildLen) {
+      // if they differ a structural change occured
       return true;
     } else {
-      //create an array of booleans
-      List<bool> components = [];
-      //for every todo in the current filtered list
-      for (var element in filteredTodos) {
-      //add the boolean && between
-        components.add(
-      //if updateShouldNotifyDependent is called in a widget 
-      // that registered to the aspect with that id        
-        dependencies.contains(element.id) 
-        &&
-      // if the element with that id in the previous 
-      // filtered list is different
-            !oldWidget.filteredTodos.contains(element));
+      //map the current list to a list containing the ids only
+      List<int> currIds = current.map((todo) => todo.id).toList();
+      //map the previous list to a list containing the ids only
+      List<int> prevIds = before.map((todo) => todo.id).toList();
+      //check they are the same
+      bool sameIds = listEquals(currIds, prevIds);
+      if (!sameIds) {
+        //if they differ a structural change uccurred
+        return true;
+      } else {
+        // no structural change occured
+        return false;
       }
-      //apply the or operator between all elements in the list
-      bool res = components.fold(false,
-          (bool previousValue, bool element) => previousValue || element);
-      return res;
     }
   }
-}
+  @override
+  bool updateShouldNotifyDependent(
+      TodoInheritedData oldWidget, Set<int> dependencies) {
+    if (dependencies.contains(1)) {
+    // the widget do always need to rebuild
+      return true;
+    }
+    if (dependencies.contains(0)) {
+    //widget registered for structural changes
+      bool structuralChange =
+          _checkStructuralChange(oldWidget.filteredTodos, filteredTodos);
+      if (structuralChange) {
+      //in case structural changes occurred
+        return true;
+      } else {
+        return false;
+      }
+    }
+    //if this point is reached the widget registered    
+    //for a particular todo's changes
+    //check if that todo changed
+    List<bool> components = [];
+    for (var element in filteredTodos) {
+      components.add(dependencies.contains(element.id) &&
+          !oldWidget.filteredTodos.contains(element));
+    }
+    bool res = components.fold(
+        false, (bool previousValue, bool element) => previousValue || element);
+    return res;
+  }
 \end{minted}
 \end{code}
 \mbox{}\\
@@ -886,16 +892,16 @@ Suppose to have a list of todos containing two todo instances as before, one wit
 
 \mbox{}\\
 
-At this point , when the TodoItem’s checkbox is tapped the single TodoItem widget is rebuilt. However, no visual changes are shown. The widget rebuilds with the same information as before . This is due to the fact that, the \textit{build} method, populates its internal widgets based on a local \textit{todo} variable. This variable is populated on the TodoItem widget's creation with a Todo instance provided by the parent widget(TodoView). Indeed, when the TodoView widget instantiates TodoItems  in its ListView, it creates a copy of the corresponding Todo before passing it to the constructor. Even if we changed the information contained in the TodoInheritedData widget, the TodoItem widget do not see any difference.  Its local todo variable , indeed, did not change. The fact that, before the optimizations, TodoItem widgets rebuilt correctly comes from the fact that the transition of the state caused actions leads the entire TodoView widget to rebuild. The conseguence was that TodoItems were detroyed and created again using new copies of the data coming from the TodoInheritedData widget. \\
+At this point , when the TodoItem’s checkbox is tapped the single TodoItem widget is rebuilt. However, no visual changes are shown. The widget rebuilds with the same information as before . This is due to the fact that, the \textit{build} method, populates its internal widgets based on a local \textit{todo} variable. This variable is populated on the TodoItem widget's creation with a Todo instance provided by the parent widget(TodoView). Indeed, when the TodoView widget instantiates TodoItems  in its ListView, it creates a copy of the corresponding Todo before passing it to the constructor. Even if we changed the information contained in the TodoInheritedData widget, the TodoItem widget do not see any difference.  Its local todo variable , indeed, did not change. The fact that, before the optimizations, TodoItem widgets rebuilt correctly comes from the fact that every transition of the state caused the entire TodoView widget to rebuild. The conseguence was that TodoItems were detroyed and created again using new copies of the data coming from the TodoInheritedData widget. \\
 To recap, the performance optimization we were looking for were achieved succesfully but an issue ,regarding the syncronization of the data, arised. The TodoItems widget sees a screenshot of the state different from the one seen by the rest of the application. This is a really bad behavior and is caused by the fact that ,sometimes, during programming , more than one level of information caching is required or used to avoid effort in coding and performance issues. In other words, a local copy of the data is kept and referred to in case of data access in order to optimize the accesses in the main storage that can become quite expensive in large scenarios. A great example of that is the local copy of the database’s data used in many applications. Is more effective to fetch data from the database, save them locally, manipulate this local copy and only in case of real necessity access again the database to store them or retrieve other data. In large applications (but also in small ones like in this cases) more than one level of data caching is used. Particular attention is required to handle those levels to avoid inconsistency in what is visualized and the real data. In this case the \textit{filteredTodos} list actually changed but the UI did not reflect this change. The problem was generate by the fact that a local copy of the real Todo instance was passed to the TodoItem widget. Instead , the "correct" way of handling this scenario is to pass the id of the Todo in the constructor and then use this id to look up for the Todo instance in the centralized state (the TodoInheritedData). This of course will require more computational effort but  will guarantee also a lot more stability and robustness. 
 Therefore, TodoItem widget's local variable of type Todo is replaced with a new int variable called \textit{id} that represents the id of the Todo the widget is visualizing. In the \textit{build} method, then, the corresponding Todo is looked up.
+
 \mbox{}\\
 \begin{code}
 \captionof{listing}{Todo app - InheritedModel - accesing the state into TodoItem component}
-\mbox{}
+
 \label{code:2.48}
 \begin{minted}[bgcolor=bluepoli!10]{dart}
-
 class TodoItem extends StatelessWidget {
   final int id; // Todo variable replaced with a int one
 
@@ -911,7 +917,8 @@ class TodoItem extends StatelessWidget {
 \end{minted}
 \end{code}
 \mbox{}\\
-At this point the application is working as intentioned and the rendering optimizations were successfully accomplished. \\
+At this point I also suggest to generate a new unique Key, in the TodoView widget, and pass it to the TodoItem widget. I indeed faced a "strange" bug/behaviour before providing a unique key to every TodoItem widgets. This bug showed up performing multiple filter changes and subsequently performing a todo update regarding the \textit{completed  }field (but also in case of other updates I suppose). In that case not only the interested TodoItem widget rebuilt but also other, apparently random, ones. Investigating a bit I discovered that some TodoItem widgets turned out to be registered for more than one aspect after the filter changes. This was clearly not possible because every TodoItem widget registers for a single aspect by construction. The only reason I could think of was that some of them were reused by the framework to avoid discarding them and rebuilding them from scratch. Indeed, when the TodoView is rebuilt multiple times in a single execution the Flutter framework tries to minimize the creation of TodoItem widgets. I did not understood in depth where this bug was generated but it was solved right after I added a unique key to every TodoItem widget. Providing a unique key blocks the framework from reusing TodoItem instances. 
+After this adjunctive passage the application is working as intentioned and the rendering optimizations were successfully accomplished. \\
 
 
 \subsubsection{Conclusions} 
