@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nl}{buildWhen:} \PYG{p}{(}\PYG{n}{previous}\PYG{p}{,} \PYG{n}{next}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{next} \PYG{k}{is} \PYG{n}{TodosLoadedState} \PYG{o}{\PYGZam{}\PYGZam{}}
+          \PYG{n}{previous} \PYG{k}{is} \PYG{n}{TodosLoadedState} \PYG{o}{\PYGZam{}\PYGZam{}}
+          \PYG{n}{next}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{todo}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{).}\PYG{n}{contains}\PYG{p}{(}\PYG{n}{id}\PYG{p}{)} \PYG{o}{\PYGZam{}\PYGZam{}}
+          \PYG{n}{previous}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{firstWhere}\PYG{p}{((}\PYG{n}{element}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{element}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{id}\PYG{p}{)} \PYG{o}{!=}
+              \PYG{n}{next}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{firstWhere}\PYG{p}{((}\PYG{n}{element}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{element}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{id}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{k+kc}{true}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{k+kc}{false}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

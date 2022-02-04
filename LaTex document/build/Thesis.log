@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  29 JAN 2022 18:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.12.1)  1 FEB 2022 18:27
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1229,6 +1229,36 @@ runsystem(del Thesis.aex)...executed.
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
 nt\build\Thesis.aux
 
+LaTeX Warning: Label `sec:setState' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState' multiply defined.
+
+
+LaTeX Warning: Label `sec:setState@cref' multiply defined.
+
+
 LaTeX Warning: Label `sec:general_overview' multiply defined.
 
 
@@ -2008,6 +2038,30 @@ LaTeX Warning: Label `subpar:todo_app_bloc_core_state' multiply defined.
 LaTeX Warning: Label `subpar:todo_app_bloc_core_state@cref' multiply defined.
 
 
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14' multiply defined.
+
+
+LaTeX Warning: Label `code:2.14@cref' multiply defined.
+
+
 LaTeX Warning: Label `fig:todos_tab_UI' multiply defined.
 
 
@@ -2399,7 +2453,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-ep
 s-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most versio
 n <1.5> allowed
-<Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf, id=134, 493.
+<Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf, id=138, 493.
 845pt x 227.85126pt>
 File: Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -2433,7 +2487,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Images//./raggiera_polimi-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./Images//./raggiera_polimi-eps-converted-to.pdf, id=136, 502.87875pt x 502.87
+<./Images//./raggiera_polimi-eps-converted-to.pdf, id=140, 502.87875pt x 502.87
 875pt>
 File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images//./raggiera_polimi-eps-converted-to.pdf>
@@ -2562,47 +2616,34 @@ Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
 
 ]
 Chapter 1.
-(Chapters/Chapter_One.tex) [3
+(Chapters/Chapter_One.tex (Subsections/InventorAndCoreConcepts.tex)
+(Subsections/InventorAndCoreConcepts.tex)
+(Subsections/InventorAndCoreConcepts.tex)
+(Subsections/InventorAndCoreConcepts.tex [3
 
-]
-Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
-(epstopdf)                    date: 2021-11-29 18:09:46
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images//./raggiera_polimi-eps-converted-
-to.pdf>
-(epstopdf)                    date: 2021-11-30 18:52:08
-(epstopdf)                    size: 40418 bytes
-(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
-s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 199.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images//./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 199.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [4
-
-]
+])
+(Subsections/InventorAndCoreConcepts.tex)
+(Subsections/InventorAndCoreConcepts.tex)) [4]
 Chapter 2.
 (Chapters/Chapter_Two.tex (Sections/GeneralOverview.tex
 (Subsections/BaseFunctionalities.tex [5
 
+
 ]
-<Images/shot_runtime_todoapp_todos.png, id=254, 375.65344pt x 253.69781pt>
+<Images/shot_runtime_todoapp_todos.png, id=283, 375.65344pt x 253.69781pt>
 File: Images/shot_runtime_todoapp_todos.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_todos.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_todos.png  used on input l
 ine 18.
 (pdftex.def)             Requested size: 187.82625pt x 126.84859pt.
-<Images/shot_runtime_todoapp_stats.png, id=256, 374.14781pt x 255.95625pt>
+<Images/shot_runtime_todoapp_stats.png, id=285, 374.14781pt x 255.95625pt>
 File: Images/shot_runtime_todoapp_stats.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_stats.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_stats.png  used on input l
 ine 22.
 (pdftex.def)             Requested size: 187.07344pt x 127.9778pt.
 ) (Subsections/AddingNewFeatures.tex
-<Images/shot_runtime_todoapp_addpage.png, id=257, 374.14781pt x 287.57437pt>
+<Images/shot_runtime_todoapp_addpage.png, id=286, 374.14781pt x 287.57437pt>
 File: Images/shot_runtime_todoapp_addpage.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_addpage.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_addpage.png  used on input
@@ -2611,7 +2652,7 @@ Package pdftex.def Info: Images/shot_runtime_todoapp_addpage.png  used on input
 
 [6 <./Images/shot_runtime_todoapp_todos.png> <./Images/shot_runtime_todoapp_sta
 ts.png>]
-<Images/shot_runtime_todoapp_updatepage.png, id=270, 374.90062pt x 289.08pt>
+<Images/shot_runtime_todoapp_updatepage.png, id=299, 374.90062pt x 289.08pt>
 File: Images/shot_runtime_todoapp_updatepage.png Graphic file (type png)
 <use Images/shot_runtime_todoapp_updatepage.png>
 Package pdftex.def Info: Images/shot_runtime_todoapp_updatepage.png  used on in
@@ -2620,7 +2661,7 @@ put line 22.
 ) (Subsections/RendersOptimization.tex)) [7 <./Images/shot_runtime_todoapp_addp
 age.png> <./Images/shot_runtime_todoapp_updatepage.png>]
 (Sections/Implementation.tex (Subsections/SharedProjectStructure.tex
-<Images/folder_structure.png, id=282, 247.67531pt x 271.76532pt>
+<Images/folder_structure.png, id=311, 247.67531pt x 271.76532pt>
 File: Images/folder_structure.png Graphic file (type png)
 <use Images/folder_structure.png>
 Package pdftex.def Info: Images/folder_structure.png  used on input line 6.
@@ -2687,7 +2728,7 @@ E6B5F38.pygtex) [15]
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/F3CAB1D18A5CED29FAE4A9395A6A059DEB85A5EE8A2FD01446B95FFAC
+(build/_minted-Thesis/37B0D8A79AB6A89DE0E3BFB85D0DF5E7EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [16]
 \openout4 = `Thesis.pyg'.
 
@@ -2880,7 +2921,7 @@ Underfull \vbox (badness 1048) detected at line 496
  []
 
 [36]
-<Images/tree_structure_on_AddTodoPage.png, id=468, 276.28218pt x 311.66437pt>
+<Images/tree_structure_on_AddTodoPage.png, id=502, 276.28218pt x 311.66437pt>
 File: Images/tree_structure_on_AddTodoPage.png Graphic file (type png)
 <use Images/tree_structure_on_AddTodoPage.png>
 Package pdftex.def Info: Images/tree_structure_on_AddTodoPage.png  used on inpu
@@ -3011,10 +3052,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 783--788
 E6B5F38.pygtex)
 \openout4 = `Thesis.pyg'.
 
-runsystem(pygmentize -l dart -f latex -P commandprefix=PYG -F tokenmerge -o bui
-ld/_minted-Thesis/98A652CC07E34C20986AA3EFD7551BECEB85A5EE8A2FD01446B95FFACE6B5
-F38.pygtex build/Thesis.pyg)...executed.
-
 
 (build/_minted-Thesis/98A652CC07E34C20986AA3EFD7551BECEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [46]
@@ -3039,40 +3076,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 893--894
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/AF22C2D2299D8613CAEBC46E682A5875EB85A5EE8A2FD01446B95FFAC
+(build/_minted-Thesis/26AFDE43C49FFD82CA406CB883965DC1EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 918--923
+Underfull \hbox (badness 10000) in paragraph at lines 917--922
 
  []
 
 [51] [52]
-<Images/struttura_cartelle_inherited.png, id=573, 140.77594pt x 152.06813pt>
+<Images/struttura_cartelle_inherited.png, id=610, 140.77594pt x 152.06813pt>
 File: Images/struttura_cartelle_inherited.png Graphic file (type png)
 <use Images/struttura_cartelle_inherited.png>
 Package pdftex.def Info: Images/struttura_cartelle_inherited.png  used on input
- line 987.
+ line 986.
 (pdftex.def)             Requested size: 182.09486pt x 196.71397pt.
  [53]
-<Images/albero_inherited_todos.png, id=582, 319.94531pt x 410.2828pt>
+<Images/albero_inherited_todos.png, id=621, 319.94531pt x 410.2828pt>
 File: Images/albero_inherited_todos.png Graphic file (type png)
 <use Images/albero_inherited_todos.png>
 Package pdftex.def Info: Images/albero_inherited_todos.png  used on input line 
-998.
+997.
 (pdftex.def)             Requested size: 191.96866pt x 246.17157pt.
-<Images/albero_inherited_stats.png, id=583, 258.9675pt x 234.1247pt>
+<Images/albero_inherited_stats.png, id=622, 258.9675pt x 234.1247pt>
 File: Images/albero_inherited_stats.png Graphic file (type png)
 <use Images/albero_inherited_stats.png>
 Package pdftex.def Info: Images/albero_inherited_stats.png  used on input line 
-1002.
+1001.
 (pdftex.def)             Requested size: 155.38168pt x 140.47589pt.
 ) (Subsections/ReduxImplementation.tex [54 <./Images/struttura_cartelle_inherit
 ed.png> <./Images/albero_inherited_todos.png> <./Images/albero_inherited_stats.
 png>]
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 6--9
 
  []
@@ -3081,11 +3113,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--9
 
 
 (build/_minted-Thesis/AD306A59565FF28A3DAED23D31B1D4B9EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [55]
+E6B5F38.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 
  []
 
+[55]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3109,11 +3142,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
 
 (build/_minted-Thesis/EFC64FEB5457B7CE2DA96FE1D882D69AEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
-Overfull \vbox (0.70575pt too high) detected at line 101
- []
-
-[57]
+E6B5F38.pygtex) [57]
 Underfull \hbox (badness 10000) in paragraph at lines 110--113
 
  []
@@ -3163,9 +3192,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
 \openout4 = `Thesis.pyg'.
 
-[61]
+
 (build/_minted-Thesis/931DBFA0980296BF66BF09D765E79D5BEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex)
+E6B5F38.pygtex) [61]
 Underfull \hbox (badness 10000) in paragraph at lines 229--232
 
  []
@@ -3360,20 +3389,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 757--760
 
 (build/_minted-Thesis/B12C36477759821929DEEBFC725824EDEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [79] [80]
-<Images/struttura_cartelle_redux.png, id=769, 193.47281pt x 377.91188pt>
+<Images/struttura_cartelle_redux.png, id=817, 193.47281pt x 377.91188pt>
 File: Images/struttura_cartelle_redux.png Graphic file (type png)
 <use Images/struttura_cartelle_redux.png>
 Package pdftex.def Info: Images/struttura_cartelle_redux.png  used on input lin
 e 854.
 (pdftex.def)             Requested size: 182.09486pt x 355.69276pt.
  [81]
-<Images/albero_redux_todos.png, id=776, 344.03531pt x 408.02437pt>
+<Images/albero_redux_todos.png, id=826, 344.03531pt x 408.02437pt>
 File: Images/albero_redux_todos.png Graphic file (type png)
 <use Images/albero_redux_todos.png>
 Package pdftex.def Info: Images/albero_redux_todos.png  used on input line 865.
 
 (pdftex.def)             Requested size: 206.42278pt x 244.81651pt.
-<Images/albero_redux_stats.png, id=777, 302.63063pt x 224.33812pt>
+<Images/albero_redux_stats.png, id=827, 302.63063pt x 224.33812pt>
 File: Images/albero_redux_stats.png Graphic file (type png)
 <use Images/albero_redux_stats.png>
 Package pdftex.def Info: Images/albero_redux_stats.png  used on input line 869.
@@ -3522,14 +3551,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 503--504
 \openout4 = `Thesis.pyg'.
 
 [98]
-(build/_minted-Thesis/052FFE97602E7118AEF7C74B8932BDE1EB85A5EE8A2FD01446B95FFAC
+(build/_minted-Thesis/23FBCFB89A1150E36FE8C6B098696B3EEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/41FBCAFD85AC25A209E702143DDE0368EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [99]
-Underfull \hbox (badness 10000) in paragraph at lines 554--557
+Underfull \hbox (badness 10000) in paragraph at lines 555--558
 
  []
 
@@ -3538,7 +3567,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 554--557
 
 (build/_minted-Thesis/3C7228C5A2D428473DE0C806FB4EDA15EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 572--575
+Underfull \hbox (badness 10000) in paragraph at lines 573--576
 
  []
 
@@ -3548,16 +3577,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 572--575
 
 (build/_minted-Thesis/0AB47333284ACFC46A48B985E5103F18EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 600--603
+Underfull \hbox (badness 10000) in paragraph at lines 601--604
 
  []
 
 \openout4 = `Thesis.pyg'.
 
-
+[101]
 (build/_minted-Thesis/D23C3D53BFE1462D10CC06BEE825A3CAEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [101]
-Underfull \hbox (badness 10000) in paragraph at lines 615--619
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 616--620
 
  []
 
@@ -3566,7 +3595,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 615--619
 
 (build/_minted-Thesis/0CE028C13DB237C4E95D0FE0200F2E81EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [102]
-Underfull \hbox (badness 10000) in paragraph at lines 633--636
+Underfull \hbox (badness 10000) in paragraph at lines 634--637
 
  []
 
@@ -3580,7 +3609,7 @@ E6B5F38.pygtex) [103]
 
 (build/_minted-Thesis/03AEAC90B42F77F321DA82D8F6F54CB0EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [104]
-Underfull \hbox (badness 10000) in paragraph at lines 696--701
+Underfull \hbox (badness 10000) in paragraph at lines 697--702
 
  []
 
@@ -3589,7 +3618,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 696--701
 
 (build/_minted-Thesis/5B106A82952C1254FC9453172A048EA8EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [105]
-Underfull \hbox (badness 10000) in paragraph at lines 732--734
+Underfull \hbox (badness 10000) in paragraph at lines 733--735
 
  []
 
@@ -3598,7 +3627,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 732--734
 
 (build/_minted-Thesis/9DFC5C8A0F1F055F1396F45CB6F07879EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [106]
-Underfull \hbox (badness 10000) in paragraph at lines 769--772
+Underfull \hbox (badness 10000) in paragraph at lines 770--773
 
  []
 
@@ -3607,7 +3636,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 769--772
 
 (build/_minted-Thesis/175D8FFD58250404F7E086159AFC78F5EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [107]
-Underfull \hbox (badness 10000) in paragraph at lines 787--790
+Underfull \hbox (badness 10000) in paragraph at lines 788--791
 
  []
 
@@ -3616,7 +3645,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 787--790
 
 (build/_minted-Thesis/0A8A01D5E470D96041D92DC9D90AAC16EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 799--802
+Underfull \hbox (badness 10000) in paragraph at lines 800--803
 
  []
 
@@ -3625,7 +3654,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 799--802
 
 (build/_minted-Thesis/06C1208B9C0B72017A0FC006AD877D0DEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 812--815
+Underfull \hbox (badness 10000) in paragraph at lines 813--816
 
  []
 
@@ -3635,7 +3664,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 812--815
 
 (build/_minted-Thesis/3FDD61D706498C96A3D5381257B612D9EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 828--831
+Underfull \hbox (badness 10000) in paragraph at lines 829--832
 
  []
 
@@ -3644,7 +3673,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 828--831
 
 (build/_minted-Thesis/8B162DF40D8E25C8FCC171AFE63AC47CEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 838--844
+Underfull \hbox (badness 10000) in paragraph at lines 839--845
 
  []
 
@@ -3653,7 +3682,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 838--844
 
 (build/_minted-Thesis/9AF86B16647B58A42253C9879CD17221EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 858--861
+Underfull \hbox (badness 10000) in paragraph at lines 859--862
 
  []
 
@@ -3663,7 +3692,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 858--861
 
 (build/_minted-Thesis/0D21AA33C75D9BF04994F3065AB12416EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 881--884
+Underfull \hbox (badness 10000) in paragraph at lines 882--885
 
  []
 
@@ -3672,7 +3701,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 881--884
 [110]
 (build/_minted-Thesis/70F5D8FEF74487D742B2219EC49F53C8EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 916--919
+Underfull \hbox (badness 10000) in paragraph at lines 917--920
 
  []
 
@@ -3682,7 +3711,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 916--919
 
 (build/_minted-Thesis/609E5E41D636599FEFDC79A61B01EF0BEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 938--941
+Underfull \hbox (badness 10000) in paragraph at lines 939--942
 
  []
 
@@ -3696,7 +3725,7 @@ E6B5F38.pygtex) [112]
 
 (build/_minted-Thesis/8628DA5811FA046583523F79E2B241DBEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [113]
-Underfull \hbox (badness 10000) in paragraph at lines 993--997
+Underfull \hbox (badness 10000) in paragraph at lines 994--998
 
  []
 
@@ -3705,7 +3734,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 993--997
 
 (build/_minted-Thesis/D2785DDE45F0DE4E828F6D2F608B74CBEB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 1011--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1015
 
  []
 
@@ -3714,22 +3743,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1011--1014
 
 (build/_minted-Thesis/80374B1BEDBA4B12D8BA642026F8EB56EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [114]
-Underfull \hbox (badness 10000) in paragraph at lines 1031--1032
+Underfull \hbox (badness 10000) in paragraph at lines 1034--1037
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1033--1036
-
- []
-
-[115]
 \openout4 = `Thesis.pyg'.
 
-
-(build/_minted-Thesis/D7743FA2A33A7BD7792F21A51D2FDEB0EB85A5EE8A2FD01446B95FFAC
+[115]
+(build/_minted-Thesis/7584C9CBA171F2CCCBE292E0411EE165EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 1068--1071
+Underfull \hbox (badness 10000) in paragraph at lines 1069--1072
 
  []
 
@@ -3739,37 +3762,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 1068--1071
 
 (build/_minted-Thesis/8E69C2F983782BAD659DEF51518A5E86EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1091
 
  []
 
+\openout4 = `Thesis.pyg'.
+
 [117]
+(build/_minted-Thesis/49401FFA705589BE7E353C96D812FF8EEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
+
+ []
+
 \openout4 = `Thesis.pyg'.
 
 
-(build/_minted-Thesis/29868779F4613B3CF23CD668B030B61DEB85A5EE8A2FD01446B95FFAC
+(build/_minted-Thesis/41E018A0FCA1633C380A947A90BB2029EB85A5EE8A2FD01446B95FFAC
 E6B5F38.pygtex) [118] [119]
-<Images/struttura_cartelle_bloc.png, id=1029, 181.42781pt x 394.47375pt>
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/CE5AA1AD8B95AAF7DFE1EB62739DD474EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [120]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/3807E8573C0DDD908C5E99E0A68E959FEB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [121]
+\openout4 = `Thesis.pyg'.
+
+
+(build/_minted-Thesis/93BC0287F60942C67F0BDB785A790685EB85A5EE8A2FD01446B95FFAC
+E6B5F38.pygtex) [122] [123]
+<Images/struttura_cartelle_bloc.png, id=1102, 181.42781pt x 394.47375pt>
 File: Images/struttura_cartelle_bloc.png Graphic file (type png)
 <use Images/struttura_cartelle_bloc.png>
 Package pdftex.def Info: Images/struttura_cartelle_bloc.png  used on input line
- 1182.
+ 1293.
 (pdftex.def)             Requested size: 182.09486pt x 395.93542pt.
- [120]
-<Images/albero_bloc_todos.png, id=1036, 427.5975pt x 480.29437pt>
+ [124]
+<Images/albero_bloc_todos.png, id=1112, 427.5975pt x 480.29437pt>
 File: Images/albero_bloc_todos.png Graphic file (type png)
 <use Images/albero_bloc_todos.png>
-Package pdftex.def Info: Images/albero_bloc_todos.png  used on input line 1192.
+Package pdftex.def Info: Images/albero_bloc_todos.png  used on input line 1303.
 
 (pdftex.def)             Requested size: 256.56047pt x 288.17883pt.
-<Images/albero_bloc_stats.png, id=1037, 329.73187pt x 295.85532pt>
+<Images/albero_bloc_stats.png, id=1113, 329.73187pt x 295.85532pt>
 File: Images/albero_bloc_stats.png Graphic file (type png)
 <use Images/albero_bloc_stats.png>
-Package pdftex.def Info: Images/albero_bloc_stats.png  used on input line 1196.
+Package pdftex.def Info: Images/albero_bloc_stats.png  used on input line 1307.
 
 (pdftex.def)             Requested size: 197.84064pt x 177.51454pt.
- [121 <./Images/struttura_cartelle_bloc.png>]) (Subsections/MobXImplementation.
-tex [122 <./Images/albero_bloc_todos.png> <./Images/albero_bloc_stats.png>]
+ [125 <./Images/struttura_cartelle_bloc.png>]) (Subsections/MobXImplementation.
+tex [126 <./Images/albero_bloc_todos.png> <./Images/albero_bloc_stats.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 7--10
 
  []
@@ -3783,7 +3829,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--29
 
  []
 
-[123]
+[127]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3802,7 +3848,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 57--60
 
  []
 
-[124]
+[128]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3816,7 +3862,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--80
 
 
 (build/_minted-Thesis/4BF9D27CD864DBBCAB43736BE8AD1B45EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [125]
+E6B5F38.pygtex) [129]
 Underfull \hbox (badness 10000) in paragraph at lines 95--98
 
  []
@@ -3829,7 +3875,7 @@ E6B5F38.pygtex)
 Underfull \vbox (badness 4686) detected at line 126
  []
 
-[126]
+[130]
 Underfull \hbox (badness 10000) in paragraph at lines 131--134
 
  []
@@ -3847,7 +3893,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--148
 
 
 (build/_minted-Thesis/35027503C236B57836A7DE69209D586BEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [127]
+E6B5F38.pygtex) [131]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3857,7 +3903,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--186
 
  []
 
-[128]
+[132]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3867,12 +3913,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 201--204
 
  []
 
-[129]
+[133]
 \openout4 = `Thesis.pyg'.
 
 
 (build/_minted-Thesis/5F28F0570B89DF7D51E66F7616B8BEDAEB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [130]
+E6B5F38.pygtex) [134]
 Underfull \hbox (badness 10000) in paragraph at lines 249--250
 
  []
@@ -3886,7 +3932,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 279--282
 
  []
 
-[131]
+[135]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3905,7 +3951,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 315--318
 
  []
 
-[132]
+[136]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3915,7 +3961,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 331--334
 
  []
 
-[133]
+[137]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3929,7 +3975,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 349--352
 
 
 (build/_minted-Thesis/DFC962687059552ABD090B98AC6B8E50EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [134]
+E6B5F38.pygtex) [138]
 Underfull \hbox (badness 10000) in paragraph at lines 375--378
 
  []
@@ -3943,7 +3989,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--397
 
  []
 
-[135]
+[139]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3953,7 +3999,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 427--430
 
  []
 
-[136]
+[140]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3972,7 +4018,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 466--471
 
  []
 
-[137]
+[141]
 \openout4 = `Thesis.pyg'.
 
 
@@ -3981,7 +4027,7 @@ E6B5F38.pygtex)
 Underfull \vbox (badness 10000) detected at line 493
  []
 
-[138]
+[142]
 Underfull \hbox (badness 10000) in paragraph at lines 497--500
 
  []
@@ -3990,20 +4036,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 497--500
 
 
 (build/_minted-Thesis/ED798297A5FB7D8E1E6238064CBF1365EB85A5EE8A2FD01446B95FFAC
-E6B5F38.pygtex) [139] [140]
-<Images/struttura_cartelle_mobx.png, id=1176, 139.27031pt x 197.23688pt>
+E6B5F38.pygtex) [143] [144]
+<Images/struttura_cartelle_mobx.png, id=1259, 139.27031pt x 197.23688pt>
 File: Images/struttura_cartelle_mobx.png Graphic file (type png)
 <use Images/struttura_cartelle_mobx.png>
 Package pdftex.def Info: Images/struttura_cartelle_mobx.png  used on input line
  587.
 (pdftex.def)             Requested size: 182.09486pt x 257.8916pt.
- [141]
-<Images/albero_mobx_todos.png, id=1184, 264.99pt x 409.53pt>
+ [145]
+<Images/albero_mobx_todos.png, id=1269, 264.99pt x 409.53pt>
 File: Images/albero_mobx_todos.png Graphic file (type png)
 <use Images/albero_mobx_todos.png>
 Package pdftex.def Info: Images/albero_mobx_todos.png  used on input line 596.
 (pdftex.def)             Requested size: 158.99522pt x 245.7199pt.
-<Images/albero_mobx_stats.png, id=1185, 199.49532pt x 213.79875pt>
+<Images/albero_mobx_stats.png, id=1270, 199.49532pt x 213.79875pt>
 File: Images/albero_mobx_stats.png Graphic file (type png)
 <use Images/albero_mobx_stats.png>
 Package pdftex.def Info: Images/albero_mobx_stats.png  used on input line 600.
@@ -4013,10 +4059,10 @@ Underfull \hbox (badness 1412) in paragraph at lines 600--600
 [][]\T1/cmr/m/n/10 (b)[][] []|Wid-gets tree struc-ture
  []
 
-))) [142 <./Images/struttura_cartelle_mobx.png> <./Images/albero_mobx_todos.png
+))) [146 <./Images/struttura_cartelle_mobx.png> <./Images/albero_mobx_todos.png
 > <./Images/albero_mobx_stats.png>]
 Chapter 3.
-[143
+[147
 
 
 ]
@@ -4036,11 +4082,11 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 208.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [144
+ [148
 
 ]
 Chapter 4.
-[145
+[149
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -4059,12 +4105,12 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 211.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [146
+ [150
 
 ]
 Chapter 5.
 No file Thesis.bbl.
-[147
+[151
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -4083,11 +4129,11 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 225.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [148
+ [152
 
 ]
 Appendix A.
-[149
+[153
 
 
 ]
@@ -4107,11 +4153,11 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 233.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [150
+ [154
 
 ]
 Appendix B.
-[151
+[155
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -4130,23 +4176,23 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 238.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [152
+ [156
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
-nt\build\Thesis.lof [153
+nt\build\Thesis.lof [157
 
 ])
 \tf@lof=\write8
 \openout8 = `Thesis.lof'.
 
- [154]
+ [158]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
 nt\build\Thesis.lot)
 \tf@lot=\write9
 \openout9 = `Thesis.lot'.
 
- [155
+ [159
 
 
 ]
@@ -4166,42 +4212,24 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 244.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [156
+ [160
 
 ]
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
-nt\build\Thesis.lol [157
+nt\build\Thesis.lol [161
 
-] [158] [159]
+] [162] [163]
 Underfull \hbox (badness 1215) in paragraph at lines 93--93
  [][] [][][]\T1/cmr/m/n/12 Todo app - Bloc - Fil-teredTodoBloc \T1/cmr/m/it/12 
 _mapTodoUp-dat-edE-vent-ToState 
  []
 
-[160])
+[164] [165])
 \tf@lol=\write10
 \openout10 = `Thesis.lol'.
 
- [161]
-Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
-(epstopdf)                    date: 2021-11-29 18:09:46
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images//./raggiera_polimi-eps-converted-
-to.pdf>
-(epstopdf)                    date: 2021-11-30 18:52:08
-(epstopdf)                    size: 40418 bytes
-(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=./Image
-s//./raggiera_polimi-eps-converted-to.pdf ./Images//./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 246.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images//./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
- on input line 246.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [162
+ [166] [167
 
-] [163
 
 ]
 Package epstopdf Info: Source file: <./Images//./raggiera_polimi.eps>
@@ -4220,15 +4248,12 @@ File: ./Images//./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images//./raggiera_polimi-eps-converted-to.pdf  used
  on input line 249.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [164
+ [168
 
 ]
 
 Package caption Warning: Unused \captionsetup[algorithm] on input line 13.
 See the caption package documentation for explanation.
-
-runsystem(del build\_minted-Thesis\A71A46E6BB55EDA7CF55A8D2F4EF7A13EB85A5EE8A2F
-D01446B95FFACE6B5F38.pygtex)...executed.
 
 
 (C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementThesis\LaTex docume
@@ -4236,42 +4261,354 @@ nt\build\Thesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 8A760D617022783762CF4109FDC2C78D;4508.
+
+Package rerunfilecheck Warning: File `Thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Thesis.out':
+(rerunfilecheck)             Before: 34791F4E8453FFF9010629C266B4314E;5216
+(rerunfilecheck)             After:  311C08205AAAE9AD7E8A73DD5210BC65;5216.
 runsystem(del build\\Thesis.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 37149 strings out of 478681
- 811736 string characters out of 2845587
- 1103614 words of memory out of 3000000
- 53607 multiletter control sequences out of 15000+600000
+ 37321 strings out of 478681
+ 818028 string characters out of 2845587
+ 1104935 words of memory out of 3000000
+ 53620 multiletter control sequences out of 15000+600000
  423633 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,12n,118p,2659b,949s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ec
-bi1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\tcit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\tctt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\ecit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Lorenzo\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Lorenzo\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Lo
-renzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\
-Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecbx1200.
-pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi2500\
-ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecrm1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/lj
-four/jknappen/ec/dpi864\ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\Lorenzo\AppData\Local\Mi
-KTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\
-Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi1244\ecbx1200.pk>
+pdfTeX warning (dest): name{listing.caption.260} has been referenced but does
+ not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.257} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.253} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.251} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.245} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.244} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.235} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.234} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.231} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.219} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.213} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.208} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.205} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.199} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.196} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.186} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.182} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.180} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.179} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.178} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.176} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.174} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.171} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.170} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.169} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.168} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.167} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.166} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.164} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.139} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.136} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.134} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.132} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.130} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.125} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.114} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.113} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.111} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.109} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.102} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.82} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.80} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.77} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.71} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.60} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.50} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.43} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.39} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.38} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.35} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.34} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.33} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.31} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.29} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.27} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.25} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.24} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.18} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.15} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.13} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.11} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.267} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.266} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.265} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.264} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.263} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.247} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.249} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.248} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.225} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.224} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.223} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.222} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.221} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.159} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.145} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.144} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.143} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.142} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.141} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.116} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.28} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.117} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.21} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.20} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{paragraph*.23} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.92} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.91} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.90} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.88} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.86} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection*.61} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.65} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.30} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.41} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.40} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.22} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.16} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{appendix*.280} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{appendix*.278} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{appendix*.276} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{appendix*.274} has been referenced but does not exi
+st, replaced by a fixed one
+
+ <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi
+1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\tcit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
+n/ec/dpi600\tctt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecit1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/p
+k/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX
+\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Lorenzo\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Lorenzo\AppD
+ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Lore
+nzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Us
+ers\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi720\ecbx1200.pk
+> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi2500\ec
+bx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi864\ecbx1200.pk> <C:\Users\Lorenzo\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\Lorenzo\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi720\ecxc1200.pk> <C:\Users\Lorenzo\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi1244\ecbx1200.pk>
 Output written on "C:\Users\Lorenzo\Desktop\TESI\Examperiments\StateManagementT
-hesis\LaTex document\build\Thesis.pdf" (172 pages, 1050426 bytes).
+hesis\LaTex document\build\Thesis.pdf" (176 pages, 1078934 bytes).
 PDF statistics:
- 2187 PDF objects out of 2487 (max. 8388607)
- 487 named destinations out of 1000 (max. 500000)
- 375 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2374 PDF objects out of 2487 (max. 8388607)
+ 622 named destinations out of 1000 (max. 500000)
+ 383 words of extra memory for PDF output out of 10000 (max. 10000000)
 

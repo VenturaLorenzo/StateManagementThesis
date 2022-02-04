@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
             body: tabState == TabState.todos
-                ? const TodoView()
+                ? const TodoViewSelector()
                 : const Stats(),
             bottomNavigationBar: const TabSelector(),
             floatingActionButton: tabState == TabState.todos

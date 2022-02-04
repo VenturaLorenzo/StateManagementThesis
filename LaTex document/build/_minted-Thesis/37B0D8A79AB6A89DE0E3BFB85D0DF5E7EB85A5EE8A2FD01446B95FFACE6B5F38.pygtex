@@ -1,7 +1,7 @@
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kd}{class} \PYG{n+nc}{VisibilityFilterComponent} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+\PYG{k+kd}{class} \PYG{n+nc}{VisibilityFilterSelector} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
 
-  \PYG{k}{const} \PYG{n}{VisibilityFilterComponent}\PYG{p}{(}
+  \PYG{k}{const} \PYG{n}{VisibilityFilterSelector}\PYG{p}{(}
       \PYG{p}{\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{\PYGZcb{})}
       \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
 

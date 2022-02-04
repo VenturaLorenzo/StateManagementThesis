@@ -1028,10 +1028,10 @@ TextButton(
 \mbox{}
 \end{code}
 
-\subsubsection{Rendering optimization}  \label{par:todo_app_inherited_widget_introduction}
-\hfill\\
-\paragraph{Optimizations using \textit{buildWhen }field - }\label{subpar:todo_app_bloc_core_state}
-To achieve the desired partial rendering is necessary to work on the TodoView widget and TodoItem widget only. We leverage on a specific field of the BlocBuilder widget called \textit{buildWhen}. This field is fillable with a Boolean function in order to determine whether or not to rebuild the BlocBuilder widget on a state transition. If the \textit{buildWhen} function return true, the widget is rebuilt otherwise it is not. Inside this function,  the previous state and the next state can be accessed. For the moment, when a state change occurs, the TodoView widget destroys all the children widgets and rebuilds them with the data contained in the new state. Well, actually is not precisely like this. Flutter indeed uses some articulated mechanism in order to rebuild the few parts of the widget tree possible. From our prespective, however, TodoItem widgets are destroyed and recreated at every transition, also in case a single TodoItem changed. To make the TodoItem widgets self-rebuild,  is necessary to make them sensible to changes in the state. For the moment the TodoItem widget does not use any BlocBuilder widget at all. Indeed, it just visualize the todo instance passed by the parent widget without actually accessing the state. The first thing to do  is to wrap the TodoItem widget inside a BlocBuilder widget making it listen for changes in the FilteredTodoBloc. Instead of receiving, from the TodoView parent widget, a copy of the todo instance is enough, now, to receive the id only and use it to obtain the instance of the todo through the state. Within the \textit{builder} the function the todo is looked up in the filtered list and used to create the TodoItem widget. 
+\subsubsection{Rendering optimizations}  \label{par:todo_app_inherited_widget_introduction}
+
+\paragraph{Optimizations using the \textit{buildWhen }field - }\label{subpar:todo_app_bloc_core_state}
+To achieve the desired partial rendering is necessary to work on the TodoView widget and the TodoItem widget only. We leverage on a specific field of the BlocBuilder widget called \textit{buildWhen}. This field is fillable with a Boolean function in order to determine whether or not to rebuild the BlocBuilder widget on a state transition. If the \textit{buildWhen} function returns true, the widget is rebuilt otherwise it is not. Inside this function,  the previous state and the next state can be accessed. For the moment, when a state change occurs, the TodoView widget destroys all the children widgets and rebuilds them using the data contained in the new state. Well, actually it is not precisely like this. Flutter indeed uses some articulated mechanisms in order to rebuild the few parts of the widget tree possible. From our perspective, however, TodoItem widgets are destroyed and recreated at every transition, also in case a single TodoItem changed. To make the TodoItem widget self-rebuild,  is necessary to make it sensible to changes in the state. For the moment, the TodoItem widget does not use any BlocBuilder widget at all. Indeed, it just visualize the todo instance passed by the parent widget without actually accessing the state. The first thing to do is to wrap it inside a BlocBuilder widget making it listen for changes in the TodoBloc. Instead of receiving, from the TodoView parent widget, a copy of the todo instance is enough, now, to receive the id only and use it to obtain the instance of the entire todo through the state. Within the \textit{builder} function the todo is looked up and used to create the TodoItem widget. 
 \begin{code}
 \mbox{}\\
 \captionof{listing}{Todo app - Bloc - accessing the state into TodoItem component} \mbox{}
@@ -1045,11 +1045,11 @@ class TodoItem extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
 //new BlocBuilder widget
-  return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
+  return BlocBuilder<TodoBloc, TodosState>(
    builder: (context, state) {
    print("building: Todo Item \$id " + key.toString());
 
-   if (state is FilteredTodoLoadedState) {
+   if (state is TodosLoadedState) {
     //retrieve the instance of the todo from the state using the id
     Todo t = (state).todos.firstWhere((element) => element.id == id);
     //use it in the InkWell widget as usual
@@ -1085,39 +1085,149 @@ return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
 \mbox{}
 \end{code}
 
-The same must be done in the TodoItem widget. The TodoItem widget needs to rebuild when a non-structural change occurs. A function is provided in the \textit{buildWhen} field that checks if the previous and the next states are both of type \textit{FilteredTodoLoadedState}. In case they aren’t the only possibility is that the new state is of type \textit{FilteredTodosLoadingState} and the old one is of type \textit{FilteredTodosLoadedState}. At the contrary, indeed, no TodoItem widgets could be present in the HomePage and the \textit{buildWhen }function wouldn't be called at all. (\textit{FilteredTodosLoading} state does not produce any TodoView widget). So, there is no need to rebuild the TodoItem widget because, if states differs, the new state is necessary of type \textit{FilteredTodosLoadingState} and  TodoItem widgets are going to be destroyed in any case. In case state match the function checks if the new state contains the corresponding todo. Otherwise is useless to rebuild the TodoItem widget because a structural change occured and all the TodoItem widgets are going to be detroyed in any case. In case it contains the corresponding todo, the function checks if the todo has undergone any changes with respect to the previous state. In case it does the function returns true and the  TodoItem is rebuilt.
+The same must be done in the TodoItem widget. The TodoItem widget needs to rebuild when a non-structural change occurs. A function is provided in the \textit{buildWhen} field that checks if the previous and the next states are both of type \textit{FilteredTodoLoadedState}. In case they aren’t the only possibility is that the new state is of type \textit{FilteredTodosLoadingState} and the old one is of type \textit{FilteredTodosLoadedState}. At the contrary, indeed, no TodoItem widgets could be present in the HomePage and the \textit{buildWhen }function wouldn't be called at all. (\textit{FilteredTodosLoading} state does not produce any TodoView widget). So, there is no need to rebuild the TodoItem widget because, if states differs, the new state is necessary of type \textit{FilteredTodosLoadingState} and  TodoItem widgets are going to be destroyed in any case. In case states match, the function checks if the new state contains the corresponding todo. Otherwise is useless to rebuild the TodoItem widget because a structural change occured and all the TodoItem widgets are going to be detroyed. In case it contains the corresponding todo, the function checks if the todo has undergone any changes with respect to the previous state. In case it does, the function returns true and the TodoItem is rebuilt.
 \begin{code}
 \mbox{}\\
-\captionof{listing}{Todo app - Bloc - using the \textit{buildWhen} field to perform exclusive rebuild in te TodoItem component} \mbox{}
+\captionof{listing}{Todo app - Bloc - using the \textit{buildWhen} field to perform exclusive rebuilding in the TodoItem component} \mbox{}
 \label{code:2.14}
 \begin{minted}[bgcolor=bluepoli!10]{dart}
 buildWhen: (previous, next) {
-  if (next is FilteredTodoLoadedState &&
-      previous is FilteredTodoLoadedState) {
-      //check if the todo still exists
-    if (next.todos.map((todo) => todo.id).toList().contains(id) == true) {
-      //check if it is changed
-      if (previous.todos.firstWhere((element) => element.id == id) ==
-          next.todos.firstWhere((element) => element.id == id)) {
+      if (next is TodosLoadedState &&
+          previous is TodosLoadedState &&
+          next.todos.map((todo) => todo.id).contains(id) &&
+          previous.todos.firstWhere((element) => element.id == id) !=
+              next.todos.firstWhere((element) => element.id == id)) {
+        return true;
+      } else {
         return false;
       }
-    } else {
-      return false;
     }
-  }
-  return true;
-}
 \end{minted}
 \mbox{}
 \end{code}
 
 \paragraph{Optimizations using BlocSelector widget - }\label{subpar:todo_app_bloc_core_state}
-I propose now another way in order to perform the rendering optimizations. After I got them implemented  using the buildeWhen field I found out that particular widget, called BlocSelector, is provided by the BLoC package for this specific scenario. The BlocSelector widget behaves exactly as the StoreConnector widget does in the Redux solution. It
+I propose now another way to perform the questioned	rendering optimizations. After I got them implemented using the \textit{buildeWhen} field I found out that a particular widget, called BlocSelector, is provided by the BLoC package exactly for this specific scenario. The BlocSelector widget behaves as the StoreConnector widget does in the Redux solution. It takes a mandatory function, in its \textit{selector} field, which exstrapolates a viewmodel from the state and uses it to construct the widget. The viewmodel is also used to determine whether to rebuild the widget or not. If the viewmodel differs from the previous one the widget is rebuilt. Would be nice, then, to extrapolate two viewmodels from the state, one for the TodoView widget and one for the TodoItem widget, and use them to determine wheter to rebuild the entire TodoView widget or just a single TodoItem widget (as we did in the Redux optimization part). The viewmodel for the TodoView widget will be a list of todos, in particular the filtered list. We want also this list to apper different from a subsequent one only when it goes through a structural change.  To do so we define an ad hoc viewmodel class and override its equality operator to obtain the desired behaviour.
+
+\begin{code}
+\mbox{}\\
+\captionof{listing}{Todo app - Bloc - using the \textit{buildWhen} field to perform exclusive rebuild in te TodoItem component} \mbox{}
+\label{code:2.14}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+class _ViewModel {
+  final List<Todo> todos;
+
+  _ViewModel({required this.todos});
+
+  @override
+  bool operator ==(Object other) {
+    return ((other is _ViewModel) &&
+        todos.length == other.todos.length &&
+        todos.every(
+            (todo) => other.todos.any((element) => todo.id == element.id)));
+  }
+
+  @override
+  // TODO: implement hashCode
+  int get hashCode => todos.hashCode;
+}
+\end{minted}
+\end{code}
+The viewmodel for the TodoItem widget will be instead a todo instance. It is obtained searching in the state's list of todos the one matching the TodoItem widget's id. In this way, once the corresponding todo instance is updated, the difference is seen by the BlocSlector widget and  a rebuild is triggered. The equality operator for todos instances has been already defined  HERE RIFERIMENTO making two todo instances equal when all their internal values match. Until now what we did was pretty basilar and similar to what we have done for the implementation with Redux. In this case, however, there is a small inconvenient. In the way we defined states they are not always suited for extracting a viewmodel. Just think at the viewmodel for the TodoView widget, it needs to extract a list of todos from the current state but, in some situations, we don't even have a proper list, for example in the case of a LoadingState. In Redux this problem did not arise by the fact that there were no distinction between a loading state and a loaded state, or better, the loading state was indicated only by the fact that the list was empty. The distinction the BLoC pattern does between state's typologies is, in my opinion, very powerfull and adaptive. It is able to define complex hierarchies between them and to fit a large number of situations. In some cases, however, like in this one, it tends to overfit and to cause an excessive needs of specificity overcomplicating even simple actions. The mechanism used in Redux which derives a viewmodel from the state to determine which part is observed by the widget does not apply so good in the BLoC pattern. It is implementable but it is not straigh forward like in Redux. First we need to be sure to use the BlocSelector widget in a situation where a list is available. To do so it is sufficient to use the BlocBuilder widget already present in both the TodoView widget and the TodoItem widget. The \textit{builder} function will take care, as usual, of differentiating possible state's types. In the case of a Loaded state we can now return a BlocSelector widget instead of the plain component. This allows us not to define the logic through which  components are going to be rebuilt. All the work is done by the BlocSlector with the help of the equality operator we previously defined.
+\begin{code}
+\captionof{listing}{Todo app - Bloc - using the \textit{buildWhen} field to perform exclusive rebuilding in the TodoItem component} \mbox{}
+\label{code:2.14}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+class TodoView extends StatelessWidget {
+  const TodoView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
+       builder: (context, filteredTodoState) {
+      //check that the state is of type Loaded
+      //to be sure a list exists
+      if (filteredTodoState is FilteredTodoLoadedState) {
+        //use the BlocSelector widget to perform the optimizations
+        return BlocSelector<FilteredTodoBloc, FilteredTodoState,
+         _ViewModel>(
+            //use the ad hoc viewmodel to contain the selected filtered list
+            selector: (state) =>
+                _ViewModel(todos: 
+                (state as FilteredTodoLoadedState).todos),
+            builder: (context, filteredList) {
+              print("building: TodoView");
+              return ListView.builder(...);
+            });
+      } else {
+        return const Center(child: CircularProgressIndicator());
+       }
+      }
+    );
+  }
+}
+\end{minted}
+\mbox{}
+\end{code}
+
+The same can be done in the TodoItem widget. the BlocBuilder widget is used to determine the type of the state and, in case of a loading state, a BlocSelector is returned.
+
+\begin{code}
+\captionof{listing}{Todo app - Bloc - using the \textit{buildWhen} field to perform exclusive rebuilding in the TodoItem component} \mbox{}
+\label{code:2.14}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+class TodoItemSelector extends StatelessWidget {
+  final int id;
+  const TodoItemSelector({Key? key, required this.id}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TodoBloc, TodosState>(
+       builder: (context, state) {
+      //check if state is of type Loaded
+      //to be sure to have a list of todos
+      if (state is TodosLoadedState) {
+        //return a BlocSelector to perform the optimizations
+        return BlocSelector<TodoBloc, TodosState, Todo>(
+            //select the corresponding todo from the state
+            selector: (state) {
+          return (state as TodosLoadedState)
+          .todos.firstWhere((element) => element.id==id);
+        }, builder: (context, todo) {
+          //return the usual InkWell without any change
+          print("building: Todo Item \$id " + key.toString());
+
+          return InkWell(...);
+          }); //end of BlocSelector
+      } else {
+        return Row(...);
+      }
+    });
+  }
+}
+\end{minted}
+\mbox{}
+\end{code}
+
+We almost done but there is another small brick to add to the picture. Currently, the optimizations we tried to achive (with not small effort and boilerplate) still do not work. The issue is that we wrapped both the BlocSelector widgets inside a BlocBuilder widget. This procedure was mandatory otherwise we would have run into a runtime error when tring to select a list (or a todo) from a loading state which does not contain any information. However, in this way, every time a state transition occurs both BlocBuilder widgets are rebuilt unconditionally leading BlocSelector widgets to rebuild with them and making the achived optimizations useless. We want the external BlocBuilder widget to rebuild only when the state passes from a loaded state to a loading state and viceversa. We can use its \textit{buildWhen} field to determine the type of change the sstate went through. Basically if the state did not change its type is not necessary to rebuild the BlocBuilder widget. The previous and current state types are checked.
+
+   
+\begin{code}
+\captionof{listing}{Todo app - Bloc - using the \textit{buildWhen} field to perform exclusive rebuilding in the TodoItem component} \mbox{}
+\label{code:2.14}
+\begin{minted}[bgcolor=bluepoli!10]{dart}
+buildWhen: (previous, next) {
+ return previous.runtimeType != next.runtimeType;
+}
+\end{minted}
+\mbox{}
+\end{code}
 
 
-\subsubsection{Conclusions} \mbox{} \\
+ However, unlike Redux, the BLoC architecture is not really suitable for this kind of optimization mechanism. The following considerations are taken from my own experience with the solution by the fact I did not found any interesting material about BlocSelector widget's usage and neither about the problem I'm going to present. There is a small obstacle with the concept of selector/converter widgets. They filter the state to obtain the needed information and use viewmodels to wrap and compare states. Every time a state transition occurs all the conversion/selectors are computed before actually running any widget rebuilding. This mechanism does not take into account the fact that, some conversions, can lead the entire subtree to rebuild making the computation of all the other conversions not only useless but also potentially dangerous. It can appear a bit abstract until now but I'm going to propose and example to clarify a bit the entire picture. In our case, 
+
+\subsubsection{Conclusions} 
 \label{subpar:render_optimizations_bloc}
-
 Table \ref{table:recap_bloc} reports some measurements taken from the BLoC's implementation process. The \textit{lines of code} column represents the lines of code added or updated with respect to the shared project structure proposed in subsection \ref{subsec:todo_app_shared_project_structure}. The \textit{time }column represents the time spent in order to implement the corresponding subprocess. The unit of measure \textbf{h} stands for hours and \textbf{m} stands for minutes. The \textit{lines-time ratio} column represents the average number of lines written in a minute. The \textit{classes} column represents the number of created classes in each subprocess.
 
 \begin{table}[H]
