@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/todo.dart';
+import 'package:inherited_pattern/repository/utility.dart';
 import 'package:inherited_pattern/todo_provider.dart';
 
 class TodoItem extends StatelessWidget {
@@ -21,9 +22,9 @@ class TodoItem extends StatelessWidget {
         Navigator.pushNamed(context, "/updateTodo",
             arguments: UpdateTodoPageArguments(
                 todo: todo,
-                updateState: (String newName,String newDesc) {
+                updateState: (String newName, String newDesc) {
                   TodoInheritedData.of(context, aspect: 0)
-                      .onUpdateTodo(todo.id, newName,newDesc);
+                      .onUpdateTodo(todo.id, newName, newDesc);
                 }));
       },
       child: Row(
@@ -42,6 +43,11 @@ class TodoItem extends StatelessWidget {
                 TodoInheritedData.of(context, aspect: id)
                     .onSetCompleted(id, value!);
               }),
+          TextButton(
+              onPressed: () {
+                TodoInheritedData.of(context, aspect: id).onDeleteTodo(id);
+              },
+              child: Text("test"))
         ],
       ),
     );
@@ -50,7 +56,7 @@ class TodoItem extends StatelessWidget {
 
 class UpdateTodoPageArguments {
   final Todo todo;
-  final void Function(String ,String) updateState;
+  final void Function(String, String) updateState;
 
   UpdateTodoPageArguments({required this.todo, required this.updateState});
 }

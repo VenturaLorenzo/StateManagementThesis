@@ -15,7 +15,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
 
   StatsBloc({required this.todoBloc}) : super(StatsLoadingState()) {
     void onTodosStateChanged(state) {
-      if (state is TodosLoadedState) {
+      if (state is TodosLoadedState || state is TodosInitialState) {
         add(StatsUpdatedEvent(state.todos));
       }
     }
@@ -24,21 +24,21 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
 
     todoSubscription = todoBloc.stream.listen(onTodosStateChanged);
   }
+
   @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     if (event is StatsUpdatedEvent) {
-
-      final numActive =
-          event.todos.where((todo) => !todo.completed).toList().length;
+      yield StatsLoadingState();
+      await Future.delayed(const Duration(seconds: 5));
       final numCompleted =
           event.todos.where((todo) => todo.completed).toList().length;
-      yield StatsLoadedState(numActive, numCompleted);
+      yield StatsLoadedState(numCompleted);
     }
   }
 
   static Stats calculateStats(List<Todo> todos) {
-    final  completed = todos.where((element) => element.completed).length;
-    final  active = todos.length;
+    final completed = todos.where((element) => element.completed).length;
+    final active = todos.length;
     return Stats(completed: completed, active: active - completed);
   }
 

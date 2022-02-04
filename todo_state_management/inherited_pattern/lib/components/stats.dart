@@ -8,6 +8,7 @@ class Stats extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Building Stats");
 
-    return Center(child: Text(TodoInheritedData.of(context,aspect: 3).stats.toString()));
+    return Center(
+        child: Text(TodoInheritedData.of(context, aspect: 1).stats.toString()));
   }
 }

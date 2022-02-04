@@ -1,8 +1,9 @@
-import 'package:bloc_pattern/barrels/todo_filtered_state_management.dart';
-import 'package:bloc_pattern/barrels/todo_state_management.dart';
+import 'package:bloc_pattern/blocs/filtered_todo_bloc.dart';
 import 'package:bloc_pattern/components/todo_item.dart';
 import 'package:bloc_pattern/models/todo.dart';
+import 'package:bloc_pattern/states/filtered_todo_state.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,33 +12,28 @@ class TodoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("building: TodoView");
-
     return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
         buildWhen: (previous, next) {
       return !((previous is FilteredTodoLoadedState) &&
           (next is FilteredTodoLoadedState) &&
-          previous.todos.length == next.todos.length);
+          previous.todos.length == next.todos.length &&
+          listEquals(next.todos.map((todo) => todo.id).toList(),
+              previous.todos.map((todo) => todo.id).toList()));
     }, builder: (context, filteredTodoState) {
+      print("building: TodoView");
+
       if (filteredTodoState is FilteredTodoLoadedState) {
         return ListView.builder(
             itemCount: filteredTodoState.todos.length,
             itemBuilder: (context, index) {
               return TodoItem(
-                todoIndex: filteredTodoState.todos.elementAt(index).id,
-                setCompleted: (completed) {
-                  Todo todo = filteredTodoState.todos.elementAt(index);
-                  BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(Todo(
-                      name: todo.name,
-                      description: todo.description,
-                      completed: completed ?? true, id: todo.id)));
-                },
-              );
+                  key: UniqueKey(),
+                  id: filteredTodoState.todos.elementAt(index).id);
             });
       } else if (filteredTodoState is FilteredTodoLoadingState) {
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       } else {
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       }
     });
   }

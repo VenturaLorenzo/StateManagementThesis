@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoBloc}\PYG{p}{,} \PYG{n}{FilteredTodoState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+    \PYG{n+nl}{buildWhen:} \PYG{p}{(}\PYG{n}{previous}\PYG{p}{,} \PYG{n}{next}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{o}{!}\PYG{p}{((}\PYG{n}{previous} \PYG{k}{is} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{)} \PYG{o}{\PYGZam{}\PYGZam{}}
+      \PYG{p}{(}\PYG{n}{next} \PYG{k}{is} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{)} \PYG{o}{\PYGZam{}\PYGZam{}}
+      \PYG{c+c1}{//check if structural change occured}
+      \PYG{n}{previous}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{length} \PYG{o}{==} \PYG{n}{next}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{length} \PYG{o}{\PYGZam{}\PYGZam{}}
+      \PYG{n}{listEquals}\PYG{p}{(}\PYG{n}{next}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{todo}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{).}\PYG{n}{toList}\PYG{p}{(),}
+          \PYG{n}{previous}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{todo}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{).}\PYG{n}{toList}\PYG{p}{()));}
+\PYG{p}{\PYGZcb{},}
+\end{Verbatim}

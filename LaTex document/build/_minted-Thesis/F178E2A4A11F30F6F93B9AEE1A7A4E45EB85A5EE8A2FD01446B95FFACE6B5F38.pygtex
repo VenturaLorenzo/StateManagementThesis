@@ -1,0 +1,52 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{UpdateTodoPage} \PYG{k+kd}{extends} \PYG{n}{StatefulWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{n}{Todo} \PYG{n}{todo}\PYG{p}{;}
+
+  \PYG{k}{const} \PYG{n}{UpdateTodoPage}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{todo}\PYG{p}{\PYGZcb{})}
+      \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{State}\PYG{o}{\PYGZlt{}}\PYG{n}{UpdateTodoPage}\PYG{o}{\PYGZgt{}} \PYG{n}{createState}\PYG{p}{()} \PYG{o}{=\PYGZgt{}} \PYG{n}{\PYGZus{}UpdateTodoPageState}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{\PYGZus{}UpdateTodoPageState} \PYG{k+kd}{extends} \PYG{n}{State}\PYG{o}{\PYGZlt{}}\PYG{n}{UpdateTodoPage}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{n}{textControllerName} \PYG{o}{=} \PYG{n}{TextEditingController}\PYG{p}{();}
+  \PYG{k+kd}{final} \PYG{n}{textControllerDesc} \PYG{o}{=} \PYG{n}{TextEditingController}\PYG{p}{();}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{Scaffold}\PYG{p}{(}
+        \PYG{n+nl}{appBar:} \PYG{n}{AppBar}\PYG{p}{(}
+          \PYG{n+nl}{title:} \PYG{n}{Text}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Update Todo\PYGZdq{}} \PYG{o}{+} \PYG{n}{widget}\PYG{p}{.}\PYG{n}{todo}\PYG{p}{.}\PYG{n}{name}\PYG{p}{),}
+        \PYG{p}{),}
+        \PYG{n+nl}{body:} \PYG{n}{Column}\PYG{p}{(}
+          \PYG{n+nl}{children:} \PYG{p}{[}
+            \PYG{n}{TextField}\PYG{p}{(}
+              \PYG{n+nl}{controller:} \PYG{n}{textControllerName}\PYG{p}{,}
+              \PYG{n+nl}{decoration:} \PYG{k}{const} \PYG{n}{InputDecoration}\PYG{p}{(}
+                  \PYG{n+nl}{border:} \PYG{n}{OutlineInputBorder}\PYG{p}{(),}
+                  \PYG{n+nl}{hintText:} \PYG{l+s+s1}{\PYGZsq{}Enter a new name\PYGZsq{}}\PYG{p}{),}
+            \PYG{p}{),}
+            \PYG{n}{TextField}\PYG{p}{(}
+              \PYG{n+nl}{controller:} \PYG{n}{textControllerDesc}\PYG{p}{,}
+              \PYG{n+nl}{decoration:} \PYG{k}{const} \PYG{n}{InputDecoration}\PYG{p}{(}
+                  \PYG{n+nl}{border:} \PYG{n}{OutlineInputBorder}\PYG{p}{(),}
+                  \PYG{n+nl}{hintText:} \PYG{l+s+s1}{\PYGZsq{}Enter a new description\PYGZsq{}}\PYG{p}{),}
+            \PYG{p}{),}
+            \PYG{n}{TextButton}\PYG{p}{(}
+                \PYG{n+nl}{onPressed:} \PYG{p}{()} \PYG{p}{\PYGZob{}}
+                  \PYG{c+c1}{//to be filled}
+                \PYG{p}{\PYGZcb{},}
+                \PYG{n+nl}{child:} \PYG{k}{const} \PYG{n}{Text}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Confirm\PYGZdq{}}\PYG{p}{))}
+          \PYG{p}{],}
+        \PYG{p}{));}
+  \PYG{p}{\PYGZcb{}}
+
+  \PYG{n+nd}{@override}
+  \PYG{k+kt}{void} \PYG{n}{dispose}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{n}{textControllerName}\PYG{p}{.}\PYG{n}{dispose}\PYG{p}{();}
+    \PYG{n}{textControllerDesc}\PYG{p}{.}\PYG{n}{dispose}\PYG{p}{();}
+    \PYG{k}{super}\PYG{p}{.}\PYG{n}{dispose}\PYG{p}{();}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

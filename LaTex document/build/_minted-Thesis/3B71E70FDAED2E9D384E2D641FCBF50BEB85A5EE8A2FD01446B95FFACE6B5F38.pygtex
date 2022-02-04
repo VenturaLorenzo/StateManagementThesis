@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//extend with the Store mixin to allow annotations}
+\PYG{k+kd}{abstract} \PYG{k+kd}{class} \PYG{n+nc}{\PYGZus{}TodoStore} \PYG{k+kd}{with} \PYG{n}{Store} \PYG{p}{\PYGZob{}}
+  \PYG{n+nd}{@observable}
+  \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos} \PYG{o}{=} \PYG{p}{[];}
+
+  \PYG{n+nd}{@observable}
+  \PYG{n}{VisibilityFilter} \PYG{n}{filter} \PYG{o}{=} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n}{all}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,36 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{abstract} \PYG{k+kd}{class} \PYG{n+nc}{StatsEvent} \PYG{k+kd}{extends} \PYG{n}{Equatable}\PYG{p}{\PYGZob{}}
+  \PYG{k}{const} \PYG{n}{StatsEvent}\PYG{p}{();}
+
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kd}{class} \PYG{n+nc}{StatsUpdatedEvent} \PYG{k+kd}{extends} \PYG{n}{StatsEvent}\PYG{p}{\PYGZob{}}
+
+  \PYG{k+kd}{final} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos}\PYG{p}{;}
+  \PYG{k}{const} \PYG{n}{StatsUpdatedEvent}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{Object}\PYG{o}{\PYGZgt{}} \PYG{k+kd}{get} \PYG{n}{props} \PYG{o}{=\PYGZgt{}} \PYG{p}{[}\PYG{n}{todos}\PYG{p}{];}
+
+  \PYG{n+nd}{@override}
+  \PYG{k+kt}{String} \PYG{n}{toString}\PYG{p}{()} \PYG{o}{=\PYGZgt{}} \PYG{l+s+s1}{\PYGZsq{}StatsEvent \PYGZhy{} StatsUpdatedEvent\PYGZsq{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{abstract} \PYG{k+kd}{class} \PYG{n+nc}{TabEvent} \PYG{k+kd}{extends} \PYG{n}{Equatable}\PYG{p}{\PYGZob{}}
+
+  \PYG{k}{const} \PYG{n}{TabEvent}\PYG{p}{();}
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{ChangeTabEvent} \PYG{k+kd}{extends} \PYG{n}{TabEvent}\PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{n}{TabState} \PYG{n}{tab}\PYG{p}{;}
+
+  \PYG{k}{const} \PYG{n}{ChangeTabEvent}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n}{tab}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{Object}\PYG{o}{\PYGZgt{}} \PYG{k+kd}{get} \PYG{n}{props} \PYG{o}{=\PYGZgt{}} \PYG{p}{[}\PYG{n}{tab}\PYG{p}{];}
+
+  \PYG{n+nd}{@override}
+  \PYG{k+kt}{String} \PYG{n}{toString}\PYG{p}{()} \PYG{o}{=\PYGZgt{}} \PYG{l+s+s1}{\PYGZsq{}TabUpdated \PYGZob{} tab: }\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}}\PYG{l+s+s1}{tab \PYGZcb{}\PYGZsq{}}\PYG{p}{;}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

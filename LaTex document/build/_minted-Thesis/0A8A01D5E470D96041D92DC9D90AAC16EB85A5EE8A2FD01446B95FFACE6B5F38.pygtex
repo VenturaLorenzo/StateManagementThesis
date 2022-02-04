@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoBloc}\PYG{p}{,} \PYG{n}{FilteredTodoState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+    \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{filteredTodoState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+\end{Verbatim}

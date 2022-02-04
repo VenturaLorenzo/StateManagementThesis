@@ -1,30 +1,55 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobx_pattern/models/todo.dart';
-import 'package:mobx_pattern/models/todo_list.dart';
+import 'package:mobx_pattern/models/todo_store.dart';
 import 'package:provider/provider.dart';
-class AddTodoPage extends StatelessWidget {
-  final String name;
-  final String desc;
 
-  const AddTodoPage({Key? key, required this.name, required this.desc})
-      : super(key: key);
+class AddTodoPage extends StatefulWidget {
+  const AddTodoPage({Key? key}) : super(key: key);
+
+  @override
+  State<AddTodoPage> createState() => _AddTodoPageState();
+}
+
+class _AddTodoPageState extends State<AddTodoPage> {
+  final textControllerName = TextEditingController();
+  final textControllerDesc = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    print("building AddTodoPage");
-
-    final todoList = Provider.of<TodoList>(context);
     return Scaffold(
-      body: Column(
-        children: [Text(name), Text(desc)],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          todoList.addTodo(Todo(name:name,description:desc,completed: false));
-            Navigator.pop(context);
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("Add Todo"),
+        ),
+        body: Column(
+          children: [
+            TextField(
+              controller: textControllerName,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Enter a name'),
+            ),
+            TextField(
+              controller: textControllerDesc,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter a description'),
+            ),
+            TextButton(
+                onPressed: () {
+                  final store =
+                      Provider.of<TodoStore>(context, listen: false);
+                  store.addTodo(
+                      textControllerName.text, textControllerDesc.text);
+                  Navigator.pop(context);
+                },
+                child: const Text("Create"))
+          ],
+        ));
+  }
+
+  @override
+  void dispose() {
+    textControllerName.dispose();
+    textControllerDesc.dispose();
+    super.dispose();
   }
 }

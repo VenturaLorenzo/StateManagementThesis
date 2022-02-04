@@ -6,47 +6,28 @@ import 'package:redux_pattern/models/app_state.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_pattern/models/todo.dart';
 import 'package:redux_pattern/models/visibility_filter.dart';
+import 'package:redux_pattern/selectors/selectors.dart';
 
 class TodoView extends StatelessWidget {
   const TodoView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print("Building TodoView");
-
     return StoreConnector<AppState, _ViewModel>(
         distinct: true,
         builder: (context, vm) {
+          print("Building TodoView");
           return ListView.builder(
             itemCount: vm.todos.length,
             itemBuilder: (context, index) {
               return TodoItem(
-                todo: vm.todos.elementAt(index),
-                setCompleted: (completed) {
-                  Todo todo = vm.todos.elementAt(index);
-                  StoreProvider.of<AppState>(context).dispatch(SetTodoAction(
-                      Todo(
-                          name: todo.name,
-                          description: todo.description,
-                          completed: completed ?? true)));
-                },
+                id: vm.todos.elementAt(index).id,
               );
             },
           );
         },
         converter: (store) {
-          return _ViewModel(
-              todos: store.state.todos.where((todo) {
-            switch (store.state.visibilityFilter) {
-              case VisibilityFilter.notCompleted:
-                return !todo.completed;
-              case VisibilityFilter.completed:
-                return todo.completed;
-              case VisibilityFilter.all:
-              default:
-                return true;
-            }
-          }).toList());
+          return _ViewModel(todos: filteredTodosSelector(store.state));
         });
   }
 }
@@ -61,7 +42,7 @@ class _ViewModel {
     return ((other is _ViewModel) &&
         todos.length == other.todos.length &&
         todos.every(
-            (todo) => other.todos.any((element) => todo.name == element.name)));
+            (todo) => other.todos.any((element) => todo.id  == element.id)));
   }
 
   @override

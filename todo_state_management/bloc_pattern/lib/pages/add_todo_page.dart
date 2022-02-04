@@ -1,32 +1,55 @@
-import 'package:bloc_pattern/barrels/todo_state_management.dart';
+ import 'package:bloc_pattern/blocs/todos_bloc.dart';
+import 'package:bloc_pattern/events/todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+class AddTodoPage extends StatefulWidget {
+  const AddTodoPage({Key? key}) : super(key: key);
 
-class AddTodoPage extends StatelessWidget {
-  final String name;
-  final String desc;
+  @override
+  State<AddTodoPage> createState() => _AddTodoPageState();
+}
 
-  const AddTodoPage({Key? key, required this.name, required this.desc})
-      : super(key: key);
+class _AddTodoPageState extends State<AddTodoPage> {
+  final textControllerName = TextEditingController();
+  final textControllerDesc = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    print("building: AddTodoPage");
-
     return Scaffold(
-      body: Column(
-        children: [Text(name), Text(desc)],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
- final AddTodoEvent event=          AddTodoEvent(Todo(name: name, description: desc,completed: false, id: int.parse(name)));
-          BlocProvider.of<TodoBloc>(context).add(event);
-          Navigator.pop(context);
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("Add Todo"),
+        ),
+        body: Column(
+          children: [
+            TextField(
+              controller: textControllerName,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Enter a name'),
+            ),
+            TextField(
+              controller: textControllerDesc,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter a description'),
+            ),
+            TextButton(
+                onPressed: () {
+                  BlocProvider.of<TodoBloc>(context).add(AddTodoEvent(
+                      textControllerName.text, textControllerDesc.text));
+                  Navigator.pop(context);
+                },
+                child: const Text("Create"))
+          ],
+        ));
+  }
+
+  @override
+  void dispose() {
+    textControllerName.dispose();
+    textControllerDesc.dispose();
+    super.dispose();
   }
 }

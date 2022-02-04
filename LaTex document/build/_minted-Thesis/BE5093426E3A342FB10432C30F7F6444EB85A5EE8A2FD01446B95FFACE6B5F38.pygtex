@@ -1,0 +1,43 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TodoBloc} \PYG{k+kd}{extends} \PYG{n}{Bloc}\PYG{o}{\PYGZlt{}}\PYG{n}{TodosEvent}\PYG{p}{,} \PYG{n}{TodosState}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+  \PYG{c+c1}{//initialize the bloc\PYGZsq{}s state at creation}
+  \PYG{n}{TodoBloc}\PYG{p}{()} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n}{TodosLoadingState}\PYG{p}{());}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Stream}\PYG{o}{\PYGZlt{}}\PYG{n}{TodosState}\PYG{o}{\PYGZgt{}} \PYG{n}{mapEventToState}\PYG{p}{(}\PYG{n}{TodosEvent} \PYG{n}{event}\PYG{p}{)} \PYG{k+kd}{async}\PYG{o}{*} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// if an event of type LoadTodosEvent is receiver}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{event} \PYG{k}{is} \PYG{n}{LoadTodosEvent}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k+kd}{yield}\PYG{o}{*} \PYG{n}{\PYGZus{}mapLoadTodosToState}\PYG{p}{(}\PYG{n}{event}\PYG{p}{);}
+    \PYG{c+c1}{// if an event of type SetCompletedTodoEvent is received}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{event} \PYG{k}{is} \PYG{n}{SetCompletedTodoEvent}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k+kd}{yield}\PYG{o}{*} \PYG{n}{\PYGZus{}mapSetCompletedToState}\PYG{p}{(}\PYG{n}{event}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+
+  \PYG{n}{Stream}\PYG{o}{\PYGZlt{}}\PYG{n}{TodosState}\PYG{o}{\PYGZgt{}} \PYG{n}{\PYGZus{}mapLoadTodosToState}\PYG{p}{(}\PYG{n}{LoadTodosEvent} \PYG{n}{event}\PYG{p}{)} \PYG{k+kd}{async}\PYG{o}{*} \PYG{p}{\PYGZob{}}
+    \PYG{k}{try} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//fetch todos}
+      \PYG{k+kd}{final} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos} \PYG{o}{=} \PYG{k+kd}{await} \PYG{n}{TodoRepository}\PYG{p}{.}\PYG{n}{loadTodos}\PYG{p}{();}
+      \PYG{k+kd}{yield} \PYG{n}{TodosLoadedState}\PYG{p}{(}\PYG{n}{todos}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k+kd}{yield} \PYG{n}{TodoLoadingState}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Stream}\PYG{o}{\PYGZlt{}}\PYG{n}{TodosState}\PYG{o}{\PYGZgt{}} \PYG{n}{\PYGZus{}mapSetCompletedToState}\PYG{p}{(}
+    \PYG{n}{SetCompletedTodoEvent} \PYG{n}{event}\PYG{p}{)} \PYG{k+kd}{async}\PYG{o}{*} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{state} \PYG{k}{is} \PYG{n}{TodosLoadedState}\PYG{p}{)} \PYG{p}{\PYGZob{}}\PYG{c+c1}{// create a new updated list}
+    \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{newList} \PYG{o}{=} \PYG{p}{(}\PYG{n}{state} \PYG{k}{as} \PYG{n}{TodosLoadedState}\PYG{p}{)}
+        \PYG{p}{.}\PYG{n}{todos}
+        \PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{todo}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{event}\PYG{p}{.}\PYG{n}{id}
+            \PYG{o}{?} \PYG{n}{Todo}\PYG{p}{(}
+                \PYG{n+nl}{name:} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{name}\PYG{p}{,}
+                \PYG{n+nl}{description:} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{description}\PYG{p}{,}
+                \PYG{n+nl}{id:} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{,}
+                \PYG{n+nl}{completed:} \PYG{n}{event}\PYG{p}{.}\PYG{n}{completed}\PYG{p}{)}
+            \PYG{o}{:} \PYG{n}{todo}\PYG{p}{)}
+        \PYG{p}{.}\PYG{n}{toList}\PYG{p}{();}
+    \PYG{k+kd}{yield} \PYG{n}{TodosLoadedState}\PYG{p}{(}\PYG{n}{newList}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

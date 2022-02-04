@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//retrieve the state}
+\PYG{k+kd}{final} \PYG{n}{store} \PYG{o}{=} \PYG{n}{Provider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoStore}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{);}
+\PYG{k}{return} \PYG{n}{Observer}\PYG{p}{(} \PYG{c+c1}{//wrap the TodoView inside an Observer widget}
+  \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{\PYGZus{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building TodoView\PYGZdq{}}\PYG{p}{);}
+
+    \PYG{k}{return} \PYG{n}{ListView}\PYG{p}{.}\PYG{n}{builder}\PYG{p}{(}
+      \PYG{n+nl}{itemCount:} \PYG{n}{store}\PYG{p}{.}\PYG{n}{filteredTodos}\PYG{p}{.}\PYG{n}{length}\PYG{p}{,} \PYG{c+c1}{//access the state here}
+      \PYG{n+nl}{itemBuilder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{index}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{TodoItem}\PYG{p}{(} \PYG{c+c1}{//access the state here}
+          \PYG{n+nl}{todo:} \PYG{n}{store}\PYG{p}{.}\PYG{n}{filteredTodos}\PYG{p}{.}\PYG{n}{elementAt}\PYG{p}{(}\PYG{n}{index}\PYG{p}{),}
+        \PYG{p}{);}
+      \PYG{p}{\PYGZcb{},}
+    \PYG{p}{);}
+  \PYG{p}{\PYGZcb{},}
+\PYG{p}{);}
+\end{Verbatim}

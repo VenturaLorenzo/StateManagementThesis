@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nl}{onChanged:} \PYG{p}{(}\PYG{n}{value}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{c+c1}{//retrieve the state}
+  \PYG{k+kd}{final} \PYG{n}{store} \PYG{o}{=} \PYG{n}{Provider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoStore}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{);}
+  \PYG{c+c1}{//change it}
+  \PYG{n}{store}\PYG{p}{.}\PYG{n}{setCompleted}\PYG{p}{(}\PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{,} \PYG{n}{value}\PYG{o}{!}\PYG{p}{);}
+  \PYG{c+c1}{// the state could also be changed using}
+  \PYG{c+c1}{// todo.completed = value!;}
+\PYG{p}{\PYGZcb{}),}
+\end{Verbatim}

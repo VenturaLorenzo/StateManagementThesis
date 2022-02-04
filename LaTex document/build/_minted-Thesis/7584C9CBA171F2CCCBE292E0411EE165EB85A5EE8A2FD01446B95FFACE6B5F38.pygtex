@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TodoItem} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{;} \PYG{c+c1}{//todo variable replaced with int one}
+
+  \PYG{k}{const} \PYG{n}{TodoItem}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{id}\PYG{p}{\PYGZcb{})} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+\PYG{n+nd}{@override}
+\PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+\PYG{c+c1}{//new BlocBuilder widget}
+  \PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoBloc}\PYG{p}{,} \PYG{n}{TodosState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+   \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{state}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+   \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building: Todo Item }\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}}\PYG{l+s+s2}{id \PYGZdq{}} \PYG{o}{+} \PYG{n}{key}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{());}
+
+   \PYG{k}{if} \PYG{p}{(}\PYG{n}{state} \PYG{k}{is} \PYG{n}{TodosLoadedState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//retrieve the instance of the todo from the state using the id}
+    \PYG{n}{Todo} \PYG{n}{t} \PYG{o}{=} \PYG{p}{(}\PYG{n}{state}\PYG{p}{).}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{firstWhere}\PYG{p}{((}\PYG{n}{element}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{element}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{id}\PYG{p}{);}
+    \PYG{c+c1}{//use it in the InkWell widget as usual}
+    \PYG{k}{return} \PYG{n}{InkWell}\PYG{p}{(.} \PYG{p}{.} \PYG{p}{.);}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{Row}\PYG{p}{(}
+      \PYG{n+nl}{children:} \PYG{k}{const} \PYG{p}{[}
+        \PYG{n}{Text}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR\PYGZdq{}}\PYG{p}{),}
+      \PYG{p}{],}
+    \PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{});}
+\end{Verbatim}

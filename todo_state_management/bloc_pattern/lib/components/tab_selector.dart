@@ -2,6 +2,7 @@ import 'package:bloc_pattern/blocs/tab_bloc.dart';
 import 'package:bloc_pattern/events/tab_event.dart';
 import 'package:bloc_pattern/states/tab_state.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,9 +17,11 @@ class TabSelector extends StatelessWidget {
       builder: (context, currTab) {
         return BottomNavigationBar(
           currentIndex: TabState.values.indexOf(currTab),
-          onTap: (index)=>BlocProvider.of<TabBloc>(context).add(ChangeTabEvent(TabState.values.elementAt(index))),
+          onTap: (index) => BlocProvider.of<TabBloc>(context)
+              .add(ChangeTabEvent(TabState.values.elementAt(index))),
           items: TabState.values
-              .map((tab) => BottomNavigationBarItem(title: const Text("data"),
+              .map((tab) => BottomNavigationBarItem(
+                    label: describeEnum(tab),
                     icon: Icon(
                       tab == TabState.todos ? Icons.list : Icons.show_chart,
                     ),
@@ -29,7 +32,6 @@ class TabSelector extends StatelessWidget {
     );
   }
 }
-
 
 /*
 class _ViewModel {

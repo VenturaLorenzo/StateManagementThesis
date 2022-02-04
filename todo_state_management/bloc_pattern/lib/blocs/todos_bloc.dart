@@ -1,67 +1,100 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:bloc_pattern/events/todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:bloc_pattern/repository/todo_repository.dart';
+import 'package:bloc_pattern/repository/utility.dart';
 import 'package:bloc_pattern/states/todos_state.dart';
 
 class TodoBloc extends Bloc<TodosEvent, TodosState> {
-  final TodoRepository repo;
-
-  TodoBloc({required this.repo}) : super(TodosLoadingState());
+  TodoBloc() : super(TodosLoadingState());
 
   @override
   Stream<TodosState> mapEventToState(TodosEvent event) async* {
     if (event is LoadTodosEvent) {
-      yield* _mapTodosLoadedToState();
+      yield* _mapLoadTodosToState(event);
     } else if (event is AddTodoEvent) {
       yield* _mapTodoAddedToState(event);
     } else if (event is UpdateTodoEvent) {
       yield* _mapTodoUpdatedToState(event);
-    } else if (event is ToggleAllEvent) {
-      yield* _mapToggleAllToState();
-    } else if (event is ClearCompletedEvent) {
-      yield* _mapClearCompletedToState();
+    } else if (event is SetCompletedTodoEvent) {
+      yield* _mapSetCompletedToState(event);
+    } else if (event is DeleteTodoEvent) {
+      yield* _mapTodoDeletedToState(event);
     }
   }
-  Stream<TodosState> _mapTodosLoadedToState() async* {
+
+  Stream<TodosState> _mapLoadTodosToState(LoadTodosEvent event) async* {
     try {
-      final List<Todo> todos = await repo.loadTodos();
-      yield TodosLoadedState(todos);
+      final List<Todo> todos = await TodoRepository.loadTodos();
+      yield TodosInitialState(todos);
     } catch (e) {
-      yield TodoFailedState();
+      yield TodosLoadingState();
     }
   }
+
   Stream<TodosState> _mapTodoAddedToState(AddTodoEvent event) async* {
-
     if (state is TodosLoadedState) {
-
+      int newId = generateId((state as TodosLoadedState).todos);
+      Todo newTodo = Todo(
+          id: newId,
+          name: event.name,
+          description: event.desc + " " + newId.toString(),
+          completed: false);
       final List<Todo> updatedTodos =
-      List.from((state as TodosLoadedState).todos)..add(event.todo);
-      yield TodosLoadedState(
-          updatedTodos);
+          List.from((state as TodosLoadedState).todos)..add(newTodo);
+      yield TodosMutatedState( false,updatedTodos);
+      await TodoRepository.saveTodos(updatedTodos);
+      yield TodosMutatedState( true,updatedTodos);
     }
   }
+
   Stream<TodosState> _mapTodoUpdatedToState(UpdateTodoEvent event) async* {
     if (state is TodosLoadedState) {
-      List<Todo> newTodos = (state as TodosLoadedState).todos.map((todo) =>
-      todo.id == event.todo.id ? event.todo : todo).toList();
-      yield TodosLoadedState(newTodos);
-    }
-  }
-  Stream<TodosState> _mapToggleAllToState() async* {
-    if (state is TodosLoadedState) {
-      List<Todo> toggled = (state as TodosLoadedState).todos.map((todo) =>
-          Todo(completed: true, description: todo.description, name: todo.name,id: todo.id))
+      List<Todo> newTodos = (state as TodosLoadedState)
+          .todos
+          .map((todo) => todo.id == event.id
+              ? Todo(
+                  id: event.id,
+                  name: event.newName,
+                  description: event.newDesc,
+                  completed: false)
+              : todo)
           .toList();
-      yield TodosLoadedState(toggled);
-    }
-  }
-  Stream<TodosState> _mapClearCompletedToState() async* {
-    if (state is TodosLoadedState) {
-      List<Todo> notcleared = (state as TodosLoadedState).todos.where((element) => !element.completed)
-          .toList();
-      yield TodosLoadedState(notcleared);
+      yield TodosMutatedState( false,newTodos);
+      await TodoRepository.saveTodos(newTodos);
+      yield TodosMutatedState( true,newTodos);
     }
   }
 
+  Stream<TodosState> _mapTodoDeletedToState(DeleteTodoEvent event) async* {
+    if (state is TodosLoadedState) {
+      List<Todo> newTodos = List.from((state as TodosLoadedState).todos)
+        ..removeWhere((element) => element.id == event.id);
+      yield TodosMutatedState( false,newTodos);
+      await TodoRepository.saveTodos(newTodos);
+      yield TodosMutatedState( true,newTodos);
+    }
+  }
+
+  Stream<TodosState> _mapSetCompletedToState(
+      SetCompletedTodoEvent event) async* {
+    if (state is TodosLoadedState) {
+      List<Todo> newList = (state as TodosLoadedState)
+          .todos
+          .map((todo) => todo.id == event.id
+              ? Todo(
+                  name: todo.name,
+                  description: todo.description,
+                  id: todo.id,
+                  completed: event.completed)
+              : todo)
+          .toList();
+      yield TodosMutatedState( false,newList);
+      await TodoRepository.saveTodos(newList);
+      yield TodosMutatedState( true,newList);
+    }
+
+  }
 }

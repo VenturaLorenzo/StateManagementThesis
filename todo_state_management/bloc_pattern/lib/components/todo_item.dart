@@ -1,47 +1,78 @@
-import 'package:bloc_pattern/barrels/todo_filtered_state_management.dart';
 import 'package:bloc_pattern/blocs/filtered_todo_bloc.dart';
+import 'package:bloc_pattern/blocs/todos_bloc.dart';
+import 'package:bloc_pattern/events/todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
+import 'package:bloc_pattern/states/filtered_todo_state.dart';
+import 'package:bloc_pattern/states/todos_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TodoItem extends StatelessWidget {
-  final ValueChanged<bool?> setCompleted;
-  final int todoIndex;
+  final int id;
 
-  const TodoItem(
-      {Key? key, required this.todoIndex, required this.setCompleted})
-      : super(key: key);
+  const TodoItem({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print("building: TodoIdem ${todoIndex}");
-
-    return BlocBuilder<FilteredTodoBloc, FilteredTodoState>(
-        buildWhen: (previous, next) {
-      return !((previous is FilteredTodoLoadedState) &&
-          (next is FilteredTodoLoadedState) &&
-          previous.todos.firstWhere((element) => element.id == todoIndex) ==
-              next.todos.firstWhere((element) => element.id == todoIndex));
+    return BlocBuilder<TodoBloc, TodosState>(buildWhen: (previous, next) {
+      if (next is TodosLoadedState &&
+          previous is TodosLoadedState &&
+          next.todos.map((todo) => todo.id).contains(id) &&
+          previous.todos.firstWhere((element) => element.id == id) !=
+              next.todos.firstWhere((element) => element.id == id)) {
+        return true;
+      } else {
+        return false;
+      }
     }, builder: (context, state) {
-      print("building: Checkbox ${todoIndex.toString()}");
+      print("building: Todo Item $id " + key.toString());
 
-      if (state is FilteredTodoLoadedState) {
-        Todo t =
-            (state).todos.firstWhere((element) => element.id == todoIndex);
+      if (state is TodosLoadedState) {
+        Todo t = (state).todos.firstWhere((element) => element.id == id);
+        return InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, "/updateTodo", arguments: t);
+          },
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  Text(t.name,
+                      style:
+                          const TextStyle(fontSize: 14, color: Colors.black)),
+                  Text(t.description,
+                      style: const TextStyle(fontSize: 10, color: Colors.grey)),
+                ],
+              ),
+              BlocBuilder<TodoBloc, TodosState>(buildWhen: (previous, current) {return true;
+              }, builder: (context, state) {
+                print("building checkbox");
+
+                return Checkbox(
+                    value: t.completed,
+                    onChanged: (state is TodosMutatedState && !state.saved)
+                        ? null
+                        : (completed) {
+                            BlocProvider.of<TodoBloc>(context)
+                                .add(SetCompletedTodoEvent(id, completed!));
+                          });
+              }),
+              TextButton(
+                  onPressed: () {
+                    BlocProvider.of<TodoBloc>(context).add(DeleteTodoEvent(id));
+                  },
+                  child: Text("ciao")),
+            ],
+          ),
+        );
+      } else {
         return Row(
-          children: [
-            Text(t.name + t.description),
-            Checkbox(value: t.completed, onChanged: setCompleted),
+          children: const [
+            Text("ERROR"),
           ],
         );
       }
-      return Row(
-        children: [
-          const Text("ERROR"),
-          Checkbox(value: false, onChanged: setCompleted),
-        ],
-      );
     });
   }
 }

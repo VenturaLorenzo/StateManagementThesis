@@ -54,19 +54,6 @@ mixin _$Todo on _Todo, Store {
     });
   }
 
-  final _$_TodoActionController = ActionController(name: '_Todo');
-
-  @override
-  void changeName() {
-    final _$actionInfo =
-        _$_TodoActionController.startAction(name: '_Todo.changeName');
-    try {
-      return super.changeName();
-    } finally {
-      _$_TodoActionController.endAction(_$actionInfo);
-    }
-  }
-
   @override
   String toString() {
     return '''

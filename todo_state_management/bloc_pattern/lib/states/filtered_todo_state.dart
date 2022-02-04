@@ -10,7 +10,8 @@ abstract class FilteredTodoState extends Equatable {
 }
 
 class FilteredTodoLoadingState extends FilteredTodoState {
-
+  @override
+  String toString() => 'FilteredTodoState - FilteredTodoLoadingState';
 }
 
 class FilteredTodoLoadedState extends FilteredTodoState {
@@ -21,6 +22,7 @@ class FilteredTodoLoadedState extends FilteredTodoState {
 
   @override
   List<Object> get props => [todos, filter];
+
   @override
-  String toString()=>'FilteredTodoLoadedState {todos: $todos, filter:$filter}';
+  String toString() => 'FilteredTodoState - FilteredTodoLoadedState';
 }

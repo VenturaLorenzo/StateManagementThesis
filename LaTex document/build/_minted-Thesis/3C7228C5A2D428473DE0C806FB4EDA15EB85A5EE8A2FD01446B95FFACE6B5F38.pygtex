@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n}{main}\PYG{p}{()}  \PYG{p}{\PYGZob{}}
+  \PYG{c+c1}{//create a new bloc}
+  \PYG{n}{TodoBloc} \PYG{n}{todoBloc}\PYG{o}{=} \PYG{n}{TodoBloc}\PYG{p}{();}
+  \PYG{c+c1}{//dispatch an event}
+  \PYG{n}{todoBloc}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{LoadTodosEvent}\PYG{p}{());}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

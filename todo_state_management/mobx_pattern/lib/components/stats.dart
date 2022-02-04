@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mobx_pattern/models/todo_list.dart';
+import 'package:mobx_pattern/models/todo_store.dart';
 import 'package:provider/provider.dart';
 
 class Stats extends StatelessWidget {
@@ -10,9 +10,11 @@ class Stats extends StatelessWidget {
   Widget build(BuildContext context) {
     print("building Stats");
 
-    final todoList= Provider.of<TodoList>(context);
+    final store = Provider.of<TodoStore>(context);
     return Observer(
-        builder: (context){return Text(todoList.stats);},
-       );
+      builder: (context) {
+               return Center(child: Text(store.stats));
+      },
+    );
   }
 }

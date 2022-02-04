@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//allow the code generator to create the todo\PYGZus{}store.g.dart file}
+\PYG{k}{part} \PYG{l+s+s1}{\PYGZsq{}todo\PYGZus{}store.g.dart\PYGZsq{}}\PYG{p}{;}
+\PYG{c+c1}{//use the generater file}
+\PYG{k+kd}{class} \PYG{n+nc}{TodoStore} \PYG{o}{=} \PYG{n}{\PYGZus{}TodoStore} \PYG{k+kd}{with} \PYG{n}{\PYGZus{}}\PYG{err}{\PYGZbs{}}\PYG{n}{\PYGZdl{}TodoStore}\PYG{p}{;}
+\end{Verbatim}

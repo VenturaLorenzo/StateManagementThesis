@@ -1,0 +1,46 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{HomePage} \PYG{k+kd}{extends} \PYG{n}{StatefulWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{k+kt}{void} \PYG{k+kt}{Function}\PYG{p}{()} \PYG{n}{onInit}\PYG{p}{;} \PYG{c+c1}{//new parameter}
+
+  \PYG{k}{const} \PYG{n}{HomePage}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{onInit}\PYG{p}{\PYGZcb{})} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{State}\PYG{o}{\PYGZlt{}}\PYG{n}{HomePage}\PYG{o}{\PYGZgt{}} \PYG{n}{createState}\PYG{p}{()} \PYG{o}{=\PYGZgt{}} \PYG{n}{\PYGZus{}HomePageState}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{\PYGZus{}HomePageState} \PYG{k+kd}{extends} \PYG{n}{State}\PYG{o}{\PYGZlt{}}\PYG{n}{HomePage}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+  \PYG{n+nd}{@override}
+  \PYG{k+kt}{void} \PYG{n}{initState}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+   \PYG{c+c1}{//using the new function parameter to start the fetching process}
+    \PYG{n}{widget}\PYG{p}{.}\PYG{n}{onInit}\PYG{p}{();}
+    \PYG{k}{super}\PYG{p}{.}\PYG{n}{initState}\PYG{p}{();}
+  \PYG{p}{\PYGZcb{}}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Building HomePage\PYGZdq{}}\PYG{p}{);}
+  \PYG{c+c1}{//use a StoreConnector widget to access the state}
+    \PYG{k}{return} \PYG{n}{StoreConnector}\PYG{o}{\PYGZlt{}}\PYG{n}{AppState}\PYG{p}{,} \PYG{n}{TabState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+      \PYG{c+c1}{//scan the store to retrive the current tab value}
+      \PYG{n+nl}{converter:} \PYG{p}{(}\PYG{n}{store}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{store}\PYG{p}{.}\PYG{n}{state}\PYG{p}{.}\PYG{n}{tabState}\PYG{p}{,}
+      \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{currTab}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{Scaffold}\PYG{p}{(}
+            \PYG{n+nl}{appBar:} \PYG{n}{AppBar}\PYG{p}{(}
+              \PYG{n+nl}{title:} \PYG{k}{const} \PYG{n}{Text}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Todo App\PYGZdq{}}\PYG{p}{),}
+              \PYG{n+nl}{actions:}  \PYG{p}{[}
+                \PYG{n}{currTab} \PYG{o}{==} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{todos} \PYG{c+c1}{//use it here}
+                    \PYG{o}{?} \PYG{k}{const} \PYG{n}{VisibilityFilterSelector}\PYG{p}{()}
+                    \PYG{o}{:} \PYG{n}{Container}\PYG{p}{()}
+              \PYG{p}{],}
+            \PYG{p}{),}\PYG{c+c1}{//use it here}
+            \PYG{n+nl}{body:} \PYG{n}{currTab} \PYG{o}{==} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{todos} \PYG{o}{?} \PYG{k}{const}
+             \PYG{n}{TodoView}\PYG{p}{()} \PYG{o}{:} \PYG{k}{const} \PYG{n}{Stats}\PYG{p}{(),}
+            \PYG{n+nl}{bottomNavigationBar:} \PYG{k}{const} \PYG{n}{TabSelector}\PYG{p}{(),}
+            \PYG{n+nl}{floatingActionButton:} \PYG{n}{currTab} \PYG{o}{==} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{todos} \PYG{c+c1}{//use it here}
+                \PYG{o}{?} \PYG{n}{FloatingActionButton}\PYG{p}{(...)}
+                \PYG{o}{:} \PYG{n}{Container}\PYG{p}{());}
+      \PYG{p}{\PYGZcb{},}
+    \PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

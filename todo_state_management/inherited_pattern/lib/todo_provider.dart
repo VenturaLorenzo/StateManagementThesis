@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:inherited_pattern/models/visibility_filter.dart';
 import 'package:inherited_pattern/repository/todo_repository.dart';
+import 'package:inherited_pattern/repository/utility.dart';
 
 import 'models/todo.dart';
 
@@ -32,6 +34,7 @@ class TodoInheritedData extends InheritedModel<int> {
   final void Function(int, bool) onSetCompleted;
   final void Function(int, String, String) onUpdateTodo;
   final void Function(VisibilityFilter) onChangeFilter;
+  final void Function(int) onDeleteTodo;
   final int stats;
   final VisibilityFilter filter;
 
@@ -43,6 +46,7 @@ class TodoInheritedData extends InheritedModel<int> {
       required this.onChangeFilter,
       required this.onAddTodo,
       required this.filter,
+      required this.onDeleteTodo,
       required Widget child})
       : stats = todos.where((todo) => todo.completed == true).length,
         filteredTodos = filterTodo(todos, filter),
@@ -57,34 +61,59 @@ class TodoInheritedData extends InheritedModel<int> {
 
   @override
   bool updateShouldNotify(TodoInheritedData oldWidget) {
-    return !listEquals(oldWidget.filteredTodos, filteredTodos);
+    return (!listEquals(oldWidget.filteredTodos, filteredTodos) ||
+        filter != oldWidget.filter);
   }
 
   @override
   bool updateShouldNotifyDependent(
       TodoInheritedData oldWidget, Set<int> dependencies) {
-    int currLen = filteredTodos.length;
-    int prevLen = oldWidget.filteredTodos.length;
-    bool structureRebuildlen = (dependencies.contains(0) && currLen != prevLen);
-    if (structureRebuildlen == true) {
+    if (dependencies.contains(1)) {
       return true;
-    } else {
-      List<int> currIds = filteredTodos.map((todo) => todo.id).toList();
-      List<int> prevIds =
-          oldWidget.filteredTodos.map((todo) => todo.id).toList();
-      bool sameIds = listEquals(currIds, prevIds);
-      bool structureRebuildcomp = (dependencies.contains(0) && !sameIds);
-      if (structureRebuildcomp == true) {
+    }
+    if (dependencies.contains(0)) {
+      bool structuralChange =
+          _checkStructuralChange(oldWidget.filteredTodos, filteredTodos);
+      if (structuralChange) {
         return true;
       } else {
-        List<bool> components = [];
-        for (var element in filteredTodos) {
-          components.add(dependencies.contains(element.id) &&
-              !oldWidget.filteredTodos.contains(element));
-        }
-        bool res = components.fold(false,
-            (bool previousValue, bool element) => previousValue || element);
-        return res;
+        return false;
+      }
+    }
+    List<bool> components = [];
+    for (var element in filteredTodos) {
+      components.add(dependencies.contains(element.id) &&
+          !oldWidget.filteredTodos.contains(element));
+    }
+    bool res = components.fold(
+        false, (bool previousValue, bool element) => previousValue || element);
+    return res;
+  }
+
+  bool _checkStructuralChange(List<Todo> before, List<Todo> current) {
+    //calculate the length of the current filtered list
+    int currLen = current.length;
+    //calculate the length of the previous filtered list
+    int prevLen = before.length;
+
+    bool structureRebuildLen = (currLen != prevLen);
+    //check if the two lengths differ
+    if (structureRebuildLen) {
+      // if they differ a structural change occured
+      return true;
+    } else {
+      //map the current list to a list containing the ids only
+      List<int> currIds = current.map((todo) => todo.id).toList();
+      //map the previous list to a list containing the ids only
+      List<int> prevIds = before.map((todo) => todo.id).toList();
+      //check they are the same
+      bool sameIds = listEquals(currIds, prevIds);
+      if (!sameIds) {
+        //if they differ a structural change uccurred
+        return true;
+      } else {
+        // no structural change occured
+        return false;
       }
     }
   }
@@ -120,63 +149,82 @@ class _TodoProviderState extends State<TodoProvider> {
   }
 
   void onAddTodo(String name, String desc) {
-    Random rand = Random();
-    List<int> ids = todos.map((e) => e.id).toList();
-    int newId = rand.nextInt(1000) + 2;
-    while (ids.contains(newId)) {
-      newId = rand.nextInt(1000) + 2;
-    }
+    //generate a new unique id
+    int newId = generateId(todos);
+    //create the new todo
     Todo newTodo = Todo(
         id: newId,
         name: name,
         description: desc + " " + newId.toString(),
         completed: false);
+    //perform the state change
     List<Todo> newList = List.from(todos);
     newList.add(newTodo);
+
     setState(() {
       todos = newList;
     });
+    // TodoRepository.saveTodos(todos).then((value) {
+    // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
+  }
+
+  void onDeleteTodo(int id) {
+    List<Todo> newList = List.from(todos)
+      ..removeWhere((element) => element.id == id);
+
+    setState(() {
+      todos = newList;
+    });
+    //TodoRepository.saveTodos(todos).then((value) {
+    //ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
   }
 
   void onUpdateTodo(int id, String newName, String newDesc) {
-    assert(todoExists(id) != null, 'No todo with id : $id');
-    List<Todo> newTodosList = todos.map((element) {
-      if (element.id == id) {
+    //control the todo's existance
+    assert(todoExists(todos, id) == true, 'No todo with id : $id');
+    //create a new list with the updated todo
+    List<Todo> newTodosList = todos.map((todo) {
+      if (todo.id == id) {
         return Todo(
-            completed: element.completed,
+            completed: todo.completed,
             description: newDesc,
             name: newName,
-            id: element.id);
+            id: todo.id);
       } else {
-        return element;
+        return todo;
       }
     }).toList();
+    //update the state
     setState(() {
       todos = newTodosList;
     });
-  }
-
-  Todo? todoExists(int id) {
-    List<Todo> result = todos.where((element) => element.id == id).toList();
-    return result.isNotEmpty ? result.first : null;
+    //TodoRepository.saveTodos(todos).then((value) {
+    //ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
   }
 
   void onSetCompleted(int id, bool completed) {
-    assert(todoExists(id) != null, 'No todo with id : $id');
-
+    //control the todo's existance
+    assert(todoExists(todos, id) == true, 'No todo with id : $id');
+    //change the state
     setState(() {
-      todos = todos.map((e) {
-        if (e.id == id) {
+      todos = todos.map((todo) {
+        if (todo.id == id) {
           return Todo(
               id: id,
-              name: e.name,
-              description: e.description,
+              name: todo.name,
+              description: todo.description,
               completed: completed);
         } else {
-          return e;
+          return todo;
         }
       }).toList();
     });
+    //TodoRepository.saveTodos(todos).then((value) {
+    //ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //});
   }
 
   @override
@@ -188,6 +236,7 @@ class _TodoProviderState extends State<TodoProvider> {
       onSetCompleted: onSetCompleted,
       onUpdateTodo: onUpdateTodo,
       filter: filter,
+      onDeleteTodo: onDeleteTodo,
       child: widget.child,
     );
   }

@@ -6,28 +6,25 @@ import 'package:bloc_pattern/events/filtered_todos_event.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:bloc_pattern/models/visibility_filter.dart';
 import 'package:bloc_pattern/states/filtered_todo_state.dart';
-import 'package:bloc_pattern/barrels/todo_state_management.dart';
+import 'package:bloc_pattern/states/todos_state.dart';
 import 'package:flutter/cupertino.dart';
 
 class FilteredTodoBloc extends Bloc<FilteredTodoEvent, FilteredTodoState> {
   final TodoBloc todoBloc;
   late StreamSubscription todoSubscription;
 
-
   FilteredTodoBloc({required this.todoBloc})
       : super(
-    todoBloc.state is TodosLoadedState
-        ? FilteredTodoLoadedState(
-      (todoBloc.state as TodosLoadedState).todos,
-      VisibilityFilter.all,
-    )
-        : FilteredTodoLoadingState(),
-  ) {
+    (todoBloc.state is TodosLoadedState)
+              ? FilteredTodoLoadedState(
+                  (todoBloc.state as TodosLoadedState).todos,
+                  VisibilityFilter.all,
+                )
+              : FilteredTodoLoadingState(),
+        ) {
     todoSubscription = todoBloc.stream.listen((state) {
       if (state is TodosLoadedState) {
-
         add(TodoUpdatedEvent((todoBloc.state as TodosLoadedState).todos));
-
       }
     });
   }
@@ -35,10 +32,8 @@ class FilteredTodoBloc extends Bloc<FilteredTodoEvent, FilteredTodoState> {
   @override
   Stream<FilteredTodoState> mapEventToState(FilteredTodoEvent event) async* {
     if (event is FilteredTodoChangeFilterEvent) {
-     yield* _mapTodoChangeFilterEventToState(event);
-    }
-    else if (event is TodoUpdatedEvent) {
-
+      yield* _mapTodoChangeFilterEventToState(event);
+    } else if (event is TodoUpdatedEvent) {
       yield* _mapTodoUpdatedEventToState(event);
     }
   }
@@ -58,24 +53,24 @@ class FilteredTodoBloc extends Bloc<FilteredTodoEvent, FilteredTodoState> {
   Stream<FilteredTodoState> _mapTodoChangeFilterEventToState(
       FilteredTodoChangeFilterEvent event) async* {
     if (todoBloc.state is TodosLoadedState) {
-      yield FilteredTodoLoadedState(filterTodos(
-          (todoBloc.state as TodosLoadedState).todos,
-          event.filter), event.filter);
+      yield FilteredTodoLoadedState(
+          filterTodos((todoBloc.state as TodosLoadedState).todos, event.filter),
+          event.filter);
     }
   }
 
   Stream<FilteredTodoState> _mapTodoUpdatedEventToState(
       TodoUpdatedEvent event) async* {
-
     final filter = (state is FilteredTodoLoadedState)
         ? (state as FilteredTodoLoadedState).filter
         : VisibilityFilter.all;
-    if (todoBloc.state is TodosLoadedState) {
-      yield FilteredTodoLoadedState(filterTodos(
-          (todoBloc.state as TodosLoadedState).todos,
-          filter), filter);
+    if (todoBloc.state is TodosLoadedState || todoBloc.state is TodosInitialState) {
+      yield FilteredTodoLoadedState(
+          filterTodos((todoBloc.state as TodosLoadedState).todos, filter),
+          filter);
     }
   }
+
   @override
   Future<void> close() {
     todoSubscription.cancel();

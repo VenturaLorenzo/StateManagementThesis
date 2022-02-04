@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TodoItem} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{;} \PYG{c+c1}{//todo variable is substituted with an int one}
+
+  \PYG{k}{const} \PYG{n}{TodoItem}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{id}\PYG{p}{\PYGZcb{})} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//retrieve the state}
+    \PYG{k+kd}{final} \PYG{n}{store} \PYG{o}{=} \PYG{n}{Provider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoStore}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n+nl}{listen:} \PYG{k+kc}{false}\PYG{p}{);}
+    \PYG{c+c1}{//retrieve the todo matching the id}
+    \PYG{k+kd}{final} \PYG{n}{todo} \PYG{o}{=} \PYG{n}{store}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{where}\PYG{p}{((}\PYG{n}{element}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{element}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{id}\PYG{p}{).}\PYG{n}{first}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{Observer}\PYG{p}{(}\PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{\PYGZus{}}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{//wrap the TodoItem into an Observer widget}
+      \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building TodoItem }\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}}\PYG{l+s+s2}{\PYGZob{}todo.id\PYGZcb{}\PYGZdq{}}\PYG{p}{);}
+
+      \PYG{k}{return} \PYG{n}{InkWell}\PYG{p}{(}\PYG{err}{…}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{});}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

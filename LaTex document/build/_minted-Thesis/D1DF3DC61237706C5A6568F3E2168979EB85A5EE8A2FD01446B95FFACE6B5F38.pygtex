@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//create a new configuration with strict mode set to \PYGZdq{}always\PYGZdq{}}
+\PYG{n}{mainContext}\PYG{p}{.}\PYG{n}{config} \PYG{o}{=} \PYG{n}{mainContext}\PYG{p}{.}\PYG{n}{config}
+    \PYG{p}{.}\PYG{n}{clone}\PYG{p}{(}\PYG{n+nl}{isSpyEnabled:} \PYG{k+kc}{true}\PYG{p}{,} \PYG{n+nl}{writePolicy:} \PYG{n}{ReactiveWritePolicy}\PYG{p}{.}\PYG{n}{always}\PYG{p}{);}
+\PYG{c+c1}{//provide a function to the spy feature}
+\PYG{n}{mainContext}\PYG{p}{.}\PYG{n}{spy}\PYG{p}{((}\PYG{n}{event}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{event}\PYG{p}{.}\PYG{n}{type} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}action\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}event name : \PYGZdq{}} \PYG{o}{+} \PYG{n}{event}\PYG{p}{.}\PYG{n}{name}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{});}
+\end{Verbatim}

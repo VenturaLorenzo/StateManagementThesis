@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@action}
+\PYG{n}{Future}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{void}\PYG{o}{\PYGZgt{}} \PYG{n}{fetchTodos}\PYG{p}{()} \PYG{k+kd}{async} \PYG{p}{\PYGZob{}}
+  \PYG{n}{todos} \PYG{o}{=} \PYG{k+kd}{await} \PYG{n}{TodoRepository}\PYG{p}{.}\PYG{n}{loadTodos}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nd}{@action}
+\PYG{n}{Future}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{void}\PYG{o}{\PYGZgt{}} \PYG{n}{saveTodos}\PYG{p}{()} \PYG{k+kd}{async} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{await} \PYG{n}{TodoRepository}\PYG{p}{.}\PYG{n}{saveTodos}\PYG{p}{(}\PYG{n}{todos}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

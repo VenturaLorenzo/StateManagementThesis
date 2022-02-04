@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{TextButton}\PYG{p}{(}
+    \PYG{n+nl}{onPressed:} \PYG{p}{()} \PYG{p}{\PYGZob{}}
+      \PYG{c+c1}{//create a new action}
+      \PYG{k+kd}{final} \PYG{n}{AddTodoAction} \PYG{n}{action}\PYG{o}{=} \PYG{n}{AddTodoAction}\PYG{p}{(}\PYG{n}{textControllerName}\PYG{p}{.}\PYG{n}{text}\PYG{p}{,}
+       \PYG{n}{textControllerDesc}\PYG{p}{.}\PYG{n}{text}\PYG{p}{);}
+	  \PYG{c+c1}{//dispatch it}
+      \PYG{n}{StoreProvider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{AppState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{).}\PYG{n}{dispatch}\PYG{p}{(}\PYG{n}{action}\PYG{p}{);}
+      \PYG{n}{Navigator}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{context}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{},}
+\end{Verbatim}

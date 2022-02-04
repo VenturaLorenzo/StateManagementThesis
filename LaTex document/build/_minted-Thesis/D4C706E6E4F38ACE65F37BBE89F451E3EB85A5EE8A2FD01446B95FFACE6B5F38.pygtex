@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n}{onChangeFilter}\PYG{p}{(}\PYG{n}{VisibilityFilter} \PYG{n}{filter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{setState}\PYG{p}{(()} \PYG{p}{\PYGZob{}}
+    \PYG{k}{this}\PYG{p}{.}\PYG{n}{filter} \PYG{o}{=} \PYG{n}{filter}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{});}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
