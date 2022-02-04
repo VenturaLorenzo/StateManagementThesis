@@ -18,19 +18,11 @@ class TodoItemSelector extends StatelessWidget {
         buildWhen: (previous, next) {
       return previous.runtimeType != next.runtimeType;
     }, builder: (context, state) {
-      print("building: TodoITem builder");
-
       if (state is TodosLoadedState) {
-        Todo newTodo = state.todos.where((element) => element.id == id).first;
-        return BlocSelector<FilteredTodoBloc, FilteredTodoState, Todo>(
+
+        return BlocSelector<TodoBloc, TodosState, Todo>(
             selector: (state) {
-          if ((state as FilteredTodoLoadedState)
-              .todos
-              .map((e) => e.id)
-              .contains(id)) {
-            newTodo = state.todos.where((element) => element.id == id).first;
-          }
-          return newTodo;
+          return (state as TodosLoadedState).todos.firstWhere((element) => element.id==id);
         }, builder: (context, todo) {
           print("building: Todo Item $id " + key.toString());
 

@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TodoView} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k}{const} \PYG{n}{TodoView}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{\PYGZcb{})} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoBloc}\PYG{p}{,} \PYG{n}{FilteredTodoState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+       \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{filteredTodoState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{c+c1}{//check that the state is of type Loaded}
+      \PYG{c+c1}{//to be sure a list exists}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{filteredTodoState} \PYG{k}{is} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{c+c1}{//use the BlocSelector widget to perform the optimizations}
+        \PYG{k}{return} \PYG{n}{BlocSelector}\PYG{o}{\PYGZlt{}}\PYG{n}{FilteredTodoBloc}\PYG{p}{,} \PYG{n}{FilteredTodoState}\PYG{p}{,}
+         \PYG{n}{\PYGZus{}ViewModel}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+            \PYG{c+c1}{//use the ad hoc viewmodel to contain the selected filtered list}
+            \PYG{n+nl}{selector:} \PYG{p}{(}\PYG{n}{state}\PYG{p}{)} \PYG{o}{=\PYGZgt{}}
+                \PYG{n}{\PYGZus{}ViewModel}\PYG{p}{(}\PYG{n+nl}{todos:}
+                \PYG{p}{(}\PYG{n}{state} \PYG{k}{as} \PYG{n}{FilteredTodoLoadedState}\PYG{p}{).}\PYG{n}{todos}\PYG{p}{),}
+            \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{filteredList}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+              \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building: TodoView\PYGZdq{}}\PYG{p}{);}
+              \PYG{k}{return} \PYG{n}{ListView}\PYG{p}{.}\PYG{n}{builder}\PYG{p}{(...);}
+            \PYG{p}{\PYGZcb{});}
+      \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{k}{const} \PYG{n}{Center}\PYG{p}{(}\PYG{n+nl}{child:} \PYG{n}{CircularProgressIndicator}\PYG{p}{());}
+       \PYG{p}{\PYGZcb{}}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

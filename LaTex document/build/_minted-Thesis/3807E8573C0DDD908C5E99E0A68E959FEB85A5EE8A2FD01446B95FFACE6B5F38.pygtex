@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TodoItemSelector} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{final} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{;}
+  \PYG{k}{const} \PYG{n}{TodoItemSelector}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{id}\PYG{p}{\PYGZcb{})} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoBloc}\PYG{p}{,} \PYG{n}{TodosState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+       \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{state}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{c+c1}{//check if state is of type Loaded}
+      \PYG{c+c1}{//to be sure to have a list of todos}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{state} \PYG{k}{is} \PYG{n}{TodosLoadedState}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{c+c1}{//return a BlocSelector to perform the optimizations}
+        \PYG{k}{return} \PYG{n}{BlocSelector}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoBloc}\PYG{p}{,} \PYG{n}{TodosState}\PYG{p}{,} \PYG{n}{Todo}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+            \PYG{c+c1}{//select the corresponding todo from the state}
+            \PYG{n+nl}{selector:} \PYG{p}{(}\PYG{n}{state}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+          \PYG{k}{return} \PYG{p}{(}\PYG{n}{state} \PYG{k}{as} \PYG{n}{TodosLoadedState}\PYG{p}{)}
+          \PYG{p}{.}\PYG{n}{todos}\PYG{p}{.}\PYG{n}{firstWhere}\PYG{p}{((}\PYG{n}{element}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{element}\PYG{p}{.}\PYG{n}{id}\PYG{o}{==}\PYG{n}{id}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{},} \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{todo}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+          \PYG{c+c1}{//return the usual InkWell without any change}
+          \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}building: Todo Item }\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}}\PYG{l+s+s2}{id \PYGZdq{}} \PYG{o}{+} \PYG{n}{key}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{());}
+
+          \PYG{k}{return} \PYG{n}{InkWell}\PYG{p}{(...);}
+          \PYG{p}{\PYGZcb{});} \PYG{c+c1}{//end of BlocSelector}
+      \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{Row}\PYG{p}{(...);}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{});}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
