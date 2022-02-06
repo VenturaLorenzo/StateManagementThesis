@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nd}{@override}
-\PYG{k+kt}{bool} \PYG{n}{updateShouldNotify}\PYG{p}{(}\PYG{n}{TodoInheritedData} \PYG{n}{oldWidget}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-  \PYG{k}{return} \PYG{o}{!}\PYG{n}{listEquals}\PYG{p}{(}\PYG{n}{oldWidget}\PYG{p}{.}\PYG{n}{filteredTodos}\PYG{p}{,} \PYG{n}{filteredTodos}\PYG{p}{);}
-\PYG{p}{\PYGZcb{}}
-\end{Verbatim}

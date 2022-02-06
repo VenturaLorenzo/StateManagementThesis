@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nl}{onChanged:} \PYG{p}{(}\PYG{n}{tappedValue}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-        \PYG{c+c1}{//another way of changing the state}
-        \PYG{n}{store}\PYG{p}{.}\PYG{n}{filter} \PYG{o}{=} \PYG{n}{tappedValue}\PYG{o}{!}\PYG{p}{;}
-      \PYG{p}{\PYGZcb{},}
-\end{Verbatim}

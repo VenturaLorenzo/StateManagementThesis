@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nl}{buildWhen:} \PYG{p}{(}\PYG{n}{previous}\PYG{p}{,} \PYG{n}{next}\PYG{p}{)} \PYG{p}{\PYGZob{}}
- \PYG{k}{return} \PYG{n}{previous}\PYG{p}{.}\PYG{n}{runtimeType} \PYG{o}{!=} \PYG{n}{next}\PYG{p}{.}\PYG{n}{runtimeType}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}
-\end{Verbatim}

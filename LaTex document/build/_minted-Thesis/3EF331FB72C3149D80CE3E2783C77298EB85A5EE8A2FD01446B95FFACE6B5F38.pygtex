@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{TabState} \PYG{n}{tab} \PYG{o}{=} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{;} \PYG{c+c1}{// new variable inserted in the HomePage}
-
-\PYG{k+kt}{void} \PYG{n}{onTabChange}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{index}\PYG{p}{)} \PYG{p}{\PYGZob{}}
- \PYG{n}{setState}\PYG{p}{(()} \PYG{p}{\PYGZob{}}
-   \PYG{n}{tab} \PYG{o}{=} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{elementAt}\PYG{p}{(}\PYG{n}{index}\PYG{p}{);}
- \PYG{p}{\PYGZcb{});}
-\PYG{p}{\PYGZcb{}}
-\end{Verbatim}

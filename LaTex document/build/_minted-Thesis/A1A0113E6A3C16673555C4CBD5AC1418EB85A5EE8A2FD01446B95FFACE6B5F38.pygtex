@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kd}{class} \PYG{n+nc}{UpdateTodoPageArguments} \PYG{p}{\PYGZob{}}
-  \PYG{k+kd}{final} \PYG{n}{Todo} \PYG{n}{todo}\PYG{p}{;}
-  \PYG{k+kd}{final} \PYG{k+kt}{void} \PYG{k+kt}{Function}\PYG{p}{(}\PYG{k+kt}{String} \PYG{p}{,}\PYG{k+kt}{String}\PYG{p}{)} \PYG{n}{updateState}\PYG{p}{;}
-
-  \PYG{n}{UpdateTodoPageArguments}\PYG{p}{(\PYGZob{}}\PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{todo}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{updateState}\PYG{p}{\PYGZcb{});}
-\PYG{p}{\PYGZcb{}}
-\end{Verbatim}

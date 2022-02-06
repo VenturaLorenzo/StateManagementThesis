@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kd}{final} \PYG{n}{todosSelector} \PYG{o}{=} \PYG{p}{(}\PYG{n}{AppState} \PYG{n}{state}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{state}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{;}
-
-\PYG{k+kd}{final} \PYG{n}{filterSelector} \PYG{o}{=} \PYG{p}{(}\PYG{n}{AppState} \PYG{n}{state}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{state}\PYG{p}{.}\PYG{n}{visibilityFilter}\PYG{p}{;}
-\end{Verbatim}

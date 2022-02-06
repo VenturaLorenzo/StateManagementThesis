@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nl}{onTap:}
- \PYG{p}{(}\PYG{n}{index}\PYG{p}{)}\PYG{o}{=\PYGZgt{}}\PYG{n}{BlocProvider}\PYG{p}{.}\PYG{n}{of}\PYG{o}{\PYGZlt{}}\PYG{n}{TabBloc}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{context}\PYG{p}{)}
- \PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{ChangeTabEvent}\PYG{p}{(}\PYG{n}{TabState}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{elementAt}\PYG{p}{(}\PYG{n}{index}\PYG{p}{))),}
-\end{Verbatim}
