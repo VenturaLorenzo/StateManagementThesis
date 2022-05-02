@@ -24,10 +24,11 @@ class Todo {
 
   @override
   String toString() {
-    return "{ id: $id  completed: $completed}";
+    return "{ id: $id  completed: $completed ,$description,$name}";
   }
 
   @override
   // TODO: implement hashCode
-  int get hashCode => super.hashCode;
+  int get hashCode => id;
+
 }

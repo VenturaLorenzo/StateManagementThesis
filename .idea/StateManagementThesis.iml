@@ -33,6 +33,18 @@
       <excludeFolder url="file://$MODULE_DIR$/counter_state_management/redux_pattern/build" />
       <excludeFolder url="file://$MODULE_DIR$/counter_state_management/redux_pattern/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/counter_state_management/redux_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/inherited_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/inherited_pattern/build" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/inherited_pattern/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/mobx_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/mobx_pattern/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/mobx_pattern/build" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/changenotifier_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/changenotifier_pattern/build" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/changenotifier_pattern/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/setstate_pattern/build" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/setstate_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/setstate_pattern/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

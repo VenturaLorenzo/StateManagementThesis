@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux_pattern/actions/todo_actions.dart';
 import 'package:redux_pattern/components/todo_item.dart';
@@ -37,12 +38,23 @@ class _ViewModel {
 
   _ViewModel({required this.todos});
 
-  @override
+  /*@override
   bool operator ==(Object other) {
     return ((other is _ViewModel) &&
         todos.length == other.todos.length &&
         todos.every(
             (todo) => other.todos.any((element) => todo.id  == element.id)));
+  }*/
+  @override
+  bool operator ==(Object other) {
+    if(other is _ViewModel) {
+      List<int> ids = todos.map((todo) => todo.id).toList();
+      List<int> otherIds = other.todos.map((todo) => todo.id).toList();
+
+      return listEquals(ids,otherIds);
+    }else{
+      return false;
+    }
   }
 
   @override

@@ -8,17 +8,21 @@ import 'package:redux_pattern/models/todo.dart';
 class TodoItem extends StatelessWidget {
   final int id;
 
-  const TodoItem({Key? key, required this.id})
-      : super(key: key);
+  const TodoItem({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, Todo>(
-      distinct: true,
-        converter: (store) =>store.state.todos.firstWhere((element) => element.id == id),
+        distinct: true,
+        converter: (store) {
+          print(store.state.todos);
+          Todo t = store.state.todos.firstWhere((element) => element.id == id);
+          print(t);
+
+          return t;
+        },
         builder: (context, todo) {
           print("building: Todo Item $id ");
-
           return InkWell(
             onTap: () {
               Navigator.pushNamed(context, "/updateTodo", arguments: todo);
@@ -41,8 +45,12 @@ class TodoItem extends StatelessWidget {
                       StoreProvider.of<AppState>(context).dispatch(
                           SetCompletedTodoAction(todo.id, completed!));
                     }),
-                TextButton(onPressed: (){StoreProvider.of<AppState>(context).dispatch(
-                    DeleteTodoAction(todo.id));}, child: Text("ciao"))
+                TextButton(
+                    onPressed: () {
+                      StoreProvider.of<AppState>(context)
+                          .dispatch(DeleteTodoAction(todo.id));
+                    },
+                    child: Text("ciao"))
               ],
             ),
           );

@@ -66,7 +66,20 @@ AppState appStateReducer(AppState state, action) {
     return state;
   }
 }
-
+final tabReducer= combineReducers<AppState>([
+  TypedReducer<AppState, DecrementAction>(_decrement),
+  TypedReducer<AppState, DecrementAction>(_increment),
+]);
+AppState _decrement(AppState state, DecrementAction action){
+  int newValue = state.counter - action.value;
+  //return a new AppState
+  return AppState(counter: newValue);
+}
+AppState _increment(AppState state, IncrementAction action){
+  int newValue = state.counter + action.value;
+  //return a new AppState
+  return AppState(counter: newValue);
+}
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -75,9 +88,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         //use a StoreBuilder
-        body: StoreBuilder<AppState>(builder: (context, store) {
+        body: StoreConnector<AppState,int>(
+            converter: (store)=> store.state.counter,
+            builder: (context, counter) {
           //access the store in the builder to print the counter value
-          return Text(store.state.counter.toString());
+          return Text(counter.toString());
         }),
         floatingActionButton: FloatingActionButton(onPressed: () {
           //dispatch an action incrementing the counter by one

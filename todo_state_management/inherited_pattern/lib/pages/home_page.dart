@@ -27,36 +27,34 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return TodoProvider(
-      child: Builder(builder: (context) {
-        return Scaffold(
-          appBar: AppBar(
-            actions: [
-              tab == TabState.todos
-                  ? const VisibilityFilterComponent()
-                  : Container()
-            ],
-            title: const Text("Todo App"),
-          ),
-          body: tab == TabState.todos ? const TodoView() : const Stats(),
-          bottomNavigationBar: TabSelector(
-            currTab: tab,
-            onTabChange: onTabChange,
-          ),
-          floatingActionButton: tab == TabState.todos
-              ? FloatingActionButton(
-                  child: const Icon(Icons.plus_one),
-            onPressed: () {
-              Navigator.pushNamed(context, "/addTodo",
-                  arguments:
-                      TodoInheritedData.of(context, aspect: 1).onAddTodo);
+    return Builder(builder: (context) {
+      return Scaffold(
+        appBar: AppBar(
+          actions: [
+            tab == TabState.todos
+                ? const VisibilityFilterComponent()
+                : Container()
+          ],
+          title: const Text("Todo App"),
+        ),
+        body: tab == TabState.todos ? const TodoView() : const Stats(),
+        bottomNavigationBar: TabSelector(
+          currTab: tab,
+          onTabChange: onTabChange,
+        ),
+        floatingActionButton: tab == TabState.todos
+            ? FloatingActionButton(
+                child: const Icon(Icons.plus_one),
+          onPressed: () {
+            Navigator.pushNamed(context, "/addTodo",
+                arguments:
+                    TodoInheritedData.of(context, aspect: 1).onAddTodo);
 
-              Future.delayed(const Duration(seconds: 1))
-                  .then((value) => print("---------------------"));
-            },
-          ) : null,
-        );
-      }),
-    );
+            Future.delayed(const Duration(seconds: 1))
+                .then((value) => print("---------------------"));
+          },
+        ) : null,
+      );
+    });
   }
 }

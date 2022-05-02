@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:inherited_pattern/todo_provider.dart';
 
 class AddTodoPage extends StatefulWidget {
   final void Function(String, String) addTodoCallback;
@@ -36,7 +37,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
             ),
             TextButton(
                 onPressed: () {
-                  widget.addTodoCallback(
+                  TodoInheritedData.of(context, aspect: 0).onAddTodo(
                       textControllerName.text, textControllerDesc.text);
                   Navigator.pop(context);
                 },

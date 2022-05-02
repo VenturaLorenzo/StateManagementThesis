@@ -66,28 +66,51 @@ class TodoInheritedData extends InheritedModel<int> {
   }
 
   @override
+  bool updateShouldNotifyDependent() {
+    if (changeAffectingTheEntireListOccured) {
+      //leads every dependent to rebuild whatever aspect it subscribed to
+      return true;
+    } else {
+      // in case the change is not affecting the entire TodoView
+      //check which aspect the dependent subscribed to
+      if (dependencies.contains(0)) {
+        //if it subscribed to structural changes
+        //do not rebuild because the change is not structural
+        return false;
+      }
+      if (todoWithID(Dependencies).changed) {
+        //if the todo with id equal to the value in the dependencies changed
+        // evaluate to true (rebuild)
+        return true;
+      }
+    }
+    //if no previous statements were satisfied return false
+    return false;
+  }
+
+  @override
   bool updateShouldNotifyDependent(
       TodoInheritedData oldWidget, Set<int> dependencies) {
     if (dependencies.contains(1)) {
       return true;
     }
-    if (dependencies.contains(0)) {
-      bool structuralChange =
-          _checkStructuralChange(oldWidget.filteredTodos, filteredTodos);
-      if (structuralChange) {
-        return true;
-      } else {
+    bool structuralChange =
+        _checkStructuralChange(oldWidget.filteredTodos, filteredTodos);
+    if (structuralChange) {
+      return true;
+    } else {
+      if (dependencies.contains(0)) {
         return false;
       }
+
+      if (oldWidget.todos
+              .where((element) => element.id == dependencies.first)
+              .first !=
+          todos.where((element) => element.id == dependencies.first).first) {
+        return true;
+      }
     }
-    List<bool> components = [];
-    for (var element in filteredTodos) {
-      components.add(dependencies.contains(element.id) &&
-          !oldWidget.filteredTodos.contains(element));
-    }
-    bool res = components.fold(
-        false, (bool previousValue, bool element) => previousValue || element);
-    return res;
+    return false;
   }
 
   bool _checkStructuralChange(List<Todo> before, List<Todo> current) {

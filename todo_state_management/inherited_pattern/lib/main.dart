@@ -15,23 +15,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: "/", //setting the HomePage as initial route
-      routes: {
-        //defining possible routes
-        "/": (context) => const HomePage(),
-        "/updateTodo": (context) => UpdateTodoPage(
-              todo: (ModalRoute.of(context)!.settings.arguments
-                      as UpdateTodoPageArguments)
-                  .todo,
-              callback: (ModalRoute.of(context)!.settings.arguments
-                      as UpdateTodoPageArguments)
-                  .updateState,
-            ),
-        "/addTodo": (context) => AddTodoPage(
-            addTodoCallback: ModalRoute.of(context)!.settings.arguments
-                as Function(String, String)),
-      },
+    return TodoProvider(
+      child: MaterialApp(
+        initialRoute: "/", //setting the HomePage as initial route
+        routes: {
+          //defining possible routes
+          "/": (context) => const HomePage(),
+          "/updateTodo": (context) => UpdateTodoPage(
+                todo: (ModalRoute.of(context)!.settings.arguments
+                        as UpdateTodoPageArguments)
+                    .todo,
+                callback: (ModalRoute.of(context)!.settings.arguments
+                        as UpdateTodoPageArguments)
+                    .updateState,
+              ),
+          "/addTodo": (context) => AddTodoPage(
+              addTodoCallback: ModalRoute.of(context)!.settings.arguments
+                  as Function(String, String)),
+        },
+      ),
     );
   }
 }
