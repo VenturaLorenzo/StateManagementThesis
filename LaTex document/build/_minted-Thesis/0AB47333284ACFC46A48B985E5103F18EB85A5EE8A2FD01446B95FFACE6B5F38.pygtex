@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{AppBlocObserver} \PYG{k+kd}{extends} \PYG{n}{BlocObserver}\PYG{p}{\PYGZob{}}
+  \PYG{n+nd}{@override}
+  \PYG{k+kt}{void} \PYG{n}{onEvent}\PYG{p}{(}\PYG{n}{Bloc} \PYG{n}{bloc}\PYG{p}{,} \PYG{k+kt}{Object}\PYG{o}{?} \PYG{n}{event}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{super}\PYG{p}{.}\PYG{n}{onEvent}\PYG{p}{(}\PYG{n}{bloc}\PYG{p}{,} \PYG{n}{event}\PYG{p}{);}
+    \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Event : \PYGZdq{}} \PYG{o}{+}\PYG{n}{event}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{());}
+  \PYG{p}{\PYGZcb{}}
+
+  \PYG{n+nd}{@override}
+  \PYG{k+kt}{void} \PYG{n}{onTransition}\PYG{p}{(}\PYG{n}{Bloc} \PYG{n}{bloc}\PYG{p}{,} \PYG{n}{Transition} \PYG{n}{transition}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{super}\PYG{p}{.}\PYG{n}{onTransition}\PYG{p}{(}\PYG{n}{bloc}\PYG{p}{,} \PYG{n}{transition}\PYG{p}{);}
+    \PYG{n}{print}\PYG{p}{(} \PYG{n}{transition}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{());}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n+nd}{@override}
+  \PYG{k+kt}{void} \PYG{n}{onError}\PYG{p}{(}\PYG{n}{BlocBase} \PYG{n}{bloc}\PYG{p}{,} \PYG{k+kt}{Object} \PYG{n}{error}\PYG{p}{,} \PYG{n}{StackTrace} \PYG{n}{stackTrace}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{print}\PYG{p}{(}\PYG{n}{error}\PYG{p}{);}
+    \PYG{k}{super}\PYG{p}{.}\PYG{n}{onError}\PYG{p}{(}\PYG{n}{bloc}\PYG{p}{,} \PYG{n}{error}\PYG{p}{,} \PYG{n}{stackTrace}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

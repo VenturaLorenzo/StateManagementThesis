@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Navigator}\PYG{p}{.}\PYG{n}{pushNamed}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}/updateTodo\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nl}{arguments:} \PYG{n}{UpdateTodoPageArguments}\PYG{p}{(}
+        \PYG{n+nl}{todo:} \PYG{n}{todo}\PYG{p}{,}
+        \PYG{n+nl}{updateState:} \PYG{p}{(}\PYG{k+kt}{String} \PYG{n}{newName}\PYG{p}{,}\PYG{k+kt}{String} \PYG{n}{newDesc}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+          \PYG{n}{TodoInheritedData}\PYG{p}{.}\PYG{n}{of}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n+nl}{aspect:} \PYG{l+m}{0}\PYG{p}{)}
+              \PYG{p}{.}\PYG{n}{onUpdateTodo}\PYG{p}{(}\PYG{n}{todo}\PYG{p}{.}\PYG{n}{id}\PYG{p}{,} \PYG{n}{newName}\PYG{p}{,}\PYG{n}{newDesc}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}));}
+\end{Verbatim}

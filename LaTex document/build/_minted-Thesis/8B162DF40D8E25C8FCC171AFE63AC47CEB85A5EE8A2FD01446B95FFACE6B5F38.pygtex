@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{return} \PYG{n}{BlocBuilder}\PYG{o}{\PYGZlt{}}\PYG{n}{TabBloc}\PYG{p}{,} \PYG{n}{TabState}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+  \PYG{n+nl}{builder:} \PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{currTab}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{BottomNavigationBar}\PYG{p}{(}
+      \PYG{n+nl}{currentIndex:} \PYG{n}{TabState}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{indexOf}\PYG{p}{(}\PYG{n}{currTab}\PYG{p}{),}
+\end{Verbatim}

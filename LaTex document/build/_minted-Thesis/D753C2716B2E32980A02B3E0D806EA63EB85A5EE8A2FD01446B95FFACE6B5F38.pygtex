@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{TodoProvider} \PYG{k+kd}{extends} \PYG{n}{StatefulWidget} \PYG{p}{\PYGZob{}}
+  \PYG{k}{const} \PYG{n}{TodoProvider}\PYG{p}{(\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{,} \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{child}\PYG{p}{\PYGZcb{})} \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{k+kd}{final} \PYG{n}{Widget} \PYG{n}{child}\PYG{p}{;}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{\PYGZus{}TodoProviderState} \PYG{n}{createState}\PYG{p}{()} \PYG{o}{=\PYGZgt{}} \PYG{n}{\PYGZus{}TodoProviderState}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{\PYGZus{}TodoProviderState} \PYG{k+kd}{extends} \PYG{n}{State}\PYG{o}{\PYGZlt{}}\PYG{n}{TodoProvider}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+  \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos} \PYG{o}{=} \PYG{p}{[];}
+  \PYG{n}{VisibilityFilter} \PYG{n}{filter} \PYG{o}{=} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n}{all}\PYG{p}{;}
+
+\PYG{n+nd}{@override}
+\PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{TodoInheritedData}\PYG{p}{(}
+    \PYG{n+nl}{todos:} \PYG{n}{todos}\PYG{p}{,}
+    \PYG{n+nl}{filter:} \PYG{n}{filter}\PYG{p}{,}
+    \PYG{n+nl}{child:} \PYG{n}{widget}\PYG{p}{.}\PYG{n}{child}\PYG{p}{,}
+  \PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

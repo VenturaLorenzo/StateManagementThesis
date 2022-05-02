@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	
+	\PYG{n+nd}{@immutable}
+	\PYG{k+kd}{class} \PYG{n+nc}{Todo} \PYG{p}{\PYGZob{}}
+	  \PYG{k+kd}{final} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{;}
+	  \PYG{k+kd}{final} \PYG{k+kt}{String} \PYG{n}{name}\PYG{p}{;}
+	  \PYG{k+kd}{final} \PYG{k+kt}{String} \PYG{n}{description}\PYG{p}{;}
+	  \PYG{k+kd}{final} \PYG{k+kt}{bool} \PYG{n}{completed}\PYG{p}{;}
+	
+	  \PYG{k}{const} \PYG{n}{Todo}\PYG{p}{(}
+	      \PYG{p}{\PYGZob{}}\PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{id}\PYG{p}{,}
+	      \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{name}\PYG{p}{,}
+	      \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{description}\PYG{p}{,}
+	      \PYG{k+kd}{required} \PYG{k}{this}\PYG{p}{.}\PYG{n}{completed}\PYG{p}{\PYGZcb{});}
+	
+	  \PYG{n+nd}{@override}
+	  \PYG{k+kt}{bool} \PYG{k+kd}{operator} \PYG{o}{==}\PYG{p}{(}\PYG{k+kt}{Object} \PYG{n}{other}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	    \PYG{k}{return} \PYG{p}{(}\PYG{n}{other} \PYG{k}{is} \PYG{n}{Todo}\PYG{p}{)} \PYG{o}{\PYGZam{}\PYGZam{}}
+	        \PYG{n}{other}\PYG{p}{.}\PYG{n}{description} \PYG{o}{==} \PYG{n}{description} \PYG{o}{\PYGZam{}\PYGZam{}}
+	        \PYG{n}{other}\PYG{p}{.}\PYG{n}{name} \PYG{o}{==} \PYG{n}{name} \PYG{o}{\PYGZam{}\PYGZam{}}
+	        \PYG{n}{other}\PYG{p}{.}\PYG{n}{id} \PYG{o}{==} \PYG{n}{id} \PYG{o}{\PYGZam{}\PYGZam{}}
+	        \PYG{n}{other}\PYG{p}{.}\PYG{n}{completed} \PYG{o}{==} \PYG{n}{completed}\PYG{p}{;}
+	  \PYG{p}{\PYGZcb{}}
+	
+	  \PYG{n+nd}{@override}
+	  \PYG{k+kt}{String} \PYG{n}{toString}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+	    \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}\PYGZob{} id: }\PYG{l+s+si}{\PYGZdl{}}\PYG{n}{id}\PYG{l+s+s2}{  completed: }\PYG{l+s+si}{\PYGZdl{}}\PYG{n}{completed}\PYG{l+s+s2}{\PYGZcb{}\PYGZdq{}}\PYG{p}{;}
+	  \PYG{p}{\PYGZcb{}}
+	
+	  \PYG{n+nd}{@override}
+	  \PYG{c+c1}{// TODO: implement hashCode}
+	  \PYG{k+kt}{int} \PYG{k+kd}{get} \PYG{n}{hashCode} \PYG{o}{=\PYGZgt{}} \PYG{k}{super}\PYG{p}{.}\PYG{n}{hashCode}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+\end{Verbatim}

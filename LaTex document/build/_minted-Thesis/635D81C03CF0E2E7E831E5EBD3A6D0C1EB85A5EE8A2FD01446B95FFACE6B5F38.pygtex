@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	
+	\PYG{n}{enum} \PYG{n}{TabState}\PYG{p}{\PYGZob{}}
+	 \PYG{n}{todos}\PYG{p}{,}\PYG{n}{stats}
+	\PYG{p}{\PYGZcb{}}
+	
+	
+\end{Verbatim}

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{final} \PYG{n}{todosReducer} \PYG{o}{=} \PYG{p}{(}\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos}\PYG{p}{,} \PYG{n}{action}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{action} \PYG{k}{is} \PYG{n}{LoadTodoSucceededAction}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{\PYGZus{}setLoadedTodo}\PYG{p}{(}\PYG{n}{todos}\PYG{p}{,}\PYG{n}{action}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{action} \PYG{k}{is} \PYG{n}{SetCompletedTodoAction}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{\PYGZus{}setCompletedTodo}\PYG{p}{(}\PYG{n}{todos}\PYG{p}{,} \PYG{n}{action}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{state}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

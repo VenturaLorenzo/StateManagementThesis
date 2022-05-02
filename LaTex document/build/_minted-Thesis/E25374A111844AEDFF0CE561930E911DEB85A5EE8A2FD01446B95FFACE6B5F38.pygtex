@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{final} \PYG{n}{todosSelector} \PYG{o}{=} \PYG{p}{(}\PYG{n}{AppState} \PYG{n}{state}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{state}\PYG{p}{.}\PYG{n}{todos}\PYG{p}{;}
+
+\PYG{k+kd}{final} \PYG{n}{filterSelector} \PYG{o}{=} \PYG{p}{(}\PYG{n}{AppState} \PYG{n}{state}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{state}\PYG{p}{.}\PYG{n}{visibilityFilter}\PYG{p}{;}
+
+\PYG{k+kd}{final} \PYG{n}{completedTodosSelector} \PYG{o}{=} \PYG{n}{createSelector1}\PYG{p}{(}
+    \PYG{n}{todosSelector}\PYG{p}{,}
+    \PYG{p}{(}\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos}\PYG{p}{)} \PYG{o}{=\PYGZgt{}}
+        \PYG{n}{todos}\PYG{p}{.}\PYG{n}{where}\PYG{p}{((}\PYG{n}{todo}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{completed} \PYG{o}{==} \PYG{k+kc}{true}\PYG{p}{).}\PYG{n}{toList}\PYG{p}{());}
+
+\PYG{k+kd}{final} \PYG{n}{pendingTodosSelector} \PYG{o}{=} \PYG{n}{createSelector1}\PYG{p}{(}
+    \PYG{n}{todosSelector}\PYG{p}{,}
+    \PYG{p}{(}\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos}\PYG{p}{)} \PYG{o}{=\PYGZgt{}}
+        \PYG{n}{todos}\PYG{p}{.}\PYG{n}{where}\PYG{p}{((}\PYG{n}{todo}\PYG{p}{)} \PYG{o}{=\PYGZgt{}} \PYG{n}{todo}\PYG{p}{.}\PYG{n}{completed} \PYG{o}{==} \PYG{k+kc}{false}\PYG{p}{).}\PYG{n}{toList}\PYG{p}{());}
+
+\PYG{k+kd}{final} \PYG{n}{filteredTodosSelector} \PYG{o}{=} \PYG{n}{createSelector4}\PYG{p}{(}
+    \PYG{n}{todosSelector}\PYG{p}{,} \PYG{n}{filterSelector}\PYG{p}{,} \PYG{n}{completedTodosSelector}\PYG{p}{,} \PYG{n}{pendingTodosSelector}\PYG{p}{,}
+    \PYG{p}{(}\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{todos}\PYG{p}{,} \PYG{n}{VisibilityFilter} \PYG{n}{filter}\PYG{p}{,} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{completed}\PYG{p}{,}
+        \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Todo}\PYG{o}{\PYGZgt{}} \PYG{n}{pending}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{switch} \PYG{p}{(}\PYG{n}{filter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n+nl}{completed:}
+      \PYG{k}{return} \PYG{n}{completed}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n+nl}{notCompleted:}
+      \PYG{k}{return} \PYG{n}{pending}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n+nl}{all:}
+      \PYG{k}{return} \PYG{n}{todos}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{});}
+\end{Verbatim}

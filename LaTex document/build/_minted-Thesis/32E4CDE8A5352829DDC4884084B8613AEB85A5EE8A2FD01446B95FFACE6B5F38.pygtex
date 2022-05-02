@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{VisibilityFilterComponent} \PYG{k+kd}{extends} \PYG{n}{StatelessWidget} \PYG{p}{\PYGZob{}}
+
+  \PYG{k}{const} \PYG{n}{VisibilityFilterComponent}\PYG{p}{(}
+      \PYG{p}{\PYGZob{}}\PYG{n}{Key}\PYG{o}{?} \PYG{n}{key}\PYG{p}{\PYGZcb{})}
+      \PYG{o}{:} \PYG{k}{super}\PYG{p}{(}\PYG{n+nl}{key:} \PYG{n}{key}\PYG{p}{);}
+
+  \PYG{n+nd}{@override}
+  \PYG{n}{Widget} \PYG{n}{build}\PYG{p}{(}\PYG{n}{BuildContext} \PYG{n}{context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Building Visibility filter\PYGZdq{}}\PYG{p}{);}
+    \PYG{n}{VisibilityFilter} \PYG{n}{filter}\PYG{o}{=} \PYG{n}{TodoInheritedData}\PYG{p}{.}\PYG{n}{of}\PYG{p}{(}\PYG{n}{context}\PYG{p}{).}\PYG{n}{filter}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{DropdownButton}\PYG{o}{\PYGZlt{}}\PYG{n}{VisibilityFilter}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+      \PYG{n+nl}{value:} \PYG{n}{filter}\PYG{p}{,}
+      \PYG{n+nl}{items:} \PYG{n}{VisibilityFilter}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{map}\PYG{p}{((}\PYG{n}{filter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{DropdownMenuItem}\PYG{o}{\PYGZlt{}}\PYG{n}{VisibilityFilter}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+            \PYG{n+nl}{child:} \PYG{n}{Text}\PYG{p}{(}\PYG{n}{describeEnum}\PYG{p}{(}\PYG{n}{filter}\PYG{p}{)),} \PYG{n+nl}{value:} \PYG{n}{filter}\PYG{p}{);}
+      \PYG{p}{\PYGZcb{}).}\PYG{n}{toList}\PYG{p}{(),}
+      \PYG{n+nl}{onChanged:} \PYG{p}{(}\PYG{n}{filter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+      \PYG{p}{\PYGZcb{},}
+    \PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
