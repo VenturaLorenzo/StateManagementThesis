@@ -1,8 +1,10 @@
 import 'package:bloc_pattern/blocs/filtered_todo_bloc.dart';
+import 'package:bloc_pattern/blocs/todos_bloc.dart';
 import 'package:bloc_pattern/components/todo_item.dart';
 import 'package:bloc_pattern/components/todo_item_with_selector.dart';
 import 'package:bloc_pattern/models/todo.dart';
 import 'package:bloc_pattern/states/filtered_todo_state.dart';
+import 'package:bloc_pattern/states/todos_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +30,20 @@ class TodoViewSelector extends StatelessWidget {
               return ListView.builder(
                   itemCount: filteredList.todos.length,
                   itemBuilder: (context, index) {
-                    return TodoItemSelector(
-                        key: UniqueKey(),
-                        id: filteredList.todos.elementAt(index).id);
+                    return BlocSelector<TodoBloc, TodosState, Todo>(
+                      selector: (state) {
+                        List<Todo> todos = (state as TodosLoadedState)
+                            .todos
+                            .where((element) =>
+                                element.id ==
+                                filteredList.todos.elementAt(index).id)
+                            .toList();
+                        return todos.first;
+                      },
+                      builder: (context, todo) {
+                        return TodoItemSelector(key: UniqueKey(), todo: todo);
+                      },
+                    );
                   });
             });
       } else if (filteredTodoState is FilteredTodoLoadingState) {

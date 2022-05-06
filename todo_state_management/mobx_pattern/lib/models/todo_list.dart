@@ -104,12 +104,12 @@ abstract class _TodoList with Store {
 
   @action
   Future<void> fetchTodos() async {
-    todos = await TodoRepository.loadTodos();
+    //todos = await TodoRepository.loadTodos();
     //todos.addAll( await repo.loadTodos());
   }
 
   @action
   Future<void> saveTodos() async {
-    await TodoRepository.saveTodos(todos);
+   // await TodoRepository.saveTodos(todos);
   }
 }

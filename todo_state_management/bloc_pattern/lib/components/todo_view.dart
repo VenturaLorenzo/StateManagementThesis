@@ -16,9 +16,7 @@ class TodoView extends StatelessWidget {
         buildWhen: (previous, next) {
       return !((previous is FilteredTodoLoadedState) &&
           (next is FilteredTodoLoadedState) &&
-          previous.todos.length == next.todos.length &&
-          listEquals(next.todos.map((todo) => todo.id).toList(),
-              previous.todos.map((todo) => todo.id).toList()));
+          checkStructuralChange(previous.todos, next.todos));
     }, builder: (context, filteredTodoState) {
       print("building: TodoView");
 
@@ -37,4 +35,9 @@ class TodoView extends StatelessWidget {
       }
     });
   }
+}
+bool checkStructuralChange(List<Todo> first, List<Todo> second){
+  return first.length == second.length &&
+      listEquals(second.map((todo) => todo.id).toList(),
+          first.map((todo) => todo.id).toList());
 }

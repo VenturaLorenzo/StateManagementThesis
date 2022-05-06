@@ -16,15 +16,9 @@ class TodoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TodoBloc, TodosState>(buildWhen: (previous, next) {
-      if (next is TodosLoadedState &&
+      return (next is TodosLoadedState &&
           previous is TodosLoadedState &&
-          next.todos.map((todo) => todo.id).contains(id) &&
-          previous.todos.firstWhere((element) => element.id == id) !=
-              next.todos.firstWhere((element) => element.id == id)) {
-        return true;
-      } else {
-        return false;
-      }
+          todoIsChanged(previous.todos, next.todos, id));
     }, builder: (context, state) {
       print("building: Todo Item $id " + key.toString());
 
@@ -47,7 +41,6 @@ class TodoItem extends StatelessWidget {
               ),
               BlocBuilder<TodoBloc, TodosState>(buildWhen: (previous, current) {return true;
               }, builder: (context, state) {
-                print("building checkbox");
 
                 return Checkbox(
                     value: t.completed,
@@ -75,4 +68,9 @@ class TodoItem extends StatelessWidget {
       }
     });
   }
+}
+bool todoIsChanged(List<Todo> first, List<Todo> second, id){
+  return (second.map((todo) => todo.id).contains(id) &&
+      first.firstWhere((element) => element.id == id) !=
+          second.firstWhere((element) => element.id == id));
 }

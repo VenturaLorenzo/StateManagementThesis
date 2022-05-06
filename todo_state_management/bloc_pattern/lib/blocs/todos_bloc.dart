@@ -28,7 +28,7 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
   Stream<TodosState> _mapLoadTodosToState(LoadTodosEvent event) async* {
     try {
       final List<Todo> todos = await TodoRepository.loadTodos();
-      yield TodosInitialState(todos);
+      yield TodosLoadedState(todos);
     } catch (e) {
       yield TodosLoadingState();
     }
@@ -72,7 +72,7 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
     if (state is TodosLoadedState) {
       List<Todo> newTodos = List.from((state as TodosLoadedState).todos)
         ..removeWhere((element) => element.id == event.id);
-      yield TodosMutatedState( false,newTodos);
+      yield TodosLoadedState(newTodos);
       await TodoRepository.saveTodos(newTodos);
       yield TodosMutatedState( true,newTodos);
     }
@@ -80,21 +80,18 @@ class TodoBloc extends Bloc<TodosEvent, TodosState> {
 
   Stream<TodosState> _mapSetCompletedToState(
       SetCompletedTodoEvent event) async* {
-    if (state is TodosLoadedState) {
+    if (state is TodosLoadedState) {// create a new updated list
       List<Todo> newList = (state as TodosLoadedState)
           .todos
           .map((todo) => todo.id == event.id
-              ? Todo(
-                  name: todo.name,
-                  description: todo.description,
-                  id: todo.id,
-                  completed: event.completed)
-              : todo)
+          ? Todo(
+          name: todo.name,
+          description: todo.description,
+          id: todo.id,
+          completed: event.completed)
+          : todo)
           .toList();
-      yield TodosMutatedState( false,newList);
-      await TodoRepository.saveTodos(newList);
-      yield TodosMutatedState( true,newList);
+      yield TodosLoadedState(newList);
     }
-
   }
 }

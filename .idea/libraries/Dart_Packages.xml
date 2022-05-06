@@ -5,16 +5,16 @@
         <entry key="_fe_analyzer_shared">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-28.0.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-34.0.0/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-28.0.0/lib" />
             </list>
           </value>
         </entry>
         <entry key="analyzer">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-2.5.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-3.2.0/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-2.5.0/lib" />
             </list>
           </value>
         </entry>
@@ -50,8 +50,8 @@
         <entry key="build">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build-2.1.1/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build-2.2.1/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build-2.1.1/lib" />
             </list>
           </value>
         </entry>
@@ -72,24 +72,24 @@
         <entry key="build_resolvers">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-2.0.4/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-2.0.6/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-2.0.4/lib" />
             </list>
           </value>
         </entry>
         <entry key="build_runner">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.4/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.7/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.4/lib" />
             </list>
           </value>
         </entry>
         <entry key="build_runner_core">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner_core-7.2.2/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner_core-7.2.3/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner_core-7.2.2/lib" />
             </list>
           </value>
         </entry>
@@ -103,8 +103,8 @@
         <entry key="built_value">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/built_value-8.1.2/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/built_value-8.1.4/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/built_value-8.1.2/lib" />
             </list>
           </value>
         </entry>
@@ -133,8 +133,8 @@
         <entry key="cli_util">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/cli_util-0.3.4/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/cli_util-0.3.5/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/cli_util-0.3.4/lib" />
             </list>
           </value>
         </entry>
@@ -184,8 +184,8 @@
         <entry key="dart_style">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-2.2.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-2.2.1/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-2.2.0/lib" />
             </list>
           </value>
         </entry>
@@ -227,7 +227,6 @@
         <entry key="flutter_bloc">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.3/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.0/lib" />
             </list>
           </value>
@@ -242,8 +241,8 @@
         <entry key="flutter_mobx">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_mobx-2.0.2/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_mobx-2.0.4/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_mobx-2.0.2/lib" />
             </list>
           </value>
         </entry>
@@ -327,8 +326,8 @@
         <entry key="json_annotation">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.1.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.4.0/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -371,24 +370,31 @@
         <entry key="mime">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mime-1.0.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mime-1.0.1/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mime-1.0.0/lib" />
             </list>
           </value>
         </entry>
         <entry key="mobx">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-2.0.5/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-2.0.6+1/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-2.0.5/lib" />
             </list>
           </value>
         </entry>
         <entry key="mobx_codegen">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx_codegen-2.0.4/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx_codegen-2.0.5+2/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx_codegen-2.0.4/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="mobx_tests">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../lib" />
             </list>
           </value>
         </entry>
@@ -430,7 +436,6 @@
         <entry key="provider">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.2/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.1/lib" />
             </list>
           </value>
@@ -445,8 +450,8 @@
         <entry key="pubspec_parse">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.1.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.2.0/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -495,8 +500,8 @@
         <entry key="source_gen">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-1.0.5/lib" />
               <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-1.2.1/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-1.0.5/lib" />
             </list>
           </value>
         </entry>
@@ -596,6 +601,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-28.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-34.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-2.5.0/lib" />
@@ -638,7 +644,6 @@
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.0/lib" />
-      <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.3/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_mobx-2.0.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_mobx-2.0.4/lib" />
@@ -672,7 +677,6 @@
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pool-1.5.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.1/lib" />
-      <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.1.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.1.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.2.0/lib" />

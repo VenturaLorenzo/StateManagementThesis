@@ -11,10 +11,10 @@ import 'events/todos_event.dart';
 
 void main() async {
 
-  TodosLoadedState state= const TodosLoadedState([]);
-  print(state== TodosLoadedState([]));
-  //Bloc.observer = AppBlocObserver();
-  //runApp(BlocProvider<TodoBloc>(
-    //  create: (context) => TodoBloc()..add(LoadTodosEvent()),
-     // child: const MyApp()));
+  //TodosLoadedState state= const TodosLoadedState([]);
+  //print(state== TodosLoadedState([]));
+  Bloc.observer = AppBlocObserver();
+  runApp(BlocProvider<TodoBloc>(
+      create: (context) => TodoBloc()..add(LoadTodosEvent()),
+      child: const MyApp()));
 }

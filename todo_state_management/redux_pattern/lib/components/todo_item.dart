@@ -15,17 +15,18 @@ class TodoItem extends StatelessWidget {
     return StoreConnector<AppState, Todo>(
         distinct: true,
         converter: (store) {
-          print(store.state.todos);
-          Todo t = store.state.todos.firstWhere((element) => element.id == id);
-          print(t);
 
-          return t;
+          Todo t = store.state.todos.firstWhere((element) => element.id == id);
+
+        return t;
         },
         builder: (context, todo) {
           print("building: Todo Item $id ");
           return InkWell(
             onTap: () {
-              Navigator.pushNamed(context, "/updateTodo", arguments: todo);
+              StoreProvider.of<AppState>(context).dispatch(DeleteTodoAction(id));
+              
+              //Navigator.pushNamed(context, "/updateTodo", arguments: todo);
             },
             child: Row(
               children: [

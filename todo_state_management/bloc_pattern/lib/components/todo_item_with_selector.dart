@@ -9,26 +9,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TodoItemSelector extends StatelessWidget {
-  final int id;
-  const TodoItemSelector({Key? key, required this.id}) : super(key: key);
+  final Todo todo;
+  const TodoItemSelector({Key? key, required this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TodoBloc, TodosState>(
+      return BlocBuilder<TodoBloc, TodosState>(
         buildWhen: (previous, next) {
       return previous.runtimeType != next.runtimeType;
     }, builder: (context, state) {
       if (state is TodosLoadedState) {
-
-        return BlocSelector<TodoBloc, TodosState, Todo>(
-            selector: (state) {
-          return (state as TodosLoadedState).todos.firstWhere((element) => element.id==id);
-        }, builder: (context, todo) {
-          print("building: Todo Item $id " + key.toString());
-
           return InkWell(
             onTap: () {
-              Navigator.pushNamed(context, "/updateTodo", arguments: todo);
+              BlocProvider.of<TodoBloc>(context).add(DeleteTodoEvent(todo.id));
+              //Navigator.pushNamed(context, "/updateTodo", arguments: todo);
             },
             child: Row(
               children: [
@@ -46,12 +40,11 @@ class TodoItemSelector extends StatelessWidget {
                     value: todo.completed,
                     onChanged: (completed) {
                       BlocProvider.of<TodoBloc>(context)
-                          .add(SetCompletedTodoEvent(id, completed!));
+                          .add(SetCompletedTodoEvent(todo.id, completed!));
                     }),
               ],
             ),
           );
-        });
       } else {
         return Row(
           children: const [
