@@ -45,6 +45,12 @@
       <excludeFolder url="file://$MODULE_DIR$/counter_state_management/setstate_pattern/build" />
       <excludeFolder url="file://$MODULE_DIR$/counter_state_management/setstate_pattern/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/counter_state_management/setstate_pattern/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/prova/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/prova/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_state_management/prova/build" />
+      <excludeFolder url="file://$MODULE_DIR$/activity_state_management/redux_optimized/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/activity_state_management/redux_optimized/build" />
+      <excludeFolder url="file://$MODULE_DIR$/activity_state_management/redux_optimized/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
