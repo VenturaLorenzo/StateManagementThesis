@@ -23,7 +23,7 @@ class InheritedWidgetsHomePage extends StatelessWidget {
             const PixelContainer(),
             const PixelContainer(),
             ActionGenerator(action: (int x, int y) {
-              return PixelsProvider.of(context).toggle(x,y);
+              return PixelsProvider.of(context,rebuild: false).toggle(x,y);
             })
           ],
         ),

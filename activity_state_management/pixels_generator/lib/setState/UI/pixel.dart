@@ -9,12 +9,10 @@ class Pixel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      return Container(
-        height: pixelHeight,
-        width: pixelWidth,
-        color: active ? Colors.black : Colors.white,
-      );
-    });
+    return Container(
+      height: pixelHeight,
+      width: pixelWidth,
+      color: active ? Colors.black : Colors.white,
+    );
   }
 }
