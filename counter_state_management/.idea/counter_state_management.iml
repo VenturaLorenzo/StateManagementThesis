@@ -15,6 +15,15 @@
       <excludeFolder url="file://$MODULE_DIR$/redux_pattern/build" />
       <excludeFolder url="file://$MODULE_DIR$/redux_pattern/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/redux_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/prova/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/prova/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/prova/build" />
+      <excludeFolder url="file://$MODULE_DIR$/setstate_pattern/build" />
+      <excludeFolder url="file://$MODULE_DIR$/setstate_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/setstate_pattern/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/changenotifier_pattern/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/changenotifier_pattern/build" />
+      <excludeFolder url="file://$MODULE_DIR$/changenotifier_pattern/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

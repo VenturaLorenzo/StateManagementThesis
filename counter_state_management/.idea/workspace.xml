@@ -5,22 +5,115 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48c7d5f1-cb3d-40bf-86d6-724ac11010ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mobx_pattern/lib/counter.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobx_pattern/lib/counter.g.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/bloc/UI/bloc_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/bloc/UI/pixel_container.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/bloc/UI/pixel_with_builder.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/bloc/core/pixels_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/bloc/core/pixels_event.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/bloc/core/pixels_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/config.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/home/action_generator.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/home/activity.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/home/home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/inherited_models/core/pixels_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/inherited_widgets/UI/inherited_widgets_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/inherited_widgets/UI/pixel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/inherited_widgets/UI/pixel_container.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/inherited_widgets/core/pixels_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/mobx/UI/mobx_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/mobx/UI/pixel_container.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/mobx/UI/pixel_with_observer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/mobx/core/store.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/my_app.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/UI/multi_connector/multi_connector_redux_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/UI/multi_connector/pixel_container.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/UI/multi_connector/pixel_with_connector.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/UI/single_connector/pixel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/UI/single_connector/pixel_container_with_connector.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/UI/single_connector/single_connector_redux_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/core/actions.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/core/app_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/redux/core/app_state_reducer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/setState/UI/pixel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/setState/UI/pixel_container_setState.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/lib/setState/UI/setState_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity_state_management/redux_optimized/pubspec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/StateManagementThesis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/StateManagementThesis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/kotlin/com/example/activity_state_management/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity_state_management/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/counter_state_management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/counter_state_management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc_pattern/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bloc_pattern/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc_pattern/lib/main2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bloc_pattern/lib/main2.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc_pattern/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bloc_pattern/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc_pattern/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bloc_pattern/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Lorenzo\.android\avd\Pixel_2_API_30.avd]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -33,10 +126,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../activity_state_management" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>

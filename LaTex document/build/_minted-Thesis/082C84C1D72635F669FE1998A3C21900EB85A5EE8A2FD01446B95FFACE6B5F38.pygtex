@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-	
-	\PYG{n}{enum} \PYG{n}{VisibilityFilter}\PYG{p}{\PYGZob{}}
-	 \PYG{n}{completed}\PYG{p}{,}\PYG{n}{notCompleted}\PYG{p}{,}\PYG{n}{all}
-	\PYG{p}{\PYGZcb{}}
-	
-	
-\end{Verbatim}
