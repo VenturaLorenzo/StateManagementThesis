@@ -1,41 +1,43 @@
-import 'package:activity_state_management/config.dart';
-import 'package:activity_state_management/home/action_generator.dart';
-import 'package:activity_state_management/setState/UI/pixel_container_setState.dart';
+import 'package:activity_state_management/activity.dart';
+import 'package:activity_state_management/setState/UI/setState_navigator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SetStateHomePage extends StatefulWidget {
-  const SetStateHomePage({Key? key}) : super(key: key);
+  final VoidCallback exitSolution;
+
+  const SetStateHomePage({Key? key, required this.exitSolution})
+      : super(key: key);
 
   @override
-  _SetStateHomePage createState() => _SetStateHomePage();
+  State<SetStateHomePage> createState() => _SetStateHomePageState();
 }
 
-class _SetStateHomePage extends State<SetStateHomePage> {
-  List<List<bool>> pixels = List.generate(
-      pixelsSquared, (index) => List.generate(pixelsSquared, (index) => false));
-
+class _SetStateHomePageState extends State<SetStateHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(
-        title: const Text("setState"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            PixelContainerSetState(pixels: pixels),
-            PixelContainerSetState(pixels: pixels),
-            ActionGenerator(action: (int x, int y) {
-              setState(() {
-                pixels[x][y] = true;
-              });
-            })
-          ],
-        ),
-      ),
-    );
+        appBar: AppBar(
+            leading: IconButton(
+              onPressed: widget.exitSolution,
+              icon: const Icon(Icons.chevron_left),
+            ),
+            title: const Text("SetState home")),
+        body: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.7,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Activity(
+                      route: routeSetStatePixelsPage, color: Colors.blueAccent),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }

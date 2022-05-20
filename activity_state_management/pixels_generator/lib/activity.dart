@@ -1,14 +1,18 @@
+import 'package:activity_state_management/loading_page.dart';
 import 'package:flutter/material.dart';
 
 class Activity extends StatelessWidget {
   final String route;
   final Color color;
-  const Activity({Key? key, required this.route, required this.color}) : super(key: key);
+
+  const Activity({Key? key, required this.route, required this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: SizedBox(height: MediaQuery.of(context).size.height/10,
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height / 10,
         child: Card(
           elevation: 2.0,
           color: color,
@@ -21,7 +25,10 @@ class Activity extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.pushNamed(context,"loading",arguments: route );
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => LoadingPage(route: route)),
+        );
+        //callback();
       },
     );
   }

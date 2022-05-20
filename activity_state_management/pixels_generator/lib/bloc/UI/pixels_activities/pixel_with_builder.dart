@@ -1,10 +1,9 @@
-import 'package:activity_state_management/bloc/core/pixels_bloc.dart';
-import 'package:activity_state_management/bloc/core/pixels_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../config.dart';
+import '../../../../config.dart';
+import '../../core/pixels_bloc.dart';
+import '../../core/pixels_state.dart';
 
 class PixelWithBuilder extends StatelessWidget {
   final bool optimized;

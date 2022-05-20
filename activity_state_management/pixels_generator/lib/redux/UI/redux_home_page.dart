@@ -1,19 +1,19 @@
+import 'package:activity_state_management/redux/UI/redux_navigator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../activity.dart';
-import 'mobx_navigator.dart';
 
-class MobxHomePage extends StatefulWidget {
+class ReduxHomePage extends StatefulWidget {
   final VoidCallback exitSolution;
 
-  const MobxHomePage({Key? key, required this.exitSolution}) : super(key: key);
+  const ReduxHomePage({Key? key, required this.exitSolution}) : super(key: key);
 
   @override
-  State<MobxHomePage> createState() => _MobxHomePageState();
+  State<ReduxHomePage> createState() => _ReduxHomePageState();
 }
 
-class _MobxHomePageState extends State<MobxHomePage> {
+class _ReduxHomePageState extends State<ReduxHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class _MobxHomePageState extends State<MobxHomePage> {
               onPressed: widget.exitSolution,
               icon: const Icon(Icons.chevron_left),
             ),
-            title: const Text("Mobx home")),
+            title: const Text("Redux home")),
         body: Center(
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.7,
@@ -33,7 +33,14 @@ class _MobxHomePageState extends State<MobxHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Activity(
-                      route: routeMobxPixelsPage, color: Colors.blueAccent),
+                      route: routeReduxPixelsPageMultiConnector,
+                      color: Colors.blueAccent),
+                  Activity(
+                      route: routeReduxPixelsPageMultiConnectorOptimized,
+                      color: Colors.blueAccent),
+                  Activity(
+                      route: routeReduxPixelsPageSingleConnector,
+                      color: Colors.blueAccent),
                 ],
               ),
             ),

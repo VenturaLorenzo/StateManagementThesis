@@ -1,20 +1,20 @@
 import 'package:activity_state_management/config.dart';
-import 'package:activity_state_management/setState/UI/pixel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PixelContainerSetState extends StatelessWidget {
-  final List<List<bool>> pixels;
+import 'pixel_with_observer.dart';
 
-  const PixelContainerSetState({Key? key, required this.pixels})
-      : super(key: key);
+class PixelContainer extends StatelessWidget {
+  final int rowsNumber;
+
+  const PixelContainer({Key? key, required this.rowsNumber}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
       child: Container(
-        height: pixels.length * pixelHeight + 20,
-        width: pixels.length * pixelWidth + 20,
+        height: rowsNumber * pixelHeight + 20,
+        width: rowsNumber * pixelWidth + 20,
         decoration:
             BoxDecoration(border: Border.all(color: Colors.black12, width: 10)),
         child: Column(
@@ -26,12 +26,13 @@ class PixelContainerSetState extends StatelessWidget {
 
   List<Widget> generateRows() {
     return List.generate(
-        pixels.length,
+        rowsNumber,
         (x) => Row(
             children: List.generate(
-                pixels.length,
-                (y) => Pixel(
-                      active: pixels[x][y],
+                rowsNumber,
+                (y) => PixelWithObserver(
+                      x: x,
+                      y: y,
                     )).toList())).toList();
   }
 }

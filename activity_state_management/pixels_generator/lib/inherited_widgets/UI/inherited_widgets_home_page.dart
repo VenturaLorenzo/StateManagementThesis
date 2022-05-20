@@ -1,33 +1,45 @@
-
-import 'package:activity_state_management/home/action_generator.dart';
-import 'package:activity_state_management/inherited_widgets/UI/pixel_container.dart';
-import 'package:activity_state_management/inherited_widgets/core/pixels_provider.dart';
-import 'package:activity_state_management/redux/UI/single_connector/pixel_container_with_connector.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:activity_state_management/activity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 
-class InheritedWidgetsHomePage extends StatelessWidget {
-  const InheritedWidgetsHomePage({Key? key}) : super(key: key);
+import 'inherited_widgets_navigator.dart';
 
+class InheritedWidgetsHomePage extends StatefulWidget {
+  final VoidCallback exitSolution;
+
+  const InheritedWidgetsHomePage({Key? key, required this.exitSolution})
+      : super(key: key);
+
+  @override
+  State<InheritedWidgetsHomePage> createState() =>
+      _InheritedWidgetsHomePageState();
+}
+
+class _InheritedWidgetsHomePageState extends State<InheritedWidgetsHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("InheritedWidgets "),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const PixelContainer(),
-            const PixelContainer(),
-            ActionGenerator(action: (int x, int y) {
-              return PixelsProvider.of(context,rebuild: false).toggle(x,y);
-            })
-          ],
-        ),
-      ),
-    );
+        appBar: AppBar(
+            leading: IconButton(
+              onPressed: widget.exitSolution,
+              icon: const Icon(Icons.chevron_left),
+            ),
+            title: const Text("InheritedWidgets home")),
+        body: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.7,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Activity(
+                      route: routeInheritedWidgetsPixelsPage,
+                      color: Colors.blueAccent),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }

@@ -6,3 +6,6 @@ class Toggle extends Action {
 
   Toggle(this.x, this.y);
 }
+class Reset extends Action {
+
+}

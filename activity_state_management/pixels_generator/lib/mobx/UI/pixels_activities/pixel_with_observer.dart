@@ -1,10 +1,9 @@
 import 'package:activity_state_management/mobx/core/store.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
-import '../../config.dart';
+import '../../../config.dart';
 
 class PixelWithObserver extends StatelessWidget {
   final int x;

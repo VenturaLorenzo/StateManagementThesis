@@ -1,10 +1,10 @@
 import 'package:activity_state_management/config.dart';
-import 'package:activity_state_management/redux/UI/single_connector/pixel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../../core/app_state.dart';
+import '../../../core/app_state.dart';
+import 'pixel.dart';
 
 class PixelContainerWithConnector extends StatelessWidget {
   const PixelContainerWithConnector({Key? key}) : super(key: key);

@@ -1,25 +1,26 @@
-import 'package:activity_state_management/home/action_generator.dart';
-import 'package:activity_state_management/redux/UI/single_connector/pixel_container_with_connector.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../../core/actions.dart';
-import '../../core/app_state.dart';
+import '../../../../action_generator.dart';
+import '../../../core/actions.dart';
+import '../../../core/app_state.dart';
+import 'pixel_container_with_connector.dart';
 
-class SingleConnectorReduxHomePage extends StatelessWidget {
-  const SingleConnectorReduxHomePage({Key? key}) : super(key: key);
+class PixelsPage extends StatelessWidget {
+  const PixelsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Redux Single Connector"),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("back"))
-        ],
+        leading: IconButton(
+          onPressed: () {
+            StoreProvider.of<AppState>(context).dispatch(Reset());
+            Navigator.of(context).pop();},
+          icon: const Icon(Icons.chevron_left),
+        ),
       ),
       body: Center(
         child: Column(

@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 
-import '../../config.dart';
+import '../../../config.dart';
 
 part 'store.g.dart';
 
@@ -19,5 +19,14 @@ abstract class _PixelsStore with Store {
   @action
   toggle(int x, int y) {
     pixels[x][y].value = true;
+  }
+  @action
+  reset() {
+    pixels=ObservableList<ObservableList<ObservableBool>>.of(List.generate(
+        pixelsSquared,
+            (index) => ObservableList<ObservableBool>.of(
+            List.generate(pixelsSquared, (index) {
+              return ObservableBool(false);
+            }))));
   }
 }

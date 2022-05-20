@@ -1,8 +1,8 @@
-import 'package:activity_state_management/inherited_models/core/pixels_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../config.dart';
+import '../../../config.dart';
+import '../core/pixels_provider.dart';
 
 class Pixel extends StatelessWidget {
   final int x;
@@ -16,9 +16,11 @@ class Pixel extends StatelessWidget {
       return Container(
         height: pixelHeight,
         width: pixelWidth,
-        color: PixelsProvider.of(context, rebuild: true,aspect: {'x': x, 'y': y}).pixels[x][y]
-            ? Colors.black
-            : Colors.white,
+        color:
+            PixelsProvider.of(context, rebuild: true, aspect: {'x': x, 'y': y})
+                    .pixels[x][y]
+                ? Colors.black
+                : Colors.white,
       );
     });
   }

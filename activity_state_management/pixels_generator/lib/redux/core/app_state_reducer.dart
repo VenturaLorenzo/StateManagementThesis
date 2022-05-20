@@ -1,3 +1,5 @@
+import 'package:activity_state_management/config.dart';
+
 import 'actions.dart';
 import 'app_state.dart';
 
@@ -8,7 +10,10 @@ AppState appStateReducer(AppState state, dynamic action) {
 
     AppState newState = AppState.clone(state);
     newState.pixels[action.x][action.y] = true;
-    print(action.x + action.y);
+    return newState;
+  } else if (action is Reset) {
+    AppState newState = AppState.clone(state);
+    newState.pixels = generatePixels();
     return newState;
   } else {
     return state;

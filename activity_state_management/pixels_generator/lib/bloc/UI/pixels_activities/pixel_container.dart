@@ -1,14 +1,13 @@
 import 'package:activity_state_management/config.dart';
-import 'package:activity_state_management/redux/UI/multi_connector/pixel_with_connector.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'pixel_with_builder.dart';
 
 class PixelContainer extends StatelessWidget {
   final bool optimized;
 
-  const PixelContainer(
-      {Key? key, required this.optimized})
-      : super(key: key);
+  const PixelContainer({Key? key, required this.optimized}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class PixelContainer extends StatelessWidget {
         (x) => Row(
             children: List.generate(
                 pixelsSquared,
-                (y) => PixelWithConnector(
+                (y) => PixelWithBuilder(
                       optimized: optimized,
                       x: x,
                       y: y,

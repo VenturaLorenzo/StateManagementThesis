@@ -1,7 +1,7 @@
 //create the Inherited class
 import 'package:flutter/cupertino.dart';
 
-import '../../config.dart';
+import '../../../config.dart';
 
 class _InheritedPixels extends InheritedModel<Map> {
   //value of the counter
@@ -61,6 +61,7 @@ class _PixelsProviderState extends State<PixelsProvider> {
   //value of the counter
   List<List<bool>> pixels = List.generate(
       pixelsSquared, (index) => List.generate(pixelsSquared, (index) => false));
+
   //increment function
   void toggle(int x, int y) {
     setState(() {

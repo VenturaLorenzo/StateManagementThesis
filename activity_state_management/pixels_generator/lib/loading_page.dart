@@ -14,15 +14,16 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 1000),
-        () => Navigator.pushReplacementNamed(context, widget.route));
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      Navigator.of(context).pushReplacementNamed(widget.route);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.route)),
-      body: const Center(child: Text("Loading...")),
+      // appBar: AppBar(title: const Text("Loading page ")),
+      body: Center(child: Text("Loading ${widget.route}...")),
     );
   }
 }

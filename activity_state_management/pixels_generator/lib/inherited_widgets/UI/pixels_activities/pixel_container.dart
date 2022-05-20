@@ -1,6 +1,7 @@
 import 'package:activity_state_management/config.dart';
-import 'package:activity_state_management/inherited_widgets/UI/pixel.dart';
 import 'package:flutter/material.dart';
+
+import 'pixel.dart';
 
 class PixelContainer extends StatelessWidget {
   const PixelContainer({Key? key}) : super(key: key);

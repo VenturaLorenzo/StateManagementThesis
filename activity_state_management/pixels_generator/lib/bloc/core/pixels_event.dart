@@ -16,3 +16,8 @@ class TogglePixel extends PixelsEvent {
   @override
   List<Object?> get props => [x, y];
 }
+
+class ResetPixels extends PixelsEvent {
+  @override
+  List<Object?> get props => [];
+}

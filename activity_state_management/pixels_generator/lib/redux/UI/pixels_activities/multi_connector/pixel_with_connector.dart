@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../../core/app_state.dart';
+import '../../../core/app_state.dart';
 
 class PixelWithConnector extends StatelessWidget {
   final bool optimized;

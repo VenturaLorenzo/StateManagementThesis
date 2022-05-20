@@ -1,13 +1,12 @@
-
-import 'package:activity_state_management/inherited_models/core/pixels_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../home/action_generator.dart';
-import '../../inherited_models/UI/pixel_container.dart';
+import '../../action_generator.dart';
+import '../core/pixels_provider.dart';
+import 'pixel_container.dart';
 
-class InheritedModelsHomePage extends StatelessWidget {
-  const InheritedModelsHomePage({Key? key}) : super(key: key);
+class PixelsHomePage extends StatelessWidget {
+  const PixelsHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,8 @@ class InheritedModelsHomePage extends StatelessWidget {
             const PixelContainer(),
             const PixelContainer(),
             ActionGenerator(action: (int x, int y) {
-              return PixelsProvider.of(context,rebuild: false,aspect: {}).toggle(x,y);
+              return PixelsProvider.of(context, rebuild: false, aspect: {})
+                  .toggle(x, y);
             })
           ],
         ),

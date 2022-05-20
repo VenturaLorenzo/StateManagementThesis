@@ -1,8 +1,8 @@
-import 'package:activity_state_management/inherited_widgets/core/pixels_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../config.dart';
+import '../../../../config.dart';
+import '../../core/pixels_provider.dart';
 
 class Pixel extends StatelessWidget {
   final int x;

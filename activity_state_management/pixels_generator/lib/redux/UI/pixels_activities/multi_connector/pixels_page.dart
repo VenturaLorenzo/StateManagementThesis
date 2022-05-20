@@ -1,31 +1,29 @@
-import 'package:activity_state_management/config.dart';
-import 'package:activity_state_management/home/action_generator.dart';
-import 'package:activity_state_management/redux/UI/multi_connector/pixel_container.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../../core/actions.dart';
-import '../../core/app_state.dart';
+import '../../../../action_generator.dart';
+import '../../../core/actions.dart';
+import '../../../core/app_state.dart';
+import 'pixel_container.dart';
 
-class MultiConnectorReduxHomePage extends StatelessWidget {
+class PixelsPage extends StatelessWidget {
   final bool optimized;
 
-  const MultiConnectorReduxHomePage({Key? key, required this.optimized})
-      : super(key: key);
+  const PixelsPage({Key? key, required this.optimized}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            StoreProvider.of<AppState>(context).dispatch(Reset());
+            Navigator.of(context).pop();},
+          icon: const Icon(Icons.chevron_left),
+        ),
         title: optimized
             ? const Text("Redux Multi Connector optimized")
             : const Text("Redux Multi Connector"),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("back"))
-        ],
       ),
       body: Center(
         child: Column(

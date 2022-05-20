@@ -39,6 +39,17 @@ mixin _$PixelStore on _PixelsStore, Store {
   }
 
   @override
+  dynamic reset() {
+    final _$actionInfo =
+        _$_PixelsStoreActionController.startAction(name: '_PixelsStore.reset');
+    try {
+      return super.reset();
+    } finally {
+      _$_PixelsStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 pixels: ${pixels}
