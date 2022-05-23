@@ -65,7 +65,6 @@ class Album {
 }
 
 Future<Album> fetchAlbum() async {
-  var http;
   final response =
       await get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
 

@@ -1,6 +1,6 @@
-int pixelsSquared = 10;
-double pixelWidth = 2;
-double pixelHeight = 2;
+int pixelsSquared = 40;
+double pixelWidth = 5;
+double pixelHeight = 5;
 int numPoints = 100;
 int interval = 25;
 

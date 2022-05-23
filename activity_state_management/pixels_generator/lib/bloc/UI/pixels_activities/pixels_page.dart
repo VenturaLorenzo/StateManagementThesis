@@ -1,6 +1,6 @@
 import 'package:activity_state_management/action_generator.dart';
-import 'package:activity_state_management/bloc/core/pixels_bloc.dart';
-import 'package:activity_state_management/bloc/core/pixels_event.dart';
+import 'package:activity_state_management/bloc/core/pixels/pixels_bloc.dart';
+import 'package:activity_state_management/bloc/core/pixels/pixels_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

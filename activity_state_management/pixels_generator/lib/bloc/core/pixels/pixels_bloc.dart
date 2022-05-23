@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 
-import '../../../config.dart';
+import '../../../../config.dart';
 import 'pixels_event.dart';
 import 'pixels_state.dart';
 
@@ -25,5 +25,4 @@ class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
       yield PixelsCurrentState(generatePixels());
     }
   }
-
 }

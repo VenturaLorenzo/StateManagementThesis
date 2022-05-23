@@ -1,4 +1,4 @@
-import 'package:activity_state_management/bloc/UI/bloc_navigator.dart';
+import 'package:activity_state_management/bloc/UI/home/bloc_root.dart';
 import 'package:activity_state_management/home_page.dart';
 import 'package:activity_state_management/inherited_widgets/UI/inherited_widgets_navigator.dart';
 import 'package:activity_state_management/inherited_widgets/core/pixels_provider.dart';
@@ -13,7 +13,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:provider/provider.dart';
 import 'package:redux/redux.dart';
 
-import 'bloc/core/pixels_bloc.dart';
+import 'bloc/core/pixels/pixels_bloc.dart';
 import 'mobx/core/store.dart';
 
 const routeHome = '/';
@@ -40,9 +40,7 @@ class MyApp extends StatelessWidget {
               child: ReduxNavigator(setupPageRoute: subRoute));
         } else if (settings.name!.startsWith(blocPrefix)) {
           final subRoute = settings.name!.substring(blocPrefix.length);
-          page = BlocProvider(
-              create: (context) => PixelsBloc(),
-              child: BlocNavigator(setupPageRoute: subRoute));
+          page = BlocRoot(subRoute: subRoute);
         } else if (settings.name!.startsWith(mobxPrefix)) {
           final subRoute = settings.name!.substring(mobxPrefix.length);
           page = Provider(

@@ -25,7 +25,6 @@ class StateManagementItem extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print(route);
         Navigator.of(context).pushNamed(route);
       },
     );

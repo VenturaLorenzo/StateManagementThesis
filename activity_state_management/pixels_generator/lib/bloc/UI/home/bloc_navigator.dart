@@ -1,12 +1,20 @@
+import 'package:activity_state_management/bloc/UI/async_activities/async_page.dart';
+import 'package:activity_state_management/bloc/UI/home/pages/settings.dart';
+import 'pages/user_page.dart';
+import 'package:activity_state_management/my_app.dart';
 import 'package:flutter/material.dart';
-import 'bloc_home_page.dart';
-import 'pixels_activities/pixels_page.dart';
+import 'pages/bloc_home_page.dart';
+import 'pages/login_page.dart';
+import '../pixels_activities/pixels_page.dart';
 
-const routeBlocHome = '/bloc/$routeBlocHomePage';
+const routeBlocHome = '$blocPrefix$routeBlocHomePage';
 const routeBlocHomePage = 'home';
 const routeBlocPixelsPage = 'pixels';
 const routeBlocPixelsOptimizedPage = 'pixelsOptimized';
 const routeBlocAsyncPage = 'async';
+const routeBlocSettingsPage = 'settings';
+const routeBlocLoginPage= 'login';
+const routeBlocUserPage= 'user';
 
 @immutable
 class BlocNavigator extends StatefulWidget {
@@ -23,10 +31,6 @@ class BlocNavigator extends StatefulWidget {
 
 class BlocNavigatorState extends State<BlocNavigator> {
   final _navigatorKey = GlobalKey<NavigatorState>();
-
-  void _onGoToPixels() {
-    _navigatorKey.currentState!.pushNamed(routeBlocPixelsPage);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +55,20 @@ class BlocNavigatorState extends State<BlocNavigator> {
       case routeBlocPixelsPage:
         page = const PixelsPage(optimized: false);
         break;
+      case routeBlocSettingsPage:
+        page = const SettingsPage();
+        break;
+      case routeBlocLoginPage:
+        page = const LoginPage();
+        break;
       case routeBlocPixelsOptimizedPage:
         page = const PixelsPage(optimized: true);
+        break;
+      case routeBlocUserPage:
+        page = const UserPage();
+        break;
+      case routeBlocAsyncPage:
+        page =  AsyncPage();
         break;
       default:
         throw Exception('Unknown route: ${settings.name}');

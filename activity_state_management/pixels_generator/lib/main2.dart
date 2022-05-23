@@ -1,14 +1,10 @@
 import 'dart:convert';
 
+import 'package:activity_state_management/bloc/core/heart_rate/core/heart_rate_bloc.dart';
+import 'package:activity_state_management/bloc/core/heart_rate/heart_rate_generator.dart';
 import 'package:http/http.dart';
 
 void main() async {
-  final Response response =
-      await get(Uri.parse('https://dummyjson.com/products'));
-  print(response.body);
-  print(response.contentLength);
-  print(response.request?.headers.toString());
-  print(response.request?.url.toString());
-
-  final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
+  HeartRateGenerator generator=HeartRateGenerator(HeartRateBloc());
+  await generator.generateValues();
 }

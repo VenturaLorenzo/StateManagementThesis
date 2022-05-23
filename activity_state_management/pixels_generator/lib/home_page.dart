@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:activity_state_management/bloc/UI/bloc_navigator.dart';
+import 'package:activity_state_management/bloc/UI/home/bloc_navigator.dart';
 import 'package:activity_state_management/inherited_widgets/UI/inherited_widgets_navigator.dart';
 import 'package:activity_state_management/mobx/UI/mobx_navigator.dart';
 import 'package:activity_state_management/redux/UI/redux_navigator.dart';

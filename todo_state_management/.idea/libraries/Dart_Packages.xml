@@ -26,8 +26,8 @@
         <entry key="async">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.1/lib" />
               <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.1/lib" />
             </list>
           </value>
         </entry>
@@ -104,8 +104,8 @@
         <entry key="characters">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -336,8 +336,8 @@
         <entry key="matcher">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10/lib" />
               <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10/lib" />
             </list>
           </value>
         </entry>
@@ -526,8 +526,8 @@
         <entry key="test_api">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.2/lib" />
               <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.3/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.2/lib" />
             </list>
           </value>
         </entry>
@@ -548,8 +548,8 @@
         <entry key="vector_math">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0/lib" />
               <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.1/lib" />
+              <option value="$PROJECT_DIR$/../../../../../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0/lib" />
             </list>
           </value>
         </entry>
