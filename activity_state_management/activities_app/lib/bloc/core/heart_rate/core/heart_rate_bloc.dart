@@ -8,7 +8,7 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
   @override
   Stream<HeartRateState> mapEventToState(HeartRateEvent event) async* {
     if(event is ReceivedHeartRate){
-      print(event.heartRate.toString());
+      //print(event.heartRate.toString());
       yield CurrentHeartRate(receivedHeartRate: event.heartRate);
     }
   }

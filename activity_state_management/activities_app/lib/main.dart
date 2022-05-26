@@ -5,5 +5,5 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: const BlocRoot(subRoute: "home")));
+  runApp(MaterialApp(home: BlocRoot(subRoute: "home")));
 }
